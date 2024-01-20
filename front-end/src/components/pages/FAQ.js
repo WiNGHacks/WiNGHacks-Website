@@ -1,8 +1,9 @@
 import React from 'react'
+import '../../App.css';
 
 const FAQ = () => {
   return (
-    <div>FAQ</div>
+    <div>This is FAQ</div>
   )
 }
 
