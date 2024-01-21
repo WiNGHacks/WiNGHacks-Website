@@ -10,7 +10,7 @@ const Header = () => {
         <Link to="/faq">FAQ</Link>
 
         {/* PlaceHolder for now Update Later */}
-        <Link to="/faq">Apply Now</Link> 
+        <Link to="/login">Apply Now</Link> 
     </div> 
   )
 }

@@ -6,6 +6,7 @@ import Home from './components/pages/Home';
 import AboutUs from './components/pages/AboutUs';
 import Sponsors from './components/pages/Sponsors';
 import FAQ from './components/pages/FAQ';
+import Login from './components/pages/applications/Login'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/aboutus" element={<AboutUs/>}></Route>
           <Route path="/sponsors" element={<Sponsors/>}></Route>
           <Route path="/faq" element={<FAQ/>}></Route>
+          <Route path="/login" element={<Login/>}></Route>
         </Routes>
       </Router>
     </div>
