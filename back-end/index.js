@@ -1,6 +1,6 @@
 // Set up Express
 const express = require('express');
-const port = 8888; // Change this to your desired port
+const port = 8080; // Change this to your desired port
 const app = express();
 
 // To read JSON body
