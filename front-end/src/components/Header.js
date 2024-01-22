@@ -1,17 +1,46 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 const Header = () => {
-  return (
-    <div className = "links">
-        <Link to="/">Home</Link>
-        <Link to="/aboutus">About Us</Link>
-        <Link to="/sponsors">Sponsors</Link>
-        <Link to="/faq">FAQ</Link>
+    const token = cookies.get("TOKEN");
+    return (
+    
+        <div className = "links">
 
-        {/* PlaceHolder for now Update Later */}
-        <Link to="/login">Apply Now</Link> 
-    </div> 
+            { token ?
+                (
+                <div>
+                    <Link to="/">Home</Link>
+                    <Link to="/aboutus">About Us</Link>
+                    <Link to="/sponsors">Sponsors</Link>
+                    <Link to="/faq">FAQ</Link>
+
+                    {/* PlaceHolder for now Update Later */}
+                    {/* <Link to="/login">Apply Now</Link> */}
+                    <Link to="/portal/:id">Portal</Link> 
+                </div>
+                )
+                :
+                ( 
+                <div>
+                    <div>
+                    <Link to="/">Home</Link>
+                    <Link to="/aboutus">About Us</Link>
+                    <Link to="/sponsors">Sponsors</Link>
+                    <Link to="/faq">FAQ</Link>
+
+                    {/* PlaceHolder for now Update Later */}
+                    <Link to="/login">Apply Now</Link> 
+                  
+                </div>
+
+                </div>
+                )
+
+            }   
+        </div> 
   )
 }
 

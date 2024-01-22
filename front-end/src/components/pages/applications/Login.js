@@ -1,6 +1,10 @@
 import React, {useState} from 'react'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 
 const Login = () => {
@@ -30,11 +34,20 @@ const Login = () => {
             password: password,
         }).then((response)=>{
             console.log(response.data)
+
+            // set the cookie
+            cookies.set("TOKEN", response.data.token, {
+                path: "/",
+            });
+    
+            const decoded = jwtDecode(response.data.token);
+
             setLogin(true);
-            // alert(response.data.message)
-            navigate("/",{replace: true});
+            alert(response.data.message)
+            window.location.replace(`/portal/${decoded.id}`);
         }).catch((error) => {
             console.log(error)
+            alert(error.response.data.message)
         })
 
     };

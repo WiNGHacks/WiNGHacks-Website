@@ -45,10 +45,11 @@ const SignUp = () => {
         }).then((response)=>{
             console.log(response.data)
             setRegister(true);
-            // alert(response.data.message)
-            navigate("/",{replace: true});
+            alert(response.data.message)
+            window.location.href = "https://forms.gle/3bcb8G57Y2PYuFfVA"
         }).catch((error) => {
             console.log(error)
+            alert(error.response.data.error)
         })
 
     };
