@@ -58,14 +58,17 @@ const FAQ = React.FC = () => {
   }
 
   return (
-    <Collapse bordered = {false} defaultActiveKey={['1']} onChange={onChange}>
+    <div>
+      <h1>FAQ</h1>
+    <Collapse defaultActiveKey={['1']} onChange={onChange}>
       {items.map(item => (
-        <Panel key = {item.key} header = {item.header}>
+        <Panel key={item.key} header={item.header}>
           {item.content}
         </Panel>
       ))}
     </Collapse>
-  );
+  </div>
+);
 };
 
 export default FAQ
