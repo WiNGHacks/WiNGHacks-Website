@@ -5,9 +5,12 @@ import { useParams } from 'react-router-dom'
 import { jwtDecode } from "jwt-decode";
 
 import Cookies from "universal-cookie";
+import FetchResponse from './FetchResponse';
+
 const cookies = new Cookies();
 
 const UserPortal = () => {
+    // const { fetchData } = useFetchResponse();
     let {id} = useParams();
 
     const [firstName, setFirstName] = useState("");
@@ -15,18 +18,21 @@ const UserPortal = () => {
     const [email, setEmail] = useState("");
     const [status, setStatus] = useState("");
 
+    const [csvData, setCsvData] = useState([]);
+
     const token = cookies.get("TOKEN");
     const decoded = jwtDecode(token);
 
-    const checkUserSubmission = () => {
-        
-    }
+    const handleCsvData = (data) => {
+        setCsvData(data)
+    };
 
     useEffect (() => {
         // Check if the URL id matches the current token
         // To avoid people miss using URL to enter others information
         if (decoded.id === id){
-            axios.get(`${process.env.REACT_APP_GET_USER_PORTAL_API_URL}${id}`).then((response)=>{
+            axios.get(`${process.env.REACT_APP_GET_USER_PORTAL_API_URL}${id}`)
+            .then((response)=>{
                 setFirstName(response.data.firstName)
                 setLastName(response.data.lastName)
                 setEmail(response.data.email)
@@ -42,12 +48,32 @@ const UserPortal = () => {
         }
       }, [])
 
-    return (
-    <div>
-        <h1>Hi, {firstName}</h1>
-        <h2>Your Status: {status}</h2>
 
-    </div>
+    return (
+        <div>
+            <FetchResponse handleCsvData = {handleCsvData} email = {email} id={id} status={status}/>
+           
+            { status === "Not Applied" ? 
+            (
+                <div>
+                    <h1>Hi, {firstName} {lastName}</h1>
+                    <button onClick={() => {window.open("https://forms.gle/3bcb8G57Y2PYuFfVA")}}>
+                        Apply Now
+                    </button>
+                    <h2>Your Status: {status}</h2>
+                </div>
+            )
+            :
+            (
+                <div>
+                    <h1>Hi, {firstName} {lastName}</h1>
+                    <h2>Your Status: {status}</h2>
+                </div>
+
+            )
+            }
+        
+        </div>
     )
 }
 

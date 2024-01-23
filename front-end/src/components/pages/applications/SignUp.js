@@ -41,7 +41,7 @@ const SignUp = () => {
             lastName: lastName,
             email: email,
             password: password,
-            status: "Not Applied",
+            status: "Applied",
         }).then((response)=>{
             console.log(response.data)
             setRegister(true);
@@ -57,7 +57,12 @@ const SignUp = () => {
 
     return (
         <div>
-            <h1 className="title">Login</h1>
+            <h1 className="title">Sign Up</h1>
+
+            <p>Already have an account?&nbsp;
+                <a href="/login" >Login</a>
+            </p>
+            
 
             <label className="label">First Name</label>
             <input

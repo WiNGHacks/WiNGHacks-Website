@@ -8,8 +8,8 @@ import Sponsors from './components/pages/Sponsors';
 import FAQ from './components/pages/FAQ';
 import Login from './components/pages/applications/Login'
 import SignUp from './components/pages/applications/SignUp';
-import ApplicationForm from './components/pages/applications/ApplicationForm';
 import UserPortal from './components/pages/applications/UserPortal';
+
 
 
 function App() {
@@ -24,7 +24,6 @@ function App() {
           <Route path="/faq" element={<FAQ/>}></Route>
           <Route path="/login" element={<Login/>}></Route>
           <Route path="/signup" element={<SignUp/>}></Route>
-          <Route path="/appform" element={<ApplicationForm/>}></Route>
           <Route path="/portal/:id" element={<UserPortal/>}></Route>
         </Routes>
       </Router>

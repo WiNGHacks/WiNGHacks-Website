@@ -1,15 +1,33 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, {useState} from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import Cookies from "universal-cookie";
+import { jwtDecode } from "jwt-decode";
 const cookies = new Cookies();
 
 const Header = () => {
     const token = cookies.get("TOKEN");
+
+    let navigate = useNavigate();
+
+    const portalClick = () => {
+        const decoded = jwtDecode(token)
+        navigate(`/portal/${decoded.id}`, {replace: true});
+    }
+
+    const logoutClick = () => {
+        cookies.remove("TOKEN", {
+            path: "/",
+        })
+        window.location.replace('/login');
+    }
+
+
     return (
     
         <div className = "links">
 
             { token ?
+
                 (
                 <div>
                     <Link to="/">Home</Link>
@@ -18,8 +36,10 @@ const Header = () => {
                     <Link to="/faq">FAQ</Link>
 
                     {/* PlaceHolder for now Update Later */}
-                    {/* <Link to="/login">Apply Now</Link> */}
-                    <Link to="/portal/:id">Portal</Link> 
+                    {/* <Link to="/portal">Portal</Link>  */}
+                    <a style={{textDecoration: 'underline'}} onClick={portalClick}>Portal</a>
+                    <a style={{textDecoration: 'underline'}} onClick={logoutClick}>Logout</a>
+                    
                 </div>
                 )
                 :
