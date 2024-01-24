@@ -6,6 +6,10 @@ import Home from './components/pages/Home';
 import AboutUs from './components/pages/AboutUs';
 import Sponsors from './components/pages/Sponsors';
 import FAQ from './components/pages/FAQ';
+import Login from './components/pages/applications/Login'
+import SignUp from './components/pages/applications/SignUp';
+import UserPortal from './components/pages/applications/UserPortal';
+
 
 
 function App() {
@@ -19,6 +23,9 @@ function App() {
           <Route path="/aboutus" element={<AboutUs/>}></Route>
           <Route path="/sponsors" element={<Sponsors/>}></Route>
           <Route path="/faq" element={<FAQ/>}></Route>
+          <Route path="/login" element={<Login/>}></Route>
+          <Route path="/signup" element={<SignUp/>}></Route>
+          <Route path="/portal/:id" element={<UserPortal/>}></Route>
         </Routes>
         </div>
       </Router>
