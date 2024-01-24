@@ -69,7 +69,6 @@
 
   .link {
     color: #ffffff;
-   
     text-decoration: none;
     font-size: 30px;
     padding: 0 1rem;
@@ -86,3 +85,74 @@
   /* Above is real, bottom is just for testing purposes */
   padding: 30% 0%;
 }
+
+.login-container {
+  /* background-color: #a6cbf8; */
+  /* outline-color: #a6cbf8;
+  outline-style: dashed; */
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 1rem 2rem;
+  align-self: center;
+  align-items: center;
+  margin-inline: 10%;
+  margin-top: 5%;
+
+  .form-container {
+    /* background-color: beige; */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .loginBubbles {
+      color: rgb(38, 50, 56);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 1px;
+      background: rgba(136, 126, 126, 0.04);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      outline: none;
+      box-sizing: border-box;
+      border: 2px solid rgba(0, 0, 0, 0.02);
+      margin-bottom: 50px;
+      margin-left: 46px;
+      text-align: center;
+      margin-bottom: 27px;
+      font-family: 'Ubuntu', sans-serif;
+    }
+
+
+  }
+
+  .submitBubble {
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background-color: rgb(62, 141, 211);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+    cursor: pointer;
+
+    
+  }
+  .submitBubble:hover {
+    background-color: rgb(44, 19, 153);
+    color: white;
+    flex-direction: column;
+    align-self: center;
+  } 
+}
+

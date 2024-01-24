@@ -47,9 +47,7 @@ const Header = () => {
               </div>
             )
             :
-            ( 
-              <Link to="/login" className = "link">Apply Now</Link> 
-            )
+            ( <Link to="/login" className = "link">Apply Now</Link> )
           }
 
       </div>
