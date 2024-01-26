@@ -25,7 +25,7 @@ router.post('/signup', (req, res) => {
                     lastName: req.body.lastName,
                     email: req.body.email.toLowerCase(),
                     password: hashedPassword,
-                    status: "Not Applied",
+                    status: req.body.status,
                 });
                 await newUser.save()
                 .then((result) => {
@@ -63,6 +63,7 @@ router.post('/login', (req, res) => {
             //  create JWT token
             const token = jwt.sign(
                 {
+                    id: user._id,
                     userFirstName: user.firstName,
                     userLastName: user.lastName,
                     userEmail: user.email.toLowerCase(),
@@ -88,6 +89,46 @@ router.post('/login', (req, res) => {
 
     })
 });
+
+router.get("/finduser/:id", async (req, res) => {
+    var id = req.params.id;
+    Users.findOne({ _id: id })
+    .then((response) => {
+        // return success response
+        res.status(200).send({
+            message: "User found",
+            firstName: response.firstName,
+            lastName: response.lastName,
+            email: response.email,
+            status: response.status
+        });
+    })
+    .catch((e) => {
+        res.status(404).send({
+            message: "User not found",
+        });
+
+    })
+})
+
+router.put("/updateStatus/:id", async (req, res) => {
+    var id = req.params.id;
+    Users.findOneAndUpdate({_id: id}, {status: req.body.status})
+    .then((response) => {
+        // return success response
+        res.status(200).send({
+            message: "User found",
+            response
+        });
+    })
+    .catch((e) => {
+        res.status(404).send({
+            message: "User not found",
+        });
+
+    })
+})
+
 
 router.get("/users", async (req, res) => {
 	const posts = await Users.find()
