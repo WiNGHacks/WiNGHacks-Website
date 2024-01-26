@@ -1,0 +1,24 @@
+.Button{
+    border:none;
+    padding: 1rem 1rem;
+    border-radius: 0.2rem;
+    display: inline-block;
+    margin: 0.2rem;
+    text-decoration: none;
+  }
+  
+.Button-apply{
+    background-color: rgb(248, 169, 22);
+  
+  }
+
+.Button-sponsor{
+    background-color: rgb(230, 114, 201);
+    padding: 0.5rem 0.5rem
+}
+
+a{
+    text-decoration: none;
+    font-weight: 500;
+    color: whi;
+}
