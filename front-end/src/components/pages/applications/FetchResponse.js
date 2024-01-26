@@ -26,10 +26,8 @@ const FetchResponse = ({handleCsvData, email, id, status}) => {
         console.log(csvData)
         csvData?.map((submissions) => {
             let lowerCaseEmail = submissions.Email.toLowerCase()
-            console.log(lowerCaseEmail)
-            console.log(email)
             if (lowerCaseEmail === email && submissions.Status !== status){
-                if (status == "Not Applied"){
+                if (status === "Not Applied"){
                     console.log(status)
                     axios.put(`${process.env.REACT_APP_UPDATE_STATUS_API_URL}${id}`, 
                         {status: "Applied"}
@@ -38,10 +36,9 @@ const FetchResponse = ({handleCsvData, email, id, status}) => {
                         console.log(response.data.message)
                         console.log(response)
                         window.location.reload();
-
                     })
                 }
-                else {
+                else if (submissions.Status !== "" ){
                     console.log(submissions)
                     axios.put(`${process.env.REACT_APP_UPDATE_STATUS_API_URL}${id}`, 
                         {status: submissions.Status}
