@@ -9,10 +9,17 @@ import FAQ from './components/pages/FAQ';
 import Login from './components/pages/applications/Login'
 import SignUp from './components/pages/applications/SignUp';
 import UserPortal from './components/pages/applications/UserPortal';
-
-
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 function App() {
+  // const ClearAllCookies = () => {
+  //   cookies.remove("TOKEN", {
+  //     path: "/",
+  //   })
+  
+  // }
+
   return (
     <div className='app'>
       <Router>

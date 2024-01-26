@@ -41,12 +41,12 @@ const SignUp = () => {
             lastName: lastName,
             email: email,
             password: password,
-            status: "Applied",
+            status: "Not Applied",
         }).then((response)=>{
             console.log(response.data)
             setRegister(true);
             alert(response.data.message)
-            window.location.href = "https://forms.gle/3bcb8G57Y2PYuFfVA"
+            window.location.replace("https://forms.gle/3bcb8G57Y2PYuFfVA");
         }).catch((error) => {
             console.log(error)
             alert(error.response.data.error)

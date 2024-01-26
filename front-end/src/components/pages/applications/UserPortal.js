@@ -19,6 +19,7 @@ const UserPortal = () => {
     const [status, setStatus] = useState("");
 
     const [csvData, setCsvData] = useState([]);
+    const [checkStatus, setCheckStatus] = useState(false)
 
     const token = cookies.get("TOKEN");
     const decoded = jwtDecode(token);
@@ -37,7 +38,7 @@ const UserPortal = () => {
                 setLastName(response.data.lastName)
                 setEmail(response.data.email)
                 setStatus(response.data.status)
-              })
+            })
         }
         // If it doesn't then clear the token and have them relogin
         else {
@@ -52,7 +53,8 @@ const UserPortal = () => {
     return (
         <div>
             <FetchResponse handleCsvData = {handleCsvData} email = {email} id={id} status={status}/>
-           
+            
+
             { status === "Not Applied" ? 
             (
                 <div>
