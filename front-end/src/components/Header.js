@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Cookies from "universal-cookie";
 import { jwtDecode } from "jwt-decode";
 import '../App.css';
-import logo from './pictures/littleLady.png'
+import logo from './pictures/WiNGHACKS_logo.png'
 
 const cookies = new Cookies();
 
@@ -30,7 +30,7 @@ const Header = () => {
 
       <Link to="/" className = "logo-container">
         <img src={logo} alt="Logo"/>
-        <b className='image-text'>WiNGHacks</b>
+        {/* <b className='image-text'>WiNGHacks</b> */}
       </Link>
 
       <div className = "links">
