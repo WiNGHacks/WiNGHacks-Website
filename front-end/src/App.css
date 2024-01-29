@@ -360,3 +360,72 @@ a{
   } 
 }
 
+.About{
+  background-color: white;
+}
+
+.mission-container{
+  display: inline;
+}
+
+.who-we-are-container{
+  display: flex;
+  width: 100%;
+}
+
+.who-we-are-child-container{
+  flex: 1;
+}
+
+.collaborators-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  gap: 1em;
+}
+
+.logo-who-we-are{
+width: 100%;
+}
+
+.team-container{
+  display: flex;
+  width: 100%;
+
+}
+
+
+.team-child-container{
+  flex: 1;
+}
+
+.headshot{
+  width: 100%;
+}
+
+.committeeMembers-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  gap: 1em;
+}
+
+.btn-committee-names button{
+  background-color: darkgray;
+  border:1px solid gray;
+  color: #000;
+  cursor:pointer;
+  display: block;
+  padding: 10px 24px;
+  width: 50%;
+}
+
+.btn-committee-names:not(:last-child){
+  border-bottom: none;
+}
+
+.btn-committee-names button:hover{
+  background-color: rgb(68, 68, 68);
+}
