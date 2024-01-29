@@ -16,6 +16,12 @@
   src: url(./components/fonts/Bitter-VariableFont_wght.ttf);
 }
 
+@font-face {
+  font-family: minecraft;
+  src: url(./components/fonts/Minecraft.ttf);
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -82,6 +88,7 @@
 
   .link {
     color: #ffffff;
+    font-family: minecraft;
     font-variant: small-caps;
     text-decoration: none;
     font-size: clamp(1.25rem, 1.75vw, 2rem);
@@ -111,7 +118,7 @@
 
 .home-title {
   align-self: center;
-  font-family: honk;
+  font-family: minecraft;
   font-variant: small-caps;
   font-size: clamp(2rem, 5vw, 4rem);
   color: #3d98aa;
@@ -166,6 +173,7 @@
   display: inline-block;
   margin: 0.2rem;
   text-decoration: none;
+  font-family: minecraft;
   font-size: clamp(1rem, 3vw, 7rem);
   font-variant: small-caps;
 
@@ -234,18 +242,19 @@ a{
   padding-bottom: 4%;
   align-content: center;
   text-align: center;
-  font-family: bitter;
+  font-family: minecraft;
   font-variant: small-caps;
   font-size: clamp(1rem, 3vw, 4rem);
   color: #9f3228;
 }
 
 .about-section-title {
-  font-family: bitter;
+  font-family: minecraft;
   font-size: clamp(1rem, 2vw, 2rem);
   font-variant: small-caps;
   color: #28779f;
   margin-bottom: 100px;
+  font-weight: 10rem;
 }
 
 .about-horizontal {
@@ -276,6 +285,25 @@ a{
   background-color: rgb(198, 198, 198); 
 }
 
+.faq-collapse-container {
+  /* margin-bottom: 24px; */
+  /* background: token.colorFillAlter; */
+  /* border-radius: ; */
+  border: none;
+  background: rgb(211, 228, 255);
+  font-family: minecraft;
+  margin-bottom: 2rem;
+}
+
+.faq-collapse {
+  border: none;
+  padding-left: 4rem;
+  display: flex;
+  font-family: 'Lucida Sans'
+  /* background: rgb(211, 228, 255); */
+  /* border-bottom: #000; */
+
+}
 
 
 .login-container {

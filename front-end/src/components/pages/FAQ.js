@@ -1,7 +1,6 @@
 // https://ant.design/components/collapse
 import React from 'react'
 import { Collapse } from 'antd';
-import '../../App.css';
 
 const { Panel } = Collapse;
 
@@ -60,10 +59,14 @@ const FAQ = React.FC = () => {
   return (
     <div>
       <h1>FAQ</h1>
-    <Collapse defaultActiveKey={['1']} onChange={onChange}>
+    <Collapse defaultActiveKey={['1']} onChange={onChange} 
+              className='faq-collapse-container' >
       {items.map(item => (
-        <Panel key={item.key} header={item.header}>
-          {item.content}
+        <Panel key={item.key} header={"Q . " + item.header}>
+          <div className='faq-collapse'>
+            A. {item.content}
+          </div>
+          <br></br>
         </Panel>
       ))}
     </Collapse>
