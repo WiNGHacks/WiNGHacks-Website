@@ -84,11 +84,11 @@
   padding-top: 1.5rem;
   cursor: pointer;
   justify-content: space-around;
-  
+  display: flex;
 
   .link {
     color: #ffffff;
-    font-family: minecraft;
+    font-family: bitter;
     font-variant: small-caps;
     text-decoration: none;
     font-size: clamp(1.25rem, 1.75vw, 2rem);
@@ -121,7 +121,7 @@
   font-family: minecraft;
   font-variant: small-caps;
   font-size: clamp(2rem, 5vw, 4rem);
-  color: #3d98aa;
+  color: #0081A7;
   max-width: 800px;
   animation-name: floating;
   animation-duration: 3s;
@@ -187,7 +187,7 @@
 button:hover{ cursor: pointer; }
 
 .Button-apply{
-  background-color: rgb(8, 161, 187);
+  background-color: 00AFB9;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   text-shadow: 0px 0.5px 0px #ffffff;
   filter: dropshadow(color=#000, offx=0px, offy=1px);
@@ -232,9 +232,39 @@ button:hover{ cursor: pointer; }
   -webkit-box-shadow:inset 0 2px 0 #ffcbcb, inset 0 0px 0 #ba3d1b;
 }
 
-a{
+.Button-sponsor-page{
+  background-color: rgb(255, 129, 120);
+  padding: 1rem 1rem;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-shadow: 0px 1px 0px #000;
+  filter: dropshadow(color=#000, offx=0px, offy=1px);
+  position: relative;
+  
+  -webkit-box-shadow:inset 0 1px 0 #ffcbcb, 0 10px 0 #441305;
+  /* -moz-box-shadow:inset 0 1px 0 #c4eaff, 0 10px 0 #00424b;
+  box-shadow:inset 0 1px 0 #c4eaff, 0 10px 0 #00424b; */
+  
+  border-radius: 5px;
+  border-color: #712020;
+  border-style: solid;
+  border-width: 0.35vw;
+  display: flex;
+  width: clamp(9rem, 40vw, 40rem);
+  height: clamp(4rem, 6vw, 10rem);
+}
+
+.Button-sponsor-page:hover{
+  top:10px;
+  background-color: rgb(255, 129, 120);
+  -webkit-box-shadow:inset 0 2px 0 #ffcbcb, inset 0 0px 0 #ba3d1b;
+}
+
+.arrow {
+  padding-right: 1rem;
+}
+
+a {
   text-decoration: none;
-  color: white;
 }
 
 .about-header-container {
@@ -338,7 +368,6 @@ a{
       box-sizing: border-box;
       border: 2px solid rgba(0, 0, 0, 0.02);
       margin-bottom: 50px;
-      margin-left: 46px;
       text-align: center;
       margin-bottom: 27px;
       font-family: 'Ubuntu', sans-serif;
@@ -360,7 +389,6 @@ a{
     box-sizing: border-box;
     border: 2px solid rgba(0, 0, 0, 0.02);
     margin-bottom: 50px;
-    margin-left: 46px;
     text-align: center;
     margin-bottom: 27px;
     font-family: 'Ubuntu', sans-serif;

@@ -57,46 +57,49 @@ const SignUp = () => {
 
     return (
         <div>
-            <h1 className="title">Sign Up</h1>
+            <div className='login-container'>
+                <div className='form-container' align= "center">
 
-            <p>Already have an account?&nbsp;
-                <a href="/login" >Login</a>
-            </p>
-            
+                    <h1 className="title">Sign Up</h1>
 
-            <label className="label">First Name</label>
-            <input
-                onChange={handleFirstName}
-                className="input"
-                type="name"
-                placeholder='Enter first name'
-            />
+                    <label className="label"></label>
+                    <input
+                        onChange={handleFirstName}
+                        className="loginBubbles"
+                        type="name"
+                        placeholder='Enter first name'
+                    />
 
-            <label className="label">Last Name</label>
-            <input
-                onChange={handleLastName}
-                className="input"
-                type="name"
-                placeholder='Enter last name'
-            />
+                    <label className="label"></label>
+                    <input
+                        onChange={handleLastName}
+                        className="loginBubbles"
+                        type="name"
+                        placeholder='Enter last name'
+                    />
 
-            <label className="label">Email</label>
-            <input
-                onChange={handleEmail}
-                className="input"
-                type="email"
-                placeholder='Enter email'
-            />
+                    <label className="label"></label>
+                    <input
+                        onChange={handleEmail}
+                        className="loginBubbles"
+                        type="email"
+                        placeholder='Enter email'
+                    />
 
-            <label className="label">Password</label>
-            <input
-                onChange={handlePassword}
-                className="input"
-                type="password"
-                placeholder='Enter password'
-            />
+                    <label className="label"></label>
+                    <input
+                        onChange={handlePassword}
+                        className="loginBubbles"
+                        type="password"
+                        placeholder='Enter password'
+                    />
 
-            <button onClick={handleSubmit} className="btn" > Submit </button>
+                    <button onClick={handleSubmit} className="submitBubble" > Submit </button>
+                    <p>Already have an account?&nbsp;
+                        <a href="/login" >Login</a>
+                    </p>
+                </div>
+            </div>
         </div>
     )
 }

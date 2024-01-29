@@ -42,12 +42,17 @@ const Header = () => {
               <div>
                 {/* PlaceHolder for now Update Later */}
                 {/* <Link to="/portal">Portal</Link>  */}
-                <a style={{textDecoration: 'underline'}} onClick={portalClick}>Portal</a>
-                <a style={{textDecoration: 'underline'}} onClick={logoutClick}>Logout</a>
+                <div className = "link" onClick={portalClick}>Portal</div>
+                <div to="/faq" className = "link" onClick={logoutClick}>Logout</div>
+                {/* <a style={{textDecoration: 'underline'}} onClick={portalClick}>Portal</a>
+                <a style={{textDecoration: 'underline'}} onClick={logoutClick}>Logout</a> */}
               </div>
             )
             :
-            ( <Link to="/login" className = "link">Apply Now</Link> )
+            ( <div>
+                <Link to="/login" className = "link">Login</Link>
+                <Link to="/signup" className = "link">Apply Now</Link>
+              </div> )
           }
 
       </div>

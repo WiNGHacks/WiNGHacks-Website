@@ -3,17 +3,15 @@ import logo from '../pictures/WiNGHACKS_logo.png'
 
 const Home = () => {
 
-  // const homeSection = useRef();
-  // const aboutSection = useRef();
-  // const sponsorSection = useRef();
-  // const applySection = useRef();
-
-  // const scrollToSection = (elmRef) => {
-  //   window.scrollTo({
-  //     top: elmRef.current.offsetTop,
-  //     behavior: 'smooth'
-  //   })
-  // }
+  const downloadPDF = () => {
+    const pdfUrl = "SponsorshipPacket.pdf";
+     const link = document.createElement("a");
+     link.href = pdfUrl;
+     link.download = "WiNGHacks_SponsorshipPacket.pdf";
+     document.body.appendChild(link);
+     link.click();
+     document.body.removeChild(link);
+   }
 
   return (
     <div>
@@ -30,7 +28,7 @@ const Home = () => {
           </div>
           <div className='welcome-right-container'>
             <a href="login"><button className='Button Button-apply'><b>Apply now!</b></button></a>
-            <a href="sponsors"><button className='Button Button-sponsor'><b>Become a Sponsor</b></button></a>
+            <a><button onClick={downloadPDF} className='Button Button-sponsor'><b>Become a Sponsor</b></button></a>
           </div>
         </div>
         
