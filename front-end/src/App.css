@@ -1,17 +1,26 @@
+.app {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .App {
-  text-align: center;
+  padding: 2% 5%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: honk;
+  src: url(./components/fonts/Honk-Regular-VariableFont_MORF\,SHLN.ttf);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: bitter;
+  src: url(./components/fonts/Bitter-VariableFont_wght.ttf);
 }
+
+@font-face {
+  font-family: minecraft;
+  src: url(./components/fonts/Minecraft.ttf);
+}
+
 
 .App-header {
   background-color: #282c34;
@@ -22,17 +31,447 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.navbar {
+  background: none;
+  /* padding: 0.2rem calc((100vw - 1000px) / 2); */
+  padding: 0.25% 1%;
+  padding-bottom: 2%;
+  max-height: clamp(3rem, 3vw, 5rem);
+  z-index: 12;
+  position: sticky; 
+  top: 0;
+  display: flex;
+  flex: auto;
+  justify-content: space-between;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.logo-container {
+  align-content: center;
+  padding-top: 2%;
+  padding-left: 1%;
+  padding-right: 5%;
+  max-width: clamp(10rem, 7vw, 15rem);
+  display: flex;
+  flex: auto;
+  justify-content: center;
+
+  /* font-size: clamp(2rem, 5vw, 4rem); */
+
+  /* .image-text {
+    color: rgb(255, 255, 255);
+    font-size: 100%;
+    position: absolute;
+    bottom: 2%;
+    align-items: center;
+    text-decoration: none;
+  } */
+  
+}
+
+.logo-container img {
+  align-self: center;
+  width: 100%;
+}
+
+
+.links {
+  align-items: right;
+  padding: 1rem 1rem;
+  padding-top: 1.5rem;
+  cursor: pointer;
+  justify-content: space-around;
+  display: flex;
+
+  .link {
+    color: #0081A7;
+    font-family: bitter;
+    font-weight: bold;
+    font-variant: small-caps;
+    text-decoration: none;
+    font-size: clamp(1.25rem, 1.75vw, 2rem);
+    padding: 0 1rem;
+    float: left; 
+    }
+  .link:hover {
+    color: black;
+    /* Change text color on hover (you can choose any color you like) */
   }
-  to {
-    transform: rotate(360deg);
+}
+
+
+.Home { background-color: beige; }
+
+.welcome-container { display: flex; }
+
+.floating-container {
+  padding-top: 3rem;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  /* background-color: rgb(138, 182, 168); */
+}
+
+.home-title {
+  align-self: center;
+  font-family: bitter;
+  font-variant: small-caps;
+  font-size: clamp(2rem, 4vw, 4rem);
+  color: #0081A7;
+  max-width: 800px;
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.logo-home-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-home {
+  padding-bottom: 2rem;
+  /* max-height: clamp(10rem, 15vw, 22rem); */
+  max-width: clamp(20rem, 50vw, 50rem);
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.logo-home:hover { animation-duration: 1s; }
+
+@keyframes floating {
+  0% { transform: translate(0,  0px); }
+  50% { transform: translate(0, 15px); }
+  100% { transform: translate(0, -0px); }    
+}
+
+.welcome-right-container {
+  position: relative;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 80%;
+  padding-top: clamp(1rem, 3vw, 8rem);
+  margin-top: 20px;
+  padding-left: 5%;
+}
+
+.Button{
+  align-self: center;
+  border:none;
+  padding: 1rem 1rem;
+  border-radius: 0.2rem;
+  display: inline-block;
+  margin: 0.2rem;
+  text-decoration: none;
+  font-family: bitter;
+  font-size: clamp(1rem, 3vw, 7rem);
+  font-variant: small-caps;
+
+  color: whi;
+  width: clamp(4rem, 30vw, 30rem);
+  height: clamp(5rem, 8vw, 10rem);
+  padding-right: 5%;
+  margin-bottom: clamp(1rem, 3vw, 5rem);;
+}
+
+button:hover{ cursor: pointer; }
+
+.Button-apply{
+  background-color: #00AFB9;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-shadow: 0px 0.5px 0px #ffffff;
+  filter: dropshadow(color=#000, offx=0px, offy=1px);
+  position: relative;
+  
+  -webkit-box-shadow:inset 0 1px 0 #c4eaff, 0 10px 0 #00424b;
+
+  border-radius: 5px;
+  border-color: #22457d;
+  border-style: solid;
+  border-width: 0.35vw;
+}
+
+.Button-apply:hover{
+  top:10px;
+  background-color: rgb(13, 99, 137);
+  
+  -webkit-box-shadow:inset 0 2px 0 #c4eaff, inset 0 0px 0 #00424b;
+}
+
+.Button-sponsor{
+  background-color: #F07167;
+  padding: 0.5rem 0.5rem;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-shadow: 0px 1px 0px #000;
+  filter: dropshadow(color=#000, offx=0px, offy=1px);
+  position: relative;
+  
+  -webkit-box-shadow:inset 0 1px 0 #ffcbcb, 0 10px 0 #441305;
+  /* -moz-box-shadow:inset 0 1px 0 #c4eaff, 0 10px 0 #00424b;
+  box-shadow:inset 0 1px 0 #c4eaff, 0 10px 0 #00424b; */
+  
+  border-radius: 5px;
+  border-color: #712020;
+  border-style: solid;
+  border-width: 0.35vw;
+}
+
+.Button-sponsor:hover{
+  top:10px;
+  background-color: #af4445;
+  -webkit-box-shadow:inset 0 2px 0 #ffcbcb, inset 0 0px 0 #ba3d1b;
+}
+
+.Button-sponsor-page{
+  background-color: rgb(255, 129, 120);
+  padding: 1rem 1rem;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-shadow: 0px 1px 0px #000;
+  filter: dropshadow(color=#000, offx=0px, offy=1px);
+  position: relative;
+  
+  -webkit-box-shadow:inset 0 1px 0 #ffcbcb, 0 10px 0 #441305;
+  /* -moz-box-shadow:inset 0 1px 0 #c4eaff, 0 10px 0 #00424b;
+  box-shadow:inset 0 1px 0 #c4eaff, 0 10px 0 #00424b; */
+  
+  border-radius: 5px;
+  border-color: #712020;
+  border-style: solid;
+  border-width: 0.35vw;
+  display: flex;
+  width: clamp(9rem, 40vw, 40rem);
+  height: clamp(4rem, 6vw, 10rem);
+}
+
+.Button-sponsor-page:hover{
+  top:10px;
+  background-color: rgb(255, 129, 120);
+  -webkit-box-shadow:inset 0 2px 0 #ffcbcb, inset 0 0px 0 #ba3d1b;
+}
+
+.arrow {
+  padding-right: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.about-header-container {
+  padding-top: 3rem;
+  padding-bottom: 4%;
+  align-content: center;
+  text-align: center;
+  font-family: minecraft;
+  font-variant: small-caps;
+  font-size: clamp(1rem, 3vw, 4rem);
+  color: #9f3228;
+}
+
+.about-section-title {
+  font-family: minecraft;
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-variant: small-caps;
+  color: #28779f;
+  margin-bottom: 100px;
+  font-weight: 10rem;
+}
+
+.about-horizontal {
+  display: grid;
+  grid-auto-flow: column;
+  /* grid-auto-columns: 25%; */
+  padding: 2%;
+  padding-top: 2rem;
+  margin-inline: 10%;
+  justify-content: space-between;
+  background-color: #c4eaff;
+
+
+  overflow: scroll;
+  scrollbar-color: white;
+  .img-padding {
+    padding-right: 0.5rem;
   }
+}
+
+.about-horizontal img {
+  width: clamp(4rem, 11vw, 13rem);
+  /* max-width: clamp(10rem, 25vw, 25rem); */
+  border-radius: 10%;
+  border-color: #000;
+  border-width: 1px;
+  border-style: double;
+  background-color: rgb(198, 198, 198); 
+}
+
+.faq-collapse-container {
+  /* margin-bottom: 24px; */
+  /* background: token.colorFillAlter; */
+  /* border-radius: ; */
+  border: none;
+  background: rgb(211, 228, 255);
+  font-family: minecraft;
+  margin-bottom: 2rem;
+}
+
+.faq-collapse {
+  border: none;
+  padding-left: 4rem;
+  display: flex;
+  font-family: 'Lucida Sans'
+  /* background: rgb(211, 228, 255); */
+  /* border-bottom: #000; */
+
+}
+
+
+.login-container {
+  /* background-color: #a6cbf8; */
+  /* outline-color: #a6cbf8;
+  outline-style: dashed; */
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 1rem 2rem;
+  align-self: center;
+  align-items: center;
+  margin-inline: 10%;
+  margin-top: 5%;
+
+  .form-container {
+    /* background-color: beige; */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .loginBubbles {
+      color: rgb(38, 50, 56);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 1px;
+      background: rgba(136, 126, 126, 0.04);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      outline: none;
+      box-sizing: border-box;
+      border: 2px solid rgba(0, 0, 0, 0.02);
+      margin-bottom: 50px;
+      text-align: center;
+      margin-bottom: 27px;
+      font-family: 'Ubuntu', sans-serif;
+    }
+
+
+  }
+
+  .submitBubble {
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background-color: rgb(62, 141, 211);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+    cursor: pointer;
+
+    
+  }
+  .submitBubble:hover {
+    background-color: rgb(44, 19, 153);
+    color: white;
+    flex-direction: column;
+    align-self: center;
+  } 
+}
+
+.About{
+  background-color: white;
+}
+
+.mission-container{
+  display: inline;
+}
+
+.who-we-are-container{
+  display: flex;
+  width: 100%;
+}
+
+.who-we-are-child-container{
+  flex: 1;
+  max-height: 300px;
+}
+
+.collaborators-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  gap: 1em;
+}
+
+.logo-who-we-are{
+  max-width: 75%;
+}
+
+.team-container{
+  display: flex;
+  width: 100%;
+
+}
+
+
+.team-child-container{
+  flex: 1;
+}
+
+.headshot{
+  width: 100%;
+}
+
+.committeeMembers-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  gap: 1em;
+}
+
+.btn-committee-names button{
+  background-color: darkgray;
+  border:1px solid gray;
+  color: #000;
+  cursor:pointer;
+  display: block;
+  padding: 10px 24px;
+  width: 50%;
+}
+
+.btn-committee-names:not(:last-child){
+  border-bottom: none;
+}
+
+.btn-committee-names button:hover{
+  background-color: rgb(68, 68, 68);
 }
