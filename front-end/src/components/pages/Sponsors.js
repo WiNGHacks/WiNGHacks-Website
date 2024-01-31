@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, forwardRef} from 'react'
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 
-const Sponsors = () => {
+const Sponsors = ({}, ref) => {
 
   const [openPDF, setOpenPDF] = useState(false)
 
@@ -31,7 +31,7 @@ const Sponsors = () => {
   }
 
   return (
-    <div align='center'>
+    <div ref = {el => ref.current = { ...ref.current, sponsor: el }} align='center'>
       <h1>Sponsors</h1>
       <button className='Button Button-sponsor-page' onClick ={onButtonClick}>
         
@@ -47,4 +47,4 @@ const Sponsors = () => {
   )
 }
 
-export default Sponsors
+export default forwardRef(Sponsors)

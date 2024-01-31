@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {forwardRef} from 'react'
 import logos from '../pictures/WiNGHACKS_Logo_sansWings.png'
 
 import wicse from '../pictures/org_logos/wicse_logo.png'
@@ -16,9 +16,9 @@ const text = `
 `;
 const committeeNames =["Main Organizers", "Awards", "Budget", "PR", "Merch", "Operations", "Sponsorship", "Tech-Support", "Website", "Workshop"];
 
-const AboutUs = () => {
+const AboutUs = ({}, ref) => {
   return (
-    <div>
+    <div ref={el => ref.current = { ...ref.current, about: el }}>
       <div className='About'>
         <div className='mission-container'>
           <h1>Mission</h1>
@@ -66,5 +66,5 @@ const AboutUs = () => {
   )
 }
 
-export default AboutUs
+export default forwardRef(AboutUs)
 

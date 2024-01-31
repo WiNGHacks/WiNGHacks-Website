@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, forwardRef} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Cookies from "universal-cookie";
 import { jwtDecode } from "jwt-decode";
@@ -7,7 +7,7 @@ import logo from './pictures/WiNGHACKS_logo.png'
 
 const cookies = new Cookies();
 
-const Header = () => {
+const Header = ({}, ref) => {
     const token = cookies.get("TOKEN");
 
     let navigate = useNavigate();
@@ -24,26 +24,35 @@ const Header = () => {
         window.location.replace('/login');
     }
 
+    const handleClick = (type) => {
+      console.log(type)
+      window.scrollTo({
+        top: ref?.current[type]?.offsetTop,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+
 
     return (
       <div className = "navbar">
 
-      <Link to="/" className = "logo-container">
+      <Link to = "/#home"  onClick={() => handleClick('home')} className = "logo-container">
         <img src={logo} alt="Logo"/>
         {/* <b className='image-text'>WiNGHacks</b> */}
       </Link>
 
       <div className = "links">
-        <Link to="/aboutus" className = "link">About Us</Link>
-        <Link to="/sponsors" className = "link">Sponsors</Link>
-        <Link to="/faq" className = "link">FAQ</Link>
+        <Link to = "/#about"  onClick={() => handleClick('about')} className = "link">About Us</Link>
+        <Link to = "/#sponsor" onClick={() => handleClick('sponsor')} className = "link">Sponsors</Link>
+        <Link to = "/#faq" onClick={() => handleClick('faq')} className = "link">FAQ</Link>
           { token ?
             (
               <div>
                 {/* PlaceHolder for now Update Later */}
                 {/* <Link to="/portal">Portal</Link>  */}
                 <div className = "link" onClick={portalClick}>Portal</div>
-                <div to="/faq" className = "link" onClick={logoutClick}>Logout</div>
+                <div to="/login" className = "link" onClick={logoutClick}>Logout</div>
                 {/* <a style={{textDecoration: 'underline'}} onClick={portalClick}>Portal</a>
                 <a style={{textDecoration: 'underline'}} onClick={logoutClick}>Logout</a> */}
               </div>
@@ -79,4 +88,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default forwardRef(Header)
