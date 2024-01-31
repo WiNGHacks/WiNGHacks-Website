@@ -1,7 +1,7 @@
-import {React} from 'react'
+import React , {forwardRef} from 'react'
 import logo from '../pictures/WiNGHACKS_logo.png'
 
-const Home = () => {
+const Home = ({}, ref) => {
 
   const downloadPDF = () => {
     const pdfUrl = "SponsorshipPacket.pdf";
@@ -14,7 +14,7 @@ const Home = () => {
    }
 
   return (
-    <div>
+    <div ref = {el => ref.current = { ...ref.current, home: el }}>
       <div className='Home'>
         <div className='welcome-container'>
           <div className='floating-container'>
@@ -38,7 +38,7 @@ const Home = () => {
   )
 }
 
-export default Home
+export default forwardRef(Home)
 
 {/* <div className ="section" handleClick>
         Home

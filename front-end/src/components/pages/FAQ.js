@@ -1,5 +1,5 @@
 // https://ant.design/components/collapse
-import React from 'react'
+import React, {forwardRef} from 'react'
 import { Collapse } from 'antd';
 
 const { Panel } = Collapse;
@@ -51,13 +51,13 @@ const items = [
   },
 ];
 
-const FAQ = React.FC = () => {
+const FAQ = React.FC = ({}, ref) => {
   const onChange = (key) => {
     console.log(key);
   }
 
   return (
-    <div>
+    <div ref = {el => ref.current = { ...ref.current, faq: el }}>
       <h1>FAQ</h1>
     <Collapse defaultActiveKey={['1']} onChange={onChange} 
               className='faq-collapse-container' >
@@ -74,5 +74,4 @@ const FAQ = React.FC = () => {
 );
 };
 
-export default FAQ
-
+export default forwardRef(FAQ)
