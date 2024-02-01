@@ -11,6 +11,7 @@ import Login from './components/pages/applications/Login'
 import SignUp from './components/pages/applications/SignUp';
 import UserPortal from './components/pages/applications/UserPortal';
 import Cookies from "universal-cookie";
+import Schedule from './components/pages/Schedule';
 const cookies = new Cookies();
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                     <>
                       <Home  ref = {ref} />
                       <AboutUs ref = {ref} />
+                      <Schedule ref = {ref} />
                       <Sponsors  ref = {ref} />
                       <FAQ  ref = {ref} />
                     </>
