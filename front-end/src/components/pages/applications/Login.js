@@ -38,27 +38,39 @@ const Login = () => {
             email: email,
             password: password,
         }).then((response)=>{
-            console.log(response.data)
+            if (response.data.emailVerified === false) {
+                console.log(response.data)
+                setErrorMessage("Please verify your email first")
+            } 
+            else {
+                console.log(response.data)
 
-            // set the cookie
-            cookies.set("TOKEN", response.data.token, {
-                path: "/",
-            });
-    
-            const decoded = jwtDecode(response.data.token);
+                // set the cookie
+                cookies.set("TOKEN", response.data.token, {
+                    path: "/",
+                });
+        
+                const decoded = jwtDecode(response.data.token);
 
-            setLogin(true);
-            // alert(response.data.message)
-            window.location.replace(`/portal/${decoded.id}`);
+                setLogin(true);
+                // alert(response.data.message)
+                window.location.replace(`/portal/${decoded.id}`);
+            }
+            
         }).catch((error) => {
             console.log(error)
-            setErrorMessage(error.response.data.message)
+            setErrorMessage("Invalid email/password")
             // alert(error.response.data.message)
         })
 
     };
 
     useEffect(() => {
+        const token = cookies.get("TOKEN");
+        if ( token ) {
+            const decoded = jwtDecode(token);
+            window.location.replace(`/portal/${decoded.id}`);
+        }
         if(email  && password ){
             setMissingValue(false)
         } 
@@ -75,7 +87,7 @@ const Login = () => {
                         <div > 
                             <p style={{color:'#ED4337'}}> 
                                 <RiErrorWarningFill /> 
-                                Invalid email/password
+                                {errorMessage}
                             </p>
                         </div>
                     }

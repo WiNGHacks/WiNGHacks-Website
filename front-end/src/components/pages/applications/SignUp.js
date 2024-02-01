@@ -3,6 +3,10 @@ import axios from "axios";
 import { FiLoader } from "react-icons/fi";
 import { RiErrorWarningFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
+
 
 // Immediately once they have signed up then they have to apply 
 const SignUp = () => {
@@ -49,7 +53,7 @@ const SignUp = () => {
         }).then((response)=>{
             console.log(response.data)
             setRegister(true);
-            window.location.replace("https://forms.gle/3bcb8G57Y2PYuFfVA");
+            window.location.replace(`/notify/email/${response.data.result.emailToken}`);
         }).catch((error) => {
             console.log(error)
             setErrorMessage(error.response.data.error)
@@ -59,6 +63,12 @@ const SignUp = () => {
     };
 
     useEffect(() => {
+        const token = cookies.get("TOKEN");
+        if ( token ) {
+            const decoded = jwtDecode(token);
+            window.location.replace(`/portal/${decoded.id}`);
+        }
+
         if(firstName && lastName && email && password ){
             setMissingValue(false)
         } 

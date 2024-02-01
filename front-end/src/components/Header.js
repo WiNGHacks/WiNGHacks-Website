@@ -18,7 +18,6 @@ const Header = ({}, ref) => {
     }
 
     const logoutClick = () => {
-
       if (window.confirm('Are you sure you want to logout?')) {
         cookies.remove("TOKEN", {
           path: "/",

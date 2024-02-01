@@ -10,8 +10,8 @@ import FAQ from './components/pages/FAQ';
 import Login from './components/pages/applications/Login'
 import SignUp from './components/pages/applications/SignUp';
 import UserPortal from './components/pages/applications/UserPortal';
-import Cookies from "universal-cookie";
-const cookies = new Cookies();
+import VerificationEmail from './components/pages/applications/VerificationEmail';
+import NotifyEmail from './components/pages/applications/NotifyEmail';
 
 function App() {
 
@@ -39,6 +39,8 @@ function App() {
               <Route path="/login" element={<Login/>}></Route>
               <Route path="/signup" element={<SignUp/>}></Route>
               <Route path="/portal/:id" element={<UserPortal/>}></Route>
+              <Route path="/verify/:token" element={<VerificationEmail/>}></Route>
+              <Route path="/notify/email/:emailToken" element={<NotifyEmail/>}></Route>
               
             </Routes> 
           </div>
