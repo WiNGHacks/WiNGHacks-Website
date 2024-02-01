@@ -159,7 +159,7 @@ router.post("/sendEmail/:token", async (req, res) => {
             service: 'Gmail',
             auth: {
               user: 'happykiwi127@gmail.com', // Replace with your Gmail email address
-              pass: 'bgyttzzvdtgjvcoo' // Replace with your Gmail password
+              pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
             }
         });
 
