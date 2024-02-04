@@ -58,9 +58,9 @@ const Header = ({}, ref) => {
               </div>
             )
             :
-            ( <div>
+            ( <div className='links dynamic'>
                 <Link to="/login" className = "link">Login</Link>
-                <Link to="/signup" className = "link">Apply Now</Link>
+                <Link to="/signup" className = "link apply">Apply Now</Link>
               </div> )
           }
 

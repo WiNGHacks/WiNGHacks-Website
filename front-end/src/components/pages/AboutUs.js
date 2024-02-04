@@ -7,8 +7,8 @@ import gwc from '../pictures/org_logos/gwc_logo.jpeg'
 import wece from '../pictures/org_logos/wece_logo.jpeg'
 import wicys from '../pictures/org_logos/wicys_logo.jpeg'
 
-import headshots from '../pictures/littleLady.PNG'
-import headshots2 from '../pictures/Frogger.PNG'
+import headshots from '../pictures/characters/littleLady.PNG'
+import headshots2 from '../pictures/characters/Frogger.PNG'
 
 
 const text = `
@@ -21,8 +21,8 @@ const AboutUs = ({}, ref) => {
     <div ref={el => ref.current = { ...ref.current, about: el }}>
       <div className='About'>
         <div className='mission-container'>
-          <h1>Mission</h1>
-          <p>{text}</p>
+          <h1>UF's first hackathon for women and nonbinary students!</h1>
+          {/* <p>{text}</p> */}
         </div>
         <div className='who-we-are-container'>
           <div className='who-we-are-child-container'>
