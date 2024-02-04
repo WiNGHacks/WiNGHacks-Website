@@ -33,9 +33,9 @@ const Home = ({}, ref) => {
           <div className='welcome-right-container'>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdC6uvrtJ6AXc9GSY86ENfpVsICg0DCqOyOC-U7q7HAe-nLow/viewform"
               target="_blank">
-              <button className='Button Button-apply'>Interest Form</button></a>
-            <a href="login"><button className='Button Button-apply'>Apply now!</button></a>
-            <a><button onClick={downloadPDF} className='Button Button-sponsor'>Become a Sponsor</button></a>
+              <button className='Button Button-home Button-interest'>Interest Form</button></a>
+            <a href="login"><button className='Button Button-home Button-apply'>Apply now!</button></a>
+            <a><button onClick={downloadPDF} className='Button Button-home Button-sponsor'>Become a Sponsor</button></a>
           </div>
         </div>
         <div className='socials'>

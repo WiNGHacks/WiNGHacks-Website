@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 
 const NotifyEmail = () => {
   const {emailToken} = useParams()
-  const [seconds, setSeconds] = useState(60);
+  const [seconds, setSeconds] = useState(1);
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
   useEffect(() => {

@@ -41,8 +41,8 @@ router.post('/signup', (req, res) => {
                 const transporter = nodemailer.createTransport({
                     service: 'Gmail',
                     auth: {
-                      user: 'happykiwi127@gmail.com', // Replace with your Gmail email address
-                      pass: 'bgyttzzvdtgjvcoo' // Replace with your Gmail password
+                      user: 'uf.winghacks.webmaster@gmail.com', // Replace with your Gmail email address
+                      pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
                     }
                 });
 
@@ -50,7 +50,7 @@ router.post('/signup', (req, res) => {
                 const verificationLink = `http://localhost:3000/verify/${verificationToken}`;
 
                 const mailOptions = {
-                    from: 'happykiwi127@gmail.com',
+                    from: 'uf.winghacks.webmaster@gmail.com',
                     to: req.body.email.toLowerCase(),
                     subject: 'Email Verification',
                     html: `<p>Click <a href="${verificationLink}">here</a> to verify your email.</p>`

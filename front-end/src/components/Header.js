@@ -28,9 +28,12 @@ const Header = ({}, ref) => {
     }
 
     const handleClick = (type) => {
+      var currHeight = document.getElementById('navbar').offsetHeight + 10;
+      console.log(currHeight);
+      // var topVar = -currHeight? + ref?.current[type]?.offsetTop;
       console.log(type)
       window.scrollTo({
-        top: ref?.current[type]?.offsetTop,
+        top: ref?.current[type]?.offsetTop - currHeight,
         left: 0,
         behavior: "smooth",
       });
@@ -38,7 +41,7 @@ const Header = ({}, ref) => {
 
 
     return (
-      <div className = "navbar">
+      <div className = "navbar" id='navbar'>
 
       <Link to = "/#home"  onClick={() => handleClick('home')} className = "logo-container">
         <img src={logo} alt="Logo"/>
@@ -47,7 +50,7 @@ const Header = ({}, ref) => {
 
       <div className = "links">
         <Link to = "/#about"  onClick={() => handleClick('about')} className = "link">About Us</Link>
-        <Link to = "/#schedule" onClick={() => handleClick('schedule')} className = "link">schedule</Link>
+        <Link to = "/#schedule" onClick={() => handleClick('schedule')} className = "link">Schedule</Link>
         <Link to = "/#sponsor" onClick={() => handleClick('sponsor')} className = "link">Sponsors</Link>
         <Link to = "/#faq" onClick={() => handleClick('faq')} className = "link">FAQ</Link>
         

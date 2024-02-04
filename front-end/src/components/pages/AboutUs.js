@@ -10,13 +10,13 @@ import wicys from '../pictures/org_logos/wicys_logo.jpeg'
 import headshots from '../pictures/characters/littleLady.PNG'
 import headshots2 from '../pictures/characters/Frogger.PNG'
 
+const AboutUs = ({}, ref) => {
 
-const text = `
+  const text = `
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Enim sed faucibus turpis in eu mi. Porttitor lacus luctus accumsan tortor posuere.
 `;
-const committeeNames =["Main Organizers", "Awards", "Budget", "PR", "Merch", "Operations", "Sponsorship", "Tech-Support", "Website", "Workshop"];
+  const committeeNames =["Main Organizers", "Awards", "Budget", "PR", "Merch", "Operations", "Sponsorship", "Tech-Support", "Website", "Workshop"];
 
-const AboutUs = ({}, ref) => {
   return (
     <div ref={el => ref.current = { ...ref.current, about: el }}>
       <div className='About'>

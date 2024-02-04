@@ -216,35 +216,44 @@
 
 button:hover{ cursor: pointer; }
 
-.Button-apply{
-  background-color: #00AFB9;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  filter: dropshadow(color=#000, offx=0px, offy=1px);
+.Button-home {
   position: relative;
-  -webkit-box-shadow:inset 0 1px 0 #c4eaff, 0 10px 0 #00424b;
+  filter: dropshadow(color=#000, offx=0px, offy=1px);
   border-radius: 5px;
-  border-color: #22457d;
   border-style: solid;
   border-width: 0.35vw;
+  padding: 0.5rem 0.5rem;
 }
 
-.Button-apply:hover{
+.Button-interest{
+  background-color: #00AFB9;
+  -webkit-box-shadow:inset 0 1px 0 #c4eaff, 0 10px 0 #00424b;
+  border-color: #22457d;
+}
+
+.Button-interest:hover{
   top:10px;
   background-color: rgb(13, 99, 137);
   -webkit-box-shadow:inset 0 2px 0 #c4eaff, inset 0 0px 0 #00424b;
 }
 
+.Button-apply{
+  background-color: #fefeaa;
+  color: black;
+  -webkit-box-shadow:inset 0 1px 0 #fff7df, 0 10px 0 #f4c671;
+  border-color: #f5c499;
+}
+
+.Button-apply:hover{
+  top:10px;
+  background-color: rgb(255, 218, 132);
+  -webkit-box-shadow:inset 0 2px 0 #fff7df, inset 0 0px 0 #ffca92;
+}
+
 .Button-sponsor{
   background-color: #F07167;
-  padding: 0.5rem 0.5rem;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  filter: dropshadow(color=#000, offx=0px, offy=1px);
-  position: relative;
   -webkit-box-shadow:inset 0 1px 0 #ffcbcb, 0 10px 0 #441305;
-  border-radius: 5px;
   border-color: #712020;
-  border-style: solid;
-  border-width: 0.35vw;
 }
 
 .Button-sponsor:hover{
@@ -412,7 +421,7 @@ a { text-decoration: none; }
   .faq-collapse-container {
     border: none;
     background: rgb(211, 228, 255);
-    font-family: minecraft;
+    font-family: bitter;
     margin-bottom: 2rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   }
@@ -492,6 +501,32 @@ a { text-decoration: none; }
     align-self: center;
   } 
 }
+
+.Portal {
+  background-color: white; 
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  min-height: 60vh;
+  
+  .apply {
+    height: clamp(2rem, 5vw, 8rem);
+    background-color: #fefeaa;
+    font-size: fit-content;
+    color: rgb(255, 126, 74);
+  
+    padding: 0.25rem 0.5rem;
+    /* text-shadow: 0px 1px 0px #000; */
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border-color: #f5c499;
+    border-style: solid;
+    border-width: 0.2vw;
+  }
+}
+
+
 
 .disabledButton {
   color: rgb(81, 86, 89);
