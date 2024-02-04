@@ -1,6 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect } from 'react'
 import axios from "axios";
+import { FiLoader } from "react-icons/fi";
+import { RiErrorWarningFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
+
 
 // Immediately once they have signed up then they have to apply 
 const SignUp = () => {
@@ -9,6 +15,8 @@ const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [register, setRegister] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [missingValue, setMissingValue] = useState(true);
 
     const navigate = useNavigate();
 
@@ -45,14 +53,27 @@ const SignUp = () => {
         }).then((response)=>{
             console.log(response.data)
             setRegister(true);
-            alert(response.data.message)
-            window.location.replace("https://forms.gle/3bcb8G57Y2PYuFfVA");
+            window.location.replace(`/notify/email/${response.data.result.emailToken}`);
         }).catch((error) => {
             console.log(error)
-            alert(error.response.data.error)
+            setErrorMessage(error.response.data.error)
+            // alert(error.response.data.error)
         })
 
     };
+
+    useEffect(() => {
+        const token = cookies.get("TOKEN");
+        if ( token ) {
+            const decoded = jwtDecode(token);
+            window.location.replace(`/portal/${decoded.id}`);
+        }
+
+        if(firstName && lastName && email && password ){
+            setMissingValue(false)
+        } 
+        else {setMissingValue(true)}
+    })
   
 
     return (
@@ -61,6 +82,15 @@ const SignUp = () => {
                 <div className='form-container' align= "center">
 
                     <h1 className="title">Sign Up</h1>
+
+                    {errorMessage && 
+                        <div > 
+                            <p style={{color:'#ED4337'}}> 
+                                <RiErrorWarningFill /> 
+                                {errorMessage}
+                            </p>
+                        </div>
+                    }
 
                     <label className="label"></label>
                     <input
@@ -94,7 +124,22 @@ const SignUp = () => {
                         placeholder='Enter password'
                     />
 
-                    <button onClick={handleSubmit} className="submitBubble" > Submit </button>
+
+                    {register?(
+                        <div>
+                            <button  className="submitBubble" align= "center" disabled> <FiLoader /> </button>
+                        </div>
+                    ):(
+                        <button 
+                            onClick={handleSubmit} 
+                            className={missingValue? "disabledButton" : "submitBubble" }
+                            align= "center" 
+                            disabled={missingValue}
+                        > 
+                            Submit 
+                        </button>
+                    )}  
+
                     <p>Already have an account?&nbsp;
                         <a href="/login" >Login</a>
                     </p>
