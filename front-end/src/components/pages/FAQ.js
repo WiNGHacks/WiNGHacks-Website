@@ -58,18 +58,19 @@ const FAQ = React.FC = ({}, ref) => {
 
   return (
     <div ref = {el => ref.current = { ...ref.current, faq: el }}>
-      <h1>FAQ</h1>
-    <Collapse defaultActiveKey={['1']} onChange={onChange} 
-              className='faq-collapse-container' >
-      {items.map(item => (
-        <Panel key={item.key} header={"Q . " + item.header}>
-          <div className='faq-collapse'>
-            A. {item.content}
-          </div>
-          <br></br>
-        </Panel>
-      ))}
-    </Collapse>
+      <div className='FAQ'>
+        <h1>FAQ</h1>
+        <Collapse defaultActiveKey={['1']} onChange={onChange} className='faq-collapse-container' >
+          {items.map(item => (
+            <Panel key={item.key} header={"Q . " + item.header}>
+              <div className='faq-collapse'>
+                A. {item.content}
+              </div>
+              <br></br>
+            </Panel>
+          ))}
+      </Collapse>
+    </div>
   </div>
 );
 };
