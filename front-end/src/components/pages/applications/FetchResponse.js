@@ -8,7 +8,7 @@ const FetchResponse = ({handleCsvData, email, id, status}) => {
 
      // Fetch Data from Google Sheet
     useEffect(() => {
-        const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIr7JGeg0yoJtahxs1zsx9SgOJjAqH8izxbkhox41YWDuMuBLwbTX54BOKlPBxzBtZPNQPWiRxveDW/pub?output=csv';
+        const csvUrl = process.env.REACT_APP_GOOGLE_SHEET_URL;
         axios.get(csvUrl)    // Use Axios to fetch the CSV data
         .then((response) => {
             const parsedCsvData = parseCSV(response.data);        // Parse the CSV data into an array of objects
