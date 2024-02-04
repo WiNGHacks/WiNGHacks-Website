@@ -28,6 +28,8 @@ const Home = ({}, ref) => {
             <div className = "logo-home-container">
               <img src={logo} className = "logo-home" alt='WiNGHacks Logo'></img>
             </div>
+            <b className='home-date'>April 5-7</b>
+      
 
           </div>
           <div className='welcome-right-container'>
