@@ -32,7 +32,7 @@ const AboutUs = ({}, ref) => {
           <div className='who-we-are-child-container'>
             <div className='collaborators-container'>
               {/*MARIA-How to use variable to store the logos so don't have to repeat img every time?*/}
-                <img  src={wicse} className='logo-who-we-are' alt='WiNGHacks WiCSE Logo'></img>
+                <a href="https://ufwicse.com" target="_blank"><img  src={wicse} className='logo-who-we-are' alt='WiNGHacks WiCSE Logo'></img></a>
                 <img  src={csk} className='logo-who-we-are' alt='WiNGHacks CSK Logo'></img>
                 <img  src={gwc} className='logo-who-we-are' alt='WiNGHacks Girls Who Code Logo'></img>
                 <img  src={wece} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img>
