@@ -44,8 +44,10 @@ const Header = ({}, ref) => {
 
       <div className = "links">
         <Link to = "/#about"  onClick={() => handleClick('about')} className = "link">About Us</Link>
+        <Link to = "/#schedule" onClick={() => handleClick('schedule')} className = "link">schedule</Link>
         <Link to = "/#sponsor" onClick={() => handleClick('sponsor')} className = "link">Sponsors</Link>
         <Link to = "/#faq" onClick={() => handleClick('faq')} className = "link">FAQ</Link>
+        
           { token ?
             (
               <div>
