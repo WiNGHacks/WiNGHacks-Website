@@ -5,6 +5,7 @@
   background-attachment: fixed;
   background-position: center; 
   box-shadow: 0 0 5px 10px #555;
+  min-height: 100vh;
 }
 
 .App {
@@ -43,6 +44,7 @@
   display: flex;
   flex: auto;
   justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
   .logo-container {
     align-content: center;
@@ -117,7 +119,7 @@
   background-color: white; 
   padding: 1rem 2rem;
   border-radius: 25px;
-
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
   .welcome-container { 
     display: flex; 
@@ -258,6 +260,7 @@ a { text-decoration: none; }
   margin-top: 2rem;
   padding: 2rem 2rem;
   border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
   .mission-container{
     display: inline;
@@ -411,6 +414,7 @@ a { text-decoration: none; }
     background: rgb(211, 228, 255);
     font-family: minecraft;
     margin-bottom: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   }
   
   .faq-collapse {
@@ -423,12 +427,15 @@ a { text-decoration: none; }
 
 
 .login-container {
+  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 1rem 2rem;
   align-self: center;
   align-items: center;
   margin-inline: 10%;
   margin-top: 5%;
+  border-radius: 25px;
+  min-height: 60vh;
 
   .form-container {
     /* background-color: beige; */
