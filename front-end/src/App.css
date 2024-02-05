@@ -294,6 +294,11 @@ a { text-decoration: none; }
     flex: 1;
     max-height: 300px;
   }
+
+  .who-we-are-child-container p {
+    max-width: 93%;
+  }
+
   
   .collaborators-container{
     display: grid;

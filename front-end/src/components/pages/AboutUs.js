@@ -13,7 +13,9 @@ import headshots2 from '../pictures/characters/Frogger.PNG'
 const AboutUs = ({}, ref) => {
 
   const text = `
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Enim sed faucibus turpis in eu mi. Porttitor lacus luctus accumsan tortor posuere.
+  WiNGHacks is the University of Florida’s (UF) first hackathon specifically created for women and nonbinary students. WiNgHacks gives Women and Nonbinary students the wings that uplift them in their technology journeys. During WiNgHacks, 200 attendees from both UF and neighboring schools will learn new skills, network with their peers, and create innovative projects. 
+  The goal of our hackathon is to be a welcoming opportunity for learning and growth for underrepresented genders in the tech industry. Hackathons are great opportunities for students to learn new skills, network, and get a project on their resume, and we want to create an inclusive and welcoming environment for women and nonbinary students, especially those who are first-time hackers, to reap the benefits and opportunities that hackathons have. 
+
 `;
   const committeeNames =["Main Organizers", "Awards", "Budget", "PR", "Merch", "Operations", "Sponsorship", "Tech-Support", "Website", "Workshop"];
 
