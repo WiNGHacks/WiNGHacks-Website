@@ -40,7 +40,7 @@ const items = [
   {
     key: '6',
     header: "How will hackers be accepted?",
-    content: <p>{text}</p>,
+    content: <p>Applicants will be accepted on a rolling basis until our capacity of 200 is reached. However, hackers must be present in-person during the hackathon. </p>,
   },
   {
     key: '7',

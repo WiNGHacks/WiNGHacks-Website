@@ -32,7 +32,7 @@ const Sponsors = ({}, ref) => {
 
   return (
     <div ref = {el => ref.current = { ...ref.current, sponsor: el }} align='center'>
-      <h1>Sponsors</h1>
+      <h1 align='left'>Sponsors</h1>
       <button className='Button Button-sponsor-page' onClick ={onButtonClick}>
         
         <div className='arrow'>{openPDF? (<SlArrowUp /> ): (<SlArrowDown />)}</div>
