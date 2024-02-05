@@ -24,7 +24,7 @@ const VerificationEmail = () => {
 
       const decoded = jwtDecode(response.data.token);
       // window.location.replace(`/portal/${decoded.id}`);
-      window.location.replace("https://forms.gle/3bcb8G57Y2PYuFfVA")
+      window.location.replace(process.env.REACT_APP_APPLICATION_FORM)
     })
     .then((error) => {
       console.log(error)

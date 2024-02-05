@@ -47,7 +47,7 @@ router.post('/signup', (req, res) => {
                 });
 
                 // Generate the verification link
-                const verificationLink = `http://localhost:3000/verify/${verificationToken}`;
+                const verificationLink = `${process.env.FRONT_END_URL}verify/${verificationToken}`;
 
                 const mailOptions = {
                     from: process.env.EMAIL,
@@ -164,7 +164,7 @@ router.post("/sendEmail/:token", async (req, res) => {
         });
 
         // Generate the verification link
-        const verificationLink = `http://localhost:3000/verify/${token}`;
+        const verificationLink = `${process.env.FRONT_END_URL}verify/${token}`;
 
         const mailOptions = {
             from: process.env.EMAIL,
