@@ -12,56 +12,52 @@ const items = [
   {
     key: '1',
     header: 'What\'s a hackathon?',
-    content: <p>A hackathon is an “invention marathon” where students gather to create an original project. You can attend workshops, hear from people in the computer science field, and network with students and companies!
-    </p>,
+    content: "A hackathon is an “invention marathon” where students gather to create an original project. You can attend workshops, hear from people in the computer science field, and network with students and companies!",
   },
   {
     key: '2',
     header: 'What if I have no experience with coding or hackathons?',
-    content: <p>No problem! WiNGHacks is the perfect place for any student with any level of experience to create a coding project and learn new skills. We’ve purposefully designed WiNGHacks to offer an encouraging and supportive environment. You’ll quickly learn new skills from our workshops and from mentors.
-    </p>,
+    content: "No problem! WiNGHacks is the perfect place for any student with any level of experience to create a coding project and learn new skills. We’ve purposefully designed WiNGHacks to offer an encouraging and supportive environment. You’ll quickly learn new skills from our workshops and from mentors.",
   },
   {
     key: '3',
     header: 'When do applications open?',
-    content: <p>Applications open [DATE HERE]</p>,
+    content: "Applications open [DATE HERE]",
   },
   {
     key: '4',
     header: "Who can attend? Is this event only for underrepresented people?",
-    content: <p>We welcome any college student 18 years old or above to participate in WiNGHacks. It’s important to keep in mind that we are looking to create a welcoming and empowering space for women and non-binary students in tech. 
-    </p>,
+    content: "We welcome any college student 18 years old or above to participate in WiNGHacks. It’s important to keep in mind that we are looking to create a welcoming and empowering space for women and non-binary students in tech. ",
   },
   {
     key: '5',
     header: "How will mentorship work?",
-    content: <p>We will have mentors available to help you on-site and on our Discord server for the duration of our event. </p>,
+    content: "We will have mentors available to help you on-site and on our Discord server for the duration of our event. ",
   },
   {
     key: '6',
     header: "How will hackers be accepted?",
-    content: <p>{text}</p>,
+    content: "Applicants will be accepted on a rolling basis until our capacity of 200 is reached. However, hackers must be present in-person during the hackathon. ",
   },
   {
     key: '7',
     header: "I want to join the organizing team. Where can I apply?",
-    content: <p>Applicants will be accepted on a rolling basis until our capacity of 200 is reached. However, hackers must be present in-person during the hackathon. </p>,
+    content: "Applicants will be accepted on a rolling basis until our capacity of 200 is reached. However, hackers must be present in-person during the hackathon. ",
   },
   {
     key: '8',
     header: "How do teams work? Can I register solo?",
-    content: <p>Teams can have between 1 to 4 people. You can have your teammates in mind before the event, or you can find a team on our Discord or at our team formation social the morning of the hackathon!</p>,
+    content: "Teams can have between 1 to 4 people. You can have your teammates in mind before the event, or you can find a team on our Discord or at our team formation social the morning of the hackathon!",
   },
   {
     key: '9',
     header: "Do I have to pay to participate?",
-    content: <p>No! WiNGHacks is free! We will be covering meals, but keep in mind we will not be reimbursing for transportation costs. </p>
+    content: "No! WiNGHacks is free! We will be covering meals, but keep in mind we will not be reimbursing for transportation costs. "
   },
   {
     key: '10',
     header: "What will I eat?",
-    content: <p>We’ll be providing all meals on Saturday, and breakfast on Sunday. We’ll also have small snacks available throughout the hackathon. 
-    </p>
+    content: "We’ll be providing all meals on Saturday, and breakfast on Sunday. We’ll also have small snacks available throughout the hackathon. "
   },
 ];
 
