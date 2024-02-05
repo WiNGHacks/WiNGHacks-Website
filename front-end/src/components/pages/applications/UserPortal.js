@@ -60,7 +60,7 @@ const UserPortal = () => {
                 <div>
                     {console.log(status)}
                     <h1>Hi, {firstName} {lastName}</h1>
-                    <button className= "Button apply" onClick={() => {window.open("https://forms.gle/3bcb8G57Y2PYuFfVA")}}>
+                    <button className= "Button apply" onClick={() => {window.open(process.env.REACT_APP_APPLICATION_FORM)}}>
                         Apply Now
                     </button>
                     <h2>Your Status: {status}</h2>

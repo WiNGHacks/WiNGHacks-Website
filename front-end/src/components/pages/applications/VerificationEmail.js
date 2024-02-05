@@ -37,7 +37,7 @@ const VerificationEmail = () => {
     <div>
       VerificationEmail
       <p>{verificationStatus}</p>
-      <a href="https://forms.gle/3bcb8G57Y2PYuFfVA"> Fill out application form</a>
+      <a href={process.env.REACT_APP_APPLICATION_FORM}> Fill out application form</a>
     </div>
     
   )

@@ -25,7 +25,9 @@ const FetchResponse = ({handleCsvData, email, id, status}) => {
     useEffect(() => {
         console.log(csvData)
         csvData?.map((submissions) => {
+            console.log(submissions)
             let lowerCaseEmail = submissions.Email?.toLowerCase()
+            console.log(lowerCaseEmail)
             if (lowerCaseEmail === email && submissions.Status !== status){
                 if (status === "Not Applied"){
                     console.log(status)
