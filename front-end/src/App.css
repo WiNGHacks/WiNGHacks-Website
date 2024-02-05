@@ -4,6 +4,7 @@
   background-image: url(./components/pictures/Blue-Purple_background.png);
   background-attachment: fixed;
   background-position: center; 
+  background-size: 100%;
   box-shadow: 0 0 5px 10px #555;
   min-height: 100vh;
 }
@@ -424,18 +425,24 @@ a { text-decoration: none; }
 
 .FAQ {
   .faq-collapse-container {
+    font-size: 1.3rem;
+    font-weight: 600;
     border: none;
     background: rgb(211, 228, 255);
     font-family: bitter;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    
+
   }
   
   .faq-collapse {
+    padding-top: 0.3rem;
     border: none;
     padding-left: 4rem;
     display: flex;
-    font-family: 'Lucida Sans'
+    font-family: bitter;
+    font-weight: 500;
   }
 }
 
