@@ -3,10 +3,10 @@
   background-color: rgb(160, 213, 244);
   background-image: url(./components/pictures/Blue-Purple_background.png);
   background-attachment: fixed;
-  background-position: center; 
-  background-size: 100%;
+  background-position: left; 
   box-shadow: 0 0 5px 10px #555;
   min-height: 100vh;
+  background-size:cover;
 }
 
 .App {
