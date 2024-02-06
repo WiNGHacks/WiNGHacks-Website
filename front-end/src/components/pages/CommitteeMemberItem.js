@@ -1,10 +1,11 @@
 import React from 'react'
 
-const CommitteeMemberItem = ({className, name, major, id, image, position, linkedIn}) =>{
+const CommitteeMemberItem = ({name, image, position, linkedIn}) =>{
+    console.log()
     const alt_text = name + " profile picture";
     return(
         <div>
-            <li className={className}>
+            <li>
                 <figure>
                     <img src={image} alt = {alt_text}></img>
                     <figcaption>

@@ -1,8 +1,8 @@
 
-import littleLady_pic from '../components/pictures/littleLady.PNG'
-import frogger_pic from '../components/pictures/Frogger.PNG'
-import flier_pic from '../components/pictures/Flier.PNG'
-
+// import littleLady_pic from '../pictures/littleLady.PNG'
+import frogger_pic from '../pictures/Frogger.PNG'
+import flier_pic from '../pictures/Flier.PNG'
+const littleLady_pic = require('../pictures/littleLady.PNG');
 
 
 export const MemberList = [
