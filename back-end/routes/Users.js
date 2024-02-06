@@ -287,4 +287,8 @@ router.get("/users", async (req, res) => {
 	res.send(posts)
 })
 
+router.get("/trigger", async (req, res) => {
+	res.send("Trigger to wake up API")
+})
+
 module.exports = router
