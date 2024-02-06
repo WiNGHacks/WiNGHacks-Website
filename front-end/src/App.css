@@ -178,7 +178,7 @@
   font-size: clamp(1rem, 3vw, 7rem);
   font-variant: small-caps;
 
-  color: whi;
+  color: white;
   width: clamp(4rem, 30vw, 30rem);
   height: clamp(5rem, 8vw, 10rem);
   padding-right: 5%;
@@ -336,7 +336,6 @@ a {
 
 }
 
-
 .login-container {
   /* background-color: #a6cbf8; */
   /* outline-color: #a6cbf8;
@@ -438,30 +437,101 @@ a {
 .team-container{
   display: flex;
   width: 100%;
-
 }
-
 
 .team-child-container{
-  flex: 1;
+  flex: 2 1 auto;
 }
 
-.headshot{
+.members img{
   width: 100%;
+  height: auto;
+  display: block;
 }
 
-.committeeMembers-container{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  align-items: center;
-  gap: 1em;
+.members{
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+} 
+
+.members li{
+    float: left;
+    width: 100%;
+    list-style: none;
 }
+
+
+.members figure{
+  margin: 0 1.25em 1.25em 0;
+  position: relative;
+  text-align: center;
+  border: 0.5em solid palevioletred;
+  border-radius: 0.5em;
+  overflow:hidden;
+}
+
+.members figure:hover{
+  border: 0.5em solid rgb(248, 40, 109);
+  img {
+    opacity: 0.1;
+    transition: all .2s ease-in-out .2s;
+  }
+  figcaption {
+    top: 50%;
+    margin-top: -5em;
+  }
+  h3 h4 h5 {
+    bottom: 70%;
+    padding: 0;
+  }
+
+}
+
+figcaption{
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  transition: all 0.2s ease-in-out allow-discrete;
+}
+
+figcaption a{
+  font-weight: bold;
+  text-decoration: none;
+  background-color: palevioletred;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  border-radius: 1.25rem;
+  padding-top: 0.5em;
+  width: 10rem;
+  height: 1.5rem;
+
+  &:hover{
+    background-color: rgb(248, 40, 109) ;
+  }
+}
+
+figcaption{
+  position: absolute;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  bottom: 100%;
+  color: #000;
+    text-shadow: 0 0 5em black;
+}
+
 
 .btn-committee-names button{
-  background-color: darkgray;
-  border:1px solid gray;
-  color: #000;
+  background-color: palevioletred;
+  border:1px solid rgb(180, 95, 124);
+  a{
+    color: white;
+  }
+  
   cursor:pointer;
   display: block;
   padding: 10px 24px;
@@ -473,5 +543,19 @@ a {
 }
 
 .btn-committee-names button:hover{
-  background-color: rgb(68, 68, 68);
+  background-color: rgb(248, 40, 109);
+  
 }
+
+
+@media (min-width: 28.75em) {
+  .members li {
+    width:25%;
+  }
+  
+}
+
+/*MARIA HOW TO MAKE HOVER COLOR STAY ON ACTIVE BUTTON*/
+
+
+
