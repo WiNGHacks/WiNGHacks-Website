@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -14,10 +14,28 @@ import Schedule from './components/pages/Schedule';
 
 import VerificationEmail from './components/pages/applications/VerificationEmail';
 import NotifyEmail from './components/pages/applications/NotifyEmail';
+import axios from 'axios';
 
 function App() {
 
   const ref = useRef({});
+
+  // Used to trigger the backend API to wake up 
+  const[firstRender, setFirstRender] = useState(false)
+
+  useEffect(() => {
+    if(firstRender === false) {
+      setFirstRender(true)
+      axios.get(process.env.REACT_APP_TRIGGER_API_URL)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    }
+    console.log(firstRender)
+  })
 
   return (
     <div className='app'>
