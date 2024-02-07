@@ -37,7 +37,17 @@ const FetchResponse = ({handleCsvData, email, id, status}) => {
                     .then((response) => {
                         console.log(response.data.message)
                         console.log(response)
+
+                        // axios.post(process.env.REACT_APP_SEND_WELCOME_EMAIL_URL, {email: lowerCaseEmail})
+                        // .then((response) => {
+                        //     console.log("Email sent")
+                        // })
+                        // .else((e) => {
+                        //     console.log("Email not sent")
+                        // })
+
                         window.location.reload();
+
                     })
                 }
                 else if (submissions.Status !== "" ){
