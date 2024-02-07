@@ -2,6 +2,7 @@ import React, {useState, forwardRef} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Cookies from "universal-cookie";
 import { jwtDecode } from "jwt-decode";
+import { FaBars, FaTimes } from "react-icons/fa";
 import '../App.css';
 import logo from './pictures/WiNGHACKS_logo.png'
 
@@ -39,6 +40,12 @@ const Header = ({}, ref) => {
       });
     }
 
+    const [showNavbar, setShowNavbar] = useState(false);
+    const clickedNavbar = () => {
+      setShowNavbar(!showNavbar);
+    };
+
+
 
     return (
       <div className = "navbar" id='navbar'>
@@ -47,51 +54,42 @@ const Header = ({}, ref) => {
         <img src={logo} alt="Logo"/>
         {/* <b className='image-text'>WiNGHacks</b> */}
       </Link>
-
-      <div className = "links">
+      <div className = {showNavbar ? "links links-open" : "links"}>
         <Link to = "/#about"  onClick={() => handleClick('about')} className = "link">About Us</Link>
         <Link to = "/#schedule" onClick={() => handleClick('schedule')} className = "link">Schedule</Link>
         <Link to = "/#sponsor" onClick={() => handleClick('sponsor')} className = "link">Sponsors</Link>
         <Link to = "/#faq" onClick={() => handleClick('faq')} className = "link">FAQ</Link>
         
           { token ?
-            (
-              <div>
+            ( <div>
                 {/* PlaceHolder for now Update Later */}
                 {/* <Link to="/portal">Portal</Link>  */}
                 <div className = "link" onClick={portalClick}>Portal</div>
                 <div to="/login" className = "link" onClick={logoutClick}>Logout</div>
                 {/* <a style={{textDecoration: 'underline'}} onClick={portalClick}>Portal</a>
                 <a style={{textDecoration: 'underline'}} onClick={logoutClick}>Logout</a> */}
-              </div>
-            )
+              </div> )
             :
-            ( <div className='links dynamic'>
+            ( <div className='dynamic'>
                 <Link to="/login" className = "link">Login</Link>
                 <Link to="/signup" className = "link apply">Apply Now</Link>
               </div> )
           }
-
+          
+          <div className='mobile-nav'>
+          {showNavbar ? 
+          ( <button className="nav-btn close" onClick={clickedNavbar}> 
+          <FaTimes />
+          </button> ) : (
+          <button className="nav-btn open" onClick={clickedNavbar}>
+          <FaBars />
+        </button>  )
+          }
+        </div>
       </div>
+      
+      
     </div> 
-
-    // <div className = "navbar">
-
-    //   <Link to="/" className = "logo-container">
-    //     <img src={logo} alt="Logo"/>
-    //     <b className='image-text'>WiNGHacks</b>
-    //   </Link>
-
-    //   <div className = "links">
-    //     <div className = "link">About Us</div>
-    //     <div className = "link">Sponsors</div>
-    //     <div className = "link">FAQ</div>
-
-    //     {/* PlaceHolder for now Update Later */}
-    //     <div className = "link" >Apply Now</div> 
-    //   </div>
-
-    // </div> 
     
   )
 }
