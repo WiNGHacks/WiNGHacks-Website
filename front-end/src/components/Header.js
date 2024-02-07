@@ -14,11 +14,15 @@ const Header = ({}, ref) => {
     let navigate = useNavigate();
 
     const portalClick = () => {
-        const decoded = jwtDecode(token)
-        navigate(`/portal/${decoded.id}`, {replace: true});
+      setShowNavbar(false);
+
+      const decoded = jwtDecode(token)
+      navigate(`/portal/${decoded.id}`, {replace: true});
     }
 
     const logoutClick = () => {
+      setShowNavbar(false);
+
       if (window.confirm('Are you sure you want to logout?')) {
         cookies.remove("TOKEN", {
           path: "/",
@@ -27,6 +31,8 @@ const Header = ({}, ref) => {
       }
       
     }
+
+    const [showNavbar, setShowNavbar] = useState(false);
 
     const handleClick = (type) => {
       var currHeight = document.getElementById('navbar').offsetHeight + 10;
@@ -38,9 +44,10 @@ const Header = ({}, ref) => {
         left: 0,
         behavior: "smooth",
       });
-    }
 
-    const [showNavbar, setShowNavbar] = useState(false);
+      setShowNavbar(false);
+
+    }
     const clickedNavbar = () => {
       setShowNavbar(!showNavbar);
     };
@@ -71,8 +78,8 @@ const Header = ({}, ref) => {
               </div> )
             :
             ( <div className='dynamic'>
-                <Link to="/login" className = "link">Login</Link>
-                <Link to="/signup" className = "link apply">Apply Now</Link>
+                <Link to="/login" className = "link" onClick={clickedNavbar}>Login</Link>
+                <Link to="/signup" className = "link apply" onClick={clickedNavbar}>Apply Now</Link>
               </div> )
           }
           
