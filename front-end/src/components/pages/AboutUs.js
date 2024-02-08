@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import logos from '../pictures/WiNGHACKS_Logo_sansWings.png'
 
 import wicse from '../pictures/org_logos/wicse_logo.png'
@@ -8,18 +8,55 @@ import wece from '../pictures/org_logos/wece_logo.jpeg'
 import wicys from '../pictures/org_logos/wicys_logo.jpeg'
 import CommitteeMemberItem from './CommitteeMemberItem.js'
 import { MemberList } from '../data/MemberList.js'
+import axios from 'axios';
+
 
 
 
 const AboutUs = () => {
   const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Enim sed faucibus turpis in eu mi. Porttitor lacus luctus accumsan tortor posuere.`;
-  const committeeNames =["Organizers", "Awards", "PR", "Merch", "Operations", "Sponsorship", "Tech-Support", "Website", "Workshop"]; 
+  const committeeNames =["Directors", "Awards", "PR", "Merch", "Operations", "Sponsorship", "Tech-Support", "Website", "Workshop"]; 
   
   const [filterCommittee,setFilterCommittee] = useState("")  
   const updateFilterCommittee = (committeeName) => {
     setFilterCommittee(committeeName)
-    console.log(filterCommittee)
   }
+
+  //parse csv into json
+  const parseCSV = (csvText) => {
+    const rows = csvText.split(/\r?\n/);
+    const headers = rows[0].split(',');
+    const data = [];
+
+    for (let i = 1; i < rows.length; i++){
+      const rowData = rows[i].split(',');
+      const rowObject = {};
+
+      for (let j = 1; j < headers.length; j++){
+        rowObject[headers[j]] = rowData[j];
+      }
+      data.push(rowObject);
+
+    }
+    return data;
+  }
+
+  //google sheets
+  const[csvData, setCsvData] = useState([]);
+
+  useEffect(() =>{
+      const csvUrl =  "https://docs.google.com/spreadsheets/d/e/2PACX-1vThvkGT_7AN8Z2gRah9O8Zx2KTvfwg1gIoEwlaza12JehfL-6ilYBgVvXaCZUQfqsWoj1AsZ_Oo7HmM/pub?output=csv"
+      axios.get(csvUrl)
+      .then((response) => {
+          const parsedCsvData = parseCSV(response.data);
+          setCsvData(parsedCsvData);
+          handleCsvData(parsedCsvData);
+          console.log(parsedCsvData);
+      })
+      .catch((e) => {
+          console.log('Error fetching csv data:', e);
+      });
+  }, []);
 
 
   return (
@@ -61,12 +98,7 @@ const AboutUs = () => {
             <div className='team-child-container'>
               <ul className='members'>
                 {MemberList.map((member, index) => {
-                  console.log(member.committee_name)
-                  console.log(filterCommittee)
                   if (member.committee_name === filterCommittee) {
-                    
-                      console.log("HERE")
-                      console.log(member.name)
                      return   ( <div>
                      <CommitteeMemberItem  name={member.name} 
                      image={member.profile_pic} position={member.committee_position}

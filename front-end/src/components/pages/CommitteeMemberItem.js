@@ -1,7 +1,6 @@
 import React from 'react'
 
 const CommitteeMemberItem = ({name, image, position, linkedIn}) =>{
-    console.log()
     const alt_text = name + " profile picture";
     return(
         <div>
