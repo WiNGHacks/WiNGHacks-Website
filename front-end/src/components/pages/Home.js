@@ -28,7 +28,11 @@ const Home = ({}, ref) => {
             <div className = "logo-home-container">
               <img src={logo} className = "logo-home" alt='WiNGHacks Logo'></img>
             </div>
-            <b className='home-date'>April 5-7</b>
+
+            <div className='info-container'>
+              <b className='home-date'>April 5-7</b>
+              <b className='home-location'>At the Herbert Wertheim Engineering Building</b>
+            </div>
       
 
           </div>
@@ -53,40 +57,8 @@ const Home = ({}, ref) => {
         </div>
         
       </div>
-      {/* <div className='based'><a href="#">Based</a></div> */}
   </div>
   )
 }
 
 export default forwardRef(Home)
-
-{/* <div className ="section" handleClick>
-        Home
-      </div>
-      <div className ="section">
-        About Us
-      </div>
-      <div className ="section">
-        Sponsors
-      </div>
-      <div className ="section">
-        Apply Now
-      </div> */}
-
-      {/* <div className = "logo-home-container">
-          <img src={logo} alt='WiNGHacks Logo'></img>
-        </div>
-        <br></br>
-
-        <div className='welcome-container'>
-          <h1 className='home-title'>Welcome to <br></br> </h1>
-          <button className='Button Button-apply'><a href="index.html">Apply now!</a></button>
-          <br></br>
-          <button className='Button Button-sponsor'><a href="index.html">Become a Sponsor</a></button>
-        </div>
-
-      </div>
-
-      <section className='Home-shortabout'>
-      
-      </section> */}

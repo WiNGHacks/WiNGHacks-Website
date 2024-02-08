@@ -183,13 +183,33 @@
 
     .logo-home:hover { animation-duration: 1s; }
 
+    .info-container {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+    }
+
     .home-date {
       align-self: center;
+      text-align: center;
       font-family: bitter;
       font-variant: small-caps;
-      font-size: clamp(2rem, 4vw, 4rem);
-      color: #b751c5;
-      max-width: 800px;
+      font-size: clamp(1rem, 3vw, 3rem);
+      font-style: bold;
+      color: #F07167;
+      -webkit-text-stroke: #712020;
+      max-width: 600px;
+    }
+
+    .home-location {
+      align-self: center;
+      text-align: center;
+      font-family: bitter;
+      font-variant: small-caps;
+      font-size: clamp(1rem, 2vw, 2rem);
+      color: #0081A7;
+      max-width: 600px;
     }
 
     .welcome-right-container {

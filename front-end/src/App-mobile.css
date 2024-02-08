@@ -10,7 +10,8 @@
       padding-top: 2%;
       padding-left: 1%;
       padding-right: 5%;
-      max-width: clamp(6rem, 8vw, 15rem);
+      max-width: clamp(8rem, 10vw, 15rem);
+      /* max-width: clamp(6rem, 8vw, 15rem); */
       min-width: 6rem;
       align-self: center;
     }
@@ -111,22 +112,26 @@
     }
   }
 
+}
+
+@media only screen and (max-width: 556px) {
+
   .Home {
     background-color: white; 
     padding: 1rem 2rem;
     border-radius: 25px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
-    .welcome-container { 
-      display: flex; 
+    .welcome-container {
+      display: contents;
 
       .floating-container {
         padding-top: 2rem;
         align-content: center;
-        justify-content: center;
-        display: flex;
+        display: contents;
         flex-direction: column;
-        width: 85%;
+        margin: 0px;
+        padding-right: 0px;
         /* background-color: rgb(138, 182, 168); */
       }
 
@@ -134,7 +139,7 @@
         align-self: center;
         font-family: bitter;
         font-variant: small-caps;
-        font-size: clamp(2rem, 4vw, 4rem);
+        font-size: clamp(1.5rem, 1.5vw, 3rem);
         color: #0081A7;
         max-width: 800px;
         animation-name: floating;
@@ -152,7 +157,7 @@
       .logo-home {
         padding-bottom: 2rem;
         /* max-height: clamp(10rem, 15vw, 22rem); */
-        max-width: clamp(20rem, 50vw, 50rem);
+        max-width: 110%;
         animation-name: floating;
         animation-duration: 3s;
         animation-iteration-count: infinite;
@@ -166,7 +171,6 @@
         font-family: bitter;
         font-variant: small-caps;
         font-size: clamp(2rem, 4vw, 4rem);
-        color: #b751c5;
         max-width: 800px;
       }
 
