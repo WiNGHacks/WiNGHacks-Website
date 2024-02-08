@@ -29,9 +29,9 @@ const Header = ({}, ref) => {
 
     const handleClick = (type) => {
       var currHeight = document.getElementById('navbar').offsetHeight + 10;
-      console.log(currHeight);
+      // console.log(currHeight);
       // var topVar = -currHeight? + ref?.current[type]?.offsetTop;
-      console.log(type)
+      // console.log(type)
       window.scrollTo({
         top: ref?.current[type]?.offsetTop - currHeight,
         left: 0,
@@ -54,26 +54,33 @@ const Header = ({}, ref) => {
         <Link to = "/#sponsor" onClick={() => handleClick('sponsor')} className = "link">Sponsors</Link>
         <Link to = "/#faq" onClick={() => handleClick('faq')} className = "link">FAQ</Link>
         
-          { token ?
-            (
-              <div>
-                {/* PlaceHolder for now Update Later */}
-                {/* <Link to="/portal">Portal</Link>  */}
-                <div className = "link" onClick={portalClick}>Portal</div>
-                <div to="/login" className = "link" onClick={logoutClick}>Logout</div>
-                {/* <a style={{textDecoration: 'underline'}} onClick={portalClick}>Portal</a>
-                <a style={{textDecoration: 'underline'}} onClick={logoutClick}>Logout</a> */}
-              </div>
-            )
-            :
-            ( <div className='links dynamic'>
-                <Link to="/login" className = "link">Login</Link>
-                <Link to="/signup" className = "link apply">Apply Now</Link>
-              </div> )
-          }
 
+         
       </div>
     </div> 
+
+
+
+// { token ?
+//   (
+//     <div>
+//       {/* PlaceHolder for now Update Later */}
+//       {/* <Link to="/portal">Portal</Link>  */}
+//       <div className = "link" onClick={portalClick}>Portal</div>
+//       <div to="/login" className = "link" onClick={logoutClick}>Logout</div>
+//       {/* <a style={{textDecoration: 'underline'}} onClick={portalClick}>Portal</a>
+//       <a style={{textDecoration: 'underline'}} onClick={logoutClick}>Logout</a> */}
+//     </div>
+//   )
+//   :
+//   ( 
+//     <div className='links dynamic'>
+//       <Link to="/login" className = "link">Login</Link>
+//       <Link to="/signup" className = "link apply">Apply Now</Link>
+//     </div> 
+//   )
+// }
+
 
     // <div className = "navbar">
 
