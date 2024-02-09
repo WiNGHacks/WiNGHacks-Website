@@ -1,7 +1,6 @@
 @media only screen and (max-width: 917px) {
 
   .navbar {
-    top: -100vh;
 
     /* move logo to center */
     .logo-container {
@@ -110,11 +109,21 @@
     .open {
       display: block;
     }
+
+    .close:hover, .open:hover {
+      color: #ff592b;
+    }
   }
 
 }
 
 @media only screen and (max-width: 556px) {
+
+  @keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50% { transform: translate(0, 10px); }
+    100% { transform: translate(0, -0px); }    
+  }
 
   .Home {
     background-color: white; 
@@ -175,14 +184,9 @@
       }
 
       .welcome-right-container {
-        position: relative;
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        padding-top: 10%;
-        padding-bottom: 2.5%;
-        padding-right: 0.75rem;
+        align-items: center;
+        padding-right: 0;
+        padding-bottom: 4.5%;
       }
     }
 
@@ -192,9 +196,8 @@
       display: flex;
 
       .icons {
-        padding: 0rem 0.5rem;
-        color: rgb(216, 121, 216);
-        height: 40px;
+        padding: 0rem 0.25rem;
+        color: #e25167;
       }
 
       .icons:hover {
@@ -208,6 +211,7 @@
 
   .Button{
     align-self: center;
+    text-align: center;
     border:none;
     padding: 1rem 1rem;
     border-radius: 0.2rem;
@@ -233,6 +237,7 @@
     border-style: solid;
     border-width: 0.35vw;
     padding: 0.5rem 0.5rem;
+    width: clamp(13rem, 13rem, 20rem);
   }
 
   .Button-interest{

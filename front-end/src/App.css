@@ -33,6 +33,14 @@
   100% { transform: translate(0, -0px); }    
 }
 
+a {
+  text-decoration: none;
+}
+
+h {
+  font-family: bitter;
+}
+
 .navbar {
   background: white;
   /* padding: 0.2rem calc((100vw - 1000px) / 2); */
@@ -232,7 +240,6 @@
     .icons {
       padding: 0rem 0.5rem;
       color: rgb(216, 121, 216);
-      height: 40px;
     }
 
     .icons:hover {
