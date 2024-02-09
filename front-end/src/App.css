@@ -274,7 +274,7 @@ h2 {
   color: white;
   width: clamp(4rem, 25vw, 25rem);
   height: clamp(3rem, 5vw, 7rem);
-  margin-bottom: clamp(1rem, 3vw, 5rem);;
+  margin-bottom: clamp(1rem, 3vw, 5rem);
 }
 
 button:hover{ cursor: pointer; }
@@ -325,8 +325,8 @@ button:hover{ cursor: pointer; }
   -webkit-box-shadow:inset 0 2px 0 #ffcbcb, inset 0 0px 0 #ba3d1b;
 }
 
-.About{
-  .mission-container{
+.About {
+  .mission-container {
     display: inline;
     color: #d15047;
     font-size: clamp(0.5rem, 1rem, 1rem);
@@ -336,60 +336,27 @@ button:hover{ cursor: pointer; }
     padding-top: 0;
     display: flex;
     column-gap: 2rem;
-
-    .who-we-are-child-container {
-      flex: 1;
-    }
+  }
+  .who-we-are-child-container {
+    flex: 1;
+  }
     
-    .collaborators-container{
-      justify-items: center;
-      align-items: center;
-    }
+  .collaborators-container{
+    justify-items: center;
+    align-items: center;
+  }
     
-    .logo-who-we-are{
-      max-width: 75%;
-    }
+  .logo-who-we-are{
+    max-width: 75%;
   }
 
-  
   .team-container{
     display: flex;
     width: 100%;
-  }
-  
-  
-  .team-child-container{
-    flex: 1;
-  }
-  
-  .headshot{
-    width: 100%;
-  }
-  
-  .committeeMembers-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    align-items: center;
-    gap: 1em;
-  }
-  
-  .btn-committee-names button{
-    background-color: darkgray;
-    border:1px solid gray;
-    color: #000;
-    cursor:pointer;
-    display: block;
-    padding: 10px 24px;
-    width: 50%;
-  }
-  
-  .btn-committee-names:not(:last-child){
-    border-bottom: none;
-  }
-  
-  .btn-committee-names button:hover{
-    background-color: rgb(68, 68, 68);
+
+    .team-child-container{
+      flex: 2 1 auto;
+    }
   }
   
   .about-header-container {
@@ -440,6 +407,128 @@ button:hover{ cursor: pointer; }
     background-color: rgb(198, 198, 198); 
   }
 }
+
+.btn-committee-names button{
+  background-color: palevioletred;
+  border:1px solid rgb(180, 95, 124);
+  a{
+    color: white;
+  }
+  
+  cursor:pointer;
+  display: block;
+  padding: 10px 24px;
+  width: 50%;
+}
+
+.btn-committee-names button{
+  background-color: palevioletred;
+  border:1px solid rgb(180, 95, 124);
+  a { color: white; }
+  
+  cursor:pointer;
+  display: block;
+  padding: 10px 24px;
+  width: 50%;
+}
+
+.btn-committee-names:not(:last-child){
+  border-bottom: none;
+}
+
+.btn-committee-names button:hover{
+  background-color: rgb(248, 40, 109);
+  
+}
+
+.members img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.members{
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+} 
+
+.members li{
+  float: left;
+  width: 100%;
+  list-style: none;
+}
+
+@media (min-width: 28.75em) {
+  .members li {
+    width:25%;
+  }
+  
+}
+
+figure{
+  margin: 0 1.25em 1.25em 0;
+  position: relative;
+  text-align: center;
+  border: 0.5em solid palevioletred;
+  border-radius: 0.5em;
+  overflow:hidden;
+}
+
+figure:hover{
+  border: 0.5em solid rgb(248, 40, 109);
+  img {
+    opacity: 0.1;
+    transition: all .2s ease-in-out .2s;
+  }
+  figcaption {
+    top: 50%;
+    margin-top: -5em;
+  }
+  h3 h4 h5 {
+    bottom: 70%;
+    padding: 0;
+  }
+
+}
+
+figcaption{
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  transition: all 0.2s ease-in-out allow-discrete;
+}
+
+figcaption a {
+  font-weight: bold;
+  text-decoration: none;
+  background-color: palevioletred;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  border-radius: 1.25rem;
+  padding-top: 0.5em;
+  width: 10rem;
+  height: 1.5rem;
+
+  &:hover{
+    background-color: rgb(248, 40, 109) ;
+  }
+}
+
+figcaption{
+  position: absolute;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  bottom: 100%;
+  color: #000;
+  text-shadow: 0 0 5em black;
+}
+
+/*MARIA HOW TO MAKE HOVER COLOR STAY ON ACTIVE BUTTON*/
 
 .Button-sponsor-page{
   background-color: rgb(255, 129, 120);
@@ -553,47 +642,4 @@ button:hover{ cursor: pointer; }
     flex-direction: column;
     align-self: center;
   } 
-}
-
-.Portal {
-  background-color: white; 
-  padding: 1rem 2rem;
-  border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  min-height: 60vh;
-  
-  .apply {
-    height: clamp(2rem, 5vw, 8rem);
-    background-color: #fefeaa;
-    font-size: fit-content;
-    color: rgb(255, 126, 74);
-  
-    padding: 0.25rem 0.5rem;
-    /* text-shadow: 0px 1px 0px #000; */
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    border-color: #f5c499;
-    border-style: solid;
-    border-width: 0.2vw;
-  }
-}
-
-.disabledButton {
-  color: rgb(81, 86, 89);
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 1px;
-  background-color: rgb(143, 141, 141);
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  outline: none;
-  box-sizing: border-box;
-  border: 2px solid rgba(0, 0, 0, 0.02);
-  margin-bottom: 50px;
-  text-align: center;
-  margin-bottom: 27px;
-  font-family: 'Ubuntu', sans-serif;
-  cursor: pointer;
 }
