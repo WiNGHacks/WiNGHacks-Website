@@ -19,7 +19,7 @@ const Home = ({}, ref) => {
 
   return (
     <div ref = {el => ref.current = { ...ref.current, home: el }}>
-      <div className='Home'>
+      <div className='Page Home'>
         <div className='welcome-container'>
           <div className='floating-container'>
 

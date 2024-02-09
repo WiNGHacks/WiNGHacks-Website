@@ -37,7 +37,11 @@ a {
   text-decoration: none;
 }
 
-h {
+h1 {
+  font-family: bitter;
+}
+
+h2 {
   font-family: bitter;
 }
 
@@ -141,11 +145,15 @@ h {
 
 }
 
-.Home { 
-  background-color: white; 
-  padding: 1rem 2rem;
+.Page {
+  background-color: white;
+  margin-top: 2rem;
+  padding: 2rem 2rem;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.Home { 
 
   .welcome-container { 
     display: flex; 
@@ -239,12 +247,12 @@ h {
 
     .icons {
       padding: 0rem 0.5rem;
-      color: rgb(216, 121, 216);
+      color: #e25167;
     }
 
     .icons:hover {
       border-radius: 5px;
-      color: rgb(65, 0, 170);
+      color: #ff3700;
       cursor: pointer;
     }
   }
@@ -318,37 +326,34 @@ button:hover{ cursor: pointer; }
 }
 
 .About{
-  background-color: white;
-  margin-top: 2rem;
-  padding: 2rem 2rem;
-  border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
   .mission-container{
     display: inline;
+    color: #d15047;
+    font-size: clamp(0.5rem, 1rem, 1rem);
   }
   
   .who-we-are-container{
+    padding-top: 0;
     display: flex;
-    width: 100%;
+    column-gap: 2rem;
+
+    .who-we-are-child-container {
+      flex: 1;
+    }
+    
+    .collaborators-container{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      align-items: center;
+      gap: 1em;
+    }
+    
+    .logo-who-we-are{
+      max-width: 75%;
+    }
   }
-  
-  .who-we-are-child-container{
-    flex: 1;
-    max-height: 300px;
-  }
-  
-  .collaborators-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    align-items: center;
-    gap: 1em;
-  }
-  
-  .logo-who-we-are{
-    max-width: 75%;
-  }
+
   
   .team-container{
     display: flex;

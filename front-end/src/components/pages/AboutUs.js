@@ -21,9 +21,9 @@ const AboutUs = ({}, ref) => {
 
   return (
     <div ref={el => ref.current = { ...ref.current, about: el }}>
-      <div className='About'>
+      <div className='Page About'>
         <div className='mission-container'>
-          <h1>UF's first hackathon for women and nonbinary students!</h1>
+          <h1>WiNGHacks are the wings that uplift women, nonbinary people, and gender minorities.</h1>
           {/* <p>{text}</p> */}
         </div>
         <div className='who-we-are-container'>

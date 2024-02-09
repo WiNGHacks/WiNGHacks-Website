@@ -1,5 +1,4 @@
 @media only screen and (max-width: 917px) {
-
   .navbar {
 
     /* move logo to center */
@@ -114,7 +113,18 @@
       color: #ff592b;
     }
   }
+}
 
+@media only screen and (max-width: 800px) {
+  .About {
+    .collaborators-container{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      align-items: center;
+      gap: 1em;
+    }
+  }
 }
 
 @media only screen and (max-width: 556px) {
@@ -191,19 +201,10 @@
     }
 
     .socials {
-      position: relative;
-      justify-content: right;
-      display: flex;
 
       .icons {
         padding: 0rem 0.25rem;
         color: #e25167;
-      }
-
-      .icons:hover {
-        border-radius: 5px;
-        color: rgb(65, 0, 170);
-        cursor: pointer;
       }
     }
 
@@ -278,14 +279,10 @@
   }
 
   .About{
-    background-color: white;
-    margin-top: 2rem;
-    padding: 2rem 2rem;
-    border-radius: 25px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
-    .mission-container{
+    .mission-container {
       display: inline;
+      
+
     }
     
     .who-we-are-container{
@@ -304,11 +301,6 @@
 
     
     .collaborators-container{
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      align-items: center;
-      gap: 1em;
     }
     
     .logo-who-we-are{
