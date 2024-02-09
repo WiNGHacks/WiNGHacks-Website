@@ -22,7 +22,7 @@ const items = [
   {
     key: '3',
     header: 'When do applications open?',
-    content: "Applications open [DATE HERE]",
+    content: "Applications will be opening soon!",
   },
   {
     key: '4',
@@ -63,7 +63,7 @@ const items = [
 
 const FAQ = React.FC = ({}, ref) => {
   const onChange = (key) => {
-    console.log(key);
+    // console.log(key);
   }
 
   return (

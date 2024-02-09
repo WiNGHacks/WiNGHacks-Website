@@ -31,7 +31,7 @@ const Login = () => {
 
     // Handling the form submission
     const handleSubmit = (e) => {
-        console.log(process.env.REACT_APP_LOGIN_API_URL)
+        // console.log(process.env.REACT_APP_LOGIN_API_URL)
         //Prevent submissions before changing values
         e.preventDefault();
         axios.post(process.env.REACT_APP_LOGIN_API_URL, {
@@ -39,11 +39,11 @@ const Login = () => {
             password: password,
         }).then((response)=>{
             if (response.data.emailVerified === false) {
-                console.log(response.data)
+                // console.log(response.data)
                 setErrorMessage("Please verify your email first")
             } 
             else {
-                console.log(response.data)
+                // console.log(response.data)
 
                 // set the cookie
                 cookies.set("TOKEN", response.data.token, {
@@ -58,7 +58,7 @@ const Login = () => {
             }
             
         }).catch((error) => {
-            console.log(error)
+            // console.log(error)
             setErrorMessage("Invalid email/password")
             // alert(error.response.data.message)
         })
@@ -99,7 +99,7 @@ const Login = () => {
                         type="email"
                         placeholder='Enter email'
                     />
-                    {console.log(email)}
+                    {/* {console.log(email)} */}
 
                     {/* <label className="label">Password</label> */}
                     <input
@@ -108,7 +108,7 @@ const Login = () => {
                         type="password"
                         placeholder='Enter password'
                     />
-                    {console.log(password)}
+                    {/* {console.log(password)} */}
                     
 
                     {login?(

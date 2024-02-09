@@ -58,7 +58,7 @@ const UserPortal = () => {
             { status === "Not Applied" ? 
             (
                 <div>
-                    {console.log(status)}
+                    {/* {console.log(status)} */}
                     <h1>Hi, {firstName} {lastName}</h1>
                     <button className= "Button apply" onClick={() => {window.open(process.env.REACT_APP_APPLICATION_FORM)}}>
                         Apply Now
@@ -70,7 +70,7 @@ const UserPortal = () => {
             :
             (
                 <div>
-                    {console.log(status)}
+                    {/* {console.log(status)} */}
                     <h1>Hi, {firstName} {lastName}</h1>
                     <h2>Your Status: {status}</h2>
                     <p>Thank you for applying! Check back later for more updates on your application!</p>

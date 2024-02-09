@@ -14,7 +14,7 @@ const VerificationEmail = () => {
     // Send a request to your server to verify the token
     axios.put(`${process.env.REACT_APP_VERIFY_EMAIL_URL}${token}`)
     .then((response) => {
-      console.log(response.data.token)
+      // console.log(response.data.token)
       setVerificationStatus("Verified!")
 
       // set the cookie
@@ -27,7 +27,7 @@ const VerificationEmail = () => {
       window.location.replace(process.env.REACT_APP_APPLICATION_FORM)
     })
     .then((error) => {
-      console.log(error)
+      // console.log(error)
     })
 
 
