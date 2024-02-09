@@ -47,7 +47,7 @@ const AboutUs = ({}, ref) => {
         </div>
         <h2>Meet the Team</h2>
         <div className='team-container'>
-            <div className='team-child-container'>
+            <div className='team-child-container-names'>
               <div className='btn-committee-names'>
                 {committeeNames.map((committeeName, index) =>{
                   return <button onClick={() =>updateFilterCommittee(committeeName)}>{committeeName}</button>
@@ -57,7 +57,7 @@ const AboutUs = ({}, ref) => {
               </div>
 
             </div>
-            <div className='team-child-container'>
+            <div className='team-child-container-members'>
               <ul className='members'>
                 {MemberList.map((member, index) => {
                   if (member.committee_name === filterCommittee) {
