@@ -15,7 +15,7 @@ import axios from 'axios';
 
 const AboutUs = () => {
   const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Enim sed faucibus turpis in eu mi. Porttitor lacus luctus accumsan tortor posuere.`;
-  const committeeNames =["Directors", "Awards", "PR", "Merch", "Operations", "Sponsorship", "Website", "Workshop"]; 
+  const committeeNames =["Directors", "Awards", "PR", "Merch", "Operations", "Sponsorship", "Tech-support", "Website", "Workshop"]; 
   
   const [filterCommittee,setFilterCommittee] = useState("")  
   const updateFilterCommittee = (committeeName) => {

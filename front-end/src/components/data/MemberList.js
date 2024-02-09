@@ -21,19 +21,11 @@ import Christine_Lin_pic from '../pictures/profile_pics/Christine_Lin.png'
 import Ananya_Kakaveti_pic from '../pictures/profile_pics/Annie_Kakaveti.png'
 import Alexa_Melnychuk_pic from '../pictures/profile_pics/Alexa_Melnychuk.png'
 import Mina_Alkhazraji_pic from '../pictures/profile_pics/Mina_Alkhazraji.png'
-
-
-
-
-
-
-
-
-
-
-
-
-
+import Lan_Ahn_Do_pic from '../pictures/profile_pics/Lan_Ahn_Do.png'
+import Disha_Gaonkar_pic from '../pictures/profile_pics/Disha_Gaonkar.png'
+import Teresa_Vu_pic from '../pictures/profile_pics/Teresa_Vu.png'
+import Lily_Cabrera_pic from '../pictures/profile_pics/Lily_Cabrera.png'
+import Alanis_Rivera_Narvaez_pic from '../pictures/profile_pics/Alanis_Rivera-Narvaez.png'
 
 
 
@@ -240,7 +232,52 @@ export const MemberList = [
         linkedIn: "http://linkedin.com/in/mina-alkhazraji",
         major: "Computer Engineering",
         committee_position: "Committee Member",
-        committee_name: "Workshop"
-    }
-    
+        committee_name: "Workshop",
+    },
+    {
+        id: "23",
+        name: "Lan Anh Do (she/her/hers)",
+        profile_pic: Lan_Ahn_Do_pic,
+        linkedIn: "linkedin.com/in/lananhnguyendo",
+        major: "Computer Science",
+        committee_position: "Committee Member",
+        committee_name: "Operations",
+    },
+    {
+        id: "24",
+        name: "Disha Gaonkar (she/her)",
+        profile_pic: Disha_Gaonkar_pic,
+        linkedIn: "https://www.linkedin.com/in/disha-gaonkar/",
+        major: "Computer Science",
+        committee_position: "Committee Head",
+        committee_name: "Operations",
+    },
+    {
+        id: "25",
+        name: "Teresa Vu (she/her)",
+        profile_pic: Teresa_Vu_pic,
+        linkedIn: "http://www.linkedin.com/in/teresavuu",
+        major: "Computer Science",
+        committee_position: "Committee Head",
+        committee_name: "Tech-support",
+    },
+    {
+        id: "26",
+        name: "Lily Cabrera (she/her)",
+        profile_pic: Lily_Cabrera_pic,
+        linkedIn: "www.linkedin.com/in/lily-cabrera",
+        major: "Computer Science",
+        committee_position: "Committee Member",
+        committee_name: "Awards",
+    },
+    {
+        id: "27",
+        name: "Alanis Rivera Narvaez (she/her)",
+        profile_pic: Alanis_Rivera_Narvaez_pic,
+        linkedIn: "www.linkedin.com/in/alanis-rivera-narvaez/",
+        major: "Computer Science",
+        committee_position: "Committee Head",
+        committee_name: "Workshops"
+    }  
+
 ]
