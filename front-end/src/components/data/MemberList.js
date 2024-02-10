@@ -26,6 +26,10 @@ import Disha_Gaonkar_pic from '../pictures/profile_pics/Disha_Gaonkar.png'
 import Teresa_Vu_pic from '../pictures/profile_pics/Teresa_Vu.png'
 import Lily_Cabrera_pic from '../pictures/profile_pics/Lily_Cabrera.png'
 import Alanis_Rivera_Narvaez_pic from '../pictures/profile_pics/Alanis_Rivera-Narvaez.png'
+import Arossa_Adhikary_pic from '../pictures/profile_pics/Arossa_Adhikary.png'
+import Maria_Pasaylo_pic from '../pictures/profile_pics/Maria_Pasaylo.png'
+
+
 
 
 
@@ -194,7 +198,7 @@ export const MemberList = [
     },
     {
         id: "19",
-        name: "Christine Lin",
+        name: "Christine Lin (she/her)",
         profile_pic: Christine_Lin_pic,
         linkedIn: "https://www.linkedin.com/in/lin-christine",
         major: "Computer Science",
@@ -203,7 +207,7 @@ export const MemberList = [
     },
     {
         id: "20",
-        name: "Ananya Kakaveti",
+        name: "Ananya Kakaveti (she/her)",
         profile_pic: Ananya_Kakaveti_pic,
         linkedIn: "https://www.linkedin.com/in/ananyakakaveti/",
         major: "Computer Science",
@@ -212,7 +216,7 @@ export const MemberList = [
     },
     {
         id: "21",
-        name: "Alexa Melnychuk",
+        name: "Alexa Melnychuk (she/her)",
         profile_pic: Alexa_Melnychuk_pic,
         linkedIn: "https://www.linkedin.com/in/alexa-melnychuk/",
         major: "Computer Science",
@@ -271,8 +275,25 @@ export const MemberList = [
         linkedIn: "www.linkedin.com/in/alanis-rivera-narvaez/",
         major: "Computer Science",
         committee_position: "Committee Head",
-        committee_name: "Workshops"
-    }  
+        committee_name: "Workshops",
+    }, 
+    {
+        id: "28",
+        name: "Arossa Adhikary (she/her)",
+        profile_pic: Arossa_Adhikary_pic,
+        linkedIn: "https://www.linkedin.com/in/arossaadhikary/",
+        major: "Computer Science",
+        committee_position: "Committee Member",
+        committee_name: "Website",
+    },{
+        id: "29",
+        name: "Maria Pasaylo",
+        profile_pic: Maria_Pasaylo_pic,
+        linkedIn: "https://www.linkedin.com/in/maria-pasaylo/",
+        major: "Computer Science",
+        committee_position: "Committee Member",
+        committee_name: "Website"
+    }, 
 
 ]
 
