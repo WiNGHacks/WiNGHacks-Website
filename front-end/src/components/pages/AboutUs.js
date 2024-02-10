@@ -44,7 +44,7 @@ const updateFilterCommittee = (committeeName) => {
                 <img  src={gwc} className='logo-who-we-are' alt='WiNGHacks Girls Who Code Logo'></img>
                 <img  src={wece} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img>
                 <img  src={wicys} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img>
-                <img  src={logos} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img>
+                <a href = "https://www.linkedin.com/company/uf-winghacks/" target="_blank"><img  src={logos} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img></a>
             </div>
           
           </div>

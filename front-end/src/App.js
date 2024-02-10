@@ -42,6 +42,7 @@ function App() {
       
         <Router>
           <Header ref = {ref} />
+         
           <div className = "App">
             <Routes>
                 <Route

@@ -5,6 +5,8 @@ import { jwtDecode } from "jwt-decode";
 import '../App.css';
 import logo from './pictures/WiNGHACKS_logo.png'
 
+
+
 const cookies = new Cookies();
 
 const Header = ({}, ref) => {
@@ -41,8 +43,8 @@ const Header = ({}, ref) => {
 
 
     return (
+      
       <div className = "navbar" id='navbar'>
-
       <Link to = "/#home"  onClick={() => handleClick('home')} className = "logo-container">
         <img src={logo} alt="Logo"/>
         {/* <b className='image-text'>WiNGHacks</b> */}
@@ -57,6 +59,7 @@ const Header = ({}, ref) => {
 
          
       </div>
+
     </div> 
 
 
