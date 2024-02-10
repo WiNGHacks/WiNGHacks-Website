@@ -51,28 +51,29 @@ const UserPortal = () => {
 
 
     return (
-        <div>
+        <div className="Portal" align='center'>
             <FetchResponse handleCsvData = {handleCsvData} email = {email} id={id} status={status}/>
             
 
             { status === "Not Applied" ? 
             (
                 <div>
-                    {console.log(status)}
+                    {/* {console.log(status)} */}
                     <h1>Hi, {firstName} {lastName}</h1>
-                    <button onClick={() => {window.open("https://forms.gle/3bcb8G57Y2PYuFfVA")}}>
+                    <button className= "Button apply" onClick={() => {window.open(process.env.REACT_APP_APPLICATION_FORM)}}>
                         Apply Now
                     </button>
                     <h2>Your Status: {status}</h2>
-                    <p>If you already applied please wait for at least 5 minutes to then refresh the page to see new updates.</p>
+                    <p>Please wait 5 minutes to see updates. Please only submit one application.</p>
                 </div>
             )
             :
             (
                 <div>
-                    {console.log(status)}
+                    {/* {console.log(status)} */}
                     <h1>Hi, {firstName} {lastName}</h1>
                     <h2>Your Status: {status}</h2>
+                    <p>Thank you for applying! Check back later for more updates on your application!</p>
                 </div>
 
             )
