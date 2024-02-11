@@ -1,4 +1,5 @@
-import React, {forwardRef, useState} from 'react'
+
+import React,{useState, useEffect, forwardRef} from 'react'
 import logos from '../pictures/WiNGHACKS_Logo_sansWings.png'
 
 import wicse from '../pictures/org_logos/wicse_logo.png'
@@ -12,23 +13,20 @@ import { MemberList } from '../data/MemberList.js'
 
 const AboutUs = ({}, ref) => {
 
-  const text = `
-  WiNGHacks is the University of Florida’s (UF) first hackathon specifically created for women and nonbinary students. WiNgHacks gives Women and Nonbinary students the wings that uplift them in their technology journeys. During WiNgHacks, 200 attendees from both UF and neighboring schools will learn new skills, network with their peers, and create innovative projects. 
-  The goal of our hackathon is to be a welcoming opportunity for learning and growth for underrepresented genders in the tech industry. Hackathons are great opportunities for students to learn new skills, network, and get a project on their resume, and we want to create an inclusive and welcoming environment for women and nonbinary students, especially those who are first-time hackers, to reap the benefits and opportunities that hackathons have. 
+  const text = 'WiNGHacks is the University of Florida’s (UF) first hackathon specifically created for women and nonbinary students. WiNgHacks gives Women and Nonbinary students the wings that uplift them in their technology journeys. During WiNgHacks, 200 attendees from both UF and neighboring schools will learn new skills, network with their peers, and create innovative projects. The goal of our hackathon is to be a welcoming opportunity for learning and growth for underrepresented genders in the tech industry. Hackathons are great opportunities for students to learn new skills, network, and get a project on their resume, and we want to create an inclusive and welcoming environment for women and nonbinary students, especially those who are first-time hackers, to reap the benefits and opportunities that hackathons have.'
 
-`;
-const committeeNames =["Directors", "Awards", "PR", "Merch", "Operations", "Sponsorship", "Tech-support", "Website", "Workshop"]; 
+  const committeeNames =["Directors", "Awards", "PR", "Merch", "Operations", "Sponsorship", "Tech-support", "Website", "Workshop"]; 
   
-const [filterCommittee,setFilterCommittee] = useState("")  
-const updateFilterCommittee = (committeeName) => {
-  setFilterCommittee(committeeName)
-}
+  const [filterCommittee,setFilterCommittee] = useState("")  
+  const updateFilterCommittee = (committeeName) => {
+    setFilterCommittee(committeeName)
+  }
 
   return (
     <div ref={el => ref.current = { ...ref.current, about: el }}>
-      <div className='About'>
+      <div className='Page About'>
         <div className='mission-container'>
-          <h1>UF's first hackathon for women and nonbinary students!</h1>
+          <h1>WiNGHacks are the wings that uplift women, nonbinary people, and gender minorities.</h1>
           {/* <p>{text}</p> */}
         </div>
         <div className='who-we-are-container'>
@@ -41,8 +39,8 @@ const updateFilterCommittee = (committeeName) => {
               {/*MARIA-How to use variable to store the logos so don't have to repeat img every time?*/}
                 <a href="https://ufwicse.com" target="_blank"><img  src={wicse} className='logo-who-we-are' alt='WiNGHacks WiCSE Logo'></img></a>
                 <a href="https://www.linkedin.com/company/cs-kickstart-at-uf" target="_blank"><img  src={csk} className='logo-who-we-are' alt='WiNGHacks CSK Logo'></img></a>
-                <img  src={gwc} className='logo-who-we-are' alt='WiNGHacks Girls Who Code Logo'></img>
-                <img  src={wece} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img>
+                <a href="https://www.instagram.com/girlswhocodeuf/" target="_blank"><img  src={gwc} className='logo-who-we-are' alt='WiNGHacks Girls Who Code Logo'></img></a>
+                <a href="https://www.instagram.com/wece_uf/" target="_blank"><img  src={wece} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img></a>
                 <img  src={wicys} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img>
                 <img  src={logos} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img>
             </div>
@@ -77,7 +75,6 @@ const updateFilterCommittee = (committeeName) => {
                      image={member.profile_pic} position={member.committee_position}
                     linkedIn = {member.linkedIn}/> 
                     </div>)
-                 
                   }
                   
                 })}

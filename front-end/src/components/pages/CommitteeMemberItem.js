@@ -8,8 +8,8 @@ const CommitteeMemberItem = ({name, image, position, linkedIn}) =>{
                 <figure>
                     <img src={image} alt = {alt_text}></img>
                     <figcaption>
-                    <h3>{name}</h3>
-                    <h4>{position}</h4>
+                        <h3>{name}</h3>
+                        <h4>{position}</h4>
                         <a target='_blank' href={linkedIn}>Let's Connect</a>
                     </figcaption>
                 </figure>
