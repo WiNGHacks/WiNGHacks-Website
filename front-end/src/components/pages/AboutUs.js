@@ -45,7 +45,7 @@ const AboutUs = ({}, ref) => {
         <h2>Meet the Team</h2>
         <div className='team-container'>
             <div className='team-child-container'>
-              <div className = 'btn-committee-names'>
+              <div className = 'btn-committee-names'> 
               {/*MARIA-How to use committee name array so don't have to repeat button every time?*/}
                 <button>Main Organizers</button>
                 <button>Website</button>
