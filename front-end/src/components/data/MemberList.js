@@ -1,4 +1,3 @@
-import littleLady_pic from '../pictures/characters/littleLady.PNG'
 import Minuet_Greenberg_pic from '../pictures/profile_pics/Minuet_Greenberg.png'
 import Maddie_Glaum_pic from '../pictures/profile_pics/Maddie_Glaum.png'
 import Vy_Vu_pic from '../pictures/profile_pics/Vy_Vu.png'
@@ -26,14 +25,6 @@ import Disha_Gaonkar_pic from '../pictures/profile_pics/Disha_Gaonkar.png'
 import Teresa_Vu_pic from '../pictures/profile_pics/Teresa_Vu.png'
 import Lily_Cabrera_pic from '../pictures/profile_pics/Lily_Cabrera.png'
 import Alanis_Rivera_Narvaez_pic from '../pictures/profile_pics/Alanis_Rivera-Narvaez.png'
-
-
-
-
-
-
-
-
 
 export const MemberList = [
     {

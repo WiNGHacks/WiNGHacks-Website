@@ -1,3 +1,4 @@
+
 import React,{useState, useEffect, forwardRef} from 'react'
 import logos from '../pictures/WiNGHACKS_Logo_sansWings.png'
 
@@ -6,6 +7,7 @@ import csk from '../pictures/org_logos/csk_logo.png'
 import gwc from '../pictures/org_logos/gwc_logo.jpeg'
 import wece from '../pictures/org_logos/wece_logo.jpeg'
 import wicys from '../pictures/org_logos/wicys_logo.jpeg'
+
 import CommitteeMemberItem from './CommitteeMemberItem.js'
 import { MemberList } from '../data/MemberList.js'
 
@@ -19,7 +21,6 @@ const AboutUs = ({}, ref) => {
   const updateFilterCommittee = (committeeName) => {
     setFilterCommittee(committeeName)
   }
-
 
   return (
     <div ref={el => ref.current = { ...ref.current, about: el }}>
@@ -35,17 +36,18 @@ const AboutUs = ({}, ref) => {
           </div>
           <div className='who-we-are-child-container'>
             <div className='collaborators-container'>
-                <img  src={wicse} className='logo-who-we-are' alt='WiNGHacks WiCSE Logo'></img>
-                <img  src={csk} className='logo-who-we-are' alt='WiNGHacks CSK Logo'></img>
-                <img  src={gwc} className='logo-who-we-are' alt='WiNGHacks Girls Who Code Logo'></img>
-                <img  src={wece} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img>
+              {/*MARIA-How to use variable to store the logos so don't have to repeat img every time?*/}
+                <a href="https://ufwicse.com" target="_blank"><img  src={wicse} className='logo-who-we-are' alt='WiNGHacks WiCSE Logo'></img></a>
+                <a href="https://www.linkedin.com/company/cs-kickstart-at-uf" target="_blank"><img  src={csk} className='logo-who-we-are' alt='WiNGHacks CSK Logo'></img></a>
+                <a href="https://www.instagram.com/girlswhocodeuf/" target="_blank"><img  src={gwc} className='logo-who-we-are' alt='WiNGHacks Girls Who Code Logo'></img></a>
+                <a href="https://www.instagram.com/wece_uf/" target="_blank"><img  src={wece} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img></a>
                 <img  src={wicys} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img>
                 <img  src={logos} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img>
             </div>
           
           </div>
         </div>
-        <h2>Meet the Team</h2>
+        <h2 style={{paddingTop: "8%"}}>Meet the Team</h2>
         <div className='team-container'>
             <div className='team-child-container-names'>
               <div className='btn-committee-names'>
@@ -57,16 +59,22 @@ const AboutUs = ({}, ref) => {
               </div>
 
             </div>
-            <div className='team-child-container-members'>
+            <div className='team-child-container'>
               <ul className='members'>
                 {MemberList.map((member, index) => {
+                  if (filterCommittee === ""){
+                    return   ( <div>
+                      <CommitteeMemberItem  name={member.name} 
+                      image={member.profile_pic} position={member.committee_position}
+                     linkedIn = {member.linkedIn}/> 
+                     </div>)
+                  }
                   if (member.committee_name === filterCommittee) {
                      return   ( <div>
                      <CommitteeMemberItem  name={member.name} 
                      image={member.profile_pic} position={member.committee_position}
                     linkedIn = {member.linkedIn}/> 
                     </div>)
-                    
                   }
                   
                 })}

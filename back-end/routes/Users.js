@@ -10,6 +10,51 @@ const bcrypt = require("bcrypt");
 // Assign access token to the user
 const jwt = require("jsonwebtoken");
 
+// HTML FOR VERIFY EMAIL TEMPLATE
+const emailVerifyTemplate = (verifyLink) => {
+    return `
+    
+    <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
+    <p style="color: #f4f4f4; " >. </p>
+    <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        <h1 style="color: #333;">Confirm Your Email Address</h1>
+        <p style="color: #666; line-height: 1.6;">Thank you for signing up! Please click the button below to verify your email address.</p>
+        <a href=${verifyLink}  
+            style="display: inline-block; padding: 10px 20px; background-color: #00AFB9; color: #fff; text-decoration: none; border-radius: 3px;"
+        >
+            Verify Email Address
+        </a>
+        <p style="color: #666; line-height: 1.6;">If you did not sign up for this service, you can ignore this email.</p>
+    </div>
+    <p style="max-width: 630px; margin: 20px auto;" >If you have any question please contact uf.winghacks@gmail.com. Follow us on 
+        <a href="https://www.instagram.com/uf.winghacks/">Instagram</a> and 
+        <a href="https://www.linkedin.com/company/uf-winghacks/">LinkedIn</a>!
+
+    </p>
+</body>`
+}
+
+const emailWelcomeTemplate =   `
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
+    <p style="color: #f4f4f4; " >. </p>
+    <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        <h1 style="color: #333;">Thank you for applying to WiNGHacks!</h1>
+        <p style="color: #666; line-height: 1.6;">Thank you for applying for WiNGHacks! Please click the button below to login to your account to check your status.</p>
+        <a href=${process.env.LOGIN_URL}  
+            style="display: inline-block; padding: 10px 20px; background-color: #00AFB9; color: #fff; text-decoration: none; border-radius: 3px;"
+        >
+            Login
+        </a>
+        <p style="color: #666; line-height: 1.6;">If you did not fill out our application, you can ignore this email.</p>
+    </div>
+    <p style="max-width: 630px; margin: 20px auto;" >If you have any question please contact uf.winghacks@gmail.com. Follow us on 
+        <a href="https://www.instagram.com/uf.winghacks/">Instagram</a> and 
+        <a href="https://www.linkedin.com/company/uf-winghacks/">LinkedIn</a>!
+
+    </p>
+</body>
+`
+
 router.post('/signup', (req, res) => {
     // let verificationLink
     Users.findOne({email: req.body.email.toLowerCase()})
@@ -50,10 +95,10 @@ router.post('/signup', (req, res) => {
                 const verificationLink = `${process.env.FRONT_END_URL}verify/${verificationToken}`;
 
                 const mailOptions = {
-                    from: process.env.EMAIL,
+                    from: `"WiNGHacks Team " ${process.env.EMAIL}`,
                     to: req.body.email.toLowerCase(),
-                    subject: 'Email Verification',
-                    html: `<p>Click <a href="${verificationLink}">here</a> to verify your email.</p>`
+                    subject: 'Confirm your account',
+                    html: emailVerifyTemplate(verificationLink)
                 };
 
                 transporter.sendMail(mailOptions, (error, info) => {
@@ -143,6 +188,58 @@ router.post('/login', (req, res) => {
 
 /* ================ Email Verification!!! ================ */
 
+router.post("/sendEmail/welcome", async (req, res) => {
+    const email = req.body.email.toLowerCase()
+
+    Users.findOne({email: email })
+    .then((response) => {
+        if(response == null){
+            return res.status(404).send({
+                message: "Email not found",
+                response
+            });
+        }
+
+        const transporter = nodemailer.createTransport({
+            service: 'Gmail',
+            auth: {
+              user: process.env.EMAIL, // Replace with your Gmail email address
+              pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
+            }
+        });
+
+        const mailOptions = {
+            from: `"WiNGHacks Team " ${process.env.EMAIL}`,
+            to: email,
+            subject: 'Confirm your account',
+            html: emailWelcomeTemplate
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                res.status(500).send({
+                    message: "Couldn't send email",
+                    error,
+                
+                });
+            } else {
+                res.status(200).send({
+                    message: "Successfully sent email",
+                    response
+                });
+            }
+        });
+    })
+    .catch((e) => {
+        res.status(404).send({
+            message: "Error with finding verification token",
+            e
+        });
+
+    })
+
+})
+
 router.post("/sendEmail/:token", async (req, res) => {
     const token = req.params.token
 
@@ -167,10 +264,10 @@ router.post("/sendEmail/:token", async (req, res) => {
         const verificationLink = `${process.env.FRONT_END_URL}verify/${token}`;
 
         const mailOptions = {
-            from: process.env.EMAIL,
+            from: `"WiNGHacks Team " ${process.env.EMAIL}`,
             to: response.email.toLowerCase(),
-            subject: 'Email Verification',
-            html: `<p>Click <a href="${verificationLink}">here</a> to verify your email.</p>`
+            subject: 'Confirm your account',
+            html: emailVerifyTemplate(verificationLink)
         };
 
         transporter.sendMail(mailOptions, (error, info) => {

@@ -15,7 +15,7 @@ const FetchResponse = ({handleCsvData, email, id, status}) => {
             setCsvData(parsedCsvData);
             handleCsvData(parsedCsvData); 
       // Set the fetched data in the component's state
-            console.log(parsedCsvData);        // Now you can work with 'csvData' in your component's state.
+            // console.log(parsedCsvData);        // Now you can work with 'csvData' in your component's state.
         })
         .catch((error) => {
             console.error('Error fetching CSV data:', error);
@@ -23,31 +23,41 @@ const FetchResponse = ({handleCsvData, email, id, status}) => {
     }, []); 
 
     useEffect(() => {
-        console.log(csvData)
+        // console.log(csvData)
         csvData?.map((submissions) => {
-            console.log(submissions)
+            // console.log(submissions)
             let lowerCaseEmail = submissions.Email?.toLowerCase()
-            console.log(lowerCaseEmail)
+            // console.log(lowerCaseEmail)
             if (lowerCaseEmail === email && submissions.Status !== status){
                 if (status === "Not Applied"){
-                    console.log(status)
+                    // console.log(status)
                     axios.put(`${process.env.REACT_APP_UPDATE_STATUS_API_URL}${id}`, 
                         {status: "Applied"}
                     )
                     .then((response) => {
-                        console.log(response.data.message)
-                        console.log(response)
+                        // console.log(response.data.message)
+                        // console.log(response)
+
+                        // axios.post(process.env.REACT_APP_SEND_WELCOME_EMAIL_URL, {email: lowerCaseEmail})
+                        // .then((response) => {
+                        //     console.log("Email sent")
+                        // })
+                        // .else((e) => {
+                        //     console.log("Email not sent")
+                        // })
+
                         window.location.reload();
+
                     })
                 }
                 else if (submissions.Status !== "" ){
-                    console.log(submissions)
+                    // console.log(submissions)
                     axios.put(`${process.env.REACT_APP_UPDATE_STATUS_API_URL}${id}`, 
                         {status: submissions.Status}
                     )
                     .then((response) => {
-                        console.log(response.data.message)
-                        console.log(response)
+                        // console.log(response.data.message)
+                        // console.log(response)
                         window.location.reload();
     
                     })

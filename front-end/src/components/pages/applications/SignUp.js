@@ -51,11 +51,11 @@ const SignUp = () => {
             password: password,
             status: "Not Applied",
         }).then((response)=>{
-            console.log(response.data)
+            // console.log(response.data)
             setRegister(true);
             window.location.replace(`/notify/email/${response.data.result.emailToken}`);
         }).catch((error) => {
-            console.log(error)
+            // console.log(error)
             setErrorMessage(error.response.data.error)
             // alert(error.response.data.error)
         })

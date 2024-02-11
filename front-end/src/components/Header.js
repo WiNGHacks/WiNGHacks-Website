@@ -36,9 +36,9 @@ const Header = ({}, ref) => {
 
     const handleClick = (type) => {
       var currHeight = document.getElementById('navbar').offsetHeight + 10;
-      console.log(currHeight);
+      // console.log(currHeight);
       // var topVar = -currHeight? + ref?.current[type]?.offsetTop;
-      console.log(type)
+      // console.log(type)
       window.scrollTo({
         top: ref?.current[type]?.offsetTop - currHeight,
         left: 0,
@@ -67,6 +67,7 @@ const Header = ({}, ref) => {
         <Link to = "/#sponsor" onClick={() => handleClick('sponsor')} className = "link">Sponsors</Link>
         <Link to = "/#faq" onClick={() => handleClick('faq')} className = "link">FAQ</Link>
         
+
           { token ?
             ( <div>
                 {/* PlaceHolder for now Update Later */}
