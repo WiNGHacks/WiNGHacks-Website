@@ -413,6 +413,7 @@ button:hover{ cursor: pointer; }
       .members{
         margin: 0;
         overflow: scroll;
+        overflow-x: hidden;
         padding: 0;
         max-height: 100%;
         width: 100%;
@@ -427,7 +428,7 @@ button:hover{ cursor: pointer; }
       
       @media (min-width: 28.75em) {
         .members li {
-          width: 50%;
+          width:50%;
           min-width: 150px;
           max-width: 174px;
         }
@@ -443,6 +444,7 @@ figure {
   border: 0.5em solid palevioletred;
   border-radius: 0.5em;
   overflow: scroll;
+  overflow: hidden;
 }
 
 figure:hover{
