@@ -32,7 +32,7 @@ const Sponsors = ({}, ref) => {
 
   return (
     <div ref = {el => ref.current = { ...ref.current, sponsor: el }} 
-      align='center'>
+      align='center' className='margins'>
       <h1 align='left'>Sponsors</h1>
       <button className='Button Button-sponsor-page' onClick ={onButtonClick}>
         

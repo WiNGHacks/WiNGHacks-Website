@@ -1,15 +1,17 @@
 .app {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-color: rgb(160, 213, 244);
-  background-image: url(./components/pictures/Blue-Purple_background.png);
+  /* background-color: #BFEBF4; */
+  background-image: linear-gradient(#BFEBF4, rgb(244, 247, 255));
+  /* background-image: url(./components/pictures/Blue-Purple_background.png);
   background-attachment: fixed;
-  background-position: center; 
-  box-shadow: 0 0 5px 10px #555;
-  min-height: 100vh;
+  background-position: center;  */
+  /* min-height: 100vh; */
+  height: 100%;
+  
 }
 
 .App {
-  padding: 3% 5%;
+
 }
 
 @font-face {
@@ -142,11 +144,30 @@ button:hover{ cursor: pointer; }
 }
 
 .Page {
+  margin: 3% 5%;
   background-color: white;
   margin-top: 2rem;
   padding: 2rem 2rem;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.margins {
+  margin: 3% 5%;
+}
+
+.banner-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.banner {
+  position: relative;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+
 }
 
 .Home { 

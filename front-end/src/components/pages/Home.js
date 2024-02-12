@@ -1,5 +1,6 @@
 import React , {forwardRef} from 'react'
 import logo from '../pictures/WiNGHACKS_logo.png'
+import banner from '../pictures/WiNGHacks_Banner.png'
 
 // import { SlSocialLinkedin } from "react-icons/sl";
 import { FaSquareInstagram, FaLinkedin } from "react-icons/fa6";
@@ -19,7 +20,9 @@ const Home = ({}, ref) => {
 
   return (
     <div ref = {el => ref.current = { ...ref.current, home: el }}>
+      
       <div className='Page Home'>
+        
         <div className='welcome-container'>
           <div className='floating-container'>
 
