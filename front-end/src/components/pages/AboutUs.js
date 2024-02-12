@@ -38,11 +38,11 @@ const AboutUs = ({}, ref) => {
             <div className='collaborators-container'>
               {/*MARIA-How to use variable to store the logos so don't have to repeat img every time?*/}
                 <a href="https://ufwicse.com" target="_blank"><img  src={wicse} className='logo-who-we-are' alt='WiNGHacks WiCSE Logo'></img></a>
-                <a href="https://www.linkedin.com/company/cs-kickstart-at-uf" target="_blank"><img  src={csk} className='logo-who-we-are' alt='WiNGHacks CSK Logo'></img></a>
+                <a href="https://www.instagram.com/uf.cskickstart/" target="_blank"><img  src={csk} className='logo-who-we-are' alt='WiNGHacks CSK Logo'></img></a>
                 <a href="https://www.instagram.com/girlswhocodeuf/" target="_blank"><img  src={gwc} className='logo-who-we-are' alt='WiNGHacks Girls Who Code Logo'></img></a>
                 <a href="https://www.instagram.com/wece_uf/" target="_blank"><img  src={wece} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img></a>
                 <img  src={wicys} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img>
-                <img  src={logos} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img>
+                <a href= "https://www.instagram.com/uf.winghacks?igsh=MTdiNThmbmdxNTIwcA==" target="_blank"><img  src={logos} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img></a>
             </div>
           
           </div>
@@ -59,7 +59,7 @@ const AboutUs = ({}, ref) => {
               </div>
 
             </div>
-            <div className='team-child-container'>
+            <div className='team-child-container-members'>
               <ul className='members'>
                 {MemberList.map((member, index) => {
                   if (filterCommittee === ""){

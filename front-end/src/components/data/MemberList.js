@@ -29,15 +29,6 @@ import Alanis_Rivera_Narvaez_pic from '../pictures/profile_pics/Alanis_Rivera-Na
 export const MemberList = [
     {
         id: "1",
-        name: "Minuet Greenberg (she/her)",
-        profile_pic: Minuet_Greenberg_pic,
-        linkedIn: "linkedin.com/in/minuetgreenberg/",
-        major: "Information Systems",
-        committee_position: "Co-director",
-        committee_name: "Directors",
-    },
-    {
-        id: "2",
         name: "Maddie Glaum (she/her)",
         profile_pic: Maddie_Glaum_pic,
         linkedIn: "https://www.linkedin.com/in/madeleineglaum/",
@@ -46,12 +37,21 @@ export const MemberList = [
         committee_name: "Directors",
     },
     {
-        id: "3",
+        id: "2",
         name: "Vy Vu (she/her)",
         profile_pic: Vy_Vu_pic,
         linkedIn: "https://www.linkedin.com/in/vyvudb",
         major: "Computer Science",
         committee_position: "Co-director",
+        committee_name: "Directors",
+    },
+    {
+        id: "3",
+        name: "Minuet Greenberg (she/her)",
+        profile_pic: Minuet_Greenberg_pic,
+        linkedIn: "linkedin.com/in/minuetgreenberg/",
+        major: "Information Systems",
+        committee_position: "Assistant Director",
         committee_name: "Directors",
     },
     {
