@@ -571,6 +571,8 @@ figcaption a {
 
 .FAQ {
   .faq-collapse-container {
+    font-size: 1.3rem;
+    font-weight: 600;
     border: none;
     background: rgb(211, 228, 255);
     font-family: bitter;
@@ -582,7 +584,9 @@ figcaption a {
     border: none;
     padding-left: 4rem;
     display: flex;
-    font-family: 'Lucida Sans'
+    font-family: bitter;
+    font-weight: 500;
+    padding-top: 0.3rem;
   }
 }
 
