@@ -68,7 +68,7 @@ const FAQ = React.FC = ({}, ref) => {
 
   return (
     <div ref = {el => ref.current = { ...ref.current, faq: el }}>
-      <div className='FAQ'>
+      <div className='margins FAQ'>
         <h1>FAQ</h1>
         <Collapse defaultActiveKey={['1']} onChange={onChange} className='faq-collapse-container' >
           {items.map(item => (

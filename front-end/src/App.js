@@ -4,6 +4,7 @@ import './App-mobile.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header';
+import Banner from './components/pages/Banner'
 import Home from './components/pages/Home';
 import AboutUs from './components/pages/AboutUs';
 import Sponsors from './components/pages/Sponsors';
@@ -49,6 +50,7 @@ function App() {
                   path="/"
                   element={(
                     <>
+                      <Banner ref = {ref} />
                       <Home  ref = {ref} />
                       <AboutUs ref = {ref} />
                       <Schedule ref = {ref} />
