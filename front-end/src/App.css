@@ -444,8 +444,17 @@ figure {
   border: 0.5em solid palevioletred;
   border-radius: 0.5em;
   overflow: scroll;
-  overflow: hidden;
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;   /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+figure::-webkit-scrollbar {
+  display: none;
+}
+
 
 figure:hover{
   border: 0.5em solid rgb(248, 40, 109);
