@@ -68,21 +68,17 @@ const Header = ({}, ref) => {
         <Link to = "/#faq" onClick={() => handleClick('faq')} className = "link">FAQ</Link>
         
 
-          { token ?
+          {/* { token ?
             ( <div>
-                {/* PlaceHolder for now Update Later */}
-                {/* <Link to="/portal">Portal</Link>  */}
                 <div className = "link" onClick={portalClick}>Portal</div>
                 <div to="/login" className = "link" onClick={logoutClick}>Logout</div>
-                {/* <a style={{textDecoration: 'underline'}} onClick={portalClick}>Portal</a>
-                <a style={{textDecoration: 'underline'}} onClick={logoutClick}>Logout</a> */}
-              </div> )
+                </div> )
             :
             ( <div className='dynamic'>
                 <Link to="/login" className = "link" onClick={clickedNavbar}>Login</Link>
                 <Link to="/signup" className = "link apply" onClick={clickedNavbar}>Apply Now</Link>
               </div> )
-          }
+          } */}
           
           <div className='mobile-nav'>
           {showNavbar ? 
