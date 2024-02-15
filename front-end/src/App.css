@@ -423,6 +423,7 @@ button:hover{ cursor: pointer; }
       .btn-committee-names button{
         background-color: palevioletred;
         border:1px solid rgb(180, 95, 124);
+        color: white;
         a { color: white; }
         text-align: center;
         cursor:pointer;

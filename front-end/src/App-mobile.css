@@ -99,6 +99,7 @@
       display: contents;
       visibility: visible;
       opacity: 1;
+      color: black;
     }
 
     .close {
