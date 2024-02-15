@@ -427,7 +427,6 @@ button:hover{ cursor: pointer; }
 
   .location-container{
     display: flex;
-    width:100%;
     flex-direction: column-reverse;
     column-gap: 10rem;
     align-items: center;
@@ -438,6 +437,11 @@ button:hover{ cursor: pointer; }
       margin: 0 10rem;
       
     }
+  }
+
+  .map iframe{
+    height: 18.75rem;
+    width: 50rem;
   }
   
 

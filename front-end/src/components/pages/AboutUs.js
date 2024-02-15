@@ -56,7 +56,9 @@ const AboutUs = ({}, ref) => {
             <p>WiNGHacks will be hosted on April 5 - 7, 2024 at the Herbert Wertheim Laboratory of Engineering Excellence. Hacking starts at 9 PM Friday and ends at 9 AM Sunday, for a total of 36 hours.</p>
           </div>
           <div className = "location-child-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.4956242087314!2d-82.35060872446137!3d29.647389075126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e8a3162c00e6f1%3A0x45d6790f1bdd4c19!2sHerbert%20Wertheim%20Laboratory%20for%20Engineering%20Excellence!5e0!3m2!1sen!2sus!4v1708024355810!5m2!1sen!2sus" width="800" height="300"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div className="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.4956242087314!2d-82.35060872446137!3d29.647389075126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e8a3162c00e6f1%3A0x45d6790f1bdd4c19!2sHerbert%20Wertheim%20Laboratory%20for%20Engineering%20Excellence!5e0!3m2!1sen!2sus!4v1708024355810!5m2!1sen!2sus"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
           </div>
 
         </div>
