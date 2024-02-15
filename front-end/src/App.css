@@ -61,7 +61,7 @@ p {
   font-family: teacher-regular;
 }
 
-h1 { font-family: bitter; }
+h1 { font-family: teacher-semibold; font-weight: bold;}
 
 h2 { font-family: teacher-regular; }
 
@@ -105,7 +105,7 @@ button:hover{ cursor: pointer; }
     .link {
       cursor: pointer;
       color: #0081A7;
-      font-family: bitter;
+      font-family: teacher-semibold;
       font-weight: bold;
       text-transform: uppercase;
       /* font-variant: small-caps; */
@@ -182,6 +182,7 @@ button:hover{ cursor: pointer; }
 }
 
 .home-buttons {
+  font-family: teacher-regular;
   margin: -2% 5%;
   display: flex;
   flex-direction: row;
@@ -381,10 +382,26 @@ button:hover{ cursor: pointer; }
   -webkit-box-shadow:inset 0 2px 0 #ffcbcb, inset 0 0px 0 #ba3d1b;
 }
 
+.Button-mentor{
+  background-color: #fefeaa;
+  color: black;
+  -webkit-box-shadow:inset 0 1px 0 #fefeaa, 0 10px 0 #f4c671;
+  border-color: #f5c499;
+}
+
+.Button-mentor:hover{
+  top:10px;
+  background-color: rgb(255, 218, 132);
+  -webkit-box-shadow:inset 0 2px 0 #fff7df, inset 0 0px 0 #ffca92;
+}
+
+
+
 .About {
   .mission-container {
     display: inline;
     color: #d15047;
+    font-family: teacher-regular;
     font-size: clamp(0.5rem, 1rem, 1rem);
   }
   
