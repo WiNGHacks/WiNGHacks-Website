@@ -428,11 +428,14 @@ button:hover{ cursor: pointer; }
   .location-container{
     display: flex;
     width:100%;
-    column-gap: 3rem;
+    flex-direction: column-reverse;
+    column-gap: 10rem;
+    align-items: center;
 
     .location-child-container{
-      flex:2;
-      
+      flex: 2;
+      text-align: center;
+      margin: 0 10rem;
       
     }
   }
