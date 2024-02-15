@@ -425,6 +425,19 @@ button:hover{ cursor: pointer; }
     }
   }
 
+  .location-container{
+    display: flex;
+    width:100%;
+    column-gap: 3rem;
+
+    .location-child-container{
+      flex:2;
+      
+      
+    }
+  }
+  
+
   .team-container{
     padding: 1rem;
     display: flex;
