@@ -184,6 +184,12 @@
   }
 }
 
+@media only screen and (max-width: 650px) {
+  .banner {
+    max-width: 100%;
+  }
+}
+
 @media only screen and (max-width: 430px) {
   .login-container {
     .form-container {
@@ -228,6 +234,31 @@
     0% { transform: translate(0,  0px); }
     50% { transform: translate(0, 10px); }
     100% { transform: translate(0, -0px); }    
+  }
+
+  .home-buttons {
+
+    flex-direction: column;
+    row-gap: 0.1rem;
+    align-self: center;
+    align-items: cen hter;
+    justify-content: center;
+  }
+
+  .socials {
+    padding-top: 3%;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
+    
+  
+    .icons {
+      padding: 0rem clamp(0.5rem);
+      color: #e25167;
+      font-size: 3rem;
+    }
   }
 
   .Home {
@@ -292,14 +323,6 @@
         align-items: center;
         padding-right: 0;
         padding-bottom: 4.5%;
-      }
-    }
-
-    .socials {
-
-      .icons {
-        padding: 0rem 0.25rem;
-        color: #e25167;
       }
     }
 

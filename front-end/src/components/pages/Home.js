@@ -20,46 +20,37 @@ const Home = ({}, ref) => {
 
   return (
     <div ref = {el => ref.current = { ...ref.current, home: el }}>
-      
-      <div className='Page Home'>
-        
-        <div className='welcome-container'>
-          <div className='floating-container'>
 
-            <div className='home-title'>Welcome to </div>
-
-            <div className = "logo-home-container">
-              <img src={logo} className = "logo-home" alt='WiNGHacks Logo'></img>
-            </div>
-
-            <div className='info-container'>
-              <b className='home-date'>April 5-7</b>
-              <b className='home-location'>At the Herbert Wertheim Engineering Building</b>
-            </div>
-      
-
-          </div>
-          <div className='welcome-right-container'>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdC6uvrtJ6AXc9GSY86ENfpVsICg0DCqOyOC-U7q7HAe-nLow/viewform"
+      <div className='home-buttons' align="center">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdC6uvrtJ6AXc9GSY86ENfpVsICg0DCqOyOC-U7q7HAe-nLow/viewform"
               target="_blank">
               <button className='Button Button-home Button-interest'>Interest Form</button></a>
-            <a href="signup"><button className='Button Button-home Button-apply'>Apply now!</button></a>
-            <a><button onClick={downloadPDF} className='Button Button-home Button-sponsor'>Become a Sponsor</button></a>
-          </div>
-        </div>
-        <div className='socials'>
+        {/* <a href="signup"><button className='Button Button-home Button-apply'>Apply now!</button></a> */}
+        <a><button onClick={downloadPDF} className='Button Button-home Button-sponsor'>Become a Sponsor</button></a>
+      </div>
+      <div className='socials'>
           <a href= "https://www.instagram.com/uf.winghacks?igsh=MTdiNThmbmdxNTIwcA==" target="_blank">
-            <FaSquareInstagram className='icons' size={40}/>
+            <FaSquareInstagram className='icons'/>
           </a>
           <a href="https://www.linkedin.com/company/uf-winghacks/about/" target="_blank">
-            <FaLinkedin className='icons' size={40}/>
+            <FaLinkedin className='icons'/>
           </a>
           <a href="mailto: uf.winghacks@gmail.com" target="_blank">
-            <IoMdMail className='icons' size={40}/>
+            <IoMdMail className='icons'/>
           </a>
-        </div>
-        
       </div>
+      {/* <div className='Page Home'>
+        
+        <div className='welcome-container'>
+          
+          <div className='floating-container'>      
+
+          </div>
+          
+          <div className='welcome-right-container'>
+            </div>
+        </div>
+      </div> */}
   </div>
   )
 }

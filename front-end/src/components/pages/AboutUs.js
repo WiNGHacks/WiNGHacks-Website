@@ -13,8 +13,8 @@ import { MemberList } from '../data/MemberList.js'
 
 const AboutUs = ({}, ref) => {
 
-  const text = 'WiNGHacks is the University of Florida’s (UF) first hackathon specifically created for women and nonbinary students. WiNgHacks gives Women and Nonbinary students the wings that uplift them in their technology journeys. During WiNgHacks, 200 attendees from both UF and neighboring schools will learn new skills, network with their peers, and create innovative projects. The goal of our hackathon is to be a welcoming opportunity for learning and growth for underrepresented genders in the tech industry. Hackathons are great opportunities for students to learn new skills, network, and get a project on their resume, and we want to create an inclusive and welcoming environment for women and nonbinary students, especially those who are first-time hackers, to reap the benefits and opportunities that hackathons have.'
-
+  const text = 'WiNGHacks is the University of Florida’s (UF) first hackathon specifically created for women and nonbinary students. WiNGHacks gives Women and Nonbinary students the wings that uplift them in their technology journeys. During WiNGHacks, 200 attendees from both UF and neighboring schools will learn new skills, network with their peers, and create innovative projects.'
+  const text2 = 'The goal of our hackathon is to be a welcoming opportunity for learning and growth for underrepresented genders in the tech industry. Hackathons are great opportunities for students to learn new skills, network, and get a project on their resume, and we want to create an inclusive and welcoming environment for women and nonbinary students, especially those who are first-time hackers, to reap the benefits and opportunities that hackathons have.'
   const committeeNames =["Directors", "Awards", "PR", "Merch", "Operations", "Sponsorship", "Tech-support", "Website", "Workshop"]; 
   
   const [filterCommittee,setFilterCommittee] = useState("")  
@@ -31,8 +31,9 @@ const AboutUs = ({}, ref) => {
         </div>
         <div className='who-we-are-container'>
           <div className='who-we-are-child-container'>
-            <h2>Who we are</h2>
+            <h2>Who we Are</h2>
             <p>{text}</p>
+            <p>{text2}</p>
           </div>
           <div className='who-we-are-child-container'>
             <div className='collaborators-container'>
@@ -47,7 +48,13 @@ const AboutUs = ({}, ref) => {
           
           </div>
         </div>
-        <h2 style={{paddingTop: "8%"}}>Meet the Team</h2>
+        <h2>About the Event</h2>
+        <p>This hackathon will be held April 5-7 for 36 hours at the Herbert Wertheim Engineering Building.</p>
+        {/* <div className='info-container'>
+          <b className='home-date'>April 5-7</b>
+          <b className='home-location'>At the Herbert Wertheim Engineering Building</b>
+      </div> */}
+        <h2 style={{paddingTop: "3%"}}>Meet the Team</h2>
         <div className='team-container'>
             <div className='team-child-container-names'>
               <div className='btn-committee-names'>

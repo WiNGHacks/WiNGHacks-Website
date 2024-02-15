@@ -13,6 +13,7 @@ const Banner = ({}, ref) => {
       <div className='banner-container'>
         <img src= {banner} className='banner'></img>
       </div>
+      
   </div>
   )
 }
