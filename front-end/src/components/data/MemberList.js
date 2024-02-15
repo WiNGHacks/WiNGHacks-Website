@@ -58,7 +58,7 @@ export const MemberList = [
     },
     {
         id: "4",
-        name: "Tanya Charan(she/her)",
+        name: "Tanya Charan (she/her)",
         profile_pic: Tanya_Charan_pic,
         linkedIn: "https://www.linkedin.com/in/tanya-charan/",
         major: "Soil/Water Science (conc. Water Science), Computer and Information Science Minor, AI Certificate ",
@@ -166,7 +166,7 @@ export const MemberList = [
     },
     {
         id: "16",
-        name: "Stephanie Nguyen (she/her/hers)",
+        name: "Stephanie Nguyen (she/her)",
         profile_pic: Stephanie_Nguyen_pic,
         linkedIn: "https://www.linkedin.com/in/stephanienguyen25/",
         major: "Computer Science",
@@ -229,7 +229,7 @@ export const MemberList = [
     },
     {
         id: "23",
-        name: "Lan Anh Do (she/her/hers)",
+        name: "Lan Anh Do (she/her)",
         profile_pic: Lan_Ahn_Do_pic,
         linkedIn: "https://www.linkedin.com/in/lananhnguyendo",
         major: "Computer Science",

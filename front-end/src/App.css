@@ -29,6 +29,26 @@
   src: url(./components/fonts/Minecraft.ttf);
 }
 
+@font-face {
+  font-family: superior;
+  src: url(./components/fonts/LTSuperior-Semibold.otf);
+}
+
+@font-face {
+  font-family: bubbl;
+  src: url(./components/fonts/Bubbl-ExtraBold.otf);
+}
+
+@font-face {
+  font-family: teacher-regular;
+  src: url(./components/fonts/Teachers-Regular.woff);
+}
+
+@font-face {
+  font-family: teacher-semibold;
+  src: url(./components/fonts/Teachers-SemBd.woff);
+}
+
 @keyframes floating {
   0% { transform: translate(0,  0px); }
   50% { transform: translate(0, 15px); }
@@ -37,9 +57,13 @@
 
 a { text-decoration: none; }
 
+p {
+  font-family: teacher-regular;
+}
+
 h1 { font-family: bitter; }
 
-h2 { font-family: bitter; }
+h2 { font-family: teacher-regular; }
 
 button:hover{ cursor: pointer; }
 
@@ -83,7 +107,8 @@ button:hover{ cursor: pointer; }
       color: #0081A7;
       font-family: bitter;
       font-weight: bold;
-      font-variant: small-caps;
+      text-transform: uppercase;
+      /* font-variant: small-caps; */
       text-decoration: none;
       height: clamp(1rem, 3vw, 5rem);
       font-size: clamp(1.25rem, 1.75vw, 2rem);
@@ -597,10 +622,11 @@ figcaption a {
 
 .FAQ {
   .faq-collapse-container {
-    font-size: 1.3rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 550;
     border: none;
     background: rgb(211, 228, 255);
+    /* font-weight: bold; */
     font-family: bitter;
     margin-bottom: 2rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -608,10 +634,10 @@ figcaption a {
   
   .faq-collapse {
     border: none;
-    padding-left: 4rem;
+    padding-left: 2rem;
     display: flex;
-    font-family: bitter;
-    font-weight: 500;
+    font-family: teacher-regular;
+    font-weight: 550;
     padding-top: 0.3rem;
   }
 }
