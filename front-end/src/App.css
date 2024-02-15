@@ -1,7 +1,7 @@
 .app {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   /* background-color: #BFEBF4; */
-  background-image: linear-gradient(#BFEBF4, rgb(244, 247, 255));
+  background-image: linear-gradient(#BFEBF4 100vh, rgb(244, 247, 255));
   /* background-image: url(./components/pictures/Blue-Purple_background.png);
   background-attachment: fixed;
   background-position: center;  */
@@ -156,6 +156,38 @@ button:hover{ cursor: pointer; }
   margin: 3% 5%;
 }
 
+.home-buttons {
+  margin: -2% 5%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 2rem;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.socials {
+  padding-top: 4%;
+  position: relative;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+  
+
+  .icons {
+    padding: 0rem clamp(0.5rem);
+    color: #e25167;
+    font-size: 5rem;
+  }
+
+  .icons:hover {
+    border-radius: 5px;
+    color: #ff3700;
+    cursor: pointer;
+  }
+}
+
 .banner-container {
   display: flex;
   align-content: center;
@@ -168,6 +200,35 @@ button:hover{ cursor: pointer; }
   left: 0;
   max-width: 100%;
 
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.home-date {
+  align-self: center;
+  text-align: center;
+  font-family: bitter;
+  font-variant: small-caps;
+  font-size: clamp(1rem, 3vw, 3rem);
+  font-style: bold;
+  color: #F07167;
+  -webkit-text-stroke: #712020;
+  max-width: 600px;
+}
+
+.home-location {
+  align-self: center;
+  text-align: center;
+  font-family: bitter;
+  font-variant: small-caps;
+  font-size: clamp(1rem, 2vw, 2rem);
+  color: #0081A7;
+  max-width: 600px;
 }
 
 .Home { 
@@ -216,35 +277,6 @@ button:hover{ cursor: pointer; }
 
     .logo-home:hover { animation-duration: 1s; }
 
-    .info-container {
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      justify-content: center;
-    }
-
-    .home-date {
-      align-self: center;
-      text-align: center;
-      font-family: bitter;
-      font-variant: small-caps;
-      font-size: clamp(1rem, 3vw, 3rem);
-      font-style: bold;
-      color: #F07167;
-      -webkit-text-stroke: #712020;
-      max-width: 600px;
-    }
-
-    .home-location {
-      align-self: center;
-      text-align: center;
-      font-family: bitter;
-      font-variant: small-caps;
-      font-size: clamp(1rem, 2vw, 2rem);
-      color: #0081A7;
-      max-width: 600px;
-    }
-
     .welcome-right-container {
       position: relative;
       justify-content: center;
@@ -254,23 +286,6 @@ button:hover{ cursor: pointer; }
       padding-top: 10%;
       padding-bottom: 2.5%;
       padding-right: 0.75rem;
-    }
-  }
-
-  .socials {
-    position: relative;
-    justify-content: right;
-    display: flex;
-
-    .icons {
-      padding: 0rem 0.5rem;
-      color: #e25167;
-    }
-
-    .icons:hover {
-      border-radius: 5px;
-      color: #ff3700;
-      cursor: pointer;
     }
   }
 
@@ -290,7 +305,8 @@ button:hover{ cursor: pointer; }
 
   color: white;
   width: clamp(4rem, 25vw, 25rem);
-  height: clamp(3rem, 5vw, 7rem);
+  /* height: clamp(3rem, 5vw, 7rem); */
+  height: clamp(5rem, 7vw, 9rem);
   margin-bottom: clamp(1rem, 3vw, 5rem);
 }
 
@@ -359,6 +375,7 @@ button:hover{ cursor: pointer; }
     .collaborators-container{
       justify-items: center;
       align-items: center;
+      padding-bottom: 0;
     }
       
     .logo-who-we-are{
