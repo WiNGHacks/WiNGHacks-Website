@@ -103,12 +103,13 @@ export const MemberList = [
     },
     {
         id: "9",
-        name: "Janna Rabanal (she/her)",
-        profile_pic: Janna_Rabanal_pic,
-        linkedIn: "https://www.linkedin.com/in/janna-rabanal/",
-        major: "Information Systems",
-        committee_position: "Committee Member",
+        name: "Disha Gaonkar (she/her)",
+        profile_pic: Disha_Gaonkar_pic,
+        linkedIn: "https://www.linkedin.com/in/disha-gaonkar/",
+        major: "Computer Science",
+        committee_position: "Committee Head",
         committee_name: "Operations",
+        
     },
     {
         id: "10",
@@ -211,12 +212,13 @@ export const MemberList = [
     },
     {
         id: "21",
-        name: "Alexa Melnychuk (she/her)",
-        profile_pic: Alexa_Melnychuk_pic,
-        linkedIn: "https://www.linkedin.com/in/alexa-melnychuk/",
+        name: "Alanis Rivera Narvaez (she/her)",
+        profile_pic: Alanis_Rivera_Narvaez_pic,
+        linkedIn: "www.linkedin.com/in/alanis-rivera-narvaez/",
         major: "Computer Science",
-        committee_position: "Committee Member",
-        committee_name: "Workshop",
+        committee_position: "Committee Head",
+        committee_name: "Workshop", 
+        
     },
     {
         id: "22",
@@ -229,20 +231,21 @@ export const MemberList = [
     },
     {
         id: "23",
+        name: "Janna Rabanal (she/her)",
+        profile_pic: Janna_Rabanal_pic,
+        linkedIn: "https://www.linkedin.com/in/janna-rabanal/",
+        major: "Information Systems",
+        committee_position: "Committee Member",
+        committee_name: "Operations",
+        
+    },
+    {
+        id: "24",
         name: "Lan Anh Do (she/her)",
         profile_pic: Lan_Ahn_Do_pic,
         linkedIn: "https://www.linkedin.com/in/lananhnguyendo",
         major: "Computer Science",
         committee_position: "Committee Member",
-        committee_name: "Operations",
-    },
-    {
-        id: "24",
-        name: "Disha Gaonkar (she/her)",
-        profile_pic: Disha_Gaonkar_pic,
-        linkedIn: "https://www.linkedin.com/in/disha-gaonkar/",
-        major: "Computer Science",
-        committee_position: "Committee Head",
         committee_name: "Operations",
     },
     {
@@ -265,12 +268,13 @@ export const MemberList = [
     },
     {
         id: "27",
-        name: "Alanis Rivera Narvaez (she/her)",
-        profile_pic: Alanis_Rivera_Narvaez_pic,
-        linkedIn: "www.linkedin.com/in/alanis-rivera-narvaez/",
+        name: "Alexa Melnychuk (she/her)",
+        profile_pic: Alexa_Melnychuk_pic,
+        linkedIn: "https://www.linkedin.com/in/alexa-melnychuk/",
         major: "Computer Science",
-        committee_position: "Committee Head",
-        committee_name: "Workshop",   
+        committee_position: "Committee Member",
+        committee_name: "Workshop",
+          
      },
      {
          id: "28",
