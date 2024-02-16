@@ -57,7 +57,7 @@ const Header = ({}, ref) => {
     return (
       <div className = "navbar" id='navbar'>
 
-      <Link to = "/#banner"  onClick={() => handleClick('home')} className = "logo-container">
+      <Link to = "/#home"  onClick={() => handleClick('home')} className = "logo-container">
         <img src={logo} alt="Logo"/>
         {/* <b className='image-text'>WiNGHacks</b> */}
       </Link>

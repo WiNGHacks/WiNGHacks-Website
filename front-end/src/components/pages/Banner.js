@@ -10,7 +10,7 @@ import { IoMdMail } from "react-icons/io";
 const Banner = ({}, ref) => {
 
   return (
-    <div ref = {el => ref.current = { ...ref.current, banner: el }}>
+    <div ref = {el => ref.current = { ...ref.current, home: el }}>
       <div className='banner-container'>
         <img src= {banner} className='banner'></img>
       </div>

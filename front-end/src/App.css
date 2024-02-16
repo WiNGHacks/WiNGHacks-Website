@@ -185,7 +185,7 @@ button:hover{ cursor: pointer; }
 
 .home-buttons {
   font-family: teacher-regular;
-  margin: -2% 5%;
+  margin: 1% 5%;
   display: flex;
   flex-direction: row;
   column-gap: 2rem;
@@ -195,7 +195,7 @@ button:hover{ cursor: pointer; }
 }
 
 .socials {
-  padding-top: 4%;
+  padding-top: 0%;
   position: relative;
   justify-content: center;
   display: flex;
