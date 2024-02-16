@@ -461,7 +461,7 @@ button:hover{ cursor: pointer; }
       }
       .btn-committee-names button{
         background-color: #F07167;
-        border:1px solid #F07167;
+        border:0.5px solid #441305;
         color: white;
         a { color: white; }
         text-align: center;
@@ -523,7 +523,7 @@ figure {
   margin: 0 1.25em 1.25em 0;
   position: relative;
   text-align: center;
-  border: 0.5em solid  #F07167;
+  border: 0.3em solid  #F07167;
   border-radius: 0.5em;
   overflow: scroll;
 
@@ -539,7 +539,7 @@ figure::-webkit-scrollbar {
 
 
 figure:hover{
-  border: 0.5em solid #712020;
+  border: 0.4em solid #712020;
   img {
     opacity: 0.1;
     transition: all .2s ease-in-out .2s;
@@ -588,7 +588,7 @@ figcaption a {
 /*MARIA HOW TO MAKE HOVER COLOR STAY ON ACTIVE BUTTON*/
 
 .Button-sponsor-page{
-  background-color: rgb(255, 129, 120);
+  background-color: #ff8178;
   padding: 1rem 1rem;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   text-shadow: 0px 1px 0px #000;

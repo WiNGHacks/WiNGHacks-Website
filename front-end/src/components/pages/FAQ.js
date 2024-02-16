@@ -32,7 +32,7 @@ const items = [
   {
     key: '5',
     header: "How will hackers be accepted?",
-    content: "Applicants will close a week and a half before the hackathon weekend. We will admit people up to our capacity of 200 hackers, with some on a waitlist. Hackers must RSVP Yes to attend and must check in in-person during the hackathon.",
+    content: "Applications will close a week and a half before the hackathon weekend. We will admit people up to our capacity of 200 hackers, with some on a waitlist. Hackers must RSVP Yes to attend and must check in in-person during the hackathon.",
   },
   {
     key: '6',
@@ -67,7 +67,7 @@ const items = [
   {
     key: '12',
     header: "How will the projects get judged?",
-    content: "On the morning of Sunday, we will set up a “science fair” style presentation to allow judges to walk around and hear your project demos. People’s Choice category will be based on the most voted project on Devpost. Then, the winning team for each category will be announced at the closing ceremony."
+    content: "Sunday morning, we will set up a “science fair” style presentation to allow judges to walk around and hear your project demos. People’s Choice category will be based on the most voted project on Devpost. Then, the winning team for each category will be announced at the closing ceremony."
   },
 
 ];
