@@ -427,6 +427,26 @@ button:hover{ cursor: pointer; }
     }
   }
 
+  .location-container{
+    display: flex;
+    flex-direction: column-reverse;
+    column-gap: 10rem;
+    align-items: center;
+
+    .location-child-container{
+      flex: 2;
+      text-align: center;
+      margin: 0 10rem;
+      
+    }
+  }
+
+  .map iframe{
+    height: 18.75rem;
+    width: 50rem;
+  }
+  
+
   .team-container{
     padding: 1rem;
     display: flex;
@@ -440,8 +460,8 @@ button:hover{ cursor: pointer; }
         flex: 2;
       }
       .btn-committee-names button{
-        background-color: palevioletred;
-        border:1px solid rgb(180, 95, 124);
+        background-color: #F07167;
+        border:1px solid #F07167;
         color: white;
         a { color: white; }
         text-align: center;
@@ -457,7 +477,7 @@ button:hover{ cursor: pointer; }
       }
 
       .btn-committee-names button:hover{
-        background-color: rgb(248, 40, 109);
+        background-color: #712020;
       }
     }
 
@@ -503,7 +523,7 @@ figure {
   margin: 0 1.25em 1.25em 0;
   position: relative;
   text-align: center;
-  border: 0.5em solid palevioletred;
+  border: 0.5em solid  #F07167;
   border-radius: 0.5em;
   overflow: scroll;
 
@@ -519,7 +539,7 @@ figure::-webkit-scrollbar {
 
 
 figure:hover{
-  border: 0.5em solid rgb(248, 40, 109);
+  border: 0.5em solid #712020;
   img {
     opacity: 0.1;
     transition: all .2s ease-in-out .2s;
@@ -550,7 +570,7 @@ figcaption{
 figcaption a {
   font-weight: bold;
   text-decoration: none;
-  background-color: palevioletred;
+  background-color: #F07167;
   display: inline-block;
   text-align: center;
   color: white;
@@ -561,7 +581,7 @@ figcaption a {
   margin-bottom: 8%;
 
   &:hover{
-    background-color: rgb(248, 40, 109);
+    background-color: #712020;
   }
 }
 
