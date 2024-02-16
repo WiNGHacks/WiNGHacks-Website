@@ -36,7 +36,7 @@ const Home = ({}, ref) => {
           <a href= "https://www.instagram.com/winghacks/" target="_blank">
             <FaSquareInstagram className='icons'/>
           </a>
-          <a href="https://www.linkedin.com/company/uf-winghacks" target="_blank">
+          <a href="https://www.linkedin.com/company/winghacks" target="_blank">
             <FaLinkedin className='icons'/>
           </a>
           <a href="mailto: uf.winghacks@gmail.com" target="_blank">
