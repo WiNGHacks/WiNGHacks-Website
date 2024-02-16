@@ -47,7 +47,7 @@ const Sponsors = ({}, ref) => {
 
       <button className='Button Button-sponsor-page' onClick ={onButtonClick}>
         <div className='arrow'>{openPDF? (<SlArrowUp /> ): (<SlArrowDown />)}</div>
-        <div>Become a Sponsor</div>
+        <div>Sponsorship Packet</div>
       </button>
 
       {openPDF? (<div><iframe src="SponsorshipPacket.pdf" width="70%" height="500px" />

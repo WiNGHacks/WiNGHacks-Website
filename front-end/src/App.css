@@ -7,6 +7,7 @@
   background-position: center;  */
   /* min-height: 100vh; */
   height: 100%;
+  padding-bottom: 5%;
   
 }
 
@@ -59,9 +60,10 @@ a { text-decoration: none; }
 
 p {
   font-family: teacher-regular;
+  font-size: larger;
 }
 
-h1 { font-family: bitter; }
+h1 { font-family: teacher-semibold; font-weight: bold;}
 
 h2 { font-family: teacher-regular; }
 
@@ -105,7 +107,7 @@ button:hover{ cursor: pointer; }
     .link {
       cursor: pointer;
       color: #0081A7;
-      font-family: bitter;
+      font-family: teacher-semibold;
       font-weight: bold;
       text-transform: uppercase;
       /* font-variant: small-caps; */
@@ -182,7 +184,9 @@ button:hover{ cursor: pointer; }
 }
 
 .home-buttons {
-  margin: -2% 5%;
+  font-family: teacher-semibold;
+  text-transform: uppercase;
+  margin: 1% 5%;
   display: flex;
   flex-direction: row;
   column-gap: 2rem;
@@ -192,7 +196,7 @@ button:hover{ cursor: pointer; }
 }
 
 .socials {
-  padding-top: 4%;
+  padding-top: 0%;
   position: relative;
   justify-content: center;
   display: flex;
@@ -324,7 +328,8 @@ button:hover{ cursor: pointer; }
   display: inline-block;
   margin: 0.2rem;
   text-decoration: none;
-  font-family: bitter;
+  font-family: teacher-semibold;
+  text-transform: uppercase;
   font-size: clamp(1rem, 2vw, 2rem);
   font-variant: small-caps;
 
@@ -342,12 +347,15 @@ button:hover{ cursor: pointer; }
   border-style: solid;
   border-width: 0.35vw;
   padding: 0.5rem 0.5rem;
+  font-family: teacher-semibold;
+  text-transform: uppercase;
 }
 
 .Button-interest{
   background-color: #00AFB9;
   -webkit-box-shadow:inset 0 1px 0 #00AFB9, 0 10px 0 #00424b;
   border-color: #22457d;
+  font-family: teacher-semibold;
 }
 
 .Button-interest:hover{
@@ -361,6 +369,8 @@ button:hover{ cursor: pointer; }
   color: black;
   -webkit-box-shadow:inset 0 1px 0 #fefeaa, 0 10px 0 #f4c671;
   border-color: #f5c499;
+  font-family: teacher-semibold;
+
 }
 
 .Button-apply:hover{
@@ -373,6 +383,8 @@ button:hover{ cursor: pointer; }
   background-color: #F07167;
   -webkit-box-shadow:inset 0 1px 0 #F07167, 0 10px 0 #441305;
   border-color: #712020;
+  font-family: teacher-semibold;
+
 }
 
 .Button-sponsor:hover{
@@ -381,10 +393,28 @@ button:hover{ cursor: pointer; }
   -webkit-box-shadow:inset 0 2px 0 #ffcbcb, inset 0 0px 0 #ba3d1b;
 }
 
+.Button-mentor{
+  background-color: #fefeaa;
+  color: black;
+  -webkit-box-shadow:inset 0 1px 0 #fefeaa, 0 10px 0 #f4c671;
+  border-color: #f5c499;
+  font-family: teacher-semibold;
+
+}
+
+.Button-mentor:hover{
+  top:10px;
+  background-color: rgb(255, 218, 132);
+  -webkit-box-shadow:inset 0 2px 0 #fff7df, inset 0 0px 0 #ffca92;
+}
+
+
+
 .About {
   .mission-container {
     display: inline;
     color: #d15047;
+    font-family: teacher-regular;
     font-size: clamp(0.5rem, 1rem, 1rem);
   }
   
@@ -408,6 +438,26 @@ button:hover{ cursor: pointer; }
     }
   }
 
+  .location-container{
+    display: flex;
+    flex-direction: column-reverse;
+    column-gap: 10rem;
+    align-items: center;
+
+    .location-child-container{
+      flex: 2;
+      text-align: center;
+      margin: 0 10rem;
+      
+    }
+  }
+
+  .map iframe{
+    height: 18.75rem;
+    width: 50rem;
+  }
+  
+
   .team-container{
     padding: 1rem;
     display: flex;
@@ -418,11 +468,14 @@ button:hover{ cursor: pointer; }
 
       .btn-committee-names {
         max-width: 138px;
+        font-family: teacher-semibold;
         flex: 2;
       }
       .btn-committee-names button{
-        background-color: palevioletred;
-        border:1px solid rgb(180, 95, 124);
+        background-color: #F07167;
+        border:0.5px solid #441305;
+        font-family: teacher-semibold;
+        color: white;
         a { color: white; }
         text-align: center;
         cursor:pointer;
@@ -437,7 +490,7 @@ button:hover{ cursor: pointer; }
       }
 
       .btn-committee-names button:hover{
-        background-color: rgb(248, 40, 109);
+        background-color: #712020;
       }
     }
 
@@ -483,7 +536,7 @@ figure {
   margin: 0 1.25em 1.25em 0;
   position: relative;
   text-align: center;
-  border: 0.5em solid palevioletred;
+  border: 0.3em solid  #F07167;
   border-radius: 0.5em;
   overflow: scroll;
 
@@ -499,7 +552,7 @@ figure::-webkit-scrollbar {
 
 
 figure:hover{
-  border: 0.5em solid rgb(248, 40, 109);
+  border: 0.4em solid #712020;
   img {
     opacity: 0.1;
     transition: all .2s ease-in-out .2s;
@@ -530,7 +583,7 @@ figcaption{
 figcaption a {
   font-weight: bold;
   text-decoration: none;
-  background-color: palevioletred;
+  background-color: #F07167;
   display: inline-block;
   text-align: center;
   color: white;
@@ -539,16 +592,18 @@ figcaption a {
   width: 90%;
   height: 1.5rem;
   margin-bottom: 8%;
+  font-family: teacher-semibold;
+
 
   &:hover{
-    background-color: rgb(248, 40, 109);
+    background-color: #712020;
   }
 }
 
 /*MARIA HOW TO MAKE HOVER COLOR STAY ON ACTIVE BUTTON*/
 
 .Button-sponsor-page{
-  background-color: rgb(255, 129, 120);
+  background-color: #ff8178;
   padding: 1rem 1rem;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   text-shadow: 0px 1px 0px #000;
