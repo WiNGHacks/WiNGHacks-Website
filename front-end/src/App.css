@@ -184,7 +184,8 @@ button:hover{ cursor: pointer; }
 }
 
 .home-buttons {
-  font-family: teacher-regular;
+  font-family: teacher-semibold;
+  text-transform: uppercase;
   margin: 1% 5%;
   display: flex;
   flex-direction: row;
@@ -328,6 +329,7 @@ button:hover{ cursor: pointer; }
   margin: 0.2rem;
   text-decoration: none;
   font-family: teacher-semibold;
+  text-transform: uppercase;
   font-size: clamp(1rem, 2vw, 2rem);
   font-variant: small-caps;
 
@@ -346,6 +348,7 @@ button:hover{ cursor: pointer; }
   border-width: 0.35vw;
   padding: 0.5rem 0.5rem;
   font-family: teacher-semibold;
+  text-transform: uppercase;
 }
 
 .Button-interest{

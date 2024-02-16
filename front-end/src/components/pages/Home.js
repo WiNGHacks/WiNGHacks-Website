@@ -30,7 +30,7 @@ const Home = ({}, ref) => {
               target="_blank">
               <button className='Button Button-home Button-mentor'>Become a Mentor</button></a>
         {/* <a href="signup"><button className='Button Button-home Button-apply'>Apply now!</button></a> */}
-        <a><button onClick={downloadPDF} className='Button Button-home Button-sponsor'>Become a Sponsor</button></a>
+        <a><button onClick={downloadPDF} className='Button Button-home Button-sponsor'>Sponsorship Packet</button></a>
       </div>
       <div className='socials'>
           <a href= "https://www.instagram.com/winghacks/" target="_blank">
