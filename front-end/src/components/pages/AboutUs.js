@@ -45,7 +45,7 @@ const AboutUs = ({}, ref) => {
                 <a href="https://www.instagram.com/girlswhocodeuf/" target="_blank"><img  src={gwc} className='logo-who-we-are' alt='WiNGHacks Girls Who Code Logo'></img></a>
                 <a href="https://www.instagram.com/wece_uf/" target="_blank"><img  src={wece} className='logo-who-we-are' alt='WiNGHacks Collaborator WECE Logo'></img></a>
                 <a href = "https://www.instagram.com/uf.sit/" target="_blank"><img  src={wicys} className='logo-who-we-are' alt='WiNGHacks Collaborator WiCys Logo'></img></a>
-                <a href= "https://www.instagram.com/uf.winghacks?igsh=MTdiNThmbmdxNTIwcA==" target="_blank"><img  src={logos} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img></a>
+                <a href= "https://www.instagram.com/winghacks/" target="_blank"><img  src={logos} className='logo-who-we-are' alt='WiNGHacks Collaborator Logo'></img></a>
             </div>
           
           </div>

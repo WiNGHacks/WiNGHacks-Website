@@ -33,10 +33,10 @@ const Home = ({}, ref) => {
         <a><button onClick={downloadPDF} className='Button Button-home Button-sponsor'>Become a Sponsor</button></a>
       </div>
       <div className='socials'>
-          <a href= "https://www.instagram.com/uf.winghacks?igsh=MTdiNThmbmdxNTIwcA==" target="_blank">
+          <a href= "https://www.instagram.com/winghacks/" target="_blank">
             <FaSquareInstagram className='icons'/>
           </a>
-          <a href="https://www.linkedin.com/company/uf-winghacks/about/" target="_blank">
+          <a href="https://www.linkedin.com/company/uf-winghacks" target="_blank">
             <FaLinkedin className='icons'/>
           </a>
           <a href="mailto: uf.winghacks@gmail.com" target="_blank">
