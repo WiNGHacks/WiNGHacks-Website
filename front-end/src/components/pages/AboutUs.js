@@ -53,7 +53,7 @@ const AboutUs = ({}, ref) => {
         <h2>About the Event</h2>
         <div className = "location-container">
           <div className = "location-child-container">
-            <p>WiNGHacks will be hosted on April 5 - 7, 2024 at the Herbert Wertheim Laboratory of Engineering Excellence. Hacking starts at 9 PM Friday and ends at 9 AM Sunday, for a total of 36 hours.</p>
+            <p>WiNGHacks will be hosted on April 5 - 7, 2024 at the <a style={{color: "#F07167"}} href="https://maps.app.goo.gl/8HVyA9sQLMdAPiwv5" target="_blank">Herbert Wertheim Laboratory of Engineering Excellence</a>. Hacking starts at 9 PM Friday and ends at 9 AM Sunday, for a total of 36 hours.</p>
           </div>
           <div className = "location-child-container">
           <div className="map">

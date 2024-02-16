@@ -144,10 +144,18 @@
 }
 
 @media  only screen and (max-width: 975px) {
+  .location-container{
+    display: flex;
 
+    .location-child-container{
+      flex:1;
+      text-align: left !important;
+      margin: 0px 0px !important;
+    }
+  }
   .map iframe{
-    width: 20rem;
-    height: 10rem;
+    visibility: hidden;
+    display: none;
   }
 }
 
@@ -220,7 +228,7 @@
   }
 
   figure:hover{
-    border: 0.5em solid rgb(248, 40, 109);
+    border: 0.5em solid #712020;
     img {
       opacity: 0.1;
       transition: all .2s ease-in-out .2s;
@@ -439,12 +447,12 @@
     margin: 0 1.25em 1.25em 0;
     position: relative;
     text-align: center;
-    border: 0.5em solid palevioletred;
+    border: 0.5em solid #F07167;
     border-radius: 0.5em;
   }
 
   figure:hover{
-    border: 0.5em solid rgb(248, 40, 109);
+    border: 0.5em solid #712020;
     img {
       opacity: 0.1;
       transition: all .2s ease-in-out .2s;
