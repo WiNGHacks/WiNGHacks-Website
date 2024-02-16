@@ -327,7 +327,7 @@ button:hover{ cursor: pointer; }
   display: inline-block;
   margin: 0.2rem;
   text-decoration: none;
-  font-family: bitter;
+  font-family: teacher-semibold;
   font-size: clamp(1rem, 2vw, 2rem);
   font-variant: small-caps;
 
@@ -345,12 +345,14 @@ button:hover{ cursor: pointer; }
   border-style: solid;
   border-width: 0.35vw;
   padding: 0.5rem 0.5rem;
+  font-family: teacher-semibold;
 }
 
 .Button-interest{
   background-color: #00AFB9;
   -webkit-box-shadow:inset 0 1px 0 #00AFB9, 0 10px 0 #00424b;
   border-color: #22457d;
+  font-family: teacher-semibold;
 }
 
 .Button-interest:hover{
@@ -364,6 +366,8 @@ button:hover{ cursor: pointer; }
   color: black;
   -webkit-box-shadow:inset 0 1px 0 #fefeaa, 0 10px 0 #f4c671;
   border-color: #f5c499;
+  font-family: teacher-semibold;
+
 }
 
 .Button-apply:hover{
@@ -376,6 +380,8 @@ button:hover{ cursor: pointer; }
   background-color: #F07167;
   -webkit-box-shadow:inset 0 1px 0 #F07167, 0 10px 0 #441305;
   border-color: #712020;
+  font-family: teacher-semibold;
+
 }
 
 .Button-sponsor:hover{
@@ -389,6 +395,8 @@ button:hover{ cursor: pointer; }
   color: black;
   -webkit-box-shadow:inset 0 1px 0 #fefeaa, 0 10px 0 #f4c671;
   border-color: #f5c499;
+  font-family: teacher-semibold;
+
 }
 
 .Button-mentor:hover{
@@ -457,11 +465,13 @@ button:hover{ cursor: pointer; }
 
       .btn-committee-names {
         max-width: 138px;
+        font-family: teacher-semibold;
         flex: 2;
       }
       .btn-committee-names button{
         background-color: #F07167;
         border:0.5px solid #441305;
+        font-family: teacher-semibold;
         color: white;
         a { color: white; }
         text-align: center;
@@ -579,6 +589,8 @@ figcaption a {
   width: 90%;
   height: 1.5rem;
   margin-bottom: 8%;
+  font-family: teacher-semibold;
+
 
   &:hover{
     background-color: #712020;
