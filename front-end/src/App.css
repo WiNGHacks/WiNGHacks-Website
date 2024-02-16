@@ -60,6 +60,7 @@ a { text-decoration: none; }
 
 p {
   font-family: teacher-regular;
+  font-size: larger;
 }
 
 h1 { font-family: teacher-semibold; font-weight: bold;}
