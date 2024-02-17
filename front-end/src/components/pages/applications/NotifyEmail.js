@@ -23,6 +23,7 @@ const NotifyEmail = () => {
     return () => clearInterval(timer);
   }, []);
 
+
   const formatTime = (time) => {
     const remainingSeconds = time % 60;
     return `${remainingSeconds.toString().padStart(2, '0')}`;

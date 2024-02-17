@@ -18,15 +18,11 @@ const UserPortal = () => {
     const [email, setEmail] = useState("");
     const [status, setStatus] = useState("");
 
-    const [csvData, setCsvData] = useState([]);
     const [checkStatus, setCheckStatus] = useState(false)
 
     const token = cookies.get("TOKEN");
     const decoded = jwtDecode(token);
 
-    const handleCsvData = (data) => {
-        setCsvData(data)
-    };
 
     useEffect (() => {
         // Check if the URL id matches the current token
@@ -52,9 +48,8 @@ const UserPortal = () => {
 
     return (
         <div className="Portal" align='center'>
-            <FetchResponse handleCsvData = {handleCsvData} email = {email} id={id} status={status}/>
+            <FetchResponse email = {email} id={id} status={status}/>
             
-
             { status === "Not Applied" ? 
             (
                 <div>

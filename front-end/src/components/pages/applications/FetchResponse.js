@@ -1,9 +1,35 @@
 import React, {useEffect, useState} from 'react'
 import axios from "axios";
 
-const FetchResponse = ({handleCsvData, email, id, status}) => {
+const FetchResponse = ({ email, id, status}) => {
     const [csvData, setCsvData] = useState([]);
     const [applied, setApplied] = useState(false)
+
+
+    const parseCSV = (csvText) => {
+        const rows = csvText.split(/\r?\n/); // Split CSV text into rows, handling '\r' characters
+        // console.log(rows)
+        // console.log(rows[0])
+        const headers = rows[0].split(','); // Extract headers (assumes the first row is the header row)
+        const data = []; // Initialize an array to store parsed data
+      
+        for (let i = 1; i < rows.length; i++) {
+            const rowData = rows[i].split(',').map(item => item.trim()); // Split the row, handling '\r' characters and trim whitespace
+            // console.log("Row Data:", rowData);
+            const rowObject = {};
+    
+            for (let j = 0; j < headers.length; j++) {
+                rowObject[headers[j]] = rowData[j];
+                // console.log("Column:", headers[j], "Value:", rowData[j]);
+            }
+
+            data.push(rowObject);
+        }
+
+        // console.log(data)
+      
+        return data;
+      };
 
 
      // Fetch Data from Google Sheet
@@ -11,9 +37,10 @@ const FetchResponse = ({handleCsvData, email, id, status}) => {
         const csvUrl = process.env.REACT_APP_GOOGLE_SHEET_URL;
         axios.get(csvUrl)    // Use Axios to fetch the CSV data
         .then((response) => {
+            // console.log(response.data)
             const parsedCsvData = parseCSV(response.data);        // Parse the CSV data into an array of objects
             setCsvData(parsedCsvData);
-            handleCsvData(parsedCsvData); 
+            // handleCsvData(parsedCsvData); 
       // Set the fetched data in the component's state
             // console.log(parsedCsvData);        // Now you can work with 'csvData' in your component's state.
         })
@@ -23,44 +50,33 @@ const FetchResponse = ({handleCsvData, email, id, status}) => {
     }, []); 
 
     useEffect(() => {
-        // console.log(csvData)
+        console.log(csvData)
         csvData?.map((submissions) => {
-            // console.log(submissions)
+            // console.log(submissions.Status)
             let lowerCaseEmail = submissions.Email?.toLowerCase()
             // console.log(lowerCaseEmail)
-            if (lowerCaseEmail === email && submissions.Status !== status){
+            if (lowerCaseEmail === email && submissions.Public_Status !== status){
                 if (status === "Not Applied"){
                     // console.log(status)
                     axios.put(`${process.env.REACT_APP_UPDATE_STATUS_API_URL}${id}`, 
                         {status: "Applied"}
                     )
-                    .then((response) => {
-                        // console.log(response.data.message)
-                        // console.log(response)
-
-                        // axios.post(process.env.REACT_APP_SEND_WELCOME_EMAIL_URL, {email: lowerCaseEmail})
-                        // .then((response) => {
-                        //     console.log("Email sent")
-                        // })
-                        // .else((e) => {
-                        //     console.log("Email not sent")
-                        // })
-
+                    .then((response) => {           
                         window.location.reload();
 
                     })
+
+                
                 }
-                else if (submissions.Status !== "" ){
-                    // console.log(submissions)
-                    axios.put(`${process.env.REACT_APP_UPDATE_STATUS_API_URL}${id}`, 
-                        {status: submissions.Status}
-                    )
+                else if (submissions.Public_Status !== "" ){
+                    axios.put(`${process.env.REACT_APP_UPDATE_STATUS_API_URL}${id}`, {status: submissions.Public_Status})
                     .then((response) => {
-                        // console.log(response.data.message)
-                        // console.log(response)
                         window.location.reload();
-    
                     })
+                    .catch((error) => {
+                        console.log(error)
+                    })
+                
                 }
                
             }
@@ -69,26 +85,6 @@ const FetchResponse = ({handleCsvData, email, id, status}) => {
     })
 
 
-
-    
-    const parseCSV = (csvText) => {
-        const rows = csvText.split(/\r?\n/); // Split CSV text into rows, handling '\r' characters
-        const headers = rows[0].split(','); // Extract headers (assumes the first row is the header row)
-        const data = []; // Initialize an array to store parsed data
-      
-        for (let i = 1; i < rows.length; i++) {
-          const rowData = rows[i].split(','); // Split the row, handling '\r' characters
-          const rowObject = {};
-      
-          for (let j = 0; j < headers.length; j++) {
-            rowObject[headers[j]] = rowData[j];
-          }
-      
-          data.push(rowObject);
-        }
-      
-        return data;
-      };
       
 
     return (
