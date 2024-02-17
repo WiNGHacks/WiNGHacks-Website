@@ -69,10 +69,23 @@ const Header = ({}, ref) => {
         
 
           { token ?
-            ( <div>
-                <div className = "link" onClick={portalClick}>Portal</div>
-                <div to="/login" className = "link" onClick={logoutClick}>Logout</div>
-                </div> )
+            ( 
+              <div>
+                {jwtDecode(token).admin ? (
+                  <div>
+                    <div to="/admin/sendResult" className = "link" >Admin</div>
+                  </div>
+                
+                ):(
+                   <div>
+                      <div className = "link" onClick={portalClick}>Portal</div>
+                      <div to="/login" className = "link" onClick={logoutClick}>Logout</div>
+                  </div> 
+
+                )}
+               
+              </div>
+            )
             :
             ( <div className='dynamic'>
                 <Link to="/login" className = "link" onClick={clickedNavbar}>Login</Link>

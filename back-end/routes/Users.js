@@ -34,7 +34,9 @@ const emailVerifyTemplate = (verifyLink) => {
 </body>`
 }
 
-const emailWelcomeTemplate =   `
+const emailWelcomeTemplate =   {
+    subject: "Thank you for Applying",
+    content: `
 <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
     <p style="color: #f4f4f4; " >. </p>
     <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
@@ -53,7 +55,129 @@ const emailWelcomeTemplate =   `
 
     </p>
 </body>
-`
+`}
+
+const emailRejectedTemplate =   {
+    subject: "Thank you for apply but...",
+    content:`
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
+    <p style="color: #f4f4f4; " >. </p>
+    <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        <h1 style="color: #333;">Thank you for applying to WiNGHacks!</h1>
+        <p style="color: #666; line-height: 1.6;">Thank you for applying for WiNGHacks! Please click the button below to login to your account to check your status.</p>
+        <a href=${process.env.LOGIN_URL}  
+            style="display: inline-block; padding: 10px 20px; background-color: #00AFB9; color: #fff; text-decoration: none; border-radius: 3px;"
+        >
+            Login
+        </a>
+        <p style="color: #666; line-height: 1.6;">If you did not fill out our application, you can ignore this email.</p>
+    </div>
+    <p style="max-width: 630px; margin: 20px auto;" >If you have any question please contact uf.winghacks@gmail.com. Follow us on 
+        <a href="https://www.instagram.com/uf.winghacks/">Instagram</a> and 
+        <a href="https://www.linkedin.com/company/uf-winghacks/">LinkedIn</a>!
+
+    </p>
+</body>
+`}
+
+const emailAcceptedTemplate =   {
+    subject: "Congrats!",
+    content:`
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
+    <p style="color: #f4f4f4; " >. </p>
+    <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        <h1 style="color: #333;">Thank you for applying to WiNGHacks!</h1>
+        <p style="color: #666; line-height: 1.6;">Thank you for applying for WiNGHacks! Please click the button below to login to your account to check your status.</p>
+        <a href=${process.env.LOGIN_URL}  
+            style="display: inline-block; padding: 10px 20px; background-color: #00AFB9; color: #fff; text-decoration: none; border-radius: 3px;"
+        >
+            Login
+        </a>
+        <p style="color: #666; line-height: 1.6;">If you did not fill out our application, you can ignore this email.</p>
+    </div>
+    <p style="max-width: 630px; margin: 20px auto;" >If you have any question please contact uf.winghacks@gmail.com. Follow us on 
+        <a href="https://www.instagram.com/uf.winghacks/">Instagram</a> and 
+        <a href="https://www.linkedin.com/company/uf-winghacks/">LinkedIn</a>!
+
+    </p>
+</body>
+`}
+
+const emailWaitlistedTdemplate =  {
+    subject: "Please wait",
+    content:`
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
+    <p style="color: #f4f4f4; " >. </p>
+    <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        <h1 style="color: #333;">Thank you for applying to WiNGHacks!</h1>
+        <p style="color: #666; line-height: 1.6;">Thank you for applying for WiNGHacks! Please click the button below to login to your account to check your status.</p>
+        <a href=${process.env.LOGIN_URL}  
+            style="display: inline-block; padding: 10px 20px; background-color: #00AFB9; color: #fff; text-decoration: none; border-radius: 3px;"
+        >
+            Login
+        </a>
+        <p style="color: #666; line-height: 1.6;">If you did not fill out our application, you can ignore this email.</p>
+    </div>
+    <p style="max-width: 630px; margin: 20px auto;" >If you have any question please contact uf.winghacks@gmail.com. Follow us on 
+        <a href="https://www.instagram.com/uf.winghacks/">Instagram</a> and 
+        <a href="https://www.linkedin.com/company/uf-winghacks/">LinkedIn</a>!
+
+    </p>
+</body>
+`}
+
+
+// const emailNodemail = (updateStatus) => {
+//     var emailTemplateSubject;
+//     var emailTemplateContent;
+
+//     if(updateStatus === "Welcome") {
+//         emailTemplateSubject = emailWelcomeTemplate.subject
+//         emailTemplateContent = emailWelcomeTemplate.content
+//     }
+//     else if(updateStatus === "Accepted"){
+//         emailTemplateSubject = emailAcceptedTemplate.subject
+//         emailTemplateContent = emailAcceptedTemplate.content
+//     }
+//     else if(updateStatus === "Rejected"){
+//         emailTemplateSubject = emailRejectedTemplate.subject
+//         emailTemplateContent = emailRejectedTemplate.content
+//     }
+//     else if(updateStatus === "Waitlisted"){
+//         emailTemplateSubject = emailWaitlistedTdemplate.subject
+//         emailTemplateContent = emailWaitlistedTdemplate.content
+//     }
+
+//     const transporter = nodemailer.createTransport({
+//         service: 'Gmail',
+//         auth: {
+//           user: process.env.EMAIL, // Replace with your Gmail email address
+//           pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
+//         }
+//     });
+
+//     const mailOptions = {
+//         from: `"WiNGHacks Team " ${process.env.EMAIL}`,
+//         to: email,
+//         subject: emailTemplateSubject,
+//         html: emailTemplateContent
+//     };
+
+//     transporter.sendMail(mailOptions, (error, info) => {
+//         if (error) {
+//             res.status(500).send({
+//                 message: "Couldn't send email",
+//                 error,
+            
+//             });
+//         } else {
+//             res.status(200).send({
+//                 message: "Successfully sent email",
+//                 response
+//             });
+//         }
+//     });
+// }
 
 router.post('/signup', (req, res) => {
     // let verificationLink
@@ -78,7 +202,8 @@ router.post('/signup', (req, res) => {
                     password: hashedPassword,
                     status: req.body.status,
                     emailVerified: 0,
-                    emailToken: verificationToken
+                    emailToken: verificationToken,
+                    admin: false,
                 });
 
                 /* ================ Email Verification!!! ================ */
@@ -161,6 +286,7 @@ router.post('/login', (req, res) => {
                     userLastName: user.lastName,
                     userEmail: user.email.toLowerCase(),
                     emailToken: user.emailToken,
+                    admin: user.admin
                 },
                 "ACCESS-TOKEN",
                 { expiresIn: "24h" }
@@ -188,57 +314,78 @@ router.post('/login', (req, res) => {
 
 /* ================ Email Verification!!! ================ */
 
-router.post("/sendEmail/welcome", async (req, res) => {
-    const email = req.body.email.toLowerCase()
+// router.post("/sendEmail/status", async (req, res) => {
+//     const email = req.body.email.toLowerCase()
+//     const updateStatus = req.body.updateStatus
+//     var emailTemplateSubject;
+//     var emailTemplateContent;
 
-    Users.findOne({email: email })
-    .then((response) => {
-        if(response == null){
-            return res.status(404).send({
-                message: "Email not found",
-                response
-            });
-        }
+//     if(updateStatus === "Welcome") {
+//         emailTemplateSubject = emailWelcomeTemplate.subject
+//         emailTemplateContent = emailWelcomeTemplate.content
+//     }
+//     else if(updateStatus === "Accepted"){
+//         emailTemplateSubject = emailAcceptedTemplate.subject
+//         emailTemplateContent = emailAcceptedTemplate.content
+//     }
+//     else if(updateStatus === "Rejected"){
+//         emailTemplateSubject = emailRejectedTemplate.subject
+//         emailTemplateContent = emailRejectedTemplate.content
+//     }
+//     else if(updateStatus === "Waitlisted"){
+//         emailTemplateSubject = emailWaitlistedTdemplate.subject
+//         emailTemplateContent = emailWaitlistedTdemplate.content
+//     }
 
-        const transporter = nodemailer.createTransport({
-            service: 'Gmail',
-            auth: {
-              user: process.env.EMAIL, // Replace with your Gmail email address
-              pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
-            }
-        });
 
-        const mailOptions = {
-            from: `"WiNGHacks Team " ${process.env.EMAIL}`,
-            to: email,
-            subject: 'Confirm your account',
-            html: emailWelcomeTemplate
-        };
+//     Users.findOne({email: email })
+//     .then((response) => {
+//         if(response == null){
+//             return res.status(404).send({
+//                 message: "Email not found",
+//                 response
+//             });
+//         }
 
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                res.status(500).send({
-                    message: "Couldn't send email",
-                    error,
+//         const transporter = nodemailer.createTransport({
+//             service: 'Gmail',
+//             auth: {
+//               user: process.env.EMAIL, // Replace with your Gmail email address
+//               pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
+//             }
+//         });
+
+//         const mailOptions = {
+//             from: `"WiNGHacks Team " ${process.env.EMAIL}`,
+//             to: email,
+//             subject: emailTemplateSubject,
+//             html: emailTemplateContent
+//         };
+
+//         transporter.sendMail(mailOptions, (error, info) => {
+//             if (error) {
+//                 res.status(500).send({
+//                     message: "Couldn't send email",
+//                     error,
                 
-                });
-            } else {
-                res.status(200).send({
-                    message: "Successfully sent email",
-                    response
-                });
-            }
-        });
-    })
-    .catch((e) => {
-        res.status(404).send({
-            message: "Error with finding verification token",
-            e
-        });
+//                 });
+//             } else {
+//                 res.status(200).send({
+//                     message: "Successfully sent email",
+//                     response
+//                 });
+//             }
+//         });
+//     })
+//     .catch((e) => {
+//         res.status(404).send({
+//             message: "Error sending email",
+//             e
+//         });
 
-    })
+//     })
 
-})
+// })
 
 router.post("/sendEmail/:token", async (req, res) => {
     const token = req.params.token
@@ -342,17 +489,77 @@ router.put("/verifyEmail/:token", async (req, res) => {
 
 router.put("/updateStatus/:id", async (req, res) => {
     var id = req.params.id;
+
     Users.findOneAndUpdate({_id: id}, {status: req.body.status})
     .then((response) => {
+        if (response !== null) {
+
+            // var emailTemplateSubject;
+            // var emailTemplateContent;
+
+            if(req.body.status === "Applied") {
+                emailTemplateSubject = emailWelcomeTemplate.subject
+                emailTemplateContent = emailWelcomeTemplate.content
+            }
+            // else if(req.body.status === "Accepted"){
+            //     emailTemplateSubject = emailAcceptedTemplate.subject
+            //     emailTemplateContent = emailAcceptedTemplate.content
+            // }
+            // else if(req.body.status === "Rejected"){
+            //     emailTemplateSubject = emailRejectedTemplate.subject
+            //     emailTemplateContent = emailRejectedTemplate.content
+            // }
+            // else if(req.body.status === "Waitlisted"){
+            //     emailTemplateSubject = emailWaitlistedTdemplate.subject
+            //     emailTemplateContent = emailWaitlistedTdemplate.content
+            // }
+
+            const transporter = nodemailer.createTransport({
+                service: 'Gmail',
+                auth: {
+                user: process.env.EMAIL, // Replace with your Gmail email address
+                pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
+                }
+            });
+
+            const mailOptions = {
+                from: `"WiNGHacks Team " ${process.env.EMAIL}`,
+                to: response.email,
+                subject: emailTemplateSubject,
+                html: emailTemplateContent
+            };
+
+            transporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
+                    res.status(500).send({
+                        message: "Couldn't send email",
+                        error,
+                    
+                    });
+                } else {
+                    res.status(200).send({
+                        message: "Successfully sent email",
+                        response
+                    });
+                }
+            });
+            // res.status(200).send({
+            //     message: "User found",
+            //     response
+            // });
+
+
+        }
+
         // return success response
-        res.status(200).send({
-            message: "User found",
-            response
-        });
+       
+
+
     })
     .catch((e) => {
         res.status(404).send({
             message: "User not found",
+            e
         });
 
     })

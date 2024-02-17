@@ -17,6 +17,7 @@ import Schedule from './components/pages/Schedule';
 import VerificationEmail from './components/pages/applications/VerificationEmail';
 import NotifyEmail from './components/pages/applications/NotifyEmail';
 import axios from 'axios';
+import SendResults from './components/pages/admin/SendResults';
 
 function App() {
 
@@ -65,6 +66,7 @@ function App() {
               <Route path="/portal/:id" element={<UserPortal/>}></Route>
               <Route path="/verify/:token" element={<VerificationEmail/>}></Route>
               <Route path="/notify/email/:emailToken" element={<NotifyEmail/>}></Route>
+              <Route path="/admin/sendResult" element={<SendResults/>}></Route>
               
             </Routes> 
           </div>
