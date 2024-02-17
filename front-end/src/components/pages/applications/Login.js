@@ -54,7 +54,14 @@ const Login = () => {
 
                 setLogin(true);
                 // alert(response.data.message)
-                window.location.replace(`/portal/${decoded.id}`);
+                console.log(decoded.admin)
+                if(decoded.admin === true){
+                    window.location.replace(`/admin/sendResult/${decoded.id}`);
+                }
+                else {
+                    window.location.replace(`/portal/${decoded.id}`);
+                }
+                
             }
             
         }).catch((error) => {
@@ -67,7 +74,12 @@ const Login = () => {
 
     useEffect(() => {
         const token = cookies.get("TOKEN");
-        if ( token ) {
+
+        if (token && jwtDecode(token).admin ) {
+            const decoded = jwtDecode(token);
+            window.location.replace(`/admin/sendResult/${decoded.id}`);
+        }
+        else if ( token ) {
             const decoded = jwtDecode(token);
             window.location.replace(`/portal/${decoded.id}`);
         }

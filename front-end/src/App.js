@@ -66,7 +66,7 @@ function App() {
               <Route path="/portal/:id" element={<UserPortal/>}></Route>
               <Route path="/verify/:token" element={<VerificationEmail/>}></Route>
               <Route path="/notify/email/:emailToken" element={<NotifyEmail/>}></Route>
-              <Route path="/admin/sendResult" element={<SendResults/>}></Route>
+              <Route path="/admin/sendResult/:id" element={<SendResults/>}></Route>
               
             </Routes> 
           </div>

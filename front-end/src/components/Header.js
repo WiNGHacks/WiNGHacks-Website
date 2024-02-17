@@ -13,6 +13,13 @@ const Header = ({}, ref) => {
 
     let navigate = useNavigate();
 
+    const adminClick = () => {
+      setShowNavbar(false);
+
+      const decoded = jwtDecode(token)
+      navigate(`/admin/sendResult/${decoded.id}`, {replace: true});
+    }
+
     const portalClick = () => {
       setShowNavbar(false);
 
@@ -74,7 +81,7 @@ const Header = ({}, ref) => {
                 {console.log(jwtDecode(token).admin)}
                 {jwtDecode(token).admin ? (
                   <div>
-                    <Link to="/admin/sendResult" className = "link" onClick={clickedNavbar}>Admin</Link>
+                    <div className = "link" onClick={adminClick}>Admin</div>
                     <div to="/login" className = "link" onClick={logoutClick}>Logout</div>
                   </div>
                 
