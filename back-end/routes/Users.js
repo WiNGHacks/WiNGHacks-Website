@@ -314,78 +314,78 @@ router.post('/login', (req, res) => {
 
 /* ================ Email Verification!!! ================ */
 
-// router.post("/sendEmail/status", async (req, res) => {
-//     const email = req.body.email.toLowerCase()
-//     const updateStatus = req.body.updateStatus
-//     var emailTemplateSubject;
-//     var emailTemplateContent;
+router.post("/sendEmail/status", async (req, res) => {
+    const email = req.body.email.toLowerCase()
+    const updateStatus = req.body.updateStatus
+    var emailTemplateSubject;
+    var emailTemplateContent;
 
-//     if(updateStatus === "Welcome") {
-//         emailTemplateSubject = emailWelcomeTemplate.subject
-//         emailTemplateContent = emailWelcomeTemplate.content
-//     }
-//     else if(updateStatus === "Accepted"){
-//         emailTemplateSubject = emailAcceptedTemplate.subject
-//         emailTemplateContent = emailAcceptedTemplate.content
-//     }
-//     else if(updateStatus === "Rejected"){
-//         emailTemplateSubject = emailRejectedTemplate.subject
-//         emailTemplateContent = emailRejectedTemplate.content
-//     }
-//     else if(updateStatus === "Waitlisted"){
-//         emailTemplateSubject = emailWaitlistedTdemplate.subject
-//         emailTemplateContent = emailWaitlistedTdemplate.content
-//     }
+    // if(updateStatus === "Applied") {
+    //     emailTemplateSubject = emailWelcomeTemplate.subject
+    //     emailTemplateContent = emailWelcomeTemplate.content
+    // }
+    if(updateStatus === "Accepted"){
+        emailTemplateSubject = emailAcceptedTemplate.subject
+        emailTemplateContent = emailAcceptedTemplate.content
+    }
+    else if(updateStatus === "Rejected"){
+        emailTemplateSubject = emailRejectedTemplate.subject
+        emailTemplateContent = emailRejectedTemplate.content
+    }
+    else if(updateStatus === "Waitlisted"){
+        emailTemplateSubject = emailWaitlistedTdemplate.subject
+        emailTemplateContent = emailWaitlistedTdemplate.content
+    }
 
 
-//     Users.findOne({email: email })
-//     .then((response) => {
-//         if(response == null){
-//             return res.status(404).send({
-//                 message: "Email not found",
-//                 response
-//             });
-//         }
+    Users.findOne({email: email })
+    .then((response) => {
+        if(response == null){
+            return res.status(404).send({
+                message: "Email not found",
+                response
+            });
+        }
 
-//         const transporter = nodemailer.createTransport({
-//             service: 'Gmail',
-//             auth: {
-//               user: process.env.EMAIL, // Replace with your Gmail email address
-//               pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
-//             }
-//         });
+        const transporter = nodemailer.createTransport({
+            service: 'Gmail',
+            auth: {
+              user: process.env.EMAIL, // Replace with your Gmail email address
+              pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
+            }
+        });
 
-//         const mailOptions = {
-//             from: `"WiNGHacks Team " ${process.env.EMAIL}`,
-//             to: email,
-//             subject: emailTemplateSubject,
-//             html: emailTemplateContent
-//         };
+        const mailOptions = {
+            from: `"WiNGHacks Team " ${process.env.EMAIL}`,
+            to: email,
+            subject: emailTemplateSubject,
+            html: emailTemplateContent
+        };
 
-//         transporter.sendMail(mailOptions, (error, info) => {
-//             if (error) {
-//                 res.status(500).send({
-//                     message: "Couldn't send email",
-//                     error,
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                res.status(500).send({
+                    message: "Couldn't send email",
+                    error,
                 
-//                 });
-//             } else {
-//                 res.status(200).send({
-//                     message: "Successfully sent email",
-//                     response
-//                 });
-//             }
-//         });
-//     })
-//     .catch((e) => {
-//         res.status(404).send({
-//             message: "Error sending email",
-//             e
-//         });
+                });
+            } else {
+                res.status(200).send({
+                    message: "Successfully sent email",
+                    response
+                });
+            }
+        });
+    })
+    .catch((e) => {
+        res.status(404).send({
+            message: "Error sending email",
+            e
+        });
 
-//     })
+    })
 
-// })
+})
 
 router.post("/sendEmail/:token", async (req, res) => {
     const token = req.params.token

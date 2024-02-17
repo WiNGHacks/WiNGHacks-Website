@@ -71,9 +71,11 @@ const Header = ({}, ref) => {
           { token ?
             ( 
               <div>
+                {console.log(jwtDecode(token).admin)}
                 {jwtDecode(token).admin ? (
                   <div>
-                    <div to="/admin/sendResult" className = "link" >Admin</div>
+                    <Link to="/admin/sendResult" className = "link" onClick={clickedNavbar}>Admin</Link>
+                    <div to="/login" className = "link" onClick={logoutClick}>Logout</div>
                   </div>
                 
                 ):(
