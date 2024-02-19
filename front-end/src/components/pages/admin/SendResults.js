@@ -10,12 +10,17 @@ const SendResults = () => {
         const rows = csvText.split(/\r?\n/); // Split CSV text into rows, handling '\r' characters
         // console.log(rows)
         // console.log(rows[0])
-        const headers = rows[0].split(','); // Extract headers (assumes the first row is the header row)
+        // const headers = rows[0].split(','); // Extract headers (assumes the first row is the header row)
+        const headers = rows[0].match(/(?<=^|,)(?:"(?:[^"]|"")*"|[^,"]*)/g);
         const data = []; // Initialize an array to store parsed data
       
         for (let i = 1; i < rows.length; i++) {
-            const rowData = rows[i].split(',').map(item => item.trim()); // Split the row, handling '\r' characters and trim whitespace
+            // const rowData = rows[i].split(',').map(item => item.trim()); // Split the row, handling '\r' characters and trim whitespace
             // console.log("Row Data:", rowData);
+            const rowData = rows[i].match(/(?<=^|,)(?:"(?:[^"]|"")*"|[^,"]*)/g).map(item => {
+                // Remove surrounding double quotes and unescape double quotes
+                return item.replace(/^"|"$/g, '').replace(/""/g, '"').trim();
+            });
             const rowObject = {};
     
             for (let j = 0; j < headers.length; j++) {

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from "axios";
+import * as XLSX from 'xlsx';
 
 const FetchResponse = ({ email, id, status}) => {
     const [csvData, setCsvData] = useState([]);
@@ -10,11 +11,17 @@ const FetchResponse = ({ email, id, status}) => {
         const rows = csvText.split(/\r?\n/); // Split CSV text into rows, handling '\r' characters
         // console.log(rows)
         // console.log(rows[0])
-        const headers = rows[0].split(','); // Extract headers (assumes the first row is the header row)
+        // const headers = rows[0].split(','); // Extract headers (assumes the first row is the header row)
+        const headers = rows[0].match(/(?<=^|,)(?:"(?:[^"]|"")*"|[^,"]*)/g);
         const data = []; // Initialize an array to store parsed data
       
         for (let i = 1; i < rows.length; i++) {
-            const rowData = rows[i].split(',').map(item => item.trim()); // Split the row, handling '\r' characters and trim whitespace
+            // const rowData = rows[i].split(',').map(item => item.trim()); // Split the row, handling '\r' characters and trim whitespace
+
+            const rowData = rows[i].match(/(?<=^|,)(?:"(?:[^"]|"")*"|[^,"]*)/g).map(item => {
+                // Remove surrounding double quotes and unescape double quotes
+                return item.replace(/^"|"$/g, '').replace(/""/g, '"').trim();
+            });
             // console.log("Row Data:", rowData);
             const rowObject = {};
     
@@ -42,7 +49,7 @@ const FetchResponse = ({ email, id, status}) => {
             setCsvData(parsedCsvData);
             // handleCsvData(parsedCsvData); 
       // Set the fetched data in the component's state
-            // console.log(parsedCsvData);        // Now you can work with 'csvData' in your component's state.
+            console.log(parsedCsvData);        // Now you can work with 'csvData' in your component's state.
         })
         .catch((error) => {
             console.error('Error fetching CSV data:', error);
@@ -52,8 +59,8 @@ const FetchResponse = ({ email, id, status}) => {
     useEffect(() => {
         console.log(csvData)
         csvData?.map((submissions) => {
-            // console.log(submissions.Status)
-            let lowerCaseEmail = submissions.Email?.toLowerCase()
+            // console.log(submissions["Email Address"])
+            let lowerCaseEmail = submissions["Email Address"]?.toLowerCase()
             // console.log(lowerCaseEmail)
             if (lowerCaseEmail === email && submissions.Public_Status !== status){
                 if (status === "Not Applied"){
