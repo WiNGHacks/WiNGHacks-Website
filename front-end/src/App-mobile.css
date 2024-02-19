@@ -78,7 +78,7 @@
 
       .link {
         color: #0081A7;
-        font-family: bitter;
+        font-family: teacher-semibold;
         font-weight: bold;
         font-variant: small-caps;
         text-decoration: none;
@@ -114,7 +114,7 @@
       }
 
       .apply:hover {
-        color: black;
+        color: rgb(224, 113, 68);
       }
     }
 

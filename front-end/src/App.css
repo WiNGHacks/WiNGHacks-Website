@@ -145,7 +145,7 @@ button:hover{ cursor: pointer; }
     }
 
     .apply:hover {
-      color: black;
+      color: rgb(224, 113, 68);
     }
   }
 
@@ -1034,6 +1034,6 @@ figcaption a {
     box-shadow: 0 0 0 0 rgb(255, 126, 74);
   }
   50% {
-    box-shadow: 0 0 40px 0 rgb(255, 126, 74);
+    box-shadow: 0 0 25px 0 rgb(255, 126, 74);
   }
 }
