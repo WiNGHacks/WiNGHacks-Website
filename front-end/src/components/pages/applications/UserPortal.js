@@ -55,6 +55,7 @@ const UserPortal = () => {
         // To avoid people miss using URL to enter others information
         console.log(decoded)
         if (decoded.id === id){
+            console.log(decoded.acceptedRSVP)
             if (decoded.acceptedRSVP !== "n/a") {
                 setAlreadyRSVP(true)
             }
