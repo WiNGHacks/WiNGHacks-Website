@@ -17,6 +17,7 @@ const SignUp = () => {
     const [register, setRegister] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [missingValue, setMissingValue] = useState(true);
+    const [submitedClicked, setSubmitClicked] = useState(false)
 
     const navigate = useNavigate();
 
@@ -42,6 +43,7 @@ const SignUp = () => {
 
     // Handling the form submission
     const handleSubmit = (e) => {
+        setSubmitClicked(true)
         //Prevent submissions before changing values
         e.preventDefault();
         axios.post(process.env.REACT_APP_SIGNUP_API_URL, {
@@ -53,9 +55,12 @@ const SignUp = () => {
         }).then((response)=>{
             console.log(response)
             setRegister(true);
+            setSubmitClicked(false)
             window.location.replace(`/notify/email/${response.data.result.emailToken}`);
         }).catch((error) => {
             // console.log(error)
+            setSubmitClicked(false)
+
             setErrorMessage(error.response.data.error)
             // alert(error.response.data.error)
         })
@@ -125,7 +130,7 @@ const SignUp = () => {
                     />
 
 
-                    {register?(
+                    {submitedClicked?(
                         <div>
                             <button  className="submitBubble" align= "center" disabled> <FiLoader /> </button>
                         </div>

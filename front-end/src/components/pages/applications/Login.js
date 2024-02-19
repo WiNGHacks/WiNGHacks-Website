@@ -18,6 +18,7 @@ const Login = () => {
     const [login, setLogin] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [missingValue, setMissingValue] = useState(true);
+    const [submitedClicked, setSubmitClicked] = useState(false)
 
     // Handling the email change
     const handleEmail = (e) => {
@@ -32,6 +33,7 @@ const Login = () => {
     // Handling the form submission
     const handleSubmit = (e) => {
         // console.log(process.env.REACT_APP_LOGIN_API_URL)
+        setSubmitClicked(true)
         //Prevent submissions before changing values
         e.preventDefault();
         axios.post(process.env.REACT_APP_LOGIN_API_URL, {
@@ -40,6 +42,7 @@ const Login = () => {
         }).then((response)=>{
             if (response.data.emailVerified === false) {
                 // console.log(response.data)
+                setSubmitClicked(false)
                 setErrorMessage("Please verify your email first")
             } 
             else {
@@ -53,6 +56,7 @@ const Login = () => {
                 const decoded = jwtDecode(response.data.token);
 
                 setLogin(true);
+                setSubmitClicked(false)
                 // alert(response.data.message)
                 console.log(decoded.admin)
                 if(decoded.admin === true){
@@ -66,6 +70,7 @@ const Login = () => {
             
         }).catch((error) => {
             // console.log(error)
+            setSubmitClicked(false)
             setErrorMessage("Invalid email/password")
             // alert(error.response.data.message)
         })
@@ -123,7 +128,7 @@ const Login = () => {
                     {/* {console.log(password)} */}
                     
 
-                    {login?(
+                    {submitedClicked?(
                         <div>
                             <button  className="submitBubble" align= "center" disabled> <FiLoader /> </button>
                         </div>
