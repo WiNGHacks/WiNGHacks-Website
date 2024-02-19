@@ -11,6 +11,7 @@ const cookies = new Cookies();
 
 const Header = ({}, ref) => {
     const token = cookies.get("TOKEN");
+    const currentPath = window.location.pathname   
 
     let navigate = useNavigate();
 
@@ -64,7 +65,8 @@ const Header = ({}, ref) => {
 
     return (
       <div>
-      {token ? (<div/>) : (<Popup/>)}
+        {console.log(currentPath)}
+      {token || currentPath === "/login" || currentPath === "/signup" ? (<div/>) : (<Popup/>)}
       <div className = "navbar" id='navbar'>
 
       <Link to = "/#home"  onClick={() => handleClick('home')} className = "logo-container">

@@ -33,10 +33,12 @@ const NotifyEmail = () => {
     const token = cookies.get("TOKEN");
     if (token && jwtDecode(token).admin ) {
       const decoded = jwtDecode(token);
+      window.location.reload()
       window.location.replace(`/admin/sendResult/${decoded.id}`);
     }
     else if ( token ) {
         const decoded = jwtDecode(token);
+        window.location.reload()
         window.location.replace(`/portal/${decoded.id}`);
     }
   }, []);

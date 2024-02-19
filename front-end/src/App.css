@@ -77,12 +77,13 @@ button:hover{ cursor: pointer; }
   padding: 1% 1% 0.25%;
   max-height: clamp(4rem, 5vw, 7rem);
   z-index: 12;
-  position: sticky; 
+  position: fixed; 
   top: 0;
   display: flex;
   flex: auto;
   justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  width: 100%;
 
   .logo-container {
     align-content: center;
@@ -811,6 +812,7 @@ figcaption a {
       }
     }
 
+
     .character {
       align-self: flex-end;
       float: inline-end;
@@ -829,6 +831,55 @@ figcaption a {
     }
   }
 
+  .disabledButton-rsvp {
+    color: rgb(81, 86, 89);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background-color: rgb(143, 141, 141);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+
+  .Button-rsvp {
+
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background-color: rgb(62, 141, 211);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+    cursor: pointer;
+    margin-top: 1rem;
+    
+  }
+  .Button-rsvp:hover {
+    background-color: rgb(44, 19, 153);
+    color: white;
+    flex-direction: column;
+    align-self: center;
+  } 
+
+  
   .portal-padding {
     padding-inline: 5%;
     padding-bottom: 5%;

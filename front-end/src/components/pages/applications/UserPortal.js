@@ -81,6 +81,7 @@ const UserPortal = () => {
 
     return (
         <div className="Page Portal" align='center'>
+            {console.log(selectedRSVP)}
             {console.log(alreadyRSVP)}
             <FetchResponse email = {email} id={id} status={status}/>
             
@@ -108,9 +109,17 @@ const UserPortal = () => {
             :
             (
                 <div>
-                    <h1>Hi, {firstName} {lastName}</h1>
-                    <h2>Your Status: {status}</h2>
-                    {status === "Accepted"? 
+                    <div className='name-banner'>
+                        <div className='message'>
+                            <h1 className='welcome-message'>Welcome, {firstName} {lastName}!</h1>
+            
+                        </div>
+                        <img src={flier} className='character'/>
+                    </div>
+                    <div className='portal-padding'>
+                        <h2>Your Status: {status}</h2>
+                    
+                {status === "Accepted"? 
                     (
                         <div>
                             <Select
@@ -120,7 +129,7 @@ const UserPortal = () => {
                                 options={rsvpOption}
                                 isDisabled = {alreadyRSVP}
                             />                    
-                            <button disabled={selectedRSVP === ""} onClick={updateAcceptance}>Submit RSVP</button>
+                            <button className= {selectedRSVP === "" ? "disabledButton-rsvp" : 'Button-rsvp' } disabled = {selectedRSVP === ""} onClick={updateAcceptance}>Submit RSVP</button>
                         </div>
                     ):(
                         <div>
@@ -128,8 +137,9 @@ const UserPortal = () => {
                         </div>
                     )
                 
-                    }
-           
+                }
+                </div>
+        
                 
                 </div>
 
@@ -141,3 +151,22 @@ const UserPortal = () => {
 }
 
 export default UserPortal
+
+
+
+                    {/* <div className='name-banner'>
+                        <div className='message'>
+                            <h1 className='welcome-message'>Welcome, {firstName} {lastName}!</h1>
+                            <div>Thank you for taking the time to make an account with WiNGHacks! Make sure you submit an application and let the uplifting begin!</div>
+                        </div>
+                        <img src={flier} className='character'/>
+                    </div>
+                    <div className='portal-padding'>
+                        <h2>Your Status: {status}</h2>
+                        <p>Please wait 5 minutes to see updates. Please only submit one application.</p>
+
+                        <button className= "Button apply" onClick={() => {window.open(process.env.REACT_APP_APPLICATION_FORM)}}>
+                            Apply Now
+                        </button>
+                    </div>
+                </div> */}
