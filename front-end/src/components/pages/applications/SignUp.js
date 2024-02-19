@@ -133,7 +133,7 @@ const SignUp = () => {
 
                     {submitedClicked?(
                         <div>
-                            <button className="submitBubble" align= "center" disabled>
+                            <button className="submitBubble" style={{  pointerEvents: "none"}} align= "center" disabled>
                                 <ClipLoader 
                                     color='black'
                                     loading={submitedClicked}
