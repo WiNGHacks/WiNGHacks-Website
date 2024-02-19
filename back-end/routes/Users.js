@@ -10,6 +10,7 @@ const bcrypt = require("bcrypt");
 // Assign access token to the user
 const jwt = require("jsonwebtoken");
 
+{/* <img src="cid:logo" alt="Banner Picture" style="width: 100%; margin: 0; padding: 0;">   */}
 // HTML FOR VERIFY EMAIL TEMPLATE
 const emailVerifyTemplate = (verifyLink) => {
     return `
@@ -17,7 +18,6 @@ const emailVerifyTemplate = (verifyLink) => {
     <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
     <p style="color: #f4f4f4; " >. </p>
     <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-        <img src="cid:logo" alt="Banner Picture" style="width: 100%; margin: 0; padding: 0;">    
         <h1 style="color: #333;">Confirm Your Email Address</h1>
         <p style="color: #666; line-height: 1.6;">Thank you for signing up! Please click the button below to verify your email address.</p>
         <a href=${verifyLink}  
@@ -42,7 +42,7 @@ const emailWelcomeTemplate = {
 <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
 <p style="color: #f4f4f4; " >. </p>
     <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-        <img src="cid:logo" alt="Banner Picture" style="width: 100%; margin: 0; padding: 0;">    
+         
         <h1 style="color: #333;">Thank you for applying to WiNGHacks!</h1>
         <p style="color: #666; line-height: 1.6;">Thank you for applying to hack with us at WiNGHacks! Your application has been received and we will get back to you with a decision after the closing deadline of March 19, 2024.
         </p>
@@ -63,7 +63,7 @@ const emailRejectedTemplate = (name) => {
     <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
     <p style="color: #f4f4f4; " >. </p>
         <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-            <img src="cid:logo" alt="Banner Picture" style="width: 100%; margin: 0; padding: 0;">    
+              
             <h1 style="color: #333;">Thank you for applying to WiNGHacks!</h1>
             <p style="color: #666; line-height: 1.6;"> Hi ${name} </p>
             <p style="color: #666; line-height: 1.6;">
@@ -89,7 +89,7 @@ const emailAcceptedTemplate = (name) =>  {
     <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
     <p style="color: #f4f4f4; " >. </p>
         <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-            <img src="cid:logo" alt="Banner Picture" style="width: 100%; margin: 0; padding: 0;">    
+              
             <h1 style="color: #333;">Thank you for applying to WiNGHacks!</h1>
             <p style="color: #666; line-height: 1.6;"> Hi ${name} </p>
             <p style="color: #666; line-height: 1.6;">
@@ -119,7 +119,7 @@ const emailWaitlistedTemplate = (name) => {
     <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
     <p style="color: #f4f4f4; " >. </p>
         <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-            <img src="cid:logo" alt="Banner Picture" style="width: 100%; margin: 0; padding: 0;">    
+              
             <h1 style="color: #333;">Thank you for applying to WiNGHacks!</h1>
             <p style="color: #666; line-height: 1.6;"> Hi ${name} </p>
             <p style="color: #666; line-height: 1.6;">
@@ -186,11 +186,11 @@ router.post('/signup', (req, res) => {
                     to: req.body.email.toLowerCase(),
                     subject: 'Confirm your account',
                     html: emailVerifyTemplate(verificationLink),
-                    attachments: [{
-                        filename: 'WiNGHacks.png',
-                        path: __dirname + './../pictures/WiNGHacks.png',
-                        cid: 'logo' // same cid value as in the html img src
-                    }]
+                    // attachments: [{
+                    //     filename: 'WiNGHacks.png',
+                    //     path: __dirname + './../pictures/WiNGHacks.png',
+                    //     cid: 'logo' // same cid value as in the html img src
+                    // }]
                     
                 };
 
@@ -330,11 +330,11 @@ router.post("/sendEmail/status", async (req, res) => {
             to: email,
             subject: emailTemplateSubject,
             html: emailTemplateContent,
-            attachments: [{
-                filename: 'WiNGHacks.png',
-                path: __dirname + './../pictures/WiNGHacks.png',
-                cid: 'logo' // same cid value as in the html img src
-            }]
+            // attachments: [{
+            //     filename: 'WiNGHacks.png',
+            //     path: __dirname + './../pictures/WiNGHacks.png',
+            //     cid: 'logo' // same cid value as in the html img src
+            // }]
         };
 
         transporter.sendMail(mailOptions, (error, info) => {
@@ -390,11 +390,11 @@ router.post("/sendEmail/:token", async (req, res) => {
             to: response.email.toLowerCase(),
             subject: 'Confirm your account',
             html: emailVerifyTemplate(verificationLink),
-            attachments: [{
-                filename: 'WiNGHacks.png',
-                path: __dirname + './../pictures/WiNGHacks.png',
-                cid: 'logo' // same cid value as in the html img src
-            }]
+            // attachments: [{
+            //     filename: 'WiNGHacks.png',
+            //     path: __dirname + '../pictures/WiNGHacks.png',
+            //     cid: 'logo' // same cid value as in the html img src
+            // }]
             
         };
 
@@ -510,11 +510,11 @@ router.put("/updateStatus/:id", async (req, res) => {
                 to: response.email,
                 subject: emailTemplateSubject,
                 html: emailTemplateContent,
-                attachments: [{
-                    filename: 'WiNGHacks.png',
-                    path: __dirname + './../pictures/WiNGHacks.png',
-                    cid: 'logo' // same cid value as in the html img src
-                }]
+                // attachments: [{
+                //     filename: 'WiNGHacks.png',
+                //     path: __dirname + './../pictures/WiNGHacks.png',
+                //     cid: 'logo' // same cid value as in the html img src
+                // }]
             };
 
             transporter.sendMail(mailOptions, (error, info) => {
