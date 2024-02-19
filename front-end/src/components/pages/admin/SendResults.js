@@ -67,7 +67,7 @@ const SendResults = () => {
             if(item.Public_Status !== "") {
                 console.log({Email: item["Email Address"], newStatus: item.Public_Status})
                 axios.post(process.env.REACT_APP_SEND_UPDATE_STATUS_EMAIL_URL, 
-                    {email: item["Email Address"], updateStatus:item.Public_Status }
+                    {email: item["Email Address"], updateStatus:item.Public_Status, firstName: item["First Name"] }
                 )
                 .then((response) => {
                     console.log(response)
