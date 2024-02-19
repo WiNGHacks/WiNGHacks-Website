@@ -81,6 +81,57 @@ const SendResults = () => {
         })
     }
 
+    const convertArrayOfJSONToCSV = (data) => {
+        const csvRows = [];
+        
+        // Extract headers from the first object
+        const headers = Object.keys(data[0]);
+        csvRows.push(headers.join(','));
+    
+        // Extract values for each object and create CSV rows
+        data.forEach((obj) => {
+            const values = headers.map((header) => {
+                // Escape double quotes and wrap values in double quotes
+                const escapedValue = obj[header].toString().replace(/"/g, '""');
+                return `"${escapedValue}"`;
+            });
+            csvRows.push(values.join(','));
+        });
+    
+        // Join rows with newline characters
+        return csvRows.join('\n');
+    };
+
+    // Function to download the generated CSV as a .csv file.
+    const downloadCSV = (data, fileName) => {
+        const blob = new Blob([data], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.setAttribute('hidden', '');
+        a.setAttribute('href', url);
+        a.setAttribute('download', fileName + '.csv');
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+   };
+
+    const getAllRSVP = () => {
+        axios.get(process.env.REACT_APP_GET_ALL_USERS_API_URL)
+        .then((response) => {
+            console.log(response.data)
+            const accepted = response.data
+                .filter(obj => obj.hasOwnProperty('acceptedRSVP') && obj.acceptedRSVP === 'yes')
+                .map(({ email, firstName, lastName, acceptedRSVP}) => ({ email, firstName, lastName, acceptedRSVP }));
+            console.log(accepted)
+            const csvData = convertArrayOfJSONToCSV(accepted)
+            downloadCSV(csvData, "Accepted_RSVP_Applicants")
+            
+        })
+        .catch(e => {
+            console.log(e)
+        })
+    }
+
 
   return (
     <div align="center" style={{width: "100%"}}> 
@@ -109,7 +160,9 @@ const SendResults = () => {
                 <button onClick={getAllResults}>Show number of emails to Send</button>  
                 <p>Send emails count: {numEmails}</p>
                 <button disabled = {!readyToSend} onClick={sendAllResults}>Send emails count: {numEmails} </button> 
-                </div>
+                
+            </div>
+            <button onClick={getAllRSVP}>Get All RSVP </button> 
         </div>
         
 

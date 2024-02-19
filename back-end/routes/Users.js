@@ -165,6 +165,7 @@ router.post('/signup', (req, res) => {
                     emailVerified: 0,
                     emailToken: verificationToken,
                     admin: false,
+                    acceptedRSVP: "n/a"
                 });
 
                 /* ================ Email Verification!!! ================ */
@@ -253,7 +254,8 @@ router.post('/login', (req, res) => {
                     userLastName: user.lastName,
                     userEmail: user.email.toLowerCase(),
                     emailToken: user.emailToken,
-                    admin: user.admin
+                    admin: user.admin,
+                    acceptedRSVP: user.acceptedRSVP
                 },
                 "ACCESS-TOKEN",
                 { expiresIn: "24h" }
@@ -440,6 +442,8 @@ router.put("/verifyEmail/:token", async (req, res) => {
                 userLastName: response.lastName,
                 userEmail: response.email.toLowerCase(),
                 emailToken: response.emailToken,
+                admin: response.admin,
+                acceptedRSVP: response.acceptedRSVP
             },
             "ACCESS-TOKEN",
             { expiresIn: "24h" }
@@ -548,6 +552,31 @@ router.put("/updateStatus/:id", async (req, res) => {
 
     })
 })
+
+router.put("/updateRSVP/:id", async (req, res) => {
+    var id = req.params.id;
+
+    Users.findOneAndUpdate({_id: id}, {acceptedRSVP: req.body.acceptedRSVP})
+    .then((response) => {
+        if (response !== null) {
+            res.status(200).send({
+                message: "User found",
+                response
+            });
+
+
+        }
+
+    })
+    .catch((e) => {
+        res.status(404).send({
+            message: "User not found",
+            e
+        });
+
+    })
+})
+
 
 router.get("/finduser/:id", async (req, res) => {
     var id = req.params.id;
