@@ -1020,6 +1020,14 @@ figcaption a {
           animation: glow 2s linear infinite
 }
 
+.button-glow-home-apply{
+  color: black;
+  padding: 16px 34px;
+  box-shadow: 0 0 0 0 rgb(255, 126, 74);
+  -webkit-animation: glow 2s linear infinite;
+          animation: glow 2s linear infinite
+}
+
 @-webkit-keyframes glow {
   0% {
     box-shadow: 0 0 0 0 rgb(255, 126, 74);
