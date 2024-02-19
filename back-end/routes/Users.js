@@ -17,6 +17,7 @@ const emailVerifyTemplate = (verifyLink) => {
     <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
     <p style="color: #f4f4f4; " >. </p>
     <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        <img src="cid:logo" alt="Banner Picture" style="width: 100%; margin: 0; padding: 0;">    
         <h1 style="color: #333;">Confirm Your Email Address</h1>
         <p style="color: #666; line-height: 1.6;">Thank you for signing up! Please click the button below to verify your email address.</p>
         <a href=${verifyLink}  
@@ -24,160 +25,120 @@ const emailVerifyTemplate = (verifyLink) => {
         >
             Verify Email Address
         </a>
-        <p style="color: #666; line-height: 1.6;">If you did not sign up for this service, you can ignore this email.</p>
+        <p style="color: #666; line-height: 1.6;">
+            If you have any question please contact uf.winghacks@gmail.com. Don't forget to follow us on
+            <a href="https://www.instagram.com/winghacks/">Instagram</a> and 
+            <a href="https://www.linkedin.com/company/winghacks/">LinkedIn</a>!
+            for updates!
+        </p>
+    
     </div>
-    <p style="max-width: 630px; margin: 20px auto;" >If you have any question please contact uf.winghacks@gmail.com. Follow us on 
-        <a href="https://www.instagram.com/uf.winghacks/">Instagram</a> and 
-        <a href="https://www.linkedin.com/company/uf-winghacks/">LinkedIn</a>!
-
-    </p>
 </body>`
 }
 
-const emailWelcomeTemplate =   {
-    subject: "Thank you for Applying",
+const emailWelcomeTemplate = {
+    subject: "Your application has been recieved!",
     content: `
 <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
-    <p style="color: #f4f4f4; " >. </p>
+<p style="color: #f4f4f4; " >. </p>
     <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        <img src="cid:logo" alt="Banner Picture" style="width: 100%; margin: 0; padding: 0;">    
         <h1 style="color: #333;">Thank you for applying to WiNGHacks!</h1>
-        <p style="color: #666; line-height: 1.6;">Thank you for applying for WiNGHacks! Please click the button below to login to your account to check your status.</p>
-        <a href=${process.env.LOGIN_URL}  
-            style="display: inline-block; padding: 10px 20px; background-color: #00AFB9; color: #fff; text-decoration: none; border-radius: 3px;"
-        >
-            Login
-        </a>
-        <p style="color: #666; line-height: 1.6;">If you did not fill out our application, you can ignore this email.</p>
+        <p style="color: #666; line-height: 1.6;">Thank you for applying to hack with us at WiNGHacks! Your application has been received and we will get back to you with a decision after the closing deadline of March 19, 2024.
+        </p>
+        <p style="color: #666; line-height: 1.6;">
+        In the meantime, follow us on
+        <a href="https://www.instagram.com/winghacks/">Instagram</a> and 
+        <a href="https://www.linkedin.com/company/winghacks/">LinkedIn</a>!
+        for updates!
+        </p>
     </div>
-    <p style="max-width: 630px; margin: 20px auto;" >If you have any question please contact uf.winghacks@gmail.com. Follow us on 
-        <a href="https://www.instagram.com/uf.winghacks/">Instagram</a> and 
-        <a href="https://www.linkedin.com/company/uf-winghacks/">LinkedIn</a>!
-
-    </p>
+    <p style="color: #f4f4f4; " >. </p>
 </body>
 `}
 
-const emailRejectedTemplate =   {
-    subject: "Thank you for apply but...",
+const emailRejectedTemplate = (name) => {
+    return{subject: "Thank for your application.",
     content:`
-<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
+    <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
     <p style="color: #f4f4f4; " >. </p>
-    <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-        <h1 style="color: #333;">Thank you for applying to WiNGHacks!</h1>
-        <p style="color: #666; line-height: 1.6;">Thank you for applying for WiNGHacks! Please click the button below to login to your account to check your status.</p>
-        <a href=${process.env.LOGIN_URL}  
-            style="display: inline-block; padding: 10px 20px; background-color: #00AFB9; color: #fff; text-decoration: none; border-radius: 3px;"
-        >
-            Login
-        </a>
-        <p style="color: #666; line-height: 1.6;">If you did not fill out our application, you can ignore this email.</p>
-    </div>
-    <p style="max-width: 630px; margin: 20px auto;" >If you have any question please contact uf.winghacks@gmail.com. Follow us on 
-        <a href="https://www.instagram.com/uf.winghacks/">Instagram</a> and 
-        <a href="https://www.linkedin.com/company/uf-winghacks/">LinkedIn</a>!
+        <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+            <img src="cid:logo" alt="Banner Picture" style="width: 100%; margin: 0; padding: 0;">    
+            <h1 style="color: #333;">Thank you for applying to WiNGHacks!</h1>
+            <p style="color: #666; line-height: 1.6;"> Hi ${name} </p>
+            <p style="color: #666; line-height: 1.6;">
+                Thank you for taking the time to apply to WiNGHacks! Unfortunately, due to limited capacity and a large volume of applicants, we are not able to offer you a spot in this year’s hackathon. We appreciate your interest and highly encourage you to apply again next year!
 
-    </p>
-</body>
-`}
-
-const emailAcceptedTemplate =   {
-    subject: "Congrats!",
-    content:`
-<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
-    <p style="color: #f4f4f4; " >. </p>
-    <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-        <h1 style="color: #333;">Thank you for applying to WiNGHacks!</h1>
-        <p style="color: #666; line-height: 1.6;">Thank you for applying for WiNGHacks! Please click the button below to login to your account to check your status.</p>
-        <a href=${process.env.LOGIN_URL}  
-            style="display: inline-block; padding: 10px 20px; background-color: #00AFB9; color: #fff; text-decoration: none; border-radius: 3px;"
-        >
-            Login
-        </a>
-        <p style="color: #666; line-height: 1.6;">If you did not fill out our application, you can ignore this email.</p>
-    </div>
-    <p style="max-width: 630px; margin: 20px auto;" >If you have any question please contact uf.winghacks@gmail.com. Follow us on 
-        <a href="https://www.instagram.com/uf.winghacks/">Instagram</a> and 
-        <a href="https://www.linkedin.com/company/uf-winghacks/">LinkedIn</a>!
-
-    </p>
-</body>
-`}
-
-const emailWaitlistedTdemplate =  {
-    subject: "Please wait",
-    content:`
-<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
-    <p style="color: #f4f4f4; " >. </p>
-    <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-        <h1 style="color: #333;">Thank you for applying to WiNGHacks!</h1>
-        <p style="color: #666; line-height: 1.6;">Thank you for applying for WiNGHacks! Please click the button below to login to your account to check your status.</p>
-        <a href=${process.env.LOGIN_URL}  
-            style="display: inline-block; padding: 10px 20px; background-color: #00AFB9; color: #fff; text-decoration: none; border-radius: 3px;"
-        >
-            Login
-        </a>
-        <p style="color: #666; line-height: 1.6;">If you did not fill out our application, you can ignore this email.</p>
-    </div>
-    <p style="max-width: 630px; margin: 20px auto;" >If you have any question please contact uf.winghacks@gmail.com. Follow us on 
-        <a href="https://www.instagram.com/uf.winghacks/">Instagram</a> and 
-        <a href="https://www.linkedin.com/company/uf-winghacks/">LinkedIn</a>!
-
-    </p>
-</body>
-`}
-
-
-// const emailNodemail = (updateStatus) => {
-//     var emailTemplateSubject;
-//     var emailTemplateContent;
-
-//     if(updateStatus === "Welcome") {
-//         emailTemplateSubject = emailWelcomeTemplate.subject
-//         emailTemplateContent = emailWelcomeTemplate.content
-//     }
-//     else if(updateStatus === "Accepted"){
-//         emailTemplateSubject = emailAcceptedTemplate.subject
-//         emailTemplateContent = emailAcceptedTemplate.content
-//     }
-//     else if(updateStatus === "Rejected"){
-//         emailTemplateSubject = emailRejectedTemplate.subject
-//         emailTemplateContent = emailRejectedTemplate.content
-//     }
-//     else if(updateStatus === "Waitlisted"){
-//         emailTemplateSubject = emailWaitlistedTdemplate.subject
-//         emailTemplateContent = emailWaitlistedTdemplate.content
-//     }
-
-//     const transporter = nodemailer.createTransport({
-//         service: 'Gmail',
-//         auth: {
-//           user: process.env.EMAIL, // Replace with your Gmail email address
-//           pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
-//         }
-//     });
-
-//     const mailOptions = {
-//         from: `"WiNGHacks Team " ${process.env.EMAIL}`,
-//         to: email,
-//         subject: emailTemplateSubject,
-//         html: emailTemplateContent
-//     };
-
-//     transporter.sendMail(mailOptions, (error, info) => {
-//         if (error) {
-//             res.status(500).send({
-//                 message: "Couldn't send email",
-//                 error,
+            </p>
+            <p style="color: #666; line-height: 1.6;">Best, <br>WiNGHacks Organizing Team 
+            <br>
+            <a href="https://www.winghacks.com/">WiNGHacks</a> | 
+            <a href="https://www.instagram.com/winghacks/">Instagram</a> | 
+            <a href="https://www.linkedin.com/company/winghacks/">LinkedIn</a>
+            </p>
             
-//             });
-//         } else {
-//             res.status(200).send({
-//                 message: "Successfully sent email",
-//                 response
-//             });
-//         }
-//     });
-// }
+        </div>
+        <p style="color: #f4f4f4; " >. </p>
+    </body>
+`}
+}
+
+const emailAcceptedTemplate = (name) =>  {
+    return {subject: "Congratulations!",
+    content:`
+    <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
+    <p style="color: #f4f4f4; " >. </p>
+        <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+            <img src="cid:logo" alt="Banner Picture" style="width: 100%; margin: 0; padding: 0;">    
+            <h1 style="color: #333;">Thank you for applying to WiNGHacks!</h1>
+            <p style="color: #666; line-height: 1.6;"> Hi ${name} </p>
+            <p style="color: #666; line-height: 1.6;">
+                Congratulations – you have been accepted to participate in this year’s WiNGHacks! Confirm your attendance <a href="https://www.winghacks.com/login/">here</a>.
+                
+                Keep in mind your in-person attendance is expected. You can reply to this email with any questions you have.
+            
+            
+            </p>
+            <p style="color: #666; line-height: 1.6;"> We’re so excited to have you! </p>
+            <p style="color: #666; line-height: 1.6;">Best, <br>WiNGHacks Organizing Team 
+            <br>
+            <a href="https://www.winghacks.com/">WiNGHacks</a> | 
+            <a href="https://www.instagram.com/winghacks/">Instagram</a> | 
+            <a href="https://www.linkedin.com/company/winghacks/">LinkedIn</a>
+            </p>
+            
+        </div>
+        <p style="color: #f4f4f4; " >. </p>
+    </body>
+`}
+}
+
+const emailWaitlistedTemplate = (name) => {
+    return {subject: "Waitlisted for WiNGHacks Application",
+    content:`
+    <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
+    <p style="color: #f4f4f4; " >. </p>
+        <div style="max-width: 600px;  margin: 20px auto;  padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+            <img src="cid:logo" alt="Banner Picture" style="width: 100%; margin: 0; padding: 0;">    
+            <h1 style="color: #333;">Thank you for applying to WiNGHacks!</h1>
+            <p style="color: #666; line-height: 1.6;"> Hi ${name} </p>
+            <p style="color: #666; line-height: 1.6;">
+                Thank you for taking the time to apply to WiNGHacks! We were thoroughly impressed with your application; however, due to the volume of applicants to WiNGHacks this year, we have moved your application to waitlisted status. This means that if a spot opens up, we will be able to offer it to you!
+             
+            </p>
+            <p style="color: #666; line-height: 1.6;"> Keep an eye out for emails from us in the upcoming week.</p>
+            <p style="color: #666; line-height: 1.6;">Best, <br>WiNGHacks Organizing Team 
+            <br>
+            <a href="https://www.winghacks.com/">WiNGHacks</a> | 
+            <a href="https://www.instagram.com/winghacks/">Instagram</a> | 
+            <a href="https://www.linkedin.com/company/winghacks/">LinkedIn</a>
+            </p>
+            
+        </div>
+        <p style="color: #f4f4f4; " >. </p>
+    </body>
+`}
+}
 
 router.post('/signup', (req, res) => {
     // let verificationLink
@@ -223,7 +184,13 @@ router.post('/signup', (req, res) => {
                     from: `"WiNGHacks Team " ${process.env.EMAIL}`,
                     to: req.body.email.toLowerCase(),
                     subject: 'Confirm your account',
-                    html: emailVerifyTemplate(verificationLink)
+                    html: emailVerifyTemplate(verificationLink),
+                    attachments: [{
+                        filename: 'WiNGHacks.png',
+                        path: __dirname + './../pictures/WiNGHacks.png',
+                        cid: 'logo' // same cid value as in the html img src
+                    }]
+                    
                 };
 
                 transporter.sendMail(mailOptions, (error, info) => {
@@ -317,6 +284,7 @@ router.post('/login', (req, res) => {
 router.post("/sendEmail/status", async (req, res) => {
     const email = req.body.email.toLowerCase()
     const updateStatus = req.body.updateStatus
+    const firstName = req.body.firstName
     var emailTemplateSubject;
     var emailTemplateContent;
 
@@ -325,16 +293,16 @@ router.post("/sendEmail/status", async (req, res) => {
     //     emailTemplateContent = emailWelcomeTemplate.content
     // }
     if(updateStatus === "Accepted"){
-        emailTemplateSubject = emailAcceptedTemplate.subject
-        emailTemplateContent = emailAcceptedTemplate.content
+        emailTemplateSubject = emailAcceptedTemplate(firstName).subject
+        emailTemplateContent = emailAcceptedTemplate(firstName).content
     }
     else if(updateStatus === "Rejected"){
-        emailTemplateSubject = emailRejectedTemplate.subject
-        emailTemplateContent = emailRejectedTemplate.content
+        emailTemplateSubject = emailRejectedTemplate(firstName).subject
+        emailTemplateContent = emailRejectedTemplate(firstName).content
     }
     else if(updateStatus === "Waitlisted"){
-        emailTemplateSubject = emailWaitlistedTdemplate.subject
-        emailTemplateContent = emailWaitlistedTdemplate.content
+        emailTemplateSubject = emailWaitlistedTemplate(firstName).subject
+        emailTemplateContent = emailWaitlistedTemplate(firstName).content
     }
 
 
@@ -359,7 +327,12 @@ router.post("/sendEmail/status", async (req, res) => {
             from: `"WiNGHacks Team " ${process.env.EMAIL}`,
             to: email,
             subject: emailTemplateSubject,
-            html: emailTemplateContent
+            html: emailTemplateContent,
+            attachments: [{
+                filename: 'WiNGHacks.png',
+                path: __dirname + './../pictures/WiNGHacks.png',
+                cid: 'logo' // same cid value as in the html img src
+            }]
         };
 
         transporter.sendMail(mailOptions, (error, info) => {
@@ -414,7 +387,13 @@ router.post("/sendEmail/:token", async (req, res) => {
             from: `"WiNGHacks Team " ${process.env.EMAIL}`,
             to: response.email.toLowerCase(),
             subject: 'Confirm your account',
-            html: emailVerifyTemplate(verificationLink)
+            html: emailVerifyTemplate(verificationLink),
+            attachments: [{
+                filename: 'WiNGHacks.png',
+                path: __dirname + './../pictures/WiNGHacks.png',
+                cid: 'logo' // same cid value as in the html img src
+            }]
+            
         };
 
         transporter.sendMail(mailOptions, (error, info) => {
@@ -526,7 +505,12 @@ router.put("/updateStatus/:id", async (req, res) => {
                 from: `"WiNGHacks Team " ${process.env.EMAIL}`,
                 to: response.email,
                 subject: emailTemplateSubject,
-                html: emailTemplateContent
+                html: emailTemplateContent,
+                attachments: [{
+                    filename: 'WiNGHacks.png',
+                    path: __dirname + './../pictures/WiNGHacks.png',
+                    cid: 'logo' // same cid value as in the html img src
+                }]
             };
 
             transporter.sendMail(mailOptions, (error, info) => {
