@@ -18,7 +18,7 @@ const Popup = ({}, ref) => {
               <FaTimes/> </button>
           </div>
           <div className="title">
-            <h1>WiNGHacks' hacker applications are finally open!</h1>
+            <h1>The 2024 WiNGHacks Hacker Application is OPEN!</h1>
           </div>
           {/* <div className="body">
             <p></p>
