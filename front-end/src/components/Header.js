@@ -5,6 +5,7 @@ import { jwtDecode } from "jwt-decode";
 import { FaBars, FaTimes } from "react-icons/fa";
 import '../App.css';
 import logo from './pictures/WiNGHACKS_logo.png'
+import Popup from './pages/Popup'
 
 const cookies = new Cookies();
 
@@ -41,6 +42,8 @@ const Header = ({}, ref) => {
 
     const [showNavbar, setShowNavbar] = useState(false);
 
+    const [openBanner, setOpenBanner] = useState(true)
+
     const handleClick = (type) => {
       var currHeight = document.getElementById('navbar').offsetHeight + 10;
       // console.log(currHeight);
@@ -59,9 +62,9 @@ const Header = ({}, ref) => {
       setShowNavbar(!showNavbar);
     };
 
-
-
     return (
+      <div>
+      {token ? (<div/>) : (<Popup/>)}
       <div className = "navbar" id='navbar'>
 
       <Link to = "/#home"  onClick={() => handleClick('home')} className = "logo-container">
@@ -86,7 +89,7 @@ const Header = ({}, ref) => {
                   </div>
                 
                 ):(
-                   <div>
+                  <div className='dynamic lessSpace'>
                       <div className = "link" onClick={portalClick}>Portal</div>
                       <div to="/login" className = "link" onClick={logoutClick}>Logout</div>
                   </div> 
@@ -105,18 +108,21 @@ const Header = ({}, ref) => {
           <div className='mobile-nav'>
           {showNavbar ? 
           ( <button className="nav-btn close" onClick={clickedNavbar}> 
-          <FaTimes />
-          </button> ) : (
-          <button className="nav-btn open" onClick={clickedNavbar}>
-          <FaBars />
-        </button>  )
+            <FaTimes /> </button> ) : 
+            (<button className="nav-btn open" onClick={clickedNavbar}>
+            <FaBars /> </button>  )
           }
         </div>
       </div>
       
       
     </div> 
-    
+    {!token && openBanner &&
+      <div>
+        <div className='application-banner'>Applications are now open!
+        </div> 
+      </div>}
+    </div>
   )
 }
 

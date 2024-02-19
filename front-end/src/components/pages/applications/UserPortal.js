@@ -4,9 +4,10 @@ import { useParams } from 'react-router-dom'
 
 import { jwtDecode } from "jwt-decode";
 
-
 import Cookies from "universal-cookie";
 import FetchResponse from './FetchResponse';
+
+import flier from '../../pictures/characters/Flier.PNG'
 
 const cookies = new Cookies();
 
@@ -48,19 +49,28 @@ const UserPortal = () => {
 
 
     return (
-        <div className="Portal" align='center'>
+        <div className="Page Portal" align='center'>
             <FetchResponse email = {email} id={id} status={status}/>
             
             { status === "Not Applied" ? 
             (
                 <div>
                     {/* {console.log(status)} */}
-                    <h1>Hi, {firstName} {lastName}</h1>
-                    <button className= "Button apply" onClick={() => {window.open(process.env.REACT_APP_APPLICATION_FORM)}}>
-                        Apply Now
-                    </button>
-                    <h2>Your Status: {status}</h2>
-                    <p>Please wait 5 minutes to see updates. Please only submit one application.</p>
+                    <div className='name-banner'>
+                        <div className='message'>
+                            <h1 className='welcome-message'>Welcome, {firstName} {lastName}!</h1>
+                            <div>Thank you for taking the time to make an account with WiNGHacks! Make sure you submit an application and let the uplifting begin!</div>
+                        </div>
+                        <img src={flier} className='character'/>
+                    </div>
+                    <div className='portal-padding'>
+                        <h2>Your Status: {status}</h2>
+                        <p>Please wait 5 minutes to see updates. Please only submit one application.</p>
+
+                        <button className= "Button apply" onClick={() => {window.open(process.env.REACT_APP_APPLICATION_FORM)}}>
+                            Apply Now
+                        </button>
+                    </div>
                 </div>
             )
             :

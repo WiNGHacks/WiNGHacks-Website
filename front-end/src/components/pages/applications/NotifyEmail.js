@@ -66,7 +66,7 @@ const NotifyEmail = () => {
   }
 
   return (
-    <div>
+    <div className='padding'>
       <p>Please check your email in the next few minutes to verify your account.</p>
       If you don't recieve at email in the next minute please press the resend button. &nbsp;
       <button 

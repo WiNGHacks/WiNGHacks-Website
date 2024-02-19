@@ -1,3 +1,43 @@
+@media only screen and (max-width: 500px) {
+  .app {
+    min-height: 100vh;
+    height: 100%;
+    
+  }
+
+  .Portal {
+    min-height: 70vh;
+    padding: 0;
+    
+    .apply {
+      height: clamp(4rem, 9vw, 10rem);
+      width: 40%;
+      font-size: 1.3rem;
+    }
+  
+    .name-banner {
+      display: flex;
+      flex-direction: column;
+  
+      .message {
+  
+        .welcome-message {
+          font-size: 2rem;
+        }
+      }
+  
+      .character {
+        padding-left: 0%;
+        padding-bottom: 4%;
+        margin-left: auto; 
+        margin-right: auto;
+      }
+    }
+  
+  
+  }
+}
+
 @media only screen and (max-width: 917px) {
   .navbar {
 
@@ -56,7 +96,8 @@
       }
 
       .apply {
-        height: clamp(2rem, 3vw, 8rem);
+        height: clamp(2rem, 3vw, 7rem);
+        width: 100%;
         background-color: #fefeaa;
         font-size: fit-content;
         color: rgb(255, 126, 74);
@@ -214,6 +255,64 @@
 @media only screen and (max-width: 650px) {
   .banner {
     max-width: 100%;
+  }
+
+  .modalBackground {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+
+    .titleCloseBtn {
+      padding-top: 0%;
+      padding-right: 0%;
+      margin-right: -2%;
+      margin-left: -2%;
+    }
+  
+    .titleCloseBtn button {
+      font-size: 20px;
+    }
+
+    .modalContainer {
+      margin-top: auto;
+      margin-bottom: auto;
+      width: 60%;
+      
+      height: 70%;
+      height:min-content;
+      border-image: linear-gradient(rgb(195, 149, 210), rgb(116, 173, 207)) 27 / 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-self: center;
+      padding: 10%;
+      margin-left: auto;
+      margin-right: auto;
+
+      
+    }
+    
+
+    .apply {
+      font-size: 1.8rem;
+    }
+
+  }
+  .modalContainer .title {
+    font-size: 0.8rem;
+  }
+
+  .modalContainer .body p {
+    font-size: 1.5rem;
+    color: blue;
+  }
+  .modalContainer .footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    margin: 0;
+    padding-top: 0;
   }
 }
 
