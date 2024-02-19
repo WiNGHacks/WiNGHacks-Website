@@ -58,7 +58,7 @@ const Login = () => {
                 setLogin(true);
                 setSubmitClicked(false)
                 // alert(response.data.message)
-                console.log(decoded.admin)
+                // console.log(decoded.admin)
                 if(decoded.admin === true){
                     window.location.replace(`/admin/sendResult/${decoded.id}`);
                 }

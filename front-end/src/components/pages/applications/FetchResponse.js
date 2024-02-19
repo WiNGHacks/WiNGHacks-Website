@@ -48,7 +48,7 @@ const FetchResponse = ({ email, id, status}) => {
             setCsvData(parsedCsvData);
             // handleCsvData(parsedCsvData); 
       // Set the fetched data in the component's state
-            console.log(parsedCsvData);        // Now you can work with 'csvData' in your component's state.
+            // console.log(parsedCsvData);        // Now you can work with 'csvData' in your component's state.
         })
         .catch((error) => {
             console.error('Error fetching CSV data:', error);
@@ -56,7 +56,7 @@ const FetchResponse = ({ email, id, status}) => {
     }, []); 
 
     useEffect(() => {
-        console.log(csvData)
+        // console.log(csvData)
         csvData?.map((submissions) => {
             // console.log(submissions["Email Address"])
             let lowerCaseEmail = submissions["Email Address"]?.toLowerCase()

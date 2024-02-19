@@ -27,7 +27,7 @@ const VerificationEmail = () => {
       window.location.replace(process.env.REACT_APP_APPLICATION_FORM)
     })
     .then((error) => {
-      // console.log(error)
+      console.log(error)
     })
 
 

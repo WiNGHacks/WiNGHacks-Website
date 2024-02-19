@@ -64,7 +64,7 @@ const Header = ({}, ref) => {
 
     return (
       <div>
-        {console.log(currentPath)}
+        {/* {console.log(currentPath)} */}
       {token || currentPath === "/login" || currentPath === "/signup" ? (<div/>) : (<Popup/>)}
       <div className = "navbar" id='navbar'>
 
@@ -82,7 +82,7 @@ const Header = ({}, ref) => {
           { token ?
             ( 
               <div>
-                {console.log(jwtDecode(token).admin)}
+                {/* {console.log(jwtDecode(token).admin)} */}
                 {jwtDecode(token).admin ? (
                   <div>
                     <div className = "link" onClick={adminClick}>Admin</div>

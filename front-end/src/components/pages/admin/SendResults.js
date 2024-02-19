@@ -49,7 +49,7 @@ const SendResults = () => {
             console.error('Error fetching CSV data:', error);
         });
 
-        console.log(csvData)
+        // console.log(csvData)
     }
 
     useEffect(() => {
@@ -65,12 +65,12 @@ const SendResults = () => {
 
         csvData.map((item) => {
             if(item.Public_Status !== "") {
-                console.log({Email: item["Email Address"], newStatus: item.Public_Status})
+                // console.log({Email: item["Email Address"], newStatus: item.Public_Status})
                 axios.post(process.env.REACT_APP_SEND_UPDATE_STATUS_EMAIL_URL, 
                     {email: item["Email Address"], updateStatus:item.Public_Status }
                 )
                 .then((response) => {
-                    console.log(response)
+                    // console.log(response)
                     alert("Emails were sent!")
                 })
                 .catch((error) => {
@@ -118,11 +118,11 @@ const SendResults = () => {
     const getAllRSVP = () => {
         axios.get(process.env.REACT_APP_GET_ALL_USERS_API_URL)
         .then((response) => {
-            console.log(response.data)
+            // console.log(response.data)
             const accepted = response.data
                 .filter(obj => obj.hasOwnProperty('acceptedRSVP') && obj.acceptedRSVP === 'yes')
                 .map(({ email, firstName, lastName, acceptedRSVP}) => ({ email, firstName, lastName, acceptedRSVP }));
-            console.log(accepted)
+            // console.log(accepted)
             const csvData = convertArrayOfJSONToCSV(accepted)
             downloadCSV(csvData, "Accepted_RSVP_Applicants")
             

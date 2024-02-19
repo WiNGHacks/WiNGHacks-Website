@@ -54,7 +54,7 @@ const SignUp = () => {
             password: password,
             status: "Not Applied",
         }).then((response)=>{
-            console.log(response)
+            // console.log(response)
             setRegister(true);
             setSubmitClicked(false)
             window.location.replace(`/notify/email/${response.data.result.emailToken}`);

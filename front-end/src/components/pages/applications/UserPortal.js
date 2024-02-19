@@ -41,7 +41,7 @@ const UserPortal = () => {
     const updateAcceptance = () => {
         axios.put(`${process.env.REACT_APP_UPDATE_RSVP_API_URL}${id}`, {acceptedRSVP: selectedRSVP})
         .then((response) => {
-            console.log(response)
+            // console.log(response)
             setSelectedRSVP("")
             setAlreadyRSVP(true)
         })
@@ -55,9 +55,9 @@ const UserPortal = () => {
     useEffect (() => {
         // Check if the URL id matches the current token
         // To avoid people miss using URL to enter others information
-        console.log(decoded)
+        // console.log(decoded)
         if (decoded.id === id){
-            console.log(decoded.acceptedRSVP)
+            // console.log(decoded.acceptedRSVP)
             if (decoded.acceptedRSVP !== "n/a") {
                 setAlreadyRSVP(true)
             }
@@ -81,8 +81,8 @@ const UserPortal = () => {
 
     return (
         <div className="Page Portal" align='center'>
-            {console.log(selectedRSVP)}
-            {console.log(alreadyRSVP)}
+            {/* {console.log(selectedRSVP)} */}
+            {/* {console.log(alreadyRSVP)} */}
             <FetchResponse email = {email} id={id} status={status}/>
             
             { status === "Not Applied" ? 
