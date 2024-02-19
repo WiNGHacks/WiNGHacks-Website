@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from "axios";
-import { FiLoader } from "react-icons/fi";
+import ClipLoader from "react-spinners/ClipLoader";
 import { RiErrorWarningFill } from "react-icons/ri";
 
 import { useNavigate } from "react-router-dom";
@@ -94,6 +94,13 @@ const Login = () => {
         else {setMissingValue(true)}
     })
 
+    const override = {
+        display: "block",
+        margin: "0 auto",
+        // borderColor: "red",
+      };
+      
+
     return (
         <div>
             <div className='login-container'>
@@ -130,7 +137,15 @@ const Login = () => {
 
                     {submitedClicked?(
                         <div>
-                            <button  className="submitBubble" align= "center" disabled> <FiLoader /> </button>
+                            <button className="submitBubble" align= "center" disabled>
+                                <ClipLoader 
+                                    color='black'
+                                    loading={submitedClicked}
+                                    size={10}
+                                    speedMultiplier ={1}
+                                    
+                                />
+                            </button>
                         </div>
                     ):(
                         <button 
