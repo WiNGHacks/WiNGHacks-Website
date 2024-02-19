@@ -21,8 +21,8 @@ const SendResults = () => {
                 // Remove surrounding double quotes and unescape double quotes
                 return item.replace(/^"|"$/g, '').replace(/""/g, '"').trim();
             });
-            const rowObject = {};
-    
+
+            const rowObject = {}
             for (let j = 0; j < headers.length; j++) {
                 rowObject[headers[j]] = rowData[j];
                 // console.log("Column:", headers[j], "Value:", rowData[j]);
@@ -65,15 +65,17 @@ const SendResults = () => {
 
         csvData.map((item) => {
             if(item.Public_Status !== "") {
-                console.log({Email: item.Email, newStatus: item.Public_Status})
+                console.log({Email: item["Email Address"], newStatus: item.Public_Status})
                 axios.post(process.env.REACT_APP_SEND_UPDATE_STATUS_EMAIL_URL, 
-                    {email: item.Email, updateStatus:item.Public_Status }
+                    {email: item["Email Address"], updateStatus:item.Public_Status }
                 )
                 .then((response) => {
                     console.log(response)
+                    alert("Emails were sent!")
                 })
                 .catch((error) => {
                     console.log(error)
+                    alert("Error Emails not sent!")
                 })
             }
         })
@@ -83,7 +85,7 @@ const SendResults = () => {
   return (
     <div align="center" style={{width: "100%"}}> 
         <h1>Send Results</h1>
-        <iframe  style={{width: "80%"}} src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRotDY7S0EhyPNj70ThDczvo4Jj6MRcxheDyKqeQfNscbdJJn9ESpqvuJz9V_AzMGR7TXRGHJnWZ8Bv/pubhtml?gid=238758139&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+        <iframe style={{width: "80%"}} src={process.env.REACT_APP_EMBEDDED_GOOGLE_SHEET_URL}></iframe>
         <div>
             {/* { readyToSend? 
             (
