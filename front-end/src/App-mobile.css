@@ -578,6 +578,10 @@
     width: clamp(9rem, 40vw, 40rem);
     height: clamp(4rem, 6vw, 10rem);
   }
+  .Button-sponsor-page div{
+    font-size: 0.8rem;
+  }
+
 
   .Button-sponsor-page:hover{
     top:10px;
