@@ -849,8 +849,8 @@ figcaption a {
 
   .modalContainer {
     justify-self: center;
-    width: clamp(20rem, 35rem, 45rem);
-    height: clamp(30rem, 35rem, 35rem);
+    width: clamp(20rem, 35rem, 35rem);
+    height: clamp(20rem, 25rem, 30rem);
     border-radius: 12px;
     border-image: linear-gradient(rgb(195, 149, 210), rgb(116, 173, 207)) 27 / 2rem;
     background-color: white;
