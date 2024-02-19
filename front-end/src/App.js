@@ -31,7 +31,7 @@ function App() {
       setFirstRender(true)
       axios.get(process.env.REACT_APP_TRIGGER_API_URL)
       .then((response) => {
-        // console.log(response)
+        console.log(response)
       })
       .catch(error => {
         // console.log(error)

@@ -12,7 +12,6 @@ const cookies = new Cookies();
 const Header = ({}, ref) => {
     const token = cookies.get("TOKEN");
     const currentPath = window.location.pathname   
-
     let navigate = useNavigate();
 
     const adminClick = () => {
@@ -116,14 +115,15 @@ const Header = ({}, ref) => {
           }
         </div>
       </div>
-      
-      
+
     </div> 
     {!token && openBanner &&
       <div>
         <div className='application-banner'>Applications are now open!
         </div> 
       </div>}
+      
+    
     </div>
   )
 }
