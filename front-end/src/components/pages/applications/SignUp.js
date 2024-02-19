@@ -5,6 +5,7 @@ import { RiErrorWarningFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import Cookies from "universal-cookie";
+import ClipLoader from "react-spinners/ClipLoader";
 const cookies = new Cookies();
 
 
@@ -132,7 +133,15 @@ const SignUp = () => {
 
                     {submitedClicked?(
                         <div>
-                            <button  className="submitBubble" align= "center" disabled> <FiLoader /> </button>
+                            <button className="submitBubble" style={{  pointerEvents: "none"}} align= "center" disabled>
+                                <ClipLoader 
+                                    color='black'
+                                    loading={submitedClicked}
+                                    size={10}
+                                    speedMultiplier ={1}
+                                    
+                                />
+                            </button>
                         </div>
                     ):(
                         <button 
