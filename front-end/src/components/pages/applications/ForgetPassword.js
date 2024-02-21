@@ -122,6 +122,7 @@ const ForgetPassword = () => {
                     />
                     </div>
 
+                    <div>
                     <label className="label"></label>
                     <input
                         onChange={handlePassword}
@@ -129,6 +130,7 @@ const ForgetPassword = () => {
                         type="password"
                         placeholder='Enter new password'
                     />
+                    </div>
 
                     <label className="label"></label>
                     <input
