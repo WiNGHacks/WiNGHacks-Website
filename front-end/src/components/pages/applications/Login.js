@@ -134,7 +134,7 @@ const Login = () => {
                     />
                     {/* {console.log(password)} */}
                     <p style={{marginTop : "-1rem", fontSize: "1rem"}}>
-                        <a href="/forgetPassword" >Forget password?</a>
+                        <a href="/forgetPassword" className='forget-password-link'>Forget password?</a>
                     </p>
 
                     {submitedClicked?(
