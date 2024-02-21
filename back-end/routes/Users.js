@@ -578,9 +578,9 @@ router.put("/updateRSVP/:id", async (req, res) => {
 })
 
 router.post("/findUser", async (req, res) => {
-    const email = req.body.email;
+    const email = req.body.email.toLowerCase();
 
-    Users.findOne({ email: email })
+    Users.findOne({ email: email.toLowerCase() })
     .then((response) => {
         // return success response
         res.status(200).send({
@@ -604,7 +604,6 @@ router.put("/updatePassword/:id", async (req, res) => {
     Users.findOne({_id: id})
     .then((response) => {
         if (response !== null) {
-
             bcrypt
             .hash(newPassword, 10)
             .then(async(hashedPassword) => {

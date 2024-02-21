@@ -133,7 +133,9 @@ const Login = () => {
                         placeholder='Enter password'
                     />
                     {/* {console.log(password)} */}
-                    
+                    <p style={{marginTop : "-1rem", fontSize: "1rem"}}>
+                        <a href="/forgetPassword" >Forget password?</a>
+                    </p>
 
                     {submitedClicked?(
                         <div>
