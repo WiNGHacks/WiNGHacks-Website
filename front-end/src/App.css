@@ -713,7 +713,7 @@ figcaption a {
   margin-inline: 10%;
   margin-top: 5%;
   border-radius: 25px;
-  min-height: 60vh;
+  min-height: 40vh;
 
   .form-container {
     /* background-color: beige; */

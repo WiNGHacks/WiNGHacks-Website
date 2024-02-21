@@ -577,6 +577,63 @@ router.put("/updateRSVP/:id", async (req, res) => {
     })
 })
 
+router.post("/findUser", async (req, res) => {
+    const email = req.body.email.toLowerCase();
+
+    Users.findOne({ email: email.toLowerCase() })
+    .then((response) => {
+        // return success response
+        res.status(200).send({
+            message: "User found",
+            email: response.email,
+            id: response._id
+        });
+    })
+    .catch((e) => {
+        res.status(404).send({
+            message: "User not found",
+        });
+
+    })
+})
+
+router.put("/updatePassword/:id", async (req, res) => {
+    var id = req.params.id;
+    var newPassword = req.body.password;
+
+    Users.findOne({_id: id})
+    .then((response) => {
+        if (response !== null) {
+            bcrypt
+            .hash(newPassword, 10)
+            .then(async(hashedPassword) => {
+                Users.findOneAndUpdate({_id: id}, {password: hashedPassword})
+                .then((response) => {
+                    if (response!= null) {
+                        res.status(200).send({
+                            message: "User found",
+                            response,
+                            password: hashedPassword
+                        
+                        });
+                    }
+                })
+            })
+            // Hash the password 10 times
+
+
+        }
+
+    })
+    .catch((e) => {
+        res.status(404).send({
+            message: "User not found",
+            e
+        });
+
+    })
+})
+
 
 router.get("/finduser/:id", async (req, res) => {
     var id = req.params.id;
@@ -607,5 +664,6 @@ router.get("/users", async (req, res) => {
 router.get("/trigger", async (req, res) => {
 	res.send("Trigger to wake up API")
 })
+
 
 module.exports = router

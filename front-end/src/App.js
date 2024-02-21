@@ -18,6 +18,7 @@ import VerificationEmail from './components/pages/applications/VerificationEmail
 import NotifyEmail from './components/pages/applications/NotifyEmail';
 import axios from 'axios';
 import SendResults from './components/pages/admin/SendResults';
+import ForgetPassword from './components/pages/applications/ForgetPassword';
 
 function App() {
 
@@ -67,6 +68,7 @@ function App() {
               <Route path="/verify/:token" element={<VerificationEmail/>}></Route>
               <Route path="/notify/email/:emailToken" element={<NotifyEmail/>}></Route>
               <Route path="/admin/sendResult/:id" element={<SendResults/>}></Route>
+              <Route path="/forgetPassword" element={<ForgetPassword/>}></Route>
               
             </Routes> 
           </div>
