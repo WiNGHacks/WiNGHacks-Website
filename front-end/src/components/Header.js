@@ -6,6 +6,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import '../App.css';
 import logo from './pictures/WiNGHACKS_logo.png'
 import Popup from './pages/Popup'
+import AppCountDown from './AppCountDown';
 
 const cookies = new Cookies();
 
@@ -119,9 +120,12 @@ const Header = ({}, ref) => {
     </div> 
     {!token && openBanner &&
       <div>
-        <div className='application-banner'>Applications are now open!
+        {/* <div className='application-banner'>Applications are now open!</div>  */}
+        <div className='application-banner'>
+          <AppCountDown/>
         </div> 
-      </div>}
+      </div>
+    }
       
     
     </div>

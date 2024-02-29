@@ -1045,3 +1045,37 @@ figcaption a {
     box-shadow: 0 0 25px 0 rgb(255, 126, 74);
   }
 }
+.countdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+.countdown-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown-text {
+  font-family: teacher-semibold;
+  margin-right: 10px;
+  font-size: 25px;
+  color: #000;
+}
+
+.countdown-item {
+  font-family: teacher-semibold;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.countdown-label {
+  font-family: teacher-regular;
+  font-size: 14px;
+  color: #888;
+}
