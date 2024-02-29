@@ -628,3 +628,27 @@
   }
 
 }
+
+@media only screen and (max-width: 899px) {
+  .sponsor-logo-container img {
+    margin-top: -1rem;
+  }
+
+  .sponsor-logo-container a {
+    max-width: 70%;
+    padding: 1rem;
+  }
+
+}
+
+@media only screen and (max-width: 700px) {
+  .sponsor-logo-container img {
+    max-width: 90%;
+    max-height: 100%;
+  }
+
+  .sponsor-logo-container a {
+    padding: -2rem;
+  }
+
+}

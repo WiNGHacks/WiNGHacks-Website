@@ -643,7 +643,8 @@ figcaption a {
   margin-bottom: 1.5rem;
 }
 
-.sponsor-logo-container img {
+
+.sponsor-logo-container a {
   max-width: 80%;
   max-height: 100%;
   background-color: white;
@@ -654,6 +655,27 @@ figcaption a {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 7px;
 }
 
+.sponsor-logo-container img {
+  max-width: 80%;
+  max-height: 100%;
+  /* background-color: white; */
+  object-fit: contain;
+  /* margin: 2% ; */
+  /* padding: 2rem; */
+  /* border-radius: 15px; */
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 7px; */
+}
+
+.sponsor-logo-container a:nth-child(odd) {
+  width: 90%;
+  height: 150px;
+}
+
+.sponsor-logo-container a:nth-child(even) {
+  width: 90%;
+  height: 150px;
+
+}
 
 .sponsor-logo-container img:nth-child(odd) {
   width: 90%;
