@@ -13,6 +13,7 @@ const Schedule = ({}, ref) => {
 
        <div className='Page entire-schedule'>
        <h1>Schedule</h1>
+       <h2 className="disclaimer">Please note schedule is subject to change.</h2>
 
           <div className='tabs'>
           {['Friday, April 5th', 'Saturday, April 6th', 'Sunday, April 7th'].map((day) => (
@@ -27,7 +28,7 @@ const Schedule = ({}, ref) => {
           </div>
 
           <div className = "content-all">
-            <div> </div>
+            <div className="content1"> 
             {activeDay === 'Friday, April 5th' && (
               <div className='content'>
                 {/* <h2 style={{ textAlign: 'center'}}>Saturday Nov. 4, 2023</h2> */}
@@ -59,59 +60,13 @@ const Schedule = ({}, ref) => {
                   <td className='time'>9:00PM</td>
                   <td className='eventDescription'>Hacking Starts</td>
                 </tr>
-                <tr>
-                  <td className='time activity'>2:00PM</td>
-                  <td className='eventDescription'>Workshop: Building Accessible UI with React Spectrum</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td className = 'presenter'>Yihui Liao - SWE @ Adobe</td>
-                </tr>
-                <tr>
-                  <td className='time activity'>3:00PM</td>
-                  <td className='eventDescription activity'>Break Through Tech AI Info Session</td>
-                </tr>
-                <tr>
-                  <td className='time'>4:00PM</td>
-                  <td className='eventDescription'>Workshop: Non-Tech Opportunities in the Industry</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td className = 'presenter'>Chu Huang, Malorie Bournazian - MIT</td>
-                </tr>
-                <tr>
-                  <td className='time activity'>5:00PM</td>
-                  <td className='eventDescription activity'>Dinner</td>
-                </tr>
-                <tr>
-                  <td className='time'>6:00PM</td>
-                  <td className='eventDescription'>Workshop: Intro to Figma and Interactive Design</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td className = 'presenter'>Julie Lely - Product Design @ Yahoo</td>
-                </tr>
-                <tr>
-                  <td className='time activity'>7:00PM</td>
-                  <td className='eventDescription activity'>Workshop: Intro to Databases & SQL</td>
-                </tr>
-                <tr>
-                  <td className='time'>8:00PM</td>
-                  <td className='eventDescription'>MLH Mini Event: Decompress with Us!</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td className='presenter'>Major League Hacking</td>
-                </tr>
-                <tr>
-                  <td className='time'>10:00PM</td>
-                  <td className='eventDescription'>S'mores</td>
-                </tr>
               </tbody>
             </table>
             </div>
             )}
+            </div>
             
+            <div className = "content2">
             {activeDay === 'Saturday, April 6th' && (
               <div className='content'>
                 {/* <h2 style={{ textAlign: 'center'}}>Saturday Nov. 5, 2023</h2> */}
@@ -124,34 +79,56 @@ const Schedule = ({}, ref) => {
                     </thead>
                     <tbody>
                       <tr>
-                        <td className='time'>9:30AM</td>
+                        <td className='time'>8:00AM</td>
                         <td className='eventDescription'>Breakfast</td>
                       </tr>
                       <tr>
-                        <td className='time'>10:00AM</td>
-                        <td className='eventDescription'>Workshop: Submission & Presentation 101</td>
+                        <td className='time'>9:00AM</td>
+                        <td className='eventDescription'>Workshop 1</td>
                       </tr>
                       <tr>
-                        <td className='time activity'>11:00AM</td>
-                        <td className='eventDescription activity'>Soft Submission Deadline</td>
+                        <td className='time activity'>10:15AM</td>
+                        <td className='eventDescription activity'>Workshop 2</td>
                       </tr>
                       <tr>
                         <td className='time'>12:00PM</td>
                         <td className='eventDescription'>Lunch</td>
                       </tr>
                       <tr>
-                        <td className='time'>2:00PM</td>
-                        <td className='eventDescription '>Judging & Presentations</td>
+                        <td className='time'>1:30PM</td>
+                        <td className='eventDescription '>Workshop 3</td>
                       </tr>
                       <tr>
-                        <td className='time'>10:00PM</td>
-                        <td className='eventDescription'>Closing Ceremony</td>
+                        <td className='time'>2:45PM</td>
+                        <td className='eventDescription'>Workshop 4</td>
+                      </tr>
+                      <tr>
+                        <td className='time'>4:00PM</td>
+                        <td className='eventDescription'>Workshop 5</td>
+                      </tr>
+                      <tr>
+                        <td className='time'>5:15PM</td>
+                        <td className='eventDescription'>Workshop 6</td>
+                      </tr>
+                      <tr>
+                        <td className='time'>6:30PM</td>
+                        <td className='eventDescription'>Workshop 7</td>
+                      </tr>
+                      <tr>
+                        <td className='time'>8:00PM</td>
+                        <td className='eventDescription'>Dinner Starts</td>
+                      </tr>
+                      <tr>
+                        <td className='time'>11:30PM</td>
+                        <td className='eventDescription'>Midnight Snacks</td>
                       </tr>
                     </tbody>
                 </table>
               </div>
             )}
-            
+            </div>
+
+            <div className = "content3">
             {activeDay === 'Sunday, April 7th' && (
               <div className='content'>
               <div className='content'>
@@ -165,58 +142,28 @@ const Schedule = ({}, ref) => {
               </thead>
               <tbody>
                 <tr>
+                  <td className='time activity'>9:00AM</td>
+                  <td className='eventDescription'>Hacking Ends & Dev Post Due</td>
+                </tr>
+                <tr>
+                  <td className='time activity'>10:00AM</td>
+                  <td className='eventDescription activity'>Live Judging Begins</td>
+                </tr>
+                <tr>
+                  <td className='time'>12:30PM</td>
+                  <td className='eventDescription'>Judges Judge</td>
+                </tr>
+                <tr>
                   <td className='time activity'>2:00PM</td>
-                  <td className='eventDescription'>Workshop: Building Accessible UI with React Spectrum</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td className = 'presenter'>Yihui Liao - SWE @ Adobe</td>
-                </tr>
-                <tr>
-                  <td className='time activity'>3:00PM</td>
-                  <td className='eventDescription activity'>Break Through Tech AI Info Session</td>
-                </tr>
-                <tr>
-                  <td className='time'>4:00PM</td>
-                  <td className='eventDescription'>Workshop: Non-Tech Opportunities in the Industry</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td className = 'presenter'>Chu Huang, Malorie Bournazian - MIT</td>
-                </tr>
-                <tr>
-                  <td className='time activity'>5:00PM</td>
-                  <td className='eventDescription activity'>Dinner</td>
-                </tr>
-                <tr>
-                  <td className='time'>6:00PM</td>
-                  <td className='eventDescription'>Workshop: Intro to Figma and Interactive Design</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td className = 'presenter'>Julie Lely - Product Design @ Yahoo</td>
-                </tr>
-                <tr>
-                  <td className='time activity'>7:00PM</td>
-                  <td className='eventDescription activity'>Workshop: Intro to Databases & SQL</td>
-                </tr>
-                <tr>
-                  <td className='time'>8:00PM</td>
-                  <td className='eventDescription'>MLH Mini Event: Decompress with Us!</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td className='presenter'>Major League Hacking</td>
-                </tr>
-                <tr>
-                  <td className='time'>10:00PM</td>
-                  <td className='eventDescription'>S'mores</td>
+                  <td className='eventDescription activity'>Closing Ceremony</td>
                 </tr>
               </tbody>
             </table>
             </div>
               </div>
             )}
+             </div>
+             
           </div>
 
        </div>

@@ -805,6 +805,9 @@ figcaption a {
 }
 
 /* Schedule JS */
+.disclaimer {
+  font-size: 20px;
+}
 
 .tables-container {
   /* putting contents of table side-by-side */
@@ -822,7 +825,7 @@ table {
   /* background color opacity changed but text of table remains visible */
   opacity: 1; 
   margin-left: 50px;
-  margin-bottom: 10px; 
+  padding: 20px;
 }
 
 .locationEvent{
@@ -845,26 +848,19 @@ table {
 }
 
 th {
-  padding-bottom: 10px;
-}
-
-.entire-schedule {
-  /*
-  background-color: rgba(0, 177, 196, 0.1);
-  border-radius: 10px;
-  margin-bottom: 100px;
-  margin-left: 30px;
-  width: 75%;
-  padding: 3px 40px 3px;
-  */
+  padding-bottom: 15px;
 }
 
 .content-all {
-  padding: 20px;
+  /* padding: 20px; */
   /* background-color: red; */
-  border-bottom: 5px black solid;
+  font-family: teacher-semibold;
+  margin-bottom: 0px;
+  border-bottom: 10px black solid;
   border-left: 5px black solid;
   border-right: 5px black solid;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .tabs {
@@ -873,6 +869,7 @@ th {
 }
 
 .tab {
+  font-family: teacher-semibold;
   font-size: 20px;
   padding: 10px;
   flex-grow: 1;
@@ -892,29 +889,27 @@ th {
 
 .tab:nth-child(1):hover,
 .tab:nth-child(1).active {
-  background-color: red;
+  background-color: #FFB4B0;
 }
 
 .tab:nth-child(2):hover,
 .tab:nth-child(2).active {
-  background-color: blue;
+  background-color: #FFFFD9;
 }
 
 .tab:nth-child(3):hover,
 .tab:nth-child(3).active {
-  background-color: green;
+  background-color: #c3ecf1;
 }
 
-/* Apply styles to content corresponding to active tab */
-.tab:nth-child(1).active ~ .content:nth-child(1)
- {
-  background-color: red; /* Change to desired color */
+.tab:nth-child(1).active, .content1{
+  background-color: #ffc3c0
 }
 
-.tab:nth-child(2).active ~ .content:nth-child(2) {
-  background-color: blue; /* Change to desired color */
+.tab:nth-child(2).active, .content2 {
+  background-color: #FFFFD9;
 }
 
-.tab:nth-child(3).active ~ .content:nth-child(3) {
-  background-color: green; /* Change to desired color */
+.tab:nth-child(3).active, .content3 {
+  background-color: #c3ecf1;
 }
