@@ -1101,3 +1101,9 @@ figcaption a {
   font-size: 14px;
   color: #888;
 }
+
+.colon {
+  display: inline-block;
+  vertical-align: middle;
+  /* padding-right: 20px;  */
+}

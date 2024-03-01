@@ -33,23 +33,26 @@ const AppCountDown = () => {
         <div className="countdown-container">
             <div className="countdown-row">
                 <div className="countdown-text">
-                    Application close in:
+                    Applications closes in:
                 </div>
                 <div className="countdown-item">
                     <span>{timeLeft.days}</span>
                     <div className="countdown-label">Days</div>
                 </div>
+                <span className="colon">:</span>
                 <div className="countdown-item">
                     <span>{timeLeft.hours}</span>
                     <div className="countdown-label">Hours</div>
                 </div>
+                <span className="colon">:</span>
                 <div className="countdown-item">
                     <span>{timeLeft.minutes}</span>
-                    <div className="countdown-label">Minutes</div>
+                    <div className="countdown-label">Mins</div>
                 </div>
+                <span className="colon">:</span>
                 <div className="countdown-item">
                     <span>{timeLeft.seconds}</span>
-                    <div className="countdown-label">Seconds</div>
+                    <div className="countdown-label">Secs</div>
                 </div>
             </div>
         </div>
