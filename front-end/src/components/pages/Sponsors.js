@@ -6,6 +6,8 @@ import c1_logo from '../pictures/sponsor_logo/capitalone-logo.png'
 import TI_logo from '../pictures/sponsor_logo/TI-logo.png'
 import JPMC_logo from '../pictures/sponsor_logo/jpmc-logo.png'
 import UKG_logo from '../pictures/sponsor_logo/ukg-logo.png'
+import Infotech_logo from '../pictures/sponsor_logo/infotech-logo.png'
+import { SponsorList } from '../data/SponsorList';
 
 const Sponsors = ({}, ref) => {
 
@@ -41,12 +43,32 @@ const Sponsors = ({}, ref) => {
       align='center' className='margins'>
       <h1 align='left'>Sponsors</h1>
         <div  align='center'className='sponsor-logo-container'>
-          <img  src={bloomberg_logo}  alt='Bloomberg Logo'></img>
-          <img  src={rtc_logo}  alt='RTC Logo'></img>
-          <img  src={c1_logo}  alt='Capital One Logo'></img>
-          <img  src={TI_logo}  alt='Texas Instrument Logo'></img>
-          <img  src={JPMC_logo}  alt='JPMC Logo'></img>
-          <img  src={UKG_logo}  alt='UKG Logo'></img>
+        {SponsorList.map((sponsor) => (
+          <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer">
+              <img src={sponsor.logo_image} alt={sponsor.alt} />
+          </a>
+        ))}
+        {/* <a href="url_to_bloomberg_website" target="_blank" rel="noopener noreferrer">
+        <img src={bloomberg_logo} alt='Bloomberg Logo' />
+    </a>
+    <a href="url_to_rtc_website" target="_blank" rel="noopener noreferrer">
+        <img src={rtc_logo} alt='RTC Logo' />
+    </a>
+    <a href="url_to_c1_website" target="_blank" rel="noopener noreferrer">
+        <img src={c1_logo} alt='Capital One Logo' />
+    </a>
+    <a href="url_to_ti_website" target="_blank" rel="noopener noreferrer">
+        <img src={TI_logo} alt='Texas Instrument Logo' />
+    </a>
+    <a href="url_to_jpmc_website" target="_blank" rel="noopener noreferrer">
+        <img src={JPMC_logo} alt='JPMC Logo' />
+    </a>
+    <a href="url_to_ukg_website" target="_blank" rel="noopener noreferrer">
+        <img src={UKG_logo} alt='UKG Logo' />
+    </a>
+    <a href="url_to_infotech_website" target="_blank" rel="noopener noreferrer">
+        <img src={Infotech_logo} alt='Infotech Logo' />
+    </a> */}
         </div>
 
       <button className='Button Button-sponsor-page' onClick ={onButtonClick}>
