@@ -67,12 +67,12 @@
       top: 0;
       right: -100%;
       background-color: white;
-      width: 60%;
-      max-width: 30vh;
+      width: 80%;
+      max-width: 35vh;
       height: 100vh;
-      row-gap: 3%;
+      row-gap: 4%;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-      padding: 5rem 2rem 1rem; /* top, x, bottom */
+      padding: 5rem 1rem 1rem; /* top, x, bottom */
 
       transition: 0.4s;
 
@@ -116,6 +116,16 @@
       .apply:hover {
         color: rgb(224, 113, 68);
       }
+      .mlh-banner-mobile {
+        display: block;
+        max-width:100px;
+        min-width:60px;
+        position:absolute;
+        right: 25%;
+        top: 0;
+        width:10%;
+        z-index:11;
+      }
     }
 
     .links-open {
@@ -126,7 +136,7 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
-      row-gap: 20px;
+      row-gap: 30px;
     }
 
     .mobile-nav {
@@ -154,6 +164,9 @@
     .close:hover, .open:hover {
       color: #ff592b;
     }
+  }
+  .mlh-banner {
+    display: none;
   }
 }
 

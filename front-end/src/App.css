@@ -147,6 +147,10 @@ button:hover{ cursor: pointer; }
     .apply:hover {
       color: rgb(224, 113, 68);
     }
+
+    .mlh-banner-mobile {
+      display: none;
+    }
   }
 
   .dynamic {
@@ -1106,4 +1110,15 @@ figcaption a {
   display: inline-block;
   vertical-align: middle;
   /* padding-right: 20px;  */
+}
+
+.mlh-banner {
+  display:block;
+  max-width:100px;
+  min-width:60px;
+  position:absolute;
+  right:50px;
+  /* top: clamp(4.75rem, 5.5vw, 7rem); */
+  width:10%;
+  z-index:11;
 }
