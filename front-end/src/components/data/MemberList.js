@@ -49,15 +49,6 @@ export const MemberList = [
         committee_name: "Directors",
     },
     {
-        id: "3",
-        name: "Minuet Greenberg (she/her)",
-        profile_pic: Minuet_Greenberg_pic,
-        linkedIn: "https://www.linkedin.com/in/minuetgreenberg/",
-        major: "Information Systems",
-        committee_position: "Assistant Director",
-        committee_name: "Directors",
-    },
-    {
         id: "4",
         name: "Tanya Charan (she/her)",
         profile_pic: Tanya_Charan_pic,
