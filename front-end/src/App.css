@@ -1,14 +1,14 @@
 .app {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   /* background-color: #BFEBF4; */
-  background-image: linear-gradient(#BFEBF4 100vh, rgb(244, 247, 255));
+  background-image: linear-gradient(#BFEBF4 100vh, #f4f7ff);
   /* background-image: url(./components/pictures/Blue-Purple_background.png);
   background-attachment: fixed;
   background-position: center;  */
   min-height: 95vh;
   height: 100%;
 
-  padding-bottom: 5%;
+  padding-bottom: 0%;
   margin-bottom: 0;
   
 }
@@ -709,6 +709,8 @@ figcaption a {
 .arrow { padding-right: 1rem; }
 
 .FAQ {
+  padding-bottom: 5%;
+
   .faq-collapse-container {
     font-size: 1rem;
     font-weight: 550;
@@ -718,6 +720,7 @@ figcaption a {
     font-family: bitter;
     margin-bottom: 2rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    
   }
   
   .faq-collapse {
@@ -1121,4 +1124,29 @@ figcaption a {
   /* top: clamp(4.75rem, 5.5vw, 7rem); */
   width:10%;
   z-index:11;
+}
+
+.footer-container {
+  display: absolute;
+  bottom: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  text-align: center;
+  padding: 2rem;
+
+  background-color: #f4f7ff;
+
+  .icons {
+    padding: 0rem clamp(0.5rem);
+    color: #58a8d1;
+    font-size: 3rem;
+  }
+
+  .icons:hover {
+    border-radius: 5px;
+    color: #7579c5;
+    cursor: pointer;
+  }
 }
