@@ -23,7 +23,9 @@ const userSchema = mongoose.Schema({
     },
     status: {type:String},
     emailVerified: {type:Boolean},
-    emailToken: {type:String}
+    emailToken: {type:String},
+    admin: {type:Boolean},
+    acceptedRSVP: {type:String},
 })
 
 module.exports = mongoose.model('Users', userSchema, 'users')

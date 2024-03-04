@@ -5,13 +5,22 @@ import { jwtDecode } from "jwt-decode";
 import { FaBars, FaTimes } from "react-icons/fa";
 import '../App.css';
 import logo from './pictures/WiNGHACKS_logo.png'
+import Popup from './pages/Popup'
+import AppCountDown from './AppCountDown';
 
 const cookies = new Cookies();
 
 const Header = ({}, ref) => {
     const token = cookies.get("TOKEN");
-
+    const currentPath = window.location.pathname   
     let navigate = useNavigate();
+
+    const adminClick = () => {
+      setShowNavbar(false);
+
+      const decoded = jwtDecode(token)
+      navigate(`/admin/sendResult/${decoded.id}`, {replace: true});
+    }
 
     const portalClick = () => {
       setShowNavbar(false);
@@ -34,6 +43,8 @@ const Header = ({}, ref) => {
 
     const [showNavbar, setShowNavbar] = useState(false);
 
+    const [openBanner, setOpenBanner] = useState(true)
+
     const handleClick = (type) => {
       var currHeight = document.getElementById('navbar').offsetHeight + 10;
       // console.log(currHeight);
@@ -52,9 +63,10 @@ const Header = ({}, ref) => {
       setShowNavbar(!showNavbar);
     };
 
-
-
     return (
+      <div>
+        {/* {console.log(currentPath)} */}
+      {token || currentPath === "/login" || currentPath === "/signup" || currentPath === "/forgetPassword" ? (<div/>) : (<Popup/>)}
       <div className = "navbar" id='navbar'>
 
       <Link to = "/#home"  onClick={() => handleClick('home')} className = "logo-container">
@@ -68,33 +80,55 @@ const Header = ({}, ref) => {
         <Link to = "/#faq" onClick={() => handleClick('faq')} className = "link">FAQ</Link>
         
 
-          {/* { token ?
-            ( <div>
-                <div className = "link" onClick={portalClick}>Portal</div>
-                <div to="/login" className = "link" onClick={logoutClick}>Logout</div>
-                </div> )
+          { token ?
+            ( 
+              <div>
+                {/* {console.log(jwtDecode(token).admin)} */}
+                {jwtDecode(token).admin ? (
+                  <div>
+                    <div className = "link" onClick={adminClick}>Admin</div>
+                    <div to="/login" className = "link" onClick={logoutClick}>Logout</div>
+                  </div>
+                
+                ):(
+                  <div className='dynamic lessSpace'>
+                      <div className = "link" onClick={portalClick}>Portal</div>
+                      <div to="/login" className = "link" onClick={logoutClick}>Logout</div>
+                  </div> 
+
+                )}
+               
+              </div>
+            )
             :
             ( <div className='dynamic'>
                 <Link to="/login" className = "link" onClick={clickedNavbar}>Login</Link>
-                <Link to="/signup" className = "link apply" onClick={clickedNavbar}>Apply Now</Link>
+                <Link to="/signup" className = "link apply button-glow" onClick={clickedNavbar}>Apply Now</Link>
               </div> )
-          } */}
+          }
           
           <div className='mobile-nav'>
           {showNavbar ? 
           ( <button className="nav-btn close" onClick={clickedNavbar}> 
-          <FaTimes />
-          </button> ) : (
-          <button className="nav-btn open" onClick={clickedNavbar}>
-          <FaBars />
-        </button>  )
+            <FaTimes /> </button> ) : 
+            (<button className="nav-btn open" onClick={clickedNavbar}>
+            <FaBars /> </button>  )
           }
         </div>
       </div>
-      
-      
+
     </div> 
+    {!token && openBanner &&
+      <div>
+        {/* <div className='application-banner'>Applications are now open!</div>  */}
+        <div className='application-banner'>
+          <AppCountDown/>
+        </div> 
+      </div>
+    }
+      
     
+    </div>
   )
 }
 

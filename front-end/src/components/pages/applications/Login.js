@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from "axios";
-import { FiLoader } from "react-icons/fi";
+import ClipLoader from "react-spinners/ClipLoader";
 import { RiErrorWarningFill } from "react-icons/ri";
 
 import { useNavigate } from "react-router-dom";
@@ -18,6 +18,7 @@ const Login = () => {
     const [login, setLogin] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [missingValue, setMissingValue] = useState(true);
+    const [submitedClicked, setSubmitClicked] = useState(false)
 
     // Handling the email change
     const handleEmail = (e) => {
@@ -32,6 +33,7 @@ const Login = () => {
     // Handling the form submission
     const handleSubmit = (e) => {
         // console.log(process.env.REACT_APP_LOGIN_API_URL)
+        setSubmitClicked(true)
         //Prevent submissions before changing values
         e.preventDefault();
         axios.post(process.env.REACT_APP_LOGIN_API_URL, {
@@ -40,6 +42,7 @@ const Login = () => {
         }).then((response)=>{
             if (response.data.emailVerified === false) {
                 // console.log(response.data)
+                setSubmitClicked(false)
                 setErrorMessage("Please verify your email first")
             } 
             else {
@@ -53,12 +56,21 @@ const Login = () => {
                 const decoded = jwtDecode(response.data.token);
 
                 setLogin(true);
+                setSubmitClicked(false)
                 // alert(response.data.message)
-                window.location.replace(`/portal/${decoded.id}`);
+                // console.log(decoded.admin)
+                if(decoded.admin === true){
+                    window.location.replace(`/admin/sendResult/${decoded.id}`);
+                }
+                else {
+                    window.location.replace(`/portal/${decoded.id}`);
+                }
+                
             }
             
         }).catch((error) => {
             // console.log(error)
+            setSubmitClicked(false)
             setErrorMessage("Invalid email/password")
             // alert(error.response.data.message)
         })
@@ -67,7 +79,12 @@ const Login = () => {
 
     useEffect(() => {
         const token = cookies.get("TOKEN");
-        if ( token ) {
+
+        if (token && jwtDecode(token).admin ) {
+            const decoded = jwtDecode(token);
+            window.location.replace(`/admin/sendResult/${decoded.id}`);
+        }
+        else if ( token ) {
             const decoded = jwtDecode(token);
             window.location.replace(`/portal/${decoded.id}`);
         }
@@ -76,6 +93,13 @@ const Login = () => {
         } 
         else {setMissingValue(true)}
     })
+
+    const override = {
+        display: "block",
+        margin: "0 auto",
+        // borderColor: "red",
+      };
+      
 
     return (
         <div>
@@ -109,11 +133,21 @@ const Login = () => {
                         placeholder='Enter password'
                     />
                     {/* {console.log(password)} */}
-                    
+                    <p style={{marginTop : "-1rem", fontSize: "1rem"}}>
+                        <a href="/forgetPassword" className='forget-password-link'>Forget password?</a>
+                    </p>
 
-                    {login?(
+                    {submitedClicked?(
                         <div>
-                            <button  className="submitBubble" align= "center" disabled> <FiLoader /> </button>
+                            <button className="submitBubble" style={{  pointerEvents: "none"}} align= "center" disabled>
+                                <ClipLoader 
+                                    color='black'
+                                    loading={submitedClicked}
+                                    size={10}
+                                    speedMultiplier ={1}
+                                    
+                                />
+                            </button>
                         </div>
                     ):(
                         <button 

@@ -5,6 +5,7 @@ import { RiErrorWarningFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import Cookies from "universal-cookie";
+import ClipLoader from "react-spinners/ClipLoader";
 const cookies = new Cookies();
 
 
@@ -17,6 +18,7 @@ const SignUp = () => {
     const [register, setRegister] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [missingValue, setMissingValue] = useState(true);
+    const [submitedClicked, setSubmitClicked] = useState(false)
 
     const navigate = useNavigate();
 
@@ -42,6 +44,7 @@ const SignUp = () => {
 
     // Handling the form submission
     const handleSubmit = (e) => {
+        setSubmitClicked(true)
         //Prevent submissions before changing values
         e.preventDefault();
         axios.post(process.env.REACT_APP_SIGNUP_API_URL, {
@@ -51,11 +54,14 @@ const SignUp = () => {
             password: password,
             status: "Not Applied",
         }).then((response)=>{
-            // console.log(response.data)
+            // console.log(response)
             setRegister(true);
+            setSubmitClicked(false)
             window.location.replace(`/notify/email/${response.data.result.emailToken}`);
         }).catch((error) => {
             // console.log(error)
+            setSubmitClicked(false)
+
             setErrorMessage(error.response.data.error)
             // alert(error.response.data.error)
         })
@@ -125,9 +131,17 @@ const SignUp = () => {
                     />
 
 
-                    {register?(
+                    {submitedClicked?(
                         <div>
-                            <button  className="submitBubble" align= "center" disabled> <FiLoader /> </button>
+                            <button className="submitBubble" style={{  pointerEvents: "none"}} align= "center" disabled>
+                                <ClipLoader 
+                                    color='black'
+                                    loading={submitedClicked}
+                                    size={10}
+                                    speedMultiplier ={1}
+                                    
+                                />
+                            </button>
                         </div>
                     ):(
                         <button 

@@ -1,8 +1,13 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
+import Cookies from "universal-cookie";
+import { jwtDecode } from "jwt-decode";
+
+const cookies = new Cookies();
 
 const NotifyEmail = () => {
+
   const {emailToken} = useParams()
   const [seconds, setSeconds] = useState(60);
   const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -23,6 +28,22 @@ const NotifyEmail = () => {
     return () => clearInterval(timer);
   }, []);
 
+
+  useEffect(() => {
+    const token = cookies.get("TOKEN");
+    if (token && jwtDecode(token).admin ) {
+      const decoded = jwtDecode(token);
+      window.location.reload()
+      window.location.replace(`/admin/sendResult/${decoded.id}`);
+    }
+    else if ( token ) {
+        const decoded = jwtDecode(token);
+        window.location.reload()
+        window.location.replace(`/portal/${decoded.id}`);
+    }
+  }, []);
+
+
   const formatTime = (time) => {
     const remainingSeconds = time % 60;
     return `${remainingSeconds.toString().padStart(2, '0')}`;
@@ -38,14 +59,14 @@ const NotifyEmail = () => {
       // console.log(response)
     })
     .catch((error) => {
-      // console.log(error)
+      console.log(error)
     })
   
 
   }
 
   return (
-    <div>
+    <div className='padding'>
       <p>Please check your email in the next few minutes to verify your account.</p>
       If you don't recieve at email in the next minute please press the resend button. &nbsp;
       <button 

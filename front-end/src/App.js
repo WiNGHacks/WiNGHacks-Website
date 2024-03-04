@@ -17,6 +17,8 @@ import Schedule from './components/pages/Schedule';
 import VerificationEmail from './components/pages/applications/VerificationEmail';
 import NotifyEmail from './components/pages/applications/NotifyEmail';
 import axios from 'axios';
+import SendResults from './components/pages/admin/SendResults';
+import ForgetPassword from './components/pages/applications/ForgetPassword';
 
 function App() {
 
@@ -30,7 +32,7 @@ function App() {
       setFirstRender(true)
       axios.get(process.env.REACT_APP_TRIGGER_API_URL)
       .then((response) => {
-        // console.log(response)
+        console.log(response)
       })
       .catch(error => {
         // console.log(error)
@@ -65,6 +67,8 @@ function App() {
               <Route path="/portal/:id" element={<UserPortal/>}></Route>
               <Route path="/verify/:token" element={<VerificationEmail/>}></Route>
               <Route path="/notify/email/:emailToken" element={<NotifyEmail/>}></Route>
+              <Route path="/admin/sendResult/:id" element={<SendResults/>}></Route>
+              <Route path="/forgetPassword" element={<ForgetPassword/>}></Route>
               
             </Routes> 
           </div>

@@ -18,18 +18,19 @@ const Home = ({}, ref) => {
      document.body.removeChild(link);
    }
 
+
+
   return (
     // ref = {el => ref.current = { ...ref.current, home: el }}
-    <div >
-
+    <div>
       <div className='home-buttons' align="center">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdC6uvrtJ6AXc9GSY86ENfpVsICg0DCqOyOC-U7q7HAe-nLow/viewform"
-              target="_blank">
-              <button className='Button Button-home Button-interest'>Interest Form</button></a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTqVfJUiWjjARDFBh1MkegBLw0F-Kd-GquU2NJO1-H7ybOuQ/viewform"
               target="_blank">
-              <button className='Button Button-home Button-mentor'>Become a Mentor</button></a>
-        {/* <a href="signup"><button className='Button Button-home Button-apply'>Apply now!</button></a> */}
+              <button className='Button Button-home Button-interest'>Become a Mentor</button></a>
+        <a href="signup" ><button className='Button Button-home Button-apply button-glow-home-apply'>Apply now!</button></a>
+        {/* <a href="/signup"
+              target="_blank">
+              <button className='Button Button-home Button-interest'>Apply Now!</button></a> */}
         <a><button onClick={downloadPDF} className='Button Button-home Button-sponsor'>Sponsorship Packet</button></a>
       </div>
       <div className='socials'>
