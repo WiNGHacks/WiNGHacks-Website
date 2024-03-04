@@ -97,7 +97,7 @@ const UserPortal = () => {
                         <img src={flier} className='character'/>
                     </div>
                     <div className='portal-padding'>
-                        <h2>Your Status: {status}</h2>
+                        <h2>Your Status: <span style={{color: "red"}}>{status}</span></h2>
                         <p>Please wait 5 minutes to see updates. Please only submit one application.</p>
 
                         <button className= "Button apply" onClick={() => {window.open(process.env.REACT_APP_APPLICATION_FORM)}}>
@@ -117,7 +117,11 @@ const UserPortal = () => {
                         <img src={flier} className='character'/>
                     </div>
                     <div className='portal-padding'>
-                        <h2>Your Status: {status}</h2>
+                        {status === "Accepted"? 
+                        <h2>Your Status: <span style={{color: "#2ece46"}}>{status}</span></h2>
+                        :
+                        <h2>Your Status: <span style={{color: "#07888f"}}>{status}</span></h2>
+                        }
                     
                 {status === "Accepted"? 
                     (

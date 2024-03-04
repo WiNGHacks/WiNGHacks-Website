@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
 import Cookies from "universal-cookie";
+
+import mushroom from "../../pictures/characters/Mushwoom.PNG"
 const cookies = new Cookies();
 
 
@@ -134,7 +136,7 @@ const Login = () => {
                     />
                     {/* {console.log(password)} */}
                     <p style={{marginTop : "-1rem", fontSize: "1rem"}}>
-                        <a href="/forgetPassword" className='forget-password-link'>Forget password?</a>
+                        <a href="/forgetPassword" className='forget-password-link'>Forgot password?</a>
                     </p>
 
                     {submitedClicked?(
@@ -160,6 +162,7 @@ const Login = () => {
                         </button>
                     )}
 
+                    {/* <img src={mushroom} className='little-guy'/> */}
                     
                     <p>Don't have an account?&nbsp;
                         <a href="/signup" >Sign Up Here</a>

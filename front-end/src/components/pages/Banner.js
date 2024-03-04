@@ -6,7 +6,8 @@ const Banner = ({}, ref) => {
 
   return (
     <div ref = {el => ref.current = { ...ref.current, home: el }}>
-      <div className='banner-container'>
+     
+     <div className='banner-container'>
         <img src= {banner} className='banner'></img>
       </div>
       

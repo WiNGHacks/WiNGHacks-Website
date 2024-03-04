@@ -63,8 +63,10 @@ const Header = ({}, ref) => {
       setShowNavbar(!showNavbar);
     };
 
+    var currNavbarHeight = document?.getElementById('navbar')?.offsetHeight;
+
     return (
-      <div>
+      <div style={{position: + "relative"}}>
         {/* {console.log(currentPath)} */}
       {token || currentPath === "/login" || currentPath === "/signup" || currentPath === "/forgetPassword" ? (<div/>) : (<Popup/>)}
       <div className = "navbar" id='navbar'>
@@ -74,6 +76,13 @@ const Header = ({}, ref) => {
         {/* <b className='image-text'>WiNGHacks</b> */}
       </Link>
       <div className = {showNavbar ? "links links-open" : "links"}>
+      <a id="mlh-trust-badge" className='mlh-banner-mobile' 
+        href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2024-season&utm_content=blue" 
+        target="_blank">
+          <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2024/mlh-trust-badge-2024-blue.svg" 
+              alt="Major League Hacking 2024 Hackathon Season" style={{width:100 + '%'}}/>
+      </a>
+
         <Link to = "/#about"  onClick={() => handleClick('about')} className = "link">About Us</Link>
         <Link to = "/#schedule" onClick={() => handleClick('schedule')} className = "link">Schedule</Link>
         <Link to = "/#sponsor" onClick={() => handleClick('sponsor')} className = "link">Sponsors</Link>
@@ -116,19 +125,29 @@ const Header = ({}, ref) => {
           }
         </div>
       </div>
+      
 
     </div> 
+    <div>
+    <a id="mlh-trust-badge" className='mlh-banner' 
+        href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2024-season&utm_content=blue" 
+        target="_blank">
+          <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2024/mlh-trust-badge-2024-blue.svg" 
+              alt="Major League Hacking 2024 Hackathon Season" style={{width:100 + '%'}}/>
+      </a>
+    </div>
     {!token && openBanner &&
-      <div>
-        {/* <div className='application-banner'>Applications are now open!</div>  */}
+    <div>
+      {/* <div className='application-banner'>Applications are now open!</div>  */}
         <div className='application-banner'>
           <AppCountDown/>
-        </div> 
-      </div>
-    }
-      
-    
+        <div>
     </div>
+   
+    </div> 
+  </div>    }
+      
+  </div>
   )
 }
 
