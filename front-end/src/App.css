@@ -249,18 +249,6 @@ button:hover{ cursor: pointer; }
   justify-content: center;
 }
 
-.home-date {
-  align-self: center;
-  text-align: center;
-  font-family: bitter;
-  font-variant: small-caps;
-  font-size: clamp(1rem, 3vw, 3rem);
-  font-style: bold;
-  color: #F07167;
-  -webkit-text-stroke: #712020;
-  max-width: 600px;
-}
-
 .home-location {
   align-self: center;
   text-align: center;
@@ -283,7 +271,6 @@ button:hover{ cursor: pointer; }
       display: flex;
       flex-direction: column;
       width: 85%;
-      /* background-color: rgb(138, 182, 168); */
     }
 
     .home-title {
@@ -317,6 +304,18 @@ button:hover{ cursor: pointer; }
 
     .logo-home:hover { animation-duration: 1s; }
 
+    .home-date {
+      align-self: center;
+      text-align: center;
+      font-family: bitter;
+      font-variant: small-caps;
+      font-size: clamp(1rem, 3vw, 3rem);
+      font-style: bold;
+      color: #F07167;
+      -webkit-text-stroke: #712020;
+      max-width: 600px;
+    }
+
     .welcome-right-container {
       position: relative;
       justify-content: center;
@@ -333,6 +332,7 @@ button:hover{ cursor: pointer; }
 
 .Button{
   align-self: center;
+  text-align: center;
   border:none;
   padding: 1rem 1rem;
   border-radius: 0.2rem;
@@ -366,7 +366,6 @@ button:hover{ cursor: pointer; }
   background-color: #00AFB9;
   -webkit-box-shadow:inset 0 1px 0 #00AFB9, 0 10px 0 #00424b;
   border-color: #22457d;
-  font-family: teacher-semibold;
 }
 
 .Button-interest:hover{
@@ -380,8 +379,6 @@ button:hover{ cursor: pointer; }
   color: black;
   -webkit-box-shadow:inset 0 1px 0 #fefeaa, 0 10px 0 #f4c671;
   border-color: #f5c499;
-  font-family: teacher-semibold;
-
 }
 
 .Button-apply:hover{
@@ -394,8 +391,6 @@ button:hover{ cursor: pointer; }
   background-color: #F07167;
   -webkit-box-shadow:inset 0 1px 0 #F07167, 0 10px 0 #441305;
   border-color: #712020;
-  font-family: teacher-semibold;
-
 }
 
 .Button-sponsor:hover{
@@ -409,8 +404,6 @@ button:hover{ cursor: pointer; }
   color: black;
   -webkit-box-shadow:inset 0 1px 0 #fefeaa, 0 10px 0 #f4c671;
   border-color: #f5c499;
-  font-family: teacher-semibold;
-
 }
 
 .Button-mentor:hover{
