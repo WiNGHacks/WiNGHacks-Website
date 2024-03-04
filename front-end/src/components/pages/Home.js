@@ -22,7 +22,7 @@ const Home = ({}, ref) => {
 
   return (
     // ref = {el => ref.current = { ...ref.current, home: el }}
-    <div>
+    <div className='Home'>
       <div className='home-buttons' align="center">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTqVfJUiWjjARDFBh1MkegBLw0F-Kd-GquU2NJO1-H7ybOuQ/viewform"
               target="_blank">

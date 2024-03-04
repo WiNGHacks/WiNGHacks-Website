@@ -194,40 +194,6 @@ button:hover{ cursor: pointer; }
   margin: 3% 5%;
 }
 
-.home-buttons {
-  font-family: teacher-semibold;
-  text-transform: uppercase;
-  margin: 1% 5%;
-  display: flex;
-  flex-direction: row;
-  column-gap: 2rem;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
-}
-
-.socials {
-  padding-top: 0%;
-  position: relative;
-  justify-content: center;
-  display: flex;
-  flex-direction: row;
-  column-gap: 1rem;
-  
-
-  .icons {
-    padding: 0rem clamp(0.5rem);
-    color: #e25167;
-    font-size: 5rem;
-  }
-
-  .icons:hover {
-    border-radius: 5px;
-    color: #ff3700;
-    cursor: pointer;
-  }
-}
-
 .banner-container {
   display: flex;
   align-content: center;
@@ -260,6 +226,39 @@ button:hover{ cursor: pointer; }
 }
 
 .Home { 
+
+  .home-buttons {
+    font-family: teacher-semibold;
+    text-transform: uppercase;
+    margin: 1% 5%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .socials {
+    padding-top: 0%;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
+  
+    .icons {
+      padding: 0rem clamp(0.5rem);
+      color: #e25167;
+      font-size: 5rem;
+    }
+  
+    .icons:hover {
+      border-radius: 5px;
+      color: #ff3700;
+      cursor: pointer;
+    }
+  }
 
   .welcome-container { 
     display: flex; 
@@ -702,7 +701,7 @@ figcaption a {
 .arrow { padding-right: 1rem; }
 
 .FAQ {
-  padding-bottom: 5%;
+  padding-bottom: 0%;
 
   .faq-collapse-container {
     font-size: 1rem;
@@ -1128,18 +1127,63 @@ figcaption a {
   font-size: 10px;
   text-align: center;
   padding: 2rem;
-
+  margin-inline: 5rem;
   background-color: #f4f7ff;
+  font-family: teacher-regular;
 
-  .icons {
-    padding: 0rem clamp(0.5rem);
-    color: #58a8d1;
-    font-size: 3rem;
+  .divider {
+    border: 0;
+    opacity: 0.6;
+    border-bottom: 0.0625rem solid;
+    margin-bottom: 0.2in;
+    border-color: #00424b;
+
   }
 
-  .icons:hover {
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    align-items: center;
+
+    .image {
+      height: 5rem;
+      align-self: center;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      align-content: left;
+      border-left-color: #000;
+    }
+  }  
+  .link {
+    font-weight: bold;
+    text-decoration: none;
+    color: #ff8178;
+    height: 15px;
+  }
+
+  .socials {
+    padding-top: 2%;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5rem;
+  }
+  .socials .icons {
+    padding: 0rem clamp(0.5rem);
+    color: #58a8d1;
+    font-size: 2rem;
+    text-align: left;
+    float: left;
+  }
+
+  .socials .icons:hover {
     border-radius: 5px;
     color: #7579c5;
     cursor: pointer;
   }
+
 }
