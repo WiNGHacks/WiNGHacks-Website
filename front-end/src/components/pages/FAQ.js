@@ -69,6 +69,12 @@ const items = [
     header: "How will the projects get judged?",
     content: "Sunday morning, we will set up a “science fair” style presentation to allow judges to walk around and hear your project demos. People’s Choice category will be based on the most voted project on Devpost. Then, the winning team for each category will be announced at the closing ceremony."
   },
+  {
+    key: '13',
+    header: "Is there a code of conduct?",
+    content: "Yes! We want to make sure that all hackers have a good experience. Refer to MLH's Code of Conduct ",
+    link: "https://static.mlh.io/docs/mlh-code-of-conduct.pdf"
+  },
 
 ];
 
@@ -85,7 +91,14 @@ const FAQ = React.FC = ({}, ref) => {
           {items.map(item => (
             <Panel key={item.key} header={"Q . " + item.header}>
               <div className='faq-collapse'>
-                {item.content}
+                <div>
+                  {item.content}
+                  {item.link ? <span style={{fontWeight: "bolder"}}>
+                    <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank">here</a></span> : <div/>}
+                    .
+                </div>
+                
+
               </div>
               <br></br>
             </Panel>
