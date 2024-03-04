@@ -69,7 +69,6 @@
       flex-direction: column;
   
       .message {
-  
         .welcome-message {
           font-size: 2rem;
         }
@@ -546,4 +545,19 @@
     padding: -2rem;
   }
 
+}
+
+@media only screen and (min-width: 1200px) {
+  .collaborators-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    padding: 10% 0rem;
+    align-self: center;
+    height: 80%;
+  }
 }

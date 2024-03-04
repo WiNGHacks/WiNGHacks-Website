@@ -60,7 +60,7 @@ function App() {
                       <Schedule ref = {ref} />
                       <Sponsors  ref = {ref} />
                       <FAQ  ref = {ref} />
-                      <Footer/>
+                      
                     </>
                   )}
                 />
@@ -74,6 +74,7 @@ function App() {
               <Route path="/forgetPassword" element={<ForgetPassword/>}></Route>
               
             </Routes> 
+            <Footer/>
           </div>
       </Router>
     </div>

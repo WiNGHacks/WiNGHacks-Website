@@ -32,7 +32,7 @@ const Footer = () => {
                 </div>
                
             </div>
-            <p>© 2024 WingHacks. All rights reserved.</p>
+            <p>© 2024 WiNGHacks. All rights reserved.</p>
         </div>
 
     )

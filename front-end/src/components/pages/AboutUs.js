@@ -11,6 +11,8 @@ import wicys from '../pictures/org_logos/wicys_logo.jpeg'
 import CommitteeMemberItem from './CommitteeMemberItem.js'
 import { MemberList } from '../data/MemberList.js'
 
+import mushroom from "../pictures/characters/Mushwoom.PNG"
+
 const AboutUs = ({}, ref) => {
 
   const text = 'The goal of our hackathon is to create a welcoming learning and growing environment for underrepresented genders in the tech industry. We hope to remove the barrier of entry to these events for many people, especially first-time hackers, and help them reap the many benefits that hackathons bring.'
@@ -51,6 +53,7 @@ const AboutUs = ({}, ref) => {
           </div>
         </div>
         <h2>About the Event</h2>
+        {/* <img src={mushroom} className='little-guy'/> */}
         <div className = "location-container">
           <div className = "location-child-container">
             <p>WiNGHacks will be hosted on April 5 - 7, 2024 at the <a style={{color: "#F07167"}} href="https://maps.app.goo.gl/8HVyA9sQLMdAPiwv5" target="_blank">Herbert Wertheim Laboratory of Engineering Excellence</a>. Hacking starts at 9 PM Friday and ends at 9 AM Sunday, for a total of 36 hours.</p>
