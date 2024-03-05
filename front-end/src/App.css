@@ -643,7 +643,7 @@ figcaption a {
 .sponsor-logo-container {
   justify-items: center;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-bottom: 1.5rem;
 }
 
@@ -671,23 +671,23 @@ figcaption a {
 }
 
 .sponsor-logo-container a:nth-child(odd) {
-  width: 90%;
-  height: 150px;
+  width: 70%;
+  height: 100px;
 }
 
 .sponsor-logo-container a:nth-child(even) {
-  width: 90%;
-  height: 150px;
+  width: 70%;
+  height: 100px;
 
 }
 
 .sponsor-logo-container img:nth-child(odd) {
-  width: 90%;
+  width: 80%;
   height: 150px;
 }
 
 .sponsor-logo-container img:nth-child(even) {
-  width: 90%;
+  width: 80%;
   height: 150px;
 
 }
@@ -742,7 +742,7 @@ figcaption a {
   margin-inline: 10%;
   margin-top: 5%;
   border-radius: 25px;
-  min-height: 40vh;
+  min-height: 60vh;
 
   .form-container {
     /* background-color: beige; */
@@ -796,13 +796,16 @@ figcaption a {
     } 
   }
 
-  .little-guy {
+  .image {
     align-self: center;
-    width: 17%;
+    width: 8%;
     position: absolute;
-    right: 17%;
-    margin-top: -90px;
   }
+
+  .little-guy1 {right: 18%;}
+  .little-guy2 {left: 17%;}
+  .little-guy3 {left: 12%; margin-top: -60px;}
+  .little-guy4 {right: 12%; margin-top: -60px;}
 }
 
 .Portal {
@@ -938,7 +941,7 @@ figcaption a {
   .modalContainer {
     justify-self: center;
     width: clamp(20rem, 35rem, 35rem);
-    height: clamp(20rem, 25rem, 30rem);
+    height: clamp(20rem, 28rem, 30rem);
     border-radius: 12px;
     border-image: linear-gradient(rgb(195, 149, 210), rgb(116, 173, 207)) 27 / 2rem;
     background-color: white;
@@ -949,7 +952,7 @@ figcaption a {
 
 
     .little-guy {
-      height: 80px;
+      height: 130px;
 
       /* position: absolute;
       margin-top: -35px;
@@ -961,6 +964,11 @@ figcaption a {
     display: inline-block;
     text-align: center;
     margin-top: 1%;
+    
+  }
+  .modalContainer .title h1 {
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   .titleCloseBtn {
@@ -993,6 +1001,7 @@ figcaption a {
     justify-content: center;
     align-items: center;
     margin-top: clamp(1rem, 1.5rem, 2rem);
+    margin-bottom: 5%;
   }
 
   .apply {
