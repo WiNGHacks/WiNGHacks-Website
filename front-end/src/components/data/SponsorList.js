@@ -61,7 +61,7 @@ export const SponsorList = [
     {
         id: "9",
         logo_image: StandoutSticker_logo,
-        url: "https://www.standoutstickers.com/",
+        url: "https://www.hackp.ac/mlh-standoutstickers-hackathons/",
         alt: 'StandoutSticker_logo'
     }
 
