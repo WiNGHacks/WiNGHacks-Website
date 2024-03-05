@@ -6,6 +6,7 @@ import JPMC_logo from '../pictures/sponsor_logo/jpmc-logo.png'
 import UKG_logo from '../pictures/sponsor_logo/ukg-logo.png'
 import Infotech_logo from '../pictures/sponsor_logo/infotech-logo.png'
 import GitHub_logo from '../pictures/sponsor_logo/github-logo.png'
+import StandoutSticker_logo from '../pictures/sponsor_logo/standoutsticker-logo.png'
 
 
 export const SponsorList = [
@@ -56,6 +57,12 @@ export const SponsorList = [
         logo_image: GitHub_logo,
         url: "https://github.com",
         alt: 'GitHub Logo'
+    },
+    {
+        id: "9",
+        logo_image: StandoutSticker_logo,
+        url: "https://www.standoutstickers.com/",
+        alt: 'StandoutSticker_logo'
     }
 
 ]
