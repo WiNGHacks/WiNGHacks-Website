@@ -211,16 +211,26 @@ export const MemberList = [
         committee_position: "Committee Head",
         committee_name: "Website",
     },
+    // {
+    //     id: "22",
+    //     name: "Alanis Rivera Narvaez (she/her)",
+    //     profile_pic: Alanis_Rivera_Narvaez_pic,
+    //     linkedIn: "www.linkedin.com/in/alanis-rivera-narvaez/",
+    //     major: "Computer Science",
+    //     committee_position: "Committee Head",
+    //     committee_name: "Workshop", 
+        
+    // },
     {
         id: "22",
-        name: "Alanis Rivera Narvaez (she/her)",
-        profile_pic: Alanis_Rivera_Narvaez_pic,
-        linkedIn: "www.linkedin.com/in/alanis-rivera-narvaez/",
+        name: "Alexa Melnychuk (she/her)",
+        profile_pic: Alexa_Melnychuk_pic,
+        linkedIn: "https://www.linkedin.com/in/alexa-melnychuk/",
         major: "Computer Science",
         committee_position: "Committee Head",
-        committee_name: "Workshop", 
-        
-    },
+        committee_name: "Workshop",
+          
+     },
     {
         id: "23",
         name: "Mina Alkhazraji (she/her)",
@@ -267,18 +277,8 @@ export const MemberList = [
         committee_position: "Committee Member",
         committee_name: "Awards",
     },
-    {
-        id: "28",
-        name: "Alexa Melnychuk (she/her)",
-        profile_pic: Alexa_Melnychuk_pic,
-        linkedIn: "https://www.linkedin.com/in/alexa-melnychuk/",
-        major: "Computer Science",
-        committee_position: "Committee Member",
-        committee_name: "Workshop",
-          
-     },
      {
-         id: "29",
+         id: "28",
          name: "Arossa Adhikary (she/her)",
          profile_pic: Arossa_Adhikary_pic,
          linkedIn: "https://www.linkedin.com/in/arossaadhikary/",
@@ -286,7 +286,7 @@ export const MemberList = [
          committee_position: "Committee Member",
          committee_name: "Website",
      },{
-         id: "30",
+         id: "29",
          name: "Maria Pasaylo (she/her)",
          profile_pic: Maria_Pasaylo_pic,
          linkedIn: "https://www.linkedin.com/in/maria-pasaylo/",
