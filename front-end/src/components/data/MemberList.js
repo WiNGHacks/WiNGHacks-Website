@@ -1,4 +1,4 @@
-import Minuet_Greenberg_pic from '../pictures/profile_pics/Minuet_Greenberg.png'
+import Adassa_Coimin_pic from '../pictures/profile_pics/Adassa_Coimin.png'
 import Maddie_Glaum_pic from '../pictures/profile_pics/Maddie_Glaum.png'
 import Vy_Vu_pic from '../pictures/profile_pics/Vy_Vu.png'
 import Tanya_Charan_pic from '../pictures/profile_pics/Tanya_Charan.png'
@@ -27,7 +27,7 @@ import Teresa_Vu_pic from '../pictures/profile_pics/Teresa_Vu.png'
 import Lily_Cabrera_pic from '../pictures/profile_pics/Lily_Cabrera.png'
 import Alanis_Rivera_Narvaez_pic from '../pictures/profile_pics/Alanis_Rivera-Narvaez.png'
 import Arossa_Adhikary_pic from '../pictures/profile_pics/Arossa_Adhikary.png'
- import Maria_Pasaylo_pic from '../pictures/profile_pics/Maria_Pasaylo.png'
+import Maria_Pasaylo_pic from '../pictures/profile_pics/Maria_Pasaylo.png'
 
 export const MemberList = [
     {
@@ -47,6 +47,15 @@ export const MemberList = [
         major: "Computer Science",
         committee_position: "Co-director",
         committee_name: "Directors",
+    },
+    {
+        id: "3",
+        name: "Adassa Coimin (she/her)",
+        profile_pic: Adassa_Coimin_pic,
+        linkedIn: "https://www.linkedin.com/in/adassa-coimin/",
+        major: "Computer Science",
+        committee_position: "Committee Member",
+        committee_name: "Tech-support",
     },
     {
         id: "4",
