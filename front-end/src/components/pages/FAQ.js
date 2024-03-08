@@ -95,7 +95,6 @@ const FAQ = React.FC = ({}, ref) => {
                   {item.content}
                   {item.link ? <span style={{fontWeight: "bolder"}}>
                     <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank">here</a></span> : <div/>}
-                    .
                 </div>
                 
 
