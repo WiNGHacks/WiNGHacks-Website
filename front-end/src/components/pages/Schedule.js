@@ -53,12 +53,16 @@ const Schedule = ({}, ref) => {
                   <td className='eventDescription'>Sponsorship Fair</td>
                 </tr>
                 <tr>
-                  <td className='time activity'>8:00PM</td>
-                  <td className='eventDescription activity'>Dinner Starts</td>
+                  <td className='time'>5:30PM</td>
+                  <td className='eventDescription'>Opening Ceremony</td>
                 </tr>
                 <tr>
-                  <td className='time'>9:00PM</td>
+                  <td className='time'>7:00PM</td>
                   <td className='eventDescription'>Hacking Starts</td>
+                </tr>
+                <tr>
+                  <td className='time activity'>8:00PM</td>
+                  <td className='eventDescription activity'>Dinner</td>
                 </tr>
               </tbody>
             </table>
@@ -116,7 +120,7 @@ const Schedule = ({}, ref) => {
                       </tr>
                       <tr>
                         <td className='time'>8:00PM</td>
-                        <td className='eventDescription'>Dinner Starts</td>
+                        <td className='eventDescription'>Dinner</td>
                       </tr>
                       <tr>
                         <td className='time'>11:30PM</td>
@@ -142,19 +146,23 @@ const Schedule = ({}, ref) => {
               </thead>
               <tbody>
                 <tr>
+                  <td className='time activity'>6:00AM</td>
+                  <td className='eventDescription'>Breakfast</td>
+                </tr>
+                <tr>
+                  <td className='time activity'>7:00AM</td>
+                  <td className='eventDescription'>Hacking Ends & Devposts Due</td>
+                </tr>
+                <tr>
                   <td className='time activity'>9:00AM</td>
-                  <td className='eventDescription'>Hacking Ends & Dev Post Due</td>
+                  <td className='eventDescription'>Project Exposition</td>
                 </tr>
                 <tr>
-                  <td className='time activity'>10:00AM</td>
-                  <td className='eventDescription activity'>Live Judging Begins</td>
+                  <td className='time'>11:00AM</td>
+                  <td className='eventDescription'>Judges Finalize Winners</td>
                 </tr>
                 <tr>
-                  <td className='time'>12:30PM</td>
-                  <td className='eventDescription'>Judges Judge</td>
-                </tr>
-                <tr>
-                  <td className='time activity'>2:00PM</td>
+                  <td className='time activity'>11:30AM</td>
                   <td className='eventDescription activity'>Closing Ceremony</td>
                 </tr>
               </tbody>

@@ -824,8 +824,9 @@ figcaption a {
 table {
   /* background color opacity changed but text of table remains visible */
   opacity: 1; 
-  margin-left: 50px;
+  margin-left: 15px;
   padding: 20px;
+  padding-bottom: 10px;
 }
 
 .locationEvent{
@@ -839,21 +840,22 @@ table {
 }
 
 .time {
-  padding-right: 60px;
-}
-
-.eventDescription{
+  /* controls spacing btwn time & event */
   padding-right: 40px;
-  padding-bottom: 5px;
 }
 
 th {
-  padding-bottom: 15px;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.time, .eventDescription, th {
+  /* controls the text being spaced evenly */
+  vertical-align: middle;
+  padding-bottom: 10px;
 }
 
 .content-all {
-  /* padding: 20px; */
-  /* background-color: red; */
   font-family: teacher-semibold;
   margin-bottom: 0px;
   border-bottom: 10px black solid;
@@ -870,7 +872,7 @@ th {
 
 .tab {
   font-family: teacher-semibold;
-  font-size: 20px;
+  font-size: 18px;
   padding: 10px;
   flex-grow: 1;
   border-radius: 5px;
@@ -886,6 +888,15 @@ th {
   border-right: 5px black solid;
   border-bottom: 0px black solid;
 }
+
+.tab:nth-child(1).active + .tab,
+.tab:nth-child(1).active + .tab + .tab {
+  border-bottom: 5px black solid; 
+}
+
+.tab:nth-child(2).active ~ .tab:nth-child(3) {
+  border-bottom: 5px black solid; 
+} 
 
 .tab:nth-child(1):hover,
 .tab:nth-child(1).active {
