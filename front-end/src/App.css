@@ -858,9 +858,9 @@ th {
 .content-all {
   font-family: teacher-semibold;
   margin-bottom: 0px;
-  border-bottom: 10px black solid;
-  border-left: 5px black solid;
-  border-right: 5px black solid;
+  border-bottom: 5px rgb(132, 132, 132) solid;
+  border-left: 4px rgb(132, 132, 132) solid;
+  border-right: 4px rgb(132, 132, 132) solid;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -883,20 +883,22 @@ th {
 .tab.active {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
-  border-top: 5px black solid;
-  border-left: 5px black solid;
-  border-right: 5px black solid;
-  border-bottom: 0px black solid;
+  border-top: 4px rgb(132, 132, 132) solid;
+  border-left: 4px rgb(132, 132, 132) solid;
+  border-right: 4px rgb(132, 132, 132) solid;
+  border-bottom: 0px rgb(132, 132, 132) solid;
 }
 
-.tab:nth-child(1).active + .tab,
+/* .tab:nth-child(1).active + .tab,
 .tab:nth-child(1).active + .tab + .tab {
   border-bottom: 5px black solid; 
 }
 
-.tab:nth-child(2).active ~ .tab:nth-child(3) {
-  border-bottom: 5px black solid; 
-} 
+.tab:nth-child(2).active {
+  .tab:nth-child(1) {
+    border-bottom: 5px black solid; 
+  }
+} */
 
 .tab:nth-child(1):hover,
 .tab:nth-child(1).active {
@@ -910,7 +912,7 @@ th {
 
 .tab:nth-child(3):hover,
 .tab:nth-child(3).active {
-  background-color: #c3ecf1;
+  background-color: rgb(211, 228, 255);
 }
 
 .tab:nth-child(1).active, .content1{
@@ -922,5 +924,5 @@ th {
 }
 
 .tab:nth-child(3).active, .content3 {
-  background-color: #c3ecf1;
+  background-color: rgb(211, 228, 255);
 }

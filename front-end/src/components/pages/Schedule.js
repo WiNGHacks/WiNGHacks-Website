@@ -13,7 +13,7 @@ const Schedule = ({}, ref) => {
 
        <div className='Page entire-schedule'>
        <h1>Schedule</h1>
-       <h2 className="disclaimer">Please note schedule is subject to change.</h2>
+       <h2 className="disclaimer">Please note that the schedule is subject to change.</h2>
 
           <div className='tabs'>
           {['Friday, April 5th', 'Saturday, April 6th', 'Sunday, April 7th'].map((day) => (
