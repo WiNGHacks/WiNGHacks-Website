@@ -6,6 +6,15 @@ const Schedule = ({}, ref) => {
 
   const handleTabClick = (day) => {
     setActiveDay(day);
+
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => {
+      if (tab.textContent !== day) {
+        tab.style.borderBottom = '5px rgb(132, 132, 132) solid';
+      } else {
+        tab.style.borderBottom = 'none';
+      }
+    });
   };
 
   return (
