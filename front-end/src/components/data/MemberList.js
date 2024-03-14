@@ -50,11 +50,11 @@ export const MemberList = [
     },
     {
         id: "3",
-        name: "Adassa Coimin (she/her)",
-        profile_pic: Adassa_Coimin_pic,
-        linkedIn: "https://www.linkedin.com/in/adassa-coimin/",
+        name: "Teresa Vu (she/her)",
+        profile_pic: Teresa_Vu_pic,
+        linkedIn: "http://www.linkedin.com/in/teresavuu",
         major: "Computer Science",
-        committee_position: "Committee Member",
+        committee_position: "Committee Head",
         committee_name: "Tech-support",
     },
     {
@@ -270,11 +270,11 @@ export const MemberList = [
     },
     {
         id: "26",
-        name: "Teresa Vu (she/her)",
-        profile_pic: Teresa_Vu_pic,
-        linkedIn: "http://www.linkedin.com/in/teresavuu",
+        name: "Adassa Coimin (she/her)",
+        profile_pic: Adassa_Coimin_pic,
+        linkedIn: "https://www.linkedin.com/in/adassa-coimin/",
         major: "Computer Science",
-        committee_position: "Committee Head",
+        committee_position: "Committee Member",
         committee_name: "Tech-support",
     },
     {

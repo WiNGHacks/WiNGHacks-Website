@@ -16,7 +16,7 @@ const Footer = () => {
                     <a href="signup" className='link'>Hacker Applications</a>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTqVfJUiWjjARDFBh1MkegBLw0F-Kd-GquU2NJO1-H7ybOuQ/viewform"
                         target="_blank" className='link'>Mentor Applications</a>
-                    <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" style={{color: "black", fontWeight: "bold"}} target="_blank">MLH Code of Conduct</a>
+                    <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" style={{color: "#0081A7", fontWeight: "bold"}} target="_blank">MLH Code of Conduct</a>
                     <div className='socials'>
                         <a href="https://www.instagram.com/winghacks/" target="_blank" rel="noopener noreferrer">
                             <FaSquareInstagram className='icons'/>
