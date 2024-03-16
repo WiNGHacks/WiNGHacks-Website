@@ -5,6 +5,8 @@ import Papa from 'papaparse';
 import { useReactTable, flexRender, getCoreRowModel, getFilteredRowModel } from '@tanstack/react-table'
 import IndeterminateCheckbox from "./IndeterminateCheckbox";
 
+import ClipLoader from "react-spinners/ClipLoader";
+
 const SendResults = () => {
     const [csvData, setCsvData] = useState([]);
     const [numEmails, setNumEmails] = useState(0);
@@ -14,6 +16,7 @@ const SendResults = () => {
 
     const [rowSelection, setRowSelection] = useState({})
     const listSelected = []
+    const [submitedClicked, setSubmitClicked] = useState(false)
     // const [listSelected, setListSelected] = useState([])
     const [columnFilters, setColumnFilters] = React.useState([]);
 
@@ -151,6 +154,7 @@ const SendResults = () => {
     // public Status: Accepted, declined, waitlisted
 
     const sendAllResults = async() => {
+        setSubmitClicked(true)
 
         let sentEmail = 0 
 
@@ -165,6 +169,7 @@ const SendResults = () => {
                 // console.log(response)
                 // alert("Emails were sent!")
                 if (sentEmail === listSelected.length) {
+                    setSubmitClicked(false)
                     alert(`${numEmails} emails have been sent`)
                 }
             })
@@ -367,7 +372,34 @@ const SendResults = () => {
                     </ul>
                 </div>
                 <p>Send emails count: {numEmails}</p>
-                <button disabled = {!readyToSend} onClick={sendAllResults}>Send emails count </button> 
+                {submitedClicked?(
+                        <div>
+                            <button className="submitBubble" style={{  pointerEvents: "none"}} align= "center" disabled>
+                                <ClipLoader 
+                                    color='black'
+                                    loading={submitedClicked}
+                                    size={10}
+                                    speedMultiplier ={1}
+                                    
+                                />
+                            </button>
+                        </div>
+                    ):(
+                        <button 
+                            disabled = {!readyToSend}
+                            onClick={sendAllResults} 
+                            // className={rea? "disabledButton" : "submitBubble" }
+                            align= "center" 
+                        > 
+                            Send emails count 
+                        </button>
+                    )}
+                {/* <button disabled = {!readyToSend} onClick={sendAllResults}>
+                    
+                    
+                    Send emails count 
+                
+                </button>  */}
                 
             </div>
             <hr style={{width: "50%", marginTop: "2rem"}} />
