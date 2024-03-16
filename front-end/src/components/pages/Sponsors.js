@@ -1,12 +1,5 @@
 import React, {useState, forwardRef} from 'react'
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
-import bloomberg_logo from '../pictures/sponsor_logo/bloomberg-logo.png'
-import rtc_logo from '../pictures/sponsor_logo/rtc-logo.png'
-import c1_logo from '../pictures/sponsor_logo/capitalone-logo.png'
-import TI_logo from '../pictures/sponsor_logo/TI-logo.png'
-import JPMC_logo from '../pictures/sponsor_logo/jpmc-logo.png'
-import UKG_logo from '../pictures/sponsor_logo/ukg-logo.png'
-import Infotech_logo from '../pictures/sponsor_logo/infotech-logo.png'
 import { SponsorList } from '../data/SponsorList';
 
 const Sponsors = ({}, ref) => {
