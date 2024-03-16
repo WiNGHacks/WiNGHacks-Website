@@ -353,8 +353,7 @@ const SendResults = () => {
                 </div>
 
 
-                <hr />
-                
+               
                 <div>
                     <ul>
                     
@@ -371,7 +370,9 @@ const SendResults = () => {
                 <button disabled = {!readyToSend} onClick={sendAllResults}>Send emails count </button> 
                 
             </div>
-            <button style = {{margin: "2rem"}} onClick={getAllRSVP}>Click to get all RSVP count: {numAcceptedRSVP} </button> 
+            <hr style={{width: "50%", marginTop: "2rem"}} />
+                
+            <button style = {{margin: "1rem"}} onClick={getAllRSVP}>Click to get all RSVP count: {numAcceptedRSVP} </button> 
         </div>
         
 

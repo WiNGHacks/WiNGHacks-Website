@@ -16,8 +16,8 @@ const FetchResponse = ({ email, id, status}) => {
             Internal_Status: row['Internal_Status'],
             Public_Status: row['Public_Status']
         }));
-        console.log('Extraction completed');
-        console.log(extractedData); // Output the extracted data
+        // console.log('Extraction completed');
+        // console.log(extractedData); // Output the extracted data
         return extractedData
     
       };

@@ -1239,7 +1239,7 @@ figcaption a {
 }
 
 .email-send-scroll {
-  /* width: 500px;  */
+  width: 70%; 
   height: 500px;
   overflow-x: auto;
 }
