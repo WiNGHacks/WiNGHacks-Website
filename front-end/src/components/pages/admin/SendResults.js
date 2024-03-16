@@ -1,83 +1,180 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useMemo} from 'react'
 import axios from 'axios';
+import Papa from 'papaparse';
+
+import { useReactTable, flexRender, getCoreRowModel, getFilteredRowModel } from '@tanstack/react-table'
+import IndeterminateCheckbox from "./IndeterminateCheckbox";
 
 const SendResults = () => {
     const [csvData, setCsvData] = useState([]);
     const [numEmails, setNumEmails] = useState(0);
     const [readyToSend, setReadyToSend] = useState(false);
+    const [numAcceptedRSVP, setNumAcceptedRSVP] = useState(0)
+    const [lastModified, setLastModified] = useState(null);
+
+    const [rowSelection, setRowSelection] = useState({})
+    const listSelected = []
+    // const [listSelected, setListSelected] = useState([])
+    const [columnFilters, setColumnFilters] = React.useState([]);
+
+    // const parseCSV = (csvText) => {
+    //     const rows = csvText.split(/\r?\n/); // Split CSV text into rows, handling '\r' characters
+    //     // console.log(rows)
+    //     // console.log(rows[0])
+    //     // const headers = rows[0].split(','); // Extract headers (assumes the first row is the header row)
+    //     const headers = rows[0].match(/(?<=^|,)(?:"(?:[^"]|"")*"|[^,"]*)/g);
+    //     const data = []; // Initialize an array to store parsed data
+      
+    //     for (let i = 1; i < rows.length; i++) {
+    //         // const rowData = rows[i].split(',').map(item => item.trim()); // Split the row, handling '\r' characters and trim whitespace
+    //         // console.log("Row Data:", rowData);
+    //         // console.log(rows[i])
+    //         const rowData = rows[i].match(/(?<=^|,)(?:"(?:[^"]|"")*"|[^,"]*)/g).map(item => {
+    //             // Remove surrounding double quotes and unescape double quotes
+    //             // console.log(item)
+    //             return item.replace(/^"|"$/g, '').replace(/""/g, '"');
+    //         });
+
+    //         // console.log(rowData)
+
+    //         const rowObject = {}
+    //         for (let j = 0; j < headers.length; j++) {
+    //             // rowObject[headers[j]] = rowData[j];
+
+    //             if (headers[j] === 'First Name' ||
+    //             headers[j] === 'Last Name' ||
+    //             headers[j] === 'Email Address' ||
+    //             headers[j] === 'Internal_Status' ||
+    //             headers[j] === 'Public_Status') {
+    //                 rowObject[headers[j]] = rowData[j];
+    //                 // console.log("Column:", headers[j], "Value:", rowData[j]);
+    //             }
+    //             // console.log("Column:", headers[j], "Value:", rowData[j]);
+    //         }
+
+    //         data.push(rowObject);
+    //     }
+
+    //     // console.log(data)
+      
+    //     return data;
+    // };
 
     const parseCSV = (csvText) => {
-        const rows = csvText.split(/\r?\n/); // Split CSV text into rows, handling '\r' characters
-        // console.log(rows)
-        // console.log(rows[0])
-        // const headers = rows[0].split(','); // Extract headers (assumes the first row is the header row)
-        const headers = rows[0].match(/(?<=^|,)(?:"(?:[^"]|"")*"|[^,"]*)/g);
-        const data = []; // Initialize an array to store parsed data
-      
-        for (let i = 1; i < rows.length; i++) {
-            // const rowData = rows[i].split(',').map(item => item.trim()); // Split the row, handling '\r' characters and trim whitespace
-            // console.log("Row Data:", rowData);
-            const rowData = rows[i].match(/(?<=^|,)(?:"(?:[^"]|"")*"|[^,"]*)/g).map(item => {
-                // Remove surrounding double quotes and unescape double quotes
-                return item.replace(/^"|"$/g, '').replace(/""/g, '"').trim();
-            });
-
-            const rowObject = {}
-            for (let j = 0; j < headers.length; j++) {
-                rowObject[headers[j]] = rowData[j];
-                // console.log("Column:", headers[j], "Value:", rowData[j]);
-            }
-
-            data.push(rowObject);
-        }
-
-        // console.log(data)
-      
-        return data;
-    };
-
-    const getAllResults = async() => {
-        const csvUrl = process.env.REACT_APP_GOOGLE_SHEET_URL;
-        await axios.get(csvUrl)    // Use Axios to fetch the CSV data
-        .then((response) => {
-            const parsedCsvData = parseCSV(response.data);     
-            setCsvData(parsedCsvData);
-            setNumEmails(csvData.length)
-
-        })
-        .catch((error) => {
-            console.error('Error fetching CSV data:', error);
-        });
-
-        // console.log(csvData)
+        const parsedData = Papa.parse(csvText, { header: true });
+        const extractedData = parsedData.data.map(row => ({
+            FirstName: row['First Name'],
+            LastName: row['Last Name'],
+            EmailAddress: row['Email Address'],
+            Internal_Status: row['Internal_Status'],
+            Public_Status: row['Public_Status']
+        }));
+        console.log('Extraction completed');
+        // console.log(extractedData); // Output the extracted data
+        return extractedData
     }
 
+
     useEffect(() => {
-        setNumEmails(csvData.length)
-        if(numEmails > 0) {
+        // Function to fetch data
+        const fetchData = async () => {
+            try {
+                const csvUrl = process.env.REACT_APP_GOOGLE_SHEET_URL;
+                const response = await axios.get(csvUrl);
+                const parsedCsvData = parseCSV(response.data); // Assuming you have a parseCSV function
+                const lastModifiedTime = response.headers['last-modified']; // Get the last modified timestamp from headers
+
+                // Check if the data has been updated
+                if (lastModifiedTime !== lastModified) {
+                    setCsvData(parsedCsvData);
+                    setNumEmails(parsedCsvData.length);
+                    setLastModified(lastModifiedTime);
+                }
+            } catch (error) {
+                console.error('Error fetching CSV data:', error);
+            }
+        };
+
+        // Fetch data when component mounts
+        fetchData();
+
+        // Fetch data every interval (e.g., every 1 minute)
+        const interval = setInterval(fetchData, 60000); // 60000 milliseconds = 1 minute
+
+        // Clean up interval on component unmount
+        return () => clearInterval(interval);
+    }, [lastModified]); // Trigger effect when lastModified changes
+
+
+
+    // const getAllResults = async() => {
+    //     // console.log("Get All Results")
+    //     const csvUrl = process.env.REACT_APP_GOOGLE_SHEET_URL;
+    //     await axios.get(csvUrl)    // Use Axios to fetch the CSV data
+    //     .then((response) => {
+    //         const parsedCsvData = parseCSV(response.data);     
+    //         setCsvData(parsedCsvData);
+    //         setNumEmails(csvData.length)
+    //         console.log(parsedCsvData)
+
+    //         // const temp = parseCSV2(response.data)
+    //         // console.log(temp)
+
+    //     })
+    //     .catch((error) => {
+    //         console.error('Error fetching CSV data:', error);
+    //     });
+
+    //     // console.log(csvData)
+    // }
+
+    useEffect(() => {
+        console.log(listSelected)
+        if (listSelected.length !== 0) {
             setReadyToSend(true)
+            setNumEmails(listSelected.length)
         }
-    }, [csvData])
+        else if(listSelected.length === 0){
+            setReadyToSend(false)
+            setNumEmails(0)
+        }
+    }, [listSelected])
+
+    // useEffect(() => {
+    //     setNumEmails(csvData.length)
+    //     if(numEmails > 0) {
+    //         setReadyToSend(true)
+    //     }
+    // }, [csvData])
+
+    // Iterate using useEffect that will seperate the CSVData into the different sections of the 
+    // public Status: Accepted, declined, waitlisted
 
     const sendAllResults = async() => {
-        // getAllResults()
-        // console.log(csvData)
 
-        csvData.map((item) => {
-            if(item.Public_Status !== "") {
-                // console.log({Email: item["Email Address"], newStatus: item.Public_Status})
-                axios.post(process.env.REACT_APP_SEND_UPDATE_STATUS_EMAIL_URL, 
-                    {email: item["Email Address"], updateStatus:item.Public_Status }
-                )
-                .then((response) => {
-                    // console.log(response)
-                    alert("Emails were sent!")
-                })
-                .catch((error) => {
-                    console.log(error)
-                    alert("Error Emails not sent!")
-                })
-            }
+        let sentEmail = 0 
+
+        console.log(listSelected)
+        listSelected.map((item) => {
+            axios.post(process.env.REACT_APP_SEND_UPDATE_STATUS_EMAIL_URL, 
+                {email: item.EmailAddress.trim(), updateStatus:item.Public_Status, firstName: item.FirstName }
+            )
+            .then((response) => {
+       
+                sentEmail = sentEmail + 1;
+                // console.log(response)
+                // alert("Emails were sent!")
+                if (sentEmail === listSelected.length) {
+                    alert(`${numEmails} emails have been sent`)
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+                alert("Error Emails not sent for: " + item.EmailAddress.trim())
+            })
+       
+            
+            
         })
     }
 
@@ -123,6 +220,7 @@ const SendResults = () => {
                 .filter(obj => obj.hasOwnProperty('acceptedRSVP') && obj.acceptedRSVP === 'yes')
                 .map(({ email, firstName, lastName, acceptedRSVP}) => ({ email, firstName, lastName, acceptedRSVP }));
             // console.log(accepted)
+            setNumAcceptedRSVP(accepted.length)
             const csvData = convertArrayOfJSONToCSV(accepted)
             downloadCSV(csvData, "Accepted_RSVP_Applicants")
             
@@ -132,37 +230,148 @@ const SendResults = () => {
         })
     }
 
+    const data = useMemo(() => csvData, [csvData])
+
+    const columnsHeader = [
+        {
+            id: "select",
+            header: ({ table }) => (
+                <IndeterminateCheckbox
+                {...{
+                    checked: table.getIsAllRowsSelected(),
+                    indeterminate: table.getIsSomeRowsSelected(),
+                    onChange: table.getToggleAllRowsSelectedHandler(),
+                }}
+                />
+            ),
+            cell: ({ row }) => (
+                <IndeterminateCheckbox
+                {...{
+                    checked: row.getIsSelected(),
+                    disabled: !row.getCanSelect(),
+                    indeterminate: row.getIsSomeSelected(),
+                    onChange: row.getToggleSelectedHandler(),
+                }}
+                />
+            ),
+            },
+        {
+            header: "First Name",
+            accessorKey: "FirstName"    
+        },
+        {
+            header: "Last Name",
+            accessorKey: "LastName"        
+        },
+        {
+            header: "Email Address",
+            accessorKey: "EmailAddress"        
+        },
+        {
+            header: "Internal Status",
+            accessorKey: "Internal_Status"        
+        },
+        {
+            header: "Public Status",
+            accessorKey: "Public_Status"        
+        }
+    ]
+
+    const columns = useMemo(() => columnsHeader, [])
+
+
+   const table = useReactTable({
+        columns, 
+        data, 
+        // Select Row
+        getCoreRowModel: getCoreRowModel(), 
+        state: {
+            rowSelection: rowSelection
+        },
+        onRowSelectionChange: setRowSelection,
+        enableRowSelection: true,
+
+        // Filter Row
+    })
+//    console.log(table)
+ 
 
   return (
     <div align="center" style={{width: "100%"}}> 
         <h1>Send Results</h1>
-        <iframe style={{width: "80%"}} src={process.env.REACT_APP_EMBEDDED_GOOGLE_SHEET_URL}></iframe>
+        {/* <iframe style={{width: "75%", height: "500px"}} src={process.env.REACT_APP_EMBEDDED_GOOGLE_SHEET_URL}></iframe> */}
+     
         <div>
-            {/* { readyToSend? 
-            (
-                <div>
-                <button onClick={getAllResults}>Show number of emails to Send</button>  
-                <p>Send emails count: {numEmails}</p>
-                
-                <button onClick={sendAllResults}>Send emails count: {numEmails} </button> 
-                </div>
-            ):(
-                <div>
-                <button onClick={getAllResults}>Show number of emails to Send</button>  
-                <p>Send emails count: {numEmails}</p>
-                <button disabled = {readyToSend}onClick={sendAllResults}>Send emails count: {numEmails} </button> 
-                </div>
-            )
-
-            } */}
 
             <div>
-                <button onClick={getAllResults}>Show number of emails to Send</button>  
+                {/* <button onClick={getAllResults}>Show number of emails to Send</button>   */}
+
+                <div className='email-send-scroll'>
+
+                    <table >
+                        <thead>
+                        {table.getHeaderGroups().map((headerEl) => {
+                            return (
+                                <tr key={headerEl.id}>
+                                    {headerEl.headers.map((columnEl) => {
+                                    return (
+                                        <th key={columnEl.id} colSpan={columnEl.colSpan}>
+                                        {columnEl.isPlaceholder
+                                            ? null
+                                            : flexRender(
+                                                columnEl.column.columnDef.header,
+                                                columnEl.getContext()
+                                            )}
+                                        </th>
+                                    );
+                                    })}
+                                </tr>
+                                );
+                        })}
+
+                        </thead>
+                        <tbody  >
+                            {table.getRowModel().rows.map((rowEl) => {
+                                return (
+                                <tr key={rowEl.id}>
+                                    {rowEl.getVisibleCells().map((cellEl) => {
+                                    return (
+                                        <td key={cellEl.id}>
+                                        {flexRender(
+                                            cellEl.column.columnDef.cell,
+                                            cellEl.getContext()
+                                        )}
+                                        </td>
+                                    );
+                                    })}
+                                </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+                <hr />
+                
+                <div>
+                    <ul>
+                    
+                    {table.getSelectedRowModel().flatRows.map((el) => {
+                        
+                        
+                        listSelected.push(el.original);
+                        
+                        // return <li key={el.id}>{JSON.stringify(el.original)}</li>;
+                    })}
+                    </ul>
+                </div>
                 <p>Send emails count: {numEmails}</p>
-                <button disabled = {!readyToSend} onClick={sendAllResults}>Send emails count: {numEmails} </button> 
+                <button disabled = {!readyToSend} onClick={sendAllResults}>Send emails count </button> 
                 
             </div>
-            <button onClick={getAllRSVP}>Get All RSVP </button> 
+            <button style = {{margin: "2rem"}} onClick={getAllRSVP}>Click to get all RSVP count: {numAcceptedRSVP} </button> 
         </div>
         
 
