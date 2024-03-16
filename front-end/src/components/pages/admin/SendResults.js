@@ -4,6 +4,7 @@ import Papa from 'papaparse';
 
 import { useReactTable, flexRender, getCoreRowModel, getFilteredRowModel } from '@tanstack/react-table'
 import IndeterminateCheckbox from "./IndeterminateCheckbox";
+import FilterFunction from "./FilterFunction";
 
 const SendResults = () => {
     const [csvData, setCsvData] = useState([]);
@@ -257,19 +258,23 @@ const SendResults = () => {
             },
         {
             header: "First Name",
-            accessorKey: "FirstName"    
+            accessorKey: "FirstName",
+            enableColumnFilter: false,
         },
         {
             header: "Last Name",
-            accessorKey: "LastName"        
+            accessorKey: "LastName",
+            enableColumnFilter: false,        
         },
         {
             header: "Email Address",
-            accessorKey: "EmailAddress"        
+            accessorKey: "EmailAddress",
+            enableColumnFilter: false,      
         },
         {
             header: "Internal Status",
-            accessorKey: "Internal_Status"        
+            accessorKey: "Internal_Status",
+            enableColumnFilter: false,        
         },
         {
             header: "Public Status",
@@ -292,6 +297,11 @@ const SendResults = () => {
         enableRowSelection: true,
 
         // Filter Row
+        getFilteredRowModel: getFilteredRowModel(),
+        state: {
+            columnFilters: columnFilters,
+        },
+        onColumnFiltersChange: setColumnFilters,
     })
 //    console.log(table)
  
@@ -322,6 +332,16 @@ const SendResults = () => {
                                                 columnEl.column.columnDef.header,
                                                 columnEl.getContext()
                                             )}
+                                             {columnEl.column.getCanFilter() ? (
+                                                <div>
+                                                <FilterFunction
+                                                    column={columnEl.column}
+                                                    table={table}
+                                                />
+                                                </div>
+                                            ) : null}
+
+
                                         </th>
                                     );
                                     })}
@@ -341,6 +361,8 @@ const SendResults = () => {
                                             cellEl.column.columnDef.cell,
                                             cellEl.getContext()
                                         )}
+                                       
+
                                         </td>
                                     );
                                     })}
