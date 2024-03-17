@@ -10,6 +10,7 @@ import Cookies from "universal-cookie";
 import FetchResponse from './FetchResponse';
 
 import flier from '../../pictures/characters/Flier.PNG'
+import RSVPForm from './RSVPForm';
 
 const cookies = new Cookies();
 
@@ -21,34 +22,12 @@ const UserPortal = () => {
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [status, setStatus] = useState("");
-    const [selectedRSVP, setSelectedRSVP] = useState("");
     const [alreadyRSVP, setAlreadyRSVP] = useState(false)
 
     const token = cookies.get("TOKEN");
     const decoded = jwtDecode(token);
 
-    // Handle change function
-    const handleRSVPChange = selectedRSVP => {
-        setSelectedRSVP(selectedRSVP.value);
-    };
 
-    const rsvpOption = [
-        { value: '', label: 'Select...' },
-        { value: 'yes', label: 'Yes' },
-        { value: 'no', label: 'No' }
-      ]
-
-    const updateAcceptance = () => {
-        axios.put(`${process.env.REACT_APP_UPDATE_RSVP_API_URL}${id}`, {acceptedRSVP: selectedRSVP})
-        .then((response) => {
-            // console.log(response)
-            setSelectedRSVP("")
-            setAlreadyRSVP(true)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-    }
 
 
 
@@ -124,17 +103,22 @@ const UserPortal = () => {
                         }
                     
                 {status === "Accepted"? 
-                    (
+                    (   
                         <div>
-                            <Select
-                                placeholder="Your decision..."
-                                value={selectedRSVP.value}
-                                onChange={handleRSVPChange}
-                                options={rsvpOption}
-                                isDisabled = {alreadyRSVP}
-                            />                    
-                            <button className= {selectedRSVP === "" ? "disabledButton-rsvp" : 'Button-rsvp' } disabled = {selectedRSVP === ""} onClick={updateAcceptance}>Submit RSVP</button>
+                            {alreadyRSVP ? (
+                                <div>
+                                    <p>Thank you for filling out the RSVP form! We are super excited to see you at the hackathon!</p>
+                                </div>
+                            ):(
+                                <div>
+                                    <RSVPForm id={id} setAlreadyRSVP={setAlreadyRSVP} firstName={firstName} lastName={lastName} />
+                                </div>
+                            )}
                         </div>
+                        
+                        // <div>
+                        //    <RSVPForm id={id} alreadyRSVP={alreadyRSVP} setAlreadyRSVP={setAlreadyRSVP} />
+                        // </div>
                     ):(
                         <div>
                             <p>Thank you for applying! Check back later for more updates on your application!</p>
