@@ -37,7 +37,7 @@ const emailVerifyTemplate = (verifyLink) => {
 }
 
 const emailWelcomeTemplate = {
-    subject: "Your application has been recieved!",
+    subject: "Your application has been received!",
     content: `
 <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
 <p style="color: #f4f4f4; " >. </p>
@@ -49,7 +49,7 @@ const emailWelcomeTemplate = {
         <p style="color: #666; line-height: 1.6;">
         In the meantime, follow us on
         <a href="https://www.instagram.com/winghacks/">Instagram</a> and 
-        <a href="https://www.linkedin.com/company/winghacks/">LinkedIn</a>!
+        <a href="https://www.linkedin.com/company/winghacks/">LinkedIn</a>
         for updates!
         </p>
     </div>
