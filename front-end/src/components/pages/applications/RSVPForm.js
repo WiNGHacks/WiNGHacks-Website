@@ -4,7 +4,7 @@ import Select from 'react-select'
 import ClipLoader from "react-spinners/ClipLoader";
 
 
-const RSVPForm = ({id, setAlreadyRSVP}) => {
+const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
     const [userId, setUserId] = useState("");
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -46,6 +46,8 @@ const RSVPForm = ({id, setAlreadyRSVP}) => {
         setSubmitClicked(true)
         const data = {
             userId: id,
+            firstName: firstName,
+            lastName: lastName,
             email: email,
             phoneNumber: phoneNumber,
             remindSignedUp: remindSignedUp,

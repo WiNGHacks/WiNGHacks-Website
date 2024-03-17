@@ -16,6 +16,16 @@ const rsvpSchema = mongoose.Schema({
         required: [true, "Please provide an UserId!"], 
         unique: [true, "User Id Exist"],
     },
+    firstName: {
+        type:String, 
+        required: [true, "Please provide an First Name!"], 
+        unique: false,
+    },
+    lastName: {
+        type:String, 
+        required: [true, "Please provide an Last Name!"], 
+        unique: false,
+    },
     email: {
         type:String, 
         required: [true, "Please provide an Email!"], 

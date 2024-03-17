@@ -218,21 +218,34 @@ const SendResults = () => {
    };
 
     const getAllRSVP = () => {
-        axios.get(process.env.REACT_APP_GET_ALL_USERS_API_URL)
+        axios.get(process.env.REACT_APP_GET_ALL_RSVP_FORM)
         .then((response) => {
-            // console.log(response.data)
+            console.log(response.data)
             const accepted = response.data
-                .filter(obj => obj.hasOwnProperty('acceptedRSVP') && obj.acceptedRSVP === 'yes')
-                .map(({ email, firstName, lastName, acceptedRSVP}) => ({ email, firstName, lastName, acceptedRSVP }));
-            // console.log(accepted)
+                .map(({ email, firstName, lastName, phoneNumber, remindSignedUp, mealPreference, dietRestriction, merchOptIn, mlhAccept}) => 
+                    ({ email, firstName, lastName, phoneNumber, remindSignedUp, mealPreference, dietRestriction, merchOptIn, mlhAccept }));
             setNumAcceptedRSVP(accepted.length)
-            const csvData = convertArrayOfJSONToCSV(accepted)
-            downloadCSV(csvData, "Accepted_RSVP_Applicants")
-            
+            const data = convertArrayOfJSONToCSV(accepted)
+            downloadCSV(data, "Accepted_RSVP_Applicants")
         })
-        .catch(e => {
+        .catch((e)=> {
             console.log(e)
         })
+        // axios.get(process.env.REACT_APP_GET_ALL_USERS_API_URL)
+        // .then((response) => {
+        //     // console.log(response.data)
+        //     const accepted = response.data
+        //         .filter(obj => obj.hasOwnProperty('acceptedRSVP') && obj.acceptedRSVP === 'yes')
+        //         .map(({ email, firstName, lastName, acceptedRSVP}) => ({ email, firstName, lastName, acceptedRSVP }));
+        //     // console.log(accepted)
+        //     setNumAcceptedRSVP(accepted.length)
+        //     const csvData = convertArrayOfJSONToCSV(accepted)
+        //     downloadCSV(csvData, "Accepted_RSVP_Applicants")
+            
+        // })
+        // .catch(e => {
+        //     console.log(e)
+        // })
     }
 
     const data = useMemo(() => csvData, [csvData])

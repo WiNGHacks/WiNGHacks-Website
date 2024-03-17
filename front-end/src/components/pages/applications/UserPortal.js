@@ -111,7 +111,7 @@ const UserPortal = () => {
                                 </div>
                             ):(
                                 <div>
-                                    <RSVPForm id={id} alreadyRSVP={alreadyRSVP} setAlreadyRSVP={setAlreadyRSVP} />
+                                    <RSVPForm id={id} setAlreadyRSVP={setAlreadyRSVP} firstName={firstName} lastName={lastName} />
                                 </div>
                             )}
                         </div>
