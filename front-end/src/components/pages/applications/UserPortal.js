@@ -121,7 +121,13 @@ const UserPortal = () => {
                         // </div>
                     ):(
                         <div>
-                            <p>Thank you for applying! Check back later for more updates on your application!</p>
+                            {status === "Rejected" ? (
+                                <p>Thank you for applying! We hope to see you next year!</p>
+                            ):(
+                                <p>Thank you for applying! Check back later for more updates on your application!</p>
+                            )
+                            }
+                            
                         </div>
                     )
                 

@@ -483,64 +483,51 @@ router.put("/updateStatus/:id", async (req, res) => {
             if(req.body.status === "Applied") {
                 emailTemplateSubject = emailWelcomeTemplate.subject
                 emailTemplateContent = emailWelcomeTemplate.content
+
+                const transporter = nodemailer.createTransport({
+                    service: 'Gmail',
+                    auth: {
+                    user: process.env.EMAIL, // Replace with your Gmail email address
+                    pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
+                    }
+                });
+    
+                const mailOptions = {
+                    from: `"WiNGHacks Team " ${process.env.EMAIL}`,
+                    to: response.email,
+                    subject: emailTemplateSubject,
+                    html: emailTemplateContent,
+                    // attachments: [{
+                    //     filename: 'WiNGHacks.png',
+                    //     path: __dirname + './../pictures/WiNGHacks.png',
+                    //     cid: 'logo' // same cid value as in the html img src
+                    // }]
+                };
+    
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        res.status(500).send({
+                            message: "Couldn't send email",
+                            error,
+                        
+                        });
+                    } else {
+                        res.status(200).send({
+                            message: "Successfully sent email",
+                            response
+                        });
+                    }
+                });
+                
             }
-            // else if(req.body.status === "Accepted"){
-            //     emailTemplateSubject = emailAcceptedTemplate.subject
-            //     emailTemplateContent = emailAcceptedTemplate.content
-            // }
-            // else if(req.body.status === "Rejected"){
-            //     emailTemplateSubject = emailRejectedTemplate.subject
-            //     emailTemplateContent = emailRejectedTemplate.content
-            // }
-            // else if(req.body.status === "Waitlisted"){
-            //     emailTemplateSubject = emailWaitlistedTdemplate.subject
-            //     emailTemplateContent = emailWaitlistedTdemplate.content
-            // }
-
-            const transporter = nodemailer.createTransport({
-                service: 'Gmail',
-                auth: {
-                user: process.env.EMAIL, // Replace with your Gmail email address
-                pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
-                }
-            });
-
-            const mailOptions = {
-                from: `"WiNGHacks Team " ${process.env.EMAIL}`,
-                to: response.email,
-                subject: emailTemplateSubject,
-                html: emailTemplateContent,
-                // attachments: [{
-                //     filename: 'WiNGHacks.png',
-                //     path: __dirname + './../pictures/WiNGHacks.png',
-                //     cid: 'logo' // same cid value as in the html img src
-                // }]
-            };
-
-            transporter.sendMail(mailOptions, (error, info) => {
-                if (error) {
-                    res.status(500).send({
-                        message: "Couldn't send email",
-                        error,
-                    
-                    });
-                } else {
-                    res.status(200).send({
-                        message: "Successfully sent email",
-                        response
-                    });
-                }
-            });
-            // res.status(200).send({
-            //     message: "User found",
-            //     response
-            // });
-
-
+            else {
+                res.status(200).send({
+                    message: "User found",
+                    response
+                });
+            }
+           
         }
-
-        // return success response
-       
 
 
     })

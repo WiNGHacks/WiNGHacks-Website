@@ -153,6 +153,36 @@ const SendResults = () => {
     // Iterate using useEffect that will seperate the CSVData into the different sections of the 
     // public Status: Accepted, declined, waitlisted
 
+    const getUserId = async (email) => {
+        try {
+            const response = await axios.post(process.env.REACT_APP_CHECK_VALID_EMAIL, {
+                email: email,
+            });
+            console.log(response);
+            console.log(response.data.id);
+            return response.data.id;
+        } catch (error) {
+            console.log(error);
+            throw error; // Rethrow the error to handle it in the caller function
+        }
+    }
+
+    const updateStatus = async (email, status) => {
+        try {
+            const tempId = await getUserId(email);
+            console.log(tempId);
+            await axios.put(`${process.env.REACT_APP_UPDATE_STATUS_API_URL}${tempId}`, { status: status })
+            .then((response) => {
+                console.log("Status updated successfully");
+                console.log(response)
+            });
+            
+            // window.location.reload();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     const sendAllResults = async() => {
         setSubmitClicked(true)
 
@@ -164,7 +194,7 @@ const SendResults = () => {
                 {email: item.EmailAddress.trim(), updateStatus:item.Public_Status, firstName: item.FirstName }
             )
             .then((response) => {
-       
+                updateStatus(item.EmailAddress.trim(), item.Public_Status)
                 sentEmail = sentEmail + 1;
                 // console.log(response)
                 // alert("Emails were sent!")
