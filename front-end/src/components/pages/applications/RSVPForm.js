@@ -42,6 +42,33 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
         })
     }
 
+    const headers = {
+        "Content-Type": "text/plain;charset=utf-8",
+    }
+
+    const addRSVPToGoogleSheet = () => {
+        const data = {
+            email: email,
+            firstName: firstName,
+            lastName: lastName,
+            phoneNumber: phoneNumber,
+            remindSignedUp: remindSignedUp,
+            mealPreference: mealPreference,
+            dietRestriction: dietRestriction,
+            merchOptIn: merchOptIn,
+            mlhAccept: mlhAccept
+        }
+        console.log(data)
+        console.log(headers)
+        axios.post(process.env.REACT_APP_ADD_RSVP_TO_GOOGLE_SHEET, data, {headers})
+        .then(response => {
+            console.log(response)
+        })
+        .catch((e) => {
+            console.log(e)
+        })
+    }
+
     const submitRSVPForm = () => {
         setSubmitClicked(true)
         const data = {
@@ -60,6 +87,7 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
         axios.post(process.env.REACT_APP_ADD_RSVP_FORM, data)
         .then((response) => {
             console.log(response)
+            addRSVPToGoogleSheet()
             updateAcceptance()
             
         })
@@ -80,7 +108,6 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
 
   return (
     <div>
-
         <Select
             placeholder="Your decision..."
             value={selectedRSVP.value}
