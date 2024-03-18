@@ -3,7 +3,7 @@ const router = express.Router()
 const RSVP = require('../models/RSVP')
 
 router.post('/addRsvp', async(req, res) => {
-    const {userId, firstName, lastName, email, phoneNumber, remindSignedUp, mealPreference, dietRestriction, merchOptIn, mlhAccept}  = req.body;
+    const {userId, firstName, lastName, email, phoneNumber, remindSignedUp, mealPreference, dietRestriction, mlhAccept, mlhShareData, mlhSendEmail}  = req.body;
     // let verificationLink
     // create a new user instance and collect the data
     const newRSVP = new RSVP({
@@ -15,8 +15,9 @@ router.post('/addRsvp', async(req, res) => {
         remindSignedUp: remindSignedUp,
         mealPreference: mealPreference,
         dietRestriction: dietRestriction,
-        merchOptIn: merchOptIn,
-        mlhAccept: mlhAccept
+        mlhAccept: mlhAccept,
+        mlhShareData: mlhShareData,
+        mlhSendEmail: mlhSendEmail
     });
 
     await newRSVP.save()

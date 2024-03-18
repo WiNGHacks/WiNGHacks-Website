@@ -415,9 +415,9 @@ const SendResults = () => {
                 </button>  */}
                 
             </div>
-            <hr style={{width: "50%", marginTop: "2rem"}} />
+            {/* <hr style={{width: "50%", marginTop: "2rem"}} /> */}
                 
-            <button style = {{margin: "1rem"}} onClick={getAllRSVP}>Click to get all RSVP count: {numAcceptedRSVP} </button> 
+            {/* <button style = {{margin: "1rem"}} onClick={getAllRSVP}>Click to get all RSVP count: {numAcceptedRSVP} </button>  */}
         </div>
         
 
