@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import Select from 'react-select'
 import ClipLoader from "react-spinners/ClipLoader";
+import MLHCoC from "./../../data/MLHCoC.pdf"
 
 
 const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
@@ -9,10 +10,12 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [remindSignedUp, setRemindSignedUp] = useState(false);
-    const [mealPreference, setMealPreference] = useState("");
+    const [mealPreference, setMealPreference] = useState([]);
     const [dietRestriction, setDietRestriction] = useState("");
     const [merchOptIn, setMerchOptIn] = useState(false);
     const [mlhAccept, setMLHAccept] = useState(false);
+    const [mlhShareData, setMLHShareData] = useState(false);
+    const [mlhSendEmail, setMLHSendEmail] = useState(false);
     const [selectedRSVP, setSelectedRSVP] = useState("");
     const [submitedClicked, setSubmitClicked] = useState(false)
     const [missingFormValue, setMissingFormValue] = useState(true);
@@ -21,6 +24,26 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
     const handleRSVPChange = selectedRSVP => {
         setSelectedRSVP(selectedRSVP.value);
     };
+
+
+  const downloadPDF = () => {
+    const pdfUrl = MLHCoC;
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "MLH_Code_of_Conduct.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+   }
+
+   const handleMealPreferenceChange = (event) => {
+    const { value, checked } = event.target;
+    if (checked) {
+        setMealPreference([...mealPreference, value]);
+    } else {
+        setMealPreference(mealPreference.filter(pref => pref !== value));
+    }
+  };
 
     const rsvpOption = [
         { value: '', label: 'Select...' },
@@ -47,16 +70,18 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
     }
 
     const addRSVPToGoogleSheet = () => {
+        const mealPref = mealPreference.join(', ')
         const data = {
             email: email,
             firstName: firstName,
             lastName: lastName,
             phoneNumber: phoneNumber,
             remindSignedUp: remindSignedUp,
-            mealPreference: mealPreference,
+            mealPreference: mealPref,
             dietRestriction: dietRestriction,
-            merchOptIn: merchOptIn,
-            mlhAccept: mlhAccept
+            mlhAccept: mlhAccept,
+            mlhShareData: mlhShareData,
+            mlhSendEmail: mlhSendEmail
         }
         console.log(data)
         console.log(headers)
@@ -70,6 +95,7 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
     }
 
     const submitRSVPForm = () => {
+        const mealPref = mealPreference.join(', ')
         setSubmitClicked(true)
         const data = {
             userId: id,
@@ -78,10 +104,12 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
             email: email,
             phoneNumber: phoneNumber,
             remindSignedUp: remindSignedUp,
-            mealPreference: mealPreference,
+            mealPreference: mealPref,
             dietRestriction: dietRestriction,
             merchOptIn: merchOptIn,
-            mlhAccept: mlhAccept
+            mlhAccept: mlhAccept,
+            mlhShareData: mlhShareData,
+            mlhSendEmail: mlhSendEmail
         }
         console.log(data)
         axios.post(process.env.REACT_APP_ADD_RSVP_FORM, data)
@@ -98,11 +126,14 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
 
     useEffect(() => {
         if(email && phoneNumber 
-            && remindSignedUp && mealPreference 
-            && dietRestriction && merchOptIn
-            && mlhAccept && selectedRSVP){
+            && remindSignedUp && mealPreference.length > 0 
+            && dietRestriction && mlhAccept 
+            && selectedRSVP === "yes" && mlhShareData){
             setMissingFormValue(false)
         } 
+        else if (selectedRSVP === "no"){
+            setMissingFormValue(false)
+        }
         else {setMissingFormValue(true)}
     })
 
@@ -139,30 +170,65 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
                         I have signed up for the REMIND newsletter to get all  the latest updates about our events and activities!
                     </label>
                     <p/>
+                    <label>
+                        Meal preference (Required)
+                        <br/>
+                        <input type="checkbox" id="option1" name="option1" value="Saturday Breakfast" onChange={handleMealPreferenceChange}/>
+                        <label for="option1">Saturday Breakfast</label><br/>
+
+                        <input type="checkbox" id="option2" name="option2" value="Saturday Lunch" onChange={handleMealPreferenceChange}/>
+                        <label for="option2">Saturday Lunch</label><br/>
+
+                        <input type="checkbox" id="option3" name="option3" value="Saturday Dinner" onChange={handleMealPreferenceChange}/>
+                        <label for="option3">Saturday Dinner</label><br/>
+
+                        <input type="checkbox" id="option4" name="option4" value="Sunday Breakfast/Brunch" onChange={handleMealPreferenceChange}/>
+                        <label for="option4">Sunday Breakfast/Brunch</label><br></br>
+
+                        <input type="checkbox" id="option5" name="option5" value="I don't plan to eat at the venue" onChange={handleMealPreferenceChange}/>
+                        <label for="option4">I don't plan to eat at the venue</label><br></br>
+                        {console.log(mealPreference)}
+
+                        {/* Hidden input field with the value set to the string of selected preferences */}
+                        {/* <input type="hidden" id="mealPreference" name="mealPreference" value={mealPreference.join(', ')} /> */}
+                    </label>
+                    {/* <p/>
                     <input
                         onChange={(e) => {setMealPreference(e.target.value)}}
                         placeholder='Enter meal preference'
-                    />
+                    /> */}
                     <p/>
                     <input
                         onChange={(e) => {setDietRestriction(e.target.value)}}
-                        placeholder='Enter diet restriction'
+                        placeholder='Do you have any dietary restrictions? (Leave blank if N/A)'
                     />
-                    <p/>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            onChange={() => {setMerchOptIn(!merchOptIn)}} 
-                        />
-                        I would like to Opt-In for merch!
-                    </label>
                     <p/>
                     <label>
                         <input 
                             type="checkbox" 
                             onChange={() => {setMLHAccept(!mlhAccept)}} 
                         />
-                        I agree and have read the MLH Agreement.
+                        &nbsp; I have read and agree to the 
+                        <a target="_blank" rel="noopener noreferrer" style={{color: "blue"}} onClick={downloadPDF}> MLH Code of Conduct</a>. (Required)
+                    </label>
+                    <p/>
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            onChange={() => {setMLHShareData(!mlhShareData)}} 
+                        />
+                        &nbsp; I authorize you to share my application/registration information with Major League Hacking for event administration, ranking, and MLH administration in-line with the 
+                        <a target="_blank" rel="noopener noreferrer" href='https://mlh.io/privacy'> MLH Privacy Policy</a>. I further agree to the terms of both the 
+                        <a target="_blank" rel="noopener noreferrer" href='https://github.com/MLH/mlh-policies/blob/main/contest-terms.md'> MLH Contest Terms and Conditions</a> and the 
+                        <a target="_blank" rel="noopener noreferrer" href='https://mlh.io/privacy'> MLH Privacy Policy</a>. (Required)
+                    </label>
+                    <p/>
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            onChange={() => {setMLHSendEmail(!mlhSendEmail)}} 
+                        />
+                        &nbsp; I authorize MLH to send me occasional emails about relevant events, career opportunities, and community announcements. (Optional)
                     </label>
                     {/* {console.log(email)}
                     {console.log(phoneNumber)}

@@ -37,8 +37,9 @@ const rsvpSchema = mongoose.Schema({
     remindSignedUp: {type:Boolean},
     mealPreference: {type:String},
     dietRestriction: {type:String},
-    merchOptIn: {type:Boolean},
-    mlhAccept: {type:Boolean},
+    mlhAccept: {type:Boolean, required: [true, "Must Agree!"] },
+    mlhShareData: {type:Boolean, required: [true, "Must Agree!"]},
+    mlhSendEmail: {type:Boolean, },
 })
 
 module.exports = mongoose.model('RSVP', rsvpSchema, 'rsvp')
