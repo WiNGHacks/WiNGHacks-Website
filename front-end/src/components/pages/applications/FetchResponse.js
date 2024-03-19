@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from "axios";
+import Papa from 'papaparse';
 
 const FetchResponse = ({ email, id, status}) => {
     const [csvData, setCsvData] = useState([]);
@@ -7,34 +8,18 @@ const FetchResponse = ({ email, id, status}) => {
 
 
     const parseCSV = (csvText) => {
-        const rows = csvText.split(/\r?\n/); // Split CSV text into rows, handling '\r' characters
-        // console.log(rows)
-        // console.log(rows[0])
-        // const headers = rows[0].split(','); // Extract headers (assumes the first row is the header row)
-        const headers = rows[0].match(/(?<=^|,)(?:"(?:[^"]|"")*"|[^,"]*)/g);
-        const data = []; // Initialize an array to store parsed data
-      
-        for (let i = 1; i < rows.length; i++) {
-            // const rowData = rows[i].split(',').map(item => item.trim()); // Split the row, handling '\r' characters and trim whitespace
-
-            const rowData = rows[i].match(/(?<=^|,)(?:"(?:[^"]|"")*"|[^,"]*)/g).map(item => {
-                // Remove surrounding double quotes and unescape double quotes
-                return item.replace(/^"|"$/g, '').replace(/""/g, '"').trim();
-            });
-            // console.log("Row Data:", rowData);
-            const rowObject = {};
+        const parsedData = Papa.parse(csvText, { header: true });
+        const extractedData = parsedData.data.map(row => ({
+            FirstName: row['First Name'],
+            LastName: row['Last Name'],
+            EmailAddress: row['Email Address'],
+            Internal_Status: row['Internal_Status'],
+            Public_Status: row['Public_Status']
+        }));
+        // console.log('Extraction completed');
+        // console.log(extractedData); // Output the extracted data
+        return extractedData
     
-            for (let j = 0; j < headers.length; j++) {
-                rowObject[headers[j]] = rowData[j];
-                // console.log("Column:", headers[j], "Value:", rowData[j]);
-            }
-
-            data.push(rowObject);
-        }
-
-        // console.log(data)
-      
-        return data;
       };
 
 
@@ -59,7 +44,7 @@ const FetchResponse = ({ email, id, status}) => {
         // console.log(csvData)
         csvData?.map((submissions) => {
             // console.log(submissions["Email Address"])
-            let lowerCaseEmail = submissions["Email Address"]?.toLowerCase()
+            let lowerCaseEmail = submissions.EmailAddress?.toLowerCase()
             // console.log(lowerCaseEmail)
             if (lowerCaseEmail === email && submissions.Public_Status !== status){
                 if (status === "Not Applied"){

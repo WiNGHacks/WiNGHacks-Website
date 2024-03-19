@@ -33,7 +33,7 @@ const AppCountDown = () => {
         <div className="countdown-container">
             <div className="countdown-row">
                 <div className="countdown-text">
-                    Applications closes in:
+                    Applications close in:
                 </div>
                 <div className="countdown-item">
                     <span>{timeLeft.days}</span>

@@ -19,6 +19,8 @@ import NotifyEmail from './components/pages/applications/NotifyEmail';
 import axios from 'axios';
 import SendResults from './components/pages/admin/SendResults';
 import ForgetPassword from './components/pages/applications/ForgetPassword';
+import Footer from './components/Footer';
+
 
 function App() {
 
@@ -58,6 +60,7 @@ function App() {
                       <Schedule ref = {ref} />
                       <Sponsors  ref = {ref} />
                       <FAQ  ref = {ref} />
+                      
                     </>
                   )}
                 />
@@ -71,6 +74,7 @@ function App() {
               <Route path="/forgetPassword" element={<ForgetPassword/>}></Route>
               
             </Routes> 
+            <Footer/>
           </div>
       </Router>
     </div>

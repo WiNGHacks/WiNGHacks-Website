@@ -1,6 +1,7 @@
 import React , {useState} from 'react'
 import { Link } from 'react-router-dom'
 import { FaTimes } from "react-icons/fa";
+import ladyGIF from "../pictures/characters/littleLady.gif"
 
 const Popup = ({}, ref) => {
   const [openModal, setOpenModal] = useState(true)
@@ -19,6 +20,7 @@ const Popup = ({}, ref) => {
           </div>
           <div className="title">
             <h1>The 2024 WiNGHacks Hacker Application is OPEN!</h1>
+            <img src={ladyGIF} className='little-guy' />
           </div>
           {/* <div className="body">
             <p></p>

@@ -19,6 +19,9 @@ app.use(cors(corsOptions));
 const usersRouter = require("./routes/Users")
 app.use("/users", usersRouter)
 
+const rsvpRouter = require("./routes/RSVP")
+app.use("/rsvp", rsvpRouter)
+
 // Connecting to MongoDB 
 const mongoose = require('mongoose')
 require('dotenv/config') // Env To get the DB URI
