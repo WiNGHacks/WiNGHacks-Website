@@ -137,8 +137,81 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
         else {setMissingFormValue(true)}
     })
 
+    const [step, setStep] = useState(1);
+
+    const nextStep = () => {
+        setStep(step + 1);
+    };
+
+    const prevStep = () => {
+        setStep(step - 1);
+    };
+
+
+
   return (
-    <div>
+    <div className='RSVP'>
+        <form id="msform">
+            <ul id="progressbar">
+                <li className={step >= 1 ? 'active' : ''}>Account Setup</li>
+                <li className={step >= 2 ? 'active' : ''}>Social Profiles</li>
+                <li className={step >= 3 ? 'active' : ''}>Personal Details</li>
+                <li className={step >= 4 ? 'active' : ''}>Submit</li>
+            </ul>
+
+            {/* Fieldsets */}
+            <fieldset style={{ display: step === 1 ? 'block' : 'none' }}>
+                <Select
+                    placeholder="Your decision..."
+                    value={selectedRSVP.value}
+                    onChange={handleRSVPChange}
+                    options={rsvpOption}
+                    // isDisabled = {alreadyRSVP}
+                    />  
+        
+                <button type="button" className="next action-button" onClick={nextStep}>Next</button>
+            </fieldset>
+
+            <fieldset style={{ display: step === 2 ? 'block' : 'none' }}>
+                <h2 class="fs-title">Create your account</h2>
+                <h3 class="fs-subtitle">This is step 1</h3>
+                <input 
+                        onChange={(e) => {setEmail(e.target.value)}}
+                        type="email"
+                        placeholder='Enter email'/>
+                <input
+                        onChange={(e) => {setPhoneNumber(e.target.value)}}
+                        type="phoneNumber"
+                        placeholder='Enter phone number'
+                    />
+
+                <button type="button" className="previous action-button" onClick={prevStep}>Previous</button>
+                <button type="button" className="next action-button" onClick={nextStep}>Next</button>
+            </fieldset>
+            <fieldset style={{ display: step === 3 ? 'block' : 'none' }}>
+                <h2 class="fs-title">Personal Details</h2>
+                <h3 class="fs-subtitle">We will never sell it</h3>
+                <input type="text" name="fname" placeholder="First Name" />
+                <input type="text" name="lname" placeholder="Last Name" />
+                <input type="text" name="phone" placeholder="Phone" />
+
+                <textarea name="address" placeholder="Address"></textarea>
+                <button type="button" className="previous action-button" onClick={prevStep}>Previous</button>
+                <button type="button" className="next action-button" onClick={nextStep}>Next</button>
+            </fieldset>
+
+            <fieldset style={{ display: step === 4 ? 'block' : 'none' }}>
+                <h2 class="fs-title">Final Page</h2>
+                <h3 class="fs-subtitle">yoooooo</h3>
+                <input type="text" name="fname" placeholder="First Name" />
+                <input type="text" name="lname" placeholder="Last Name" />
+                <input type="text" name="phone" placeholder="Phone" />
+                <textarea name="address" placeholder="Address"></textarea>
+                <button type="button" className="previous action-button" onClick={prevStep}>Previous</button>
+                <button type="submit" className="submit action-button">Submit</button>
+            </fieldset>
+        </form>
+
         <Select
             placeholder="Your decision..."
             value={selectedRSVP.value}
