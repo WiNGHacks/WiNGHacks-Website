@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const AppCountDown = () => {
 
     const calculateTimeLeft = () => {
-        const deadlineDate = new Date("March 19, 2024 23:59:59").getTime();
+        const deadlineDate = new Date("April 5, 2024 17:00:00").getTime();
         const now = new Date().getTime();
         const distance = deadlineDate - now;
 
@@ -33,7 +33,7 @@ const AppCountDown = () => {
         <div className="countdown-container">
             <div className="countdown-row">
                 <div className="countdown-text">
-                    Applications close in:
+                    Hackathon starts in:
                 </div>
                 <div className="countdown-item">
                     <span>{timeLeft.days}</span>

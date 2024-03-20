@@ -27,7 +27,7 @@ const Home = ({}, ref) => {
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTqVfJUiWjjARDFBh1MkegBLw0F-Kd-GquU2NJO1-H7ybOuQ/viewform"
               target="_blank">
               <button className='Button Button-home Button-interest'>Become a Mentor</button></a>
-        <a href="signup" ><button className='Button Button-home Button-apply button-glow-home-apply'>Apply now!</button></a>
+        {/* <a href="signup" ><button className='Button Button-home Button-apply button-glow-home-apply'>Apply now!</button></a> */}
         <a><button onClick={downloadPDF} className='Button Button-home Button-sponsor'>Sponsorship Packet</button></a>
       </div>
       <div className='socials'>
