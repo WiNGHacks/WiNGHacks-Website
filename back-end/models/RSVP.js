@@ -18,18 +18,12 @@ const rsvpSchema = mongoose.Schema({
     },
     firstName: {
         type:String, 
-        required: [true, "Please provide an First Name!"], 
-        unique: false,
     },
     lastName: {
         type:String, 
-        required: [true, "Please provide an Last Name!"], 
-        unique: false,
     },
     email: {
         type:String, 
-        required: [true, "Please provide an Email!"], 
-        unique: [true, "Email Exist"],
     },
     phoneNumber: {
         type:String, 
