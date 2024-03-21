@@ -127,7 +127,7 @@ const UserPortal = () => {
                                             (or text @winghacks to 81010) to hear all about WiNGHacks' events and announcements!</h4>
                                         </div>
                                     ):(
-                                        <p>We are sorry to see you go. We hope to see you next year!</p>
+                                        <p>Thank you for filling out the RSVP form for WiNGHacks 2024! We are sorry to see you go. We hope to see you next year!</p>
                                     )}
                                     
                 
