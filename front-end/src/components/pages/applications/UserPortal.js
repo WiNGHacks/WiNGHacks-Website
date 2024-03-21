@@ -124,7 +124,7 @@ const UserPortal = () => {
                                             <p>Thank you for filling out the RSVP form for WiNGHacks 2024! We are super excited to see you!</p>
                                             <h4>Be sure to join the <a href="http://discord.gg/U7Am39uzZx" target="_blank">discord </a>
                                             and the <a href="https://www.remind.com/join/winghacks" target="_blank">remind </a>
-                                            to hear all about WiNGHacks' events and announcements!</h4>
+                                            (or text @winghacks to 81010) to hear all about WiNGHacks' events and announcements!</h4>
                                         </div>
                                     ):(
                                         <p>We are sorry to see you go. We hope to see you next year!</p>
