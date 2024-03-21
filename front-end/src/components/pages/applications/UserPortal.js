@@ -129,7 +129,7 @@ const UserPortal = () => {
                                                 <h3 style={{textDecoration: "underline"}}>Action Items/ Next Steps:</h3>
     
                                                 <div>
-                                                    <h4>1. Join the <a href="http://discord.gg/U7Am39uzZx" target="_blank" style={{color: "blue"}}>WiNGHacks discord</a></h4>
+                                                    <h4>1. Join the <a href="http://discord.gg/U7Am39uzZx" target="_blank" style={{color: "blue"}}>WiNGHacks discord.</a></h4>
                                                     <h4>2. Join the REMIND by texting "@winghacks" to 81010.</h4>
                                                     <h4>3. Join us on our <a href="https://winghacks.devpost.com/" target="_blank" style={{color: "blue"}}>Devpost</a>!</h4>
                                                 </div>

@@ -117,7 +117,7 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
             console.log(data)
             axios.post(process.env.REACT_APP_ADD_RSVP_FORM, data)
             .then((response) => {
-                console.log(response)
+                // console.log(response)
                 addRSVPToGoogleSheet()
                 updateAcceptance()
                 
