@@ -126,7 +126,7 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
 
     useEffect(() => {
         if(email && phoneNumber 
-            && remindSignedUp && mealPreference.length > 0 
+             && mealPreference.length > 0 
             && dietRestriction && mlhAccept 
             && selectedRSVP === "yes" && mlhShareData){
             setMissingFormValue(false)
@@ -192,7 +192,7 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
                 <input 
                         onChange={(e) => {setEmail(e.target.value)}}
                         type="email"
-                        placeholder='Enter email'/>
+                        placeholder='Enter email'/> <br/>
                 <input
                         onChange={(e) => {setPhoneNumber(e.target.value)}}
                         type="phoneNumber"
@@ -227,8 +227,11 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
                         <input type="checkbox" id="option5" name="option5" value="I don't plan to eat at the venue" onChange={handleMealPreferenceChange} />
                         <label htmlFor="option5">I don't plan to eat at the venue</label>
                     </div>
+                    <br/>
+
                     <div className='diet'>Please list any dietary restrictions as necessary. (Leave blank if N/A)</div>
-                    <input className='diet'
+            
+                    <input
                         onChange={(e) => {setDietRestriction(e.target.value)}}
                         placeholder='Dietary restrictions'
                     />

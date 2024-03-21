@@ -106,16 +106,19 @@ const UserPortal = () => {
                     (   
 
                         <div>
-                            <div>
+                            {/* <div>
                                 <p>Thank you for filling out the RSVP form for WiNGHacks 2024! We are super excited to see you!</p>
                                 <h4>Be sure to join the <a href="http://discord.gg/U7Am39uzZx" target="_blank">discord </a>
                                 and the <a href="https://www.remind.com/join/winghacks" target="_blank">remind </a>
                                 to hear all about WiNGHacks' events and announcements!</h4>
-                            </div>
+                            </div> */}
                            
                             {alreadyRSVP ? (
                                 <div>
-                                    <p>Thank you for filling out the RSVP form! We are super excited to see you!</p>
+                                    <p>Thank you for filling out the RSVP form for WiNGHacks 2024! We are super excited to see you!</p>
+                                    <h4>Be sure to join the <a href="http://discord.gg/U7Am39uzZx" target="_blank">discord </a>
+                                    and the <a href="https://www.remind.com/join/winghacks" target="_blank">remind </a>
+                                    to hear all about WiNGHacks' events and announcements!</h4>
                 
                                 </div>
                             ):(
