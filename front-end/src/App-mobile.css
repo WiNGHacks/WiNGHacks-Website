@@ -575,3 +575,9 @@
     height: 80%;
   }
 }
+
+@media only screen and (min-width: 950px) {
+  .action-items {
+    max-width: 100%;
+  }
+}

@@ -121,10 +121,23 @@ const UserPortal = () => {
                                 <div>
                                     {rsvpStatus === "yes"? (
                                         <div>
-                                            <p>Thank you for filling out the RSVP form for WiNGHacks 2024! We are super excited to see you!</p>
-                                            <h4>Be sure to join the <a href="http://discord.gg/U7Am39uzZx" target="_blank">discord </a>
+                                            <p>Thank you for filling out the RSVP form for WiNGHacks 2024! <br />
+                                                You <b>MUST</b> complete all of the action items below to receive important updates and announcements.
+                                            </p>
+                                    
+                                            <div >
+                                                <h3 style={{textDecoration: "underline"}}>Action Items/ Next Steps:</h3>
+    
+                                                <div>
+                                                    <h4>1. Join the <a href="http://discord.gg/U7Am39uzZx" target="_blank" style={{color: "blue"}}>WiNGHacks discord</a></h4>
+                                                    <h4>2. Join the REMIND by texting "@winghacks" to 81010.</h4>
+                                                    <h4>3. Join us on our <a href="https://winghacks.devpost.com/" target="_blank" style={{color: "blue"}}>Devpost</a>!</h4>
+                                                </div>
+                                            </div>
+                                      
+                                            {/* <h4>Be sure to join the <a href="http://discord.gg/U7Am39uzZx" target="_blank">discord </a>
                                             and the <a href="https://www.remind.com/join/winghacks" target="_blank">remind </a>
-                                            (or text @winghacks to 81010) to hear all about WiNGHacks' events and announcements!</h4>
+                                            (or text @winghacks to 81010) to hear all about WiNGHacks' events and announcements!</h4> */}
                                         </div>
                                     ):(
                                         <p>Thank you for filling out the RSVP form for WiNGHacks 2024! We are sorry to see you go. We hope to see you next year!</p>
