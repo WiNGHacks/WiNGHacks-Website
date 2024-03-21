@@ -133,7 +133,7 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
                 mlhSendEmail: mlhSendEmail,
                 shirtSize: shirtSize
             }
-            console.log(data)
+            // console.log(data)
             axios.post(process.env.REACT_APP_ADD_RSVP_FORM, data)
             .then((response) => {
                 // console.log(response)
@@ -242,7 +242,7 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
                     options={shirtSizeOption}
                     // isDisabled = {alreadyRSVP}
                     />  
-                {console.log(shirtSize)}
+                {/* {console.log(shirtSize)} */}
 
                 
                 <h2 className="fs-title">Meal Preferences</h2>
