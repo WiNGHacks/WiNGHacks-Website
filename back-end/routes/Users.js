@@ -966,7 +966,7 @@ router.post("/findUser", async (req, res) => {
         res.status(200).send({
             message: "User found",
             email: response.email,
-            id: response._id
+            id: response._id,
         });
     })
     .catch((e) => {
@@ -1025,7 +1025,8 @@ router.get("/finduser/:id", async (req, res) => {
             firstName: response.firstName,
             lastName: response.lastName,
             email: response.email,
-            status: response.status
+            status: response.status,
+            acceptedRSVP: response.acceptedRSVP,
         });
     })
     .catch((e) => {

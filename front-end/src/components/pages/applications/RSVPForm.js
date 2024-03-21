@@ -5,7 +5,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import MLHCoC from "./../../data/MLHCoC.pdf"
 
 
-const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
+const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
     const [userId, setUserId] = useState("");
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -51,14 +51,15 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
         { value: 'no', label: 'No, I choose to decline this offer and will not attend.' }
         ]
 
-    const updateAcceptance = () => {
+    const updateAcceptance = async() => {
         // console.log()
         axios.put(`${process.env.REACT_APP_UPDATE_RSVP_API_URL}${id}`, {acceptedRSVP: selectedRSVP})
         .then((response) => {
-            console.log(response)
+            // console.log(response)
             setSelectedRSVP("")
             setAlreadyRSVP(true)
             setSubmitClicked(false)
+            setRSVPStatus(selectedRSVP)
         })
         .catch((error) => {
             console.log(error)
@@ -83,11 +84,11 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
             mlhShareData: mlhShareData,
             mlhSendEmail: mlhSendEmail
         }
-        console.log(data)
-        console.log(headers)
+        // console.log(data)
+        // console.log(headers)
         axios.post(process.env.REACT_APP_ADD_RSVP_TO_GOOGLE_SHEET, data, {headers})
         .then(response => {
-            console.log(response)
+            // console.log(response)
         })
         .catch((e) => {
             console.log(e)
@@ -95,39 +96,46 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName}) => {
     }
 
     const submitRSVPForm = () => {
-        const mealPref = mealPreference.join(', ')
         setSubmitClicked(true)
-        const data = {
-            userId: id,
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            phoneNumber: phoneNumber,
-            remindSignedUp: remindSignedUp,
-            mealPreference: mealPref,
-            dietRestriction: dietRestriction,
-            merchOptIn: merchOptIn,
-            mlhAccept: mlhAccept,
-            mlhShareData: mlhShareData,
-            mlhSendEmail: mlhSendEmail
-        }
-        console.log(data)
-        axios.post(process.env.REACT_APP_ADD_RSVP_FORM, data)
-        .then((response) => {
-            console.log(response)
-            addRSVPToGoogleSheet()
-            updateAcceptance()
+        if (selectedRSVP === "yes"){
+            const mealPref = mealPreference.join(', ')
             
-        })
-        .catch(e => {
-            console.log(e)
-        })
+            const data = {
+                userId: id,
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phoneNumber: phoneNumber,
+                remindSignedUp: remindSignedUp,
+                mealPreference: mealPref,
+                dietRestriction: dietRestriction,
+                merchOptIn: merchOptIn,
+                mlhAccept: mlhAccept,
+                mlhShareData: mlhShareData,
+                mlhSendEmail: mlhSendEmail
+            }
+            console.log(data)
+            axios.post(process.env.REACT_APP_ADD_RSVP_FORM, data)
+            .then((response) => {
+                console.log(response)
+                addRSVPToGoogleSheet()
+                updateAcceptance()
+                
+            })
+            .catch(e => {
+                console.log(e)
+            })
+        }
+        else if(selectedRSVP === "no"){
+            // console.log(selectedRSVP)
+            updateAcceptance()
+        }
     }
 
     useEffect(() => {
         if(email && phoneNumber 
              && mealPreference.length > 0 
-            && dietRestriction && mlhAccept 
+         && mlhAccept 
             && selectedRSVP === "yes" && mlhShareData){
             setMissingFormValue(false)
         } 
