@@ -16,6 +16,7 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
     const [mlhAccept, setMLHAccept] = useState(false);
     const [mlhShareData, setMLHShareData] = useState(false);
     const [mlhSendEmail, setMLHSendEmail] = useState(false);
+    const [shirtSize, setShirtSize] = useState("");
     const [selectedRSVP, setSelectedRSVP] = useState("");
     const [submitedClicked, setSubmitClicked] = useState(false)
     const [missingFormValue, setMissingFormValue] = useState(true);
@@ -23,6 +24,11 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
     // Handle change function
     const handleRSVPChange = selectedRSVP => {
         setSelectedRSVP(selectedRSVP.value);
+    };
+
+    // Handle change function
+    const handleShirtChange = shirtSize => {
+        setShirtSize(shirtSize.value);
     };
 
 
@@ -50,6 +56,17 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
         { value: 'yes', label: 'Yes, I will be attending.' },
         { value: 'no', label: 'No, I choose to decline this offer and will not attend.' }
         ]
+    
+    const shirtSizeOption = [
+        { value: '', label: 'Select...' },
+        { value: 'XS', label: 'XS' },
+        { value: 'S', label: 'S' },
+        { value: 'M', label: 'M' },
+        { value: 'L', label: 'L' },
+        { value: 'XL', label: 'XL' },
+        { value: 'XXL', label: 'XXL' },
+        ]
+    
 
     const updateAcceptance = async() => {
         // console.log()
@@ -82,7 +99,8 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
             dietRestriction: dietRestriction,
             mlhAccept: mlhAccept,
             mlhShareData: mlhShareData,
-            mlhSendEmail: mlhSendEmail
+            mlhSendEmail: mlhSendEmail,
+            shirtSize: shirtSize
         }
         // console.log(data)
         // console.log(headers)
@@ -112,7 +130,8 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
                 merchOptIn: merchOptIn,
                 mlhAccept: mlhAccept,
                 mlhShareData: mlhShareData,
-                mlhSendEmail: mlhSendEmail
+                mlhSendEmail: mlhSendEmail,
+                shirtSize: shirtSize
             }
             console.log(data)
             axios.post(process.env.REACT_APP_ADD_RSVP_FORM, data)
@@ -135,7 +154,7 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
     useEffect(() => {
         if(email && phoneNumber 
              && mealPreference.length > 0 
-         && mlhAccept 
+         && mlhAccept && shirtSize
             && selectedRSVP === "yes" && mlhShareData){
             setMissingFormValue(false)
         } 
@@ -206,12 +225,26 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
                         type="phoneNumber"
                         placeholder='Enter phone number'
                     />
+                    
                     <br/>
+
+                    
 
                 <button type="button" className="previous action-button" onClick={prevStep}>Previous</button>
                 <button type="button" className="next action-button" onClick={nextStep}>Next</button>
             </fieldset>
             <fieldset style={{ display: step === 3 ? 'block' : 'none' }}>
+            <h2 className="fs-title">Shirt Size</h2>
+                <Select
+                    placeholder="Your shirt size..."
+                    value={shirtSize.value}
+                    onChange={handleShirtChange}
+                    options={shirtSizeOption}
+                    // isDisabled = {alreadyRSVP}
+                    />  
+                {console.log(shirtSize)}
+
+                
                 <h2 className="fs-title">Meal Preferences</h2>
                 <h3 className="fs-subtitle">Which meals would you prefer having? (Required)</h3>
                 <div className="mealPref">
@@ -243,6 +276,8 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
                         onChange={(e) => {setDietRestriction(e.target.value)}}
                         placeholder='Dietary restrictions'
                     />
+
+                    
                 </div>
 
                 <button type="button" className="previous action-button" onClick={prevStep}>Previous</button>
