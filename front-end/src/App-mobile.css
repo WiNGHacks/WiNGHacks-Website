@@ -534,8 +534,33 @@
     padding: -2rem;
   }
 
+  .RSVP {
+    #msform fieldset {
+      min-width: 100%;
+    }
+    .fs-title {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+  
+    .congrats {
+      color: #00AFB9;
+      font-size: 1rem;
+    }
+  
+    .fs-subtitle {
+      font-size: 0.8rem;
+    }
+
+    .mealOption label { 
+      font-size: 70%;
+    }
+  }
+
 }
 
+
+/* MINIMUM */
 @media only screen and (min-width: 1200px) {
   .collaborators-container{
     display: grid;
