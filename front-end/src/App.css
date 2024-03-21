@@ -1339,7 +1339,8 @@ th {
 .tab {
   font-family: teacher-semibold;
   font-size: 18px;
-  padding: 10px;
+  /* padding: 10px; */
+  padding: 20px 1px 20px;
   flex-grow: 1;
   border-radius: 5px;
   border-bottom-left-radius: 0px;
@@ -1392,5 +1393,183 @@ th {
 .tab:nth-child(3).active, .content3 {
   background-color: rgb(211, 228, 255);
 }
+
+.RSVP {
+  margin-inline: 10%;
+  /* background-color: black; */
+  
+
+  #msform {
+    max-width: 725px;
+    margin: 7% auto;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 7% 13%;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 auto;
+    
+    /*stacking fieldsets above each other*/
+    position: relative;
+  }
+
+  #msform fieldset:not(:first-of-type) {
+    display: none;
+  }
+
+  .noDisplay {
+    display: none;
+  }
+
+  /*Hide all except first fieldset*/
+
+  
+  
+  /*inputs*/
+  #msform input, #msform textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 14px;
+  }
+  #msform textarea {width: 100%;}
+
+
+  .mealPref {
+    display: flex;
+    flex-direction: column;
+    /* input {
+      width: 0%;
+    } */
+  }
+  
+  .mealOption {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Adjust vertical spacing between options */
+  }
+  
+  .mealOption input{
+    margin-right: 20px; /* Adjust horizontal spacing between checkbox and label */
+    width: auto;
+    cursor: pointer;
+  }
+  
+  .mealOption label {
+    margin: 0; /* Reset margin to prevent the label from aligning to the right */
+    text-align: left;
+  }
+  .diet {
+    font-size: 1rem;
+    padding-bottom: 4%;
+  }
+
+  /*buttons*/
+  #msform .action-button {
+    width: 100px;
+    background: #00AFB9;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px 5px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  #msform .action-button:hover, #msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #00AFB9;
+  }
+  /*headings*/
+  .fs-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+  }
+
+  .congrats {
+    color: #00AFB9;
+    font-size: 2rem;
+  }
+
+  .fs-subtitle {
+    font-weight: normal;
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  /*progressbar*/
+  #progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+    padding-left: 0;
+  }
+  #progressbar li {
+    list-style-type: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 25%;
+    float: left;
+    position: relative;
+  }
+  #progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 20px;
+    line-height: 20px;
+    display: block;
+    font-size: 10px;
+    color: #333;
+    background: white;
+    border-radius: 3px;
+    margin: 0 auto 5px auto;
+  }
+  /*progressbar connectors*/
+  #progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #666; /* progress bar */
+    position: absolute;
+    left: -50%;
+    top: 9px;
+    z-index: -1; /*put it behind the numbers*/
+  }
+  #progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none; 
+    
+  }
+  /*marking active/completed steps green*/
+  /*The number of the step and the connector before it = green*/
+  #progressbar li.active:before,  #progressbar li.active:after{
+    background: #00AFB9;
+    color: white;
+  }
+
+}
+
+
+
 
 
