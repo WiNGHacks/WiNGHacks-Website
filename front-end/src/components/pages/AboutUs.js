@@ -33,7 +33,7 @@ const AboutUs = ({}, ref) => {
         </div>
         <div className='who-we-are-container'>
           <div className='who-we-are-child-container'>
-            <h2>Who we Are</h2>
+            <h2>Who We Are</h2>
             <p>
               <span style={{fontWeight: "bolder"}}>WiNGHacks</span> is the University of Florida (UF)'s first hackathon specifically created to uplift <span style={{fontWeight: "bolder"}}>W</span>omen, <span style={{fontWeight: "bolder"}}>N</span>on-binary and <span style={{fontWeight: "bolder"}}>G</span>ender-nonconforming students in their technology journey. During the 36 hours of WiNGHacks, 200 hackers will learn new skills, network with their peers, and create innovative projects for a chance to win category prizes.
             </p>
