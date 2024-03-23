@@ -829,7 +829,7 @@ table {
   padding-bottom: 10px;
 }
 
-.locationEvent{
+.location{
   font-size: 12px;
   color: purple;
 }
@@ -853,8 +853,10 @@ th {
   /* controls the text being spaced evenly */
   vertical-align: middle;
   padding-bottom: 10px;
+  padding-right: 50px;
 }
 
+/* setting up font style & formation for fri-sun content */
 .content-all {
   font-family: teacher-semibold;
   margin-bottom: 0px;
@@ -863,6 +865,18 @@ th {
   border-right: 4px rgb(132, 132, 132) solid;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+.formatPreSchedule {
+  font-family: teacher-semibold;
+  margin-bottom: 20px;
+  border-left: 4px rgb(132, 132, 132) solid;
+  border-bottom: 4px rgb(132, 132, 132) solid;
+  border-right: 4px rgb(132, 132, 132) solid;
+}
+
+.contentPreSchedule {
+  background-color: #ffcabb;
 }
 
 .tabs {
@@ -880,6 +894,12 @@ th {
   border-bottom-right-radius: 0px;
 }
 
+.prescheduleTab{
+  width: 100%;
+  justify-content: center;
+  pointer-events: none;
+}
+
 .tab.active {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
@@ -888,17 +908,6 @@ th {
   border-right: 4px rgb(132, 132, 132) solid;
   border-bottom: 0px rgb(132, 132, 132) solid;
 }
-
-/* .tab:nth-child(1).active + .tab,
-.tab:nth-child(1).active + .tab + .tab {
-  border-bottom: 5px black solid; 
-}
-
-.tab:nth-child(2).active {
-  .tab:nth-child(1) {
-    border-bottom: 5px black solid; 
-  }
-} */
 
 .tab:nth-child(1):hover,
 .tab:nth-child(1).active {
