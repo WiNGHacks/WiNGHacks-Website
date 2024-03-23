@@ -22,7 +22,7 @@ const items = [
   {
     key: '3',
     header: 'When do applications open?',
-    content: "Applications open late February, 2024.",
+    content: "Applications are closed for our 2024 event date. Come back next academic year for our next event!",
   },
   {
     key: '4',
