@@ -14,6 +14,7 @@ import { MemberList } from '../data/MemberList.js'
 import mushroom from "../pictures/characters/Mushwoom.PNG"
 
 const AboutUs = ({}, ref) => {
+  // const ref = useRef({});
 
   const text = 'The goal of our hackathon is to create a welcoming learning and growing environment for underrepresented genders in the tech industry. We hope to remove the barrier of entry to these events for many people, especially first-time hackers, and help them reap the many benefits that hackathons bring.'
   const text2 = 'This event is a joint effort by Women in Computer Science and Engineering (WiCSE), Girls Who Code, CS Kickstart, Women in Cybersecurity (WiCys), and Women in Electrical and Computer Engineering (WECE).'
@@ -31,6 +32,7 @@ const AboutUs = ({}, ref) => {
           <h1>WiNGHacks are the wings that uplift women, nonbinary people, and gender minorities.</h1>
           {/* <p>{text}</p> */}
         </div>
+        
         <div className='who-we-are-container'>
           <div className='who-we-are-child-container'>
             <h2>Who we Are</h2>

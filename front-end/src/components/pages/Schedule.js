@@ -22,6 +22,7 @@ const Schedule = ({}, ref) => {
 
        <div className='Page entire-schedule'>
        <h1>Schedule</h1>
+       
        <h2 className="disclaimer">Please note that the schedule is subject to change and more details will be coming.</h2>
 
           <div className='tabs'>

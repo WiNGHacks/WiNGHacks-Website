@@ -167,6 +167,7 @@ const Login = () => {
                     {/* <p>Don't have an account?&nbsp;
                         <a href="/signup" >Sign Up Here</a>
                     </p> */}
+                    <p>For any technical issues, please email <a href = "mailto:uf.winghacks.webmaster@gmail.com">uf.winghacks.webmaster@gmail.com</a></p>
                 </div>
                 
 

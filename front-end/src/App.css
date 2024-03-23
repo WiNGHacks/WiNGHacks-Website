@@ -1577,6 +1577,11 @@ th {
   max-width: 10%;
 } */
 
+/*Awards*/
+
+.Awards{
+  display: flex;
+}
 
 
 
