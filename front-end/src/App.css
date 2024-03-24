@@ -1569,6 +1569,11 @@ th {
 
 }
 
+.tech-support{
+  font-size: 1rem;
+  max-width: 70%;
+}
+
 /* .action-items {
 
   display: cen;
