@@ -59,16 +59,16 @@ const FetchResponse = ({ email, id, status}) => {
 
                 
                 }
-                else if (submissions.Public_Status !== "" ){
-                    axios.put(`${process.env.REACT_APP_UPDATE_STATUS_API_URL}${id}`, {status: submissions.Public_Status})
-                    .then((response) => {
-                        window.location.reload();
-                    })
-                    .catch((error) => {
-                        console.log(error)
-                    })
+                // else if (submissions.Public_Status !== "" ){
+                //     axios.put(`${process.env.REACT_APP_UPDATE_STATUS_API_URL}${id}`, {status: submissions.Public_Status})
+                //     .then((response) => {
+                //         window.location.reload();
+                //     })
+                //     .catch((error) => {
+                //         console.log(error)
+                //     })
                 
-                }
+                // }
                
             }
         })

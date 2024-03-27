@@ -23,6 +23,7 @@ const UserPortal = () => {
     const [email, setEmail] = useState("");
     const [status, setStatus] = useState("");
     const [alreadyRSVP, setAlreadyRSVP] = useState(false)
+    const [rsvpStatus, setRSVPStatus] = useState("")
 
     const token = cookies.get("TOKEN");
     const decoded = jwtDecode(token);
@@ -35,17 +36,20 @@ const UserPortal = () => {
         // Check if the URL id matches the current token
         // To avoid people miss using URL to enter others information
         // console.log(decoded)
+
         if (decoded.id === id){
             // console.log(decoded.acceptedRSVP)
-            if (decoded.acceptedRSVP !== "n/a") {
-                setAlreadyRSVP(true)
-            }
             axios.get(`${process.env.REACT_APP_GET_USER_PORTAL_API_URL}${id}`)
             .then((response)=>{
+                // console.log(response.data)
                 setFirstName(response.data.firstName)
                 setLastName(response.data.lastName)
                 setEmail(response.data.email)
                 setStatus(response.data.status)
+                if (response.data.acceptedRSVP !== "n/a"){
+                    setAlreadyRSVP(true)
+                    setRSVPStatus(response.data.acceptedRSVP)
+                }
             })
         }
         // If it doesn't then clear the token and have them relogin
@@ -105,13 +109,45 @@ const UserPortal = () => {
                 {status === "Accepted"? 
                     (   
                         <div>
+                            {/* <div>
+                                <p>Thank you for filling out the RSVP form for WiNGHacks 2024! We are super excited to see you!</p>
+                                <h4>Be sure to join the <a href="http://discord.gg/U7Am39uzZx" target="_blank">discord </a>
+                                and the <a href="https://www.remind.com/join/winghacks" target="_blank">remind </a>
+                                to hear all about WiNGHacks' events and announcements!</h4>
+                            </div> */}
+                           
+                           {/* {console.log(alreadyRSVP)} */}
                             {alreadyRSVP ? (
                                 <div>
-                                    <p>Thank you for filling out the RSVP form! We are super excited to see you at the hackathon!</p>
+                                    {rsvpStatus === "yes"? (
+                                        <div>
+                                            <p>Thank you for filling out the RSVP form for WiNGHacks 2024! <br />
+                                                You <b>MUST</b> complete all of the action items below to receive important updates and announcements.
+                                            </p>
+                                    
+                                            <div >
+                                                <h3 style={{textDecoration: "underline"}}>Action Items/ Next Steps:</h3>
+    
+                                                <div>
+                                                    <h4>1. Join the <a href="http://discord.gg/U7Am39uzZx" target="_blank" style={{color: "blue"}}>WiNGHacks discord.</a></h4>
+                                                    <h4>2. Join the REMIND by texting "@winghacks" to 81010.</h4>
+                                                    <h4>3. Join us on our <a href="https://winghacks.devpost.com/" target="_blank" style={{color: "blue"}}>Devpost</a>!</h4>
+                                                </div>
+                                            </div>
+                                      
+                                            {/* <h4>Be sure to join the <a href="http://discord.gg/U7Am39uzZx" target="_blank">discord </a>
+                                            and the <a href="https://www.remind.com/join/winghacks" target="_blank">remind </a>
+                                            (or text @winghacks to 81010) to hear all about WiNGHacks' events and announcements!</h4> */}
+                                        </div>
+                                    ):(
+                                        <p>Thank you for filling out the RSVP form for WiNGHacks 2024! We are sorry to see you go. We hope to see you next year!</p>
+                                    )}
+                                    
+                
                                 </div>
                             ):(
                                 <div>
-                                    <RSVPForm id={id} setAlreadyRSVP={setAlreadyRSVP} firstName={firstName} lastName={lastName} />
+                                    <RSVPForm id={id}  setAlreadyRSVP={setAlreadyRSVP} firstName={firstName} lastName={lastName} setRSVPStatus ={setRSVPStatus} />
                                 </div>
                             )}
                         </div>

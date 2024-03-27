@@ -8,6 +8,7 @@ import Infotech_logo from '../pictures/sponsor_logo/infotech-logo.png'
 import GitHub_logo from '../pictures/sponsor_logo/github-logo.png'
 import StandoutSticker_logo from '../pictures/sponsor_logo/standoutsticker-logo.png'
 import EA_logo from '../pictures/sponsor_logo/ea-logo.png'
+import BNYMellon_logo from '../pictures/sponsor_logo/bnymellon-logo.png'
 
 
 export const SponsorList = [
@@ -70,6 +71,12 @@ export const SponsorList = [
         logo_image: EA_logo,
         url: "https://www.ea.com/",
         alt: 'EA_logo'
+    },
+    {
+        id: "11",
+        logo_image: BNYMellon_logo,
+        url: "https://www.bnymellon.com/",
+        alt: 'BNYMellon_logo'
     }
 
 ]

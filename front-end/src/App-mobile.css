@@ -126,6 +126,7 @@
     padding: 1rem 2rem;
     border-radius: 25px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin: 0% 5% 3%;
 
     .home-buttons {
 
@@ -533,8 +534,33 @@
     padding: -2rem;
   }
 
+  .RSVP {
+    #msform fieldset {
+      min-width: 100%;
+    }
+    .fs-title {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+  
+    .congrats {
+      color: #00AFB9;
+      font-size: 1rem;
+    }
+  
+    .fs-subtitle {
+      font-size: 0.8rem;
+    }
+
+    .mealOption label { 
+      font-size: 70%;
+    }
+  }
+
 }
 
+
+/* MINIMUM */
 @media only screen and (min-width: 1200px) {
   .collaborators-container{
     display: grid;
@@ -548,4 +574,16 @@
     align-self: center;
     height: 80%;
   }
+}
+
+@media only screen and (min-width: 950px) {
+  .action-items {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  /* .tech-support{
+    max
+  } */
 }

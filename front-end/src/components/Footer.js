@@ -13,7 +13,7 @@ const Footer = () => {
                 <div/>
                 <div className='column'>
                     <div className='text'>Made with ♥ by the WiNGHacks team</div>
-                    <a href="signup" className='link'>Hacker Applications</a>
+                    {/* <a href="signup" className='link'>Hacker Applications</a> */}
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTqVfJUiWjjARDFBh1MkegBLw0F-Kd-GquU2NJO1-H7ybOuQ/viewform"
                         target="_blank" className='link'>Mentor Applications</a>
                     <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" style={{color: "#0081A7", fontWeight: "bold"}} target="_blank">MLH Code of Conduct</a>
