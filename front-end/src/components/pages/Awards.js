@@ -1,15 +1,15 @@
 import React, { forwardRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
 
-import Best_Overall from '../pictures/characters/littleLady.PNG';
-import First_Flight from '../pictures/characters/Flier.PNG';
-import Peoples_Choice from '../pictures/characters/Gay-tor.PNG';
-import Best_WiNG from '../pictures/characters/Penguin.PNG';
-import Best_Game from '../pictures/characters/Mushwoom.PNG';
-import Best_XR from '../pictures/characters/draggin.png';
+import Best_Overall from '../pictures/characters/gifs/Littlelady.gif';
+import First_Flight from '../pictures/characters/gifs/flier.gif';
+import Peoples_Choice from '../pictures/characters/gifs/penguin.gif';
+import Best_WiNG from '../pictures/characters/gifs/frogger.gif';
+import Best_Game from '../pictures/characters/gifs/mushwoom.gif';
+import Best_XR from '../pictures/characters/gifs/draggin.gif';
 
 
 const Awards = ({}, ref) => {
@@ -21,7 +21,7 @@ const Awards = ({}, ref) => {
           <Carousel.Item interval={1000}>
             <div className='carousel-item-container'>
               <Card style={{ height: '30rem',width: '18rem' }}>
-                <Card.Img variant="top" src={Best_Overall} />
+                <Card.Img className='card-image' variant="top" src={Best_Overall}/>
                 <Card.Body>
                   <Card.Title>Best Overall Award</Card.Title>
                   <Card.Text>
@@ -33,7 +33,7 @@ const Awards = ({}, ref) => {
             </div>
             <div className='carousel-item-container'>
               <Card style={{  height: '30rem',width: '18rem'  }}>
-                <Card.Img variant="top" src={First_Flight} />
+                <Card.Img className='card-image' variant="top" src={First_Flight} />
                 <Card.Body>
                   <Card.Title>First Flight Award </Card.Title>
                   <Card.Text>
@@ -45,7 +45,7 @@ const Awards = ({}, ref) => {
             </div>
             <div className='carousel-item-container'>
               <Card style={{ height: '30rem',width: '18rem'  }}>
-                <Card.Img variant="top" src={Peoples_Choice} />
+                <Card.Img className='card-image' variant="top" src={Peoples_Choice} />
                 <Card.Body>
                   <Card.Title>People's Choice Award</Card.Title>
                   <Card.Text>
@@ -56,10 +56,10 @@ const Awards = ({}, ref) => {
               </Card>
             </div> 
           </Carousel.Item>
-          <Carousel.Item interval={500}>
+          <Carousel.Item interval={800}>
             <div className='carousel-item-container'>
               <Card style={{ height: '30rem',width: '18rem' }}>
-                <Card.Img variant="top" src={Best_WiNG} />
+                <Card.Img className='card-image' variant="top" src={Best_WiNG} />
                 <Card.Body>
                   <Card.Title>Best WiNG Hack</Card.Title>
                   <Card.Text>
@@ -71,7 +71,7 @@ const Awards = ({}, ref) => {
             </div>
             <div className='carousel-item-container'>
               <Card style={{ height: '30rem',width: '18rem' }}>
-                <Card.Img variant="top" src={Best_Game} />
+                <Card.Img className='card-image' variant="top" src={Best_Game} />
                 <Card.Body>
                   <Card.Title>Best Game Hack</Card.Title>
                   <Card.Text>
@@ -83,7 +83,7 @@ const Awards = ({}, ref) => {
             </div>
             <div className='carousel-item-container'>
               <Card style={{height: '30rem',width: '18rem' }}>
-                <Card.Img variant="top" src={Best_XR} />
+                <Card.Img className='card-image' variant="top" src={Best_XR} />
                 <Card.Body>
                   <Card.Title>Best XR Hack</Card.Title>
                   <Card.Text>

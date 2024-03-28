@@ -1588,8 +1588,9 @@ th {
   display: inline-flex;
   width: 33.33%; /* Set the width to 33.33% for displaying three cards at a time */
   float: left;
+  align-items: center;
+  justify-content: center;
 }
-
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -1607,3 +1608,8 @@ th {
   background-color: #00AFB9; 
 }
 
+.card-image {
+  width: 15rem;
+  height: 15rem;
+
+}
