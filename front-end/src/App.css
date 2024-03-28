@@ -17,6 +17,7 @@
 
 }
 
+
 @font-face {
   font-family: honk;
   src: url(./components/fonts/Honk-Regular-VariableFont_MORF\,SHLN.ttf);
@@ -1583,7 +1584,26 @@ th {
   display: flex;
 }
 
+.carousel-item-container {
+  display: inline-flex;
+  width: 33.33%; /* Set the width to 33.33% for displaying three cards at a time */
+  float: left;
+}
 
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #00AFB9; 
+  border-radius: 45%;
+}
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 30em;
+  height: 15em;
+}
+
+.carousel-indicators li {
+  background-color: #00AFB9; 
+}
 
