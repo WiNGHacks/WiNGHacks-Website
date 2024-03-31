@@ -1,3 +1,8 @@
+@font-face {
+  font-family: teacher-regular;
+  src: url(./components/fonts/Teachers-Regular.woff);
+}
+
 @media only screen and (max-width: 917px) {
   .navbar {
 
@@ -484,5 +489,37 @@
     top:10px;
     background-color: rgb(255, 129, 120);
     -webkit-box-shadow:inset 0 2px 0 #ffcbcb, inset 0 0px 0 #ba3d1b;
+  }
+
+ 
+}
+
+@media only screen and (max-width: 529px) {
+   /* Schedule CSS */
+   .locationTitle{
+    display: none;
+  }
+
+  td.time{
+    padding-bottom: 90px;
+  }
+
+  .eventDescription {
+    display: block;
+    font-size: 17px;
+    width: 70%;
+  }
+  
+  .eventLocation {
+    display: block;
+    font-family: teacher-regular;
+    font-size: 16px;
+    margin-top: -0.6rem;
+    width: 80%;
+  }
+
+
+  .tab {
+    font-size: 17.5px;
   }
 }

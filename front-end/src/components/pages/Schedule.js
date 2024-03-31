@@ -32,14 +32,14 @@ const Schedule = ({}, ref) => {
                 <tr>
                   <th style={{ textAlign: 'left'}} className='time'>Time</th>
                   <th style={{ textAlign: 'left'}}>Event</th>
-                  <th style={{ textAlign: 'left'}}>Location</th>
+                  <th style={{ textAlign: 'left'}} className='locationTitle'>Location</th>
                 </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td className='time'>4:00PM</td>
                     <td className='eventDescription'>Team Formation</td>
-                    <td className='eventDescription'>Discord/Reitz Lawn</td>
+                    <td className='eventLocation'>Discord/Reitz Lawn</td>
                   </tr>
                 </tbody>
             </table>
@@ -68,44 +68,45 @@ const Schedule = ({}, ref) => {
               <tr>
                 <th style={{ textAlign: 'left'}} className='time'>Time</th>
                 <th style={{ textAlign: 'left'}}>Event</th>
-                <th style={{ textAlign: 'left'}}>Location</th>
+                <th style={{ textAlign: 'left'}} className='locationTitle'>Location</th>
               </tr>
               </thead>
               <tbody>
                 <tr>
                   <td className='time'>3:00PM</td>
                   <td className='eventDescription'>Offical Check-In</td>
-                  <td className='eventDescription'>Herbert Wertheim</td>
+                  <td className='eventLocation'>Herbert Wertheim</td>
+  
                 </tr>
                 <tr>
                   <td className='time'>3:30PM</td>
                   <td className='eventDescription'>Sponsorship Fair</td>
-                  <td className='eventDescription'>Herbert Wertheim</td>
+                  <td className='eventLocation'>Herbert Wertheim</td>
                 </tr>
                 <tr>
                   <td className='time'>5:30PM</td>
                   <td className='eventDescription'>Opening Ceremony</td>
-                  <td className='eventDescription'>Malachowsky Hall || Nvidia Auditorium</td>
+                  <td className='eventLocation'>Malachowsky Hall || Nvidia Auditorium</td>
                 </tr>
                 <tr>
                   <td className='time'>7:00PM</td>
                   <td className='eventDescription'>Hacking Starts</td>
-                  <td className='eventDescription'>Herbert Wertheim</td>
+                  <td className='eventLocation'>Herbert Wertheim</td>
                 </tr>
                 <tr>
                   <td className='time activity'>8:00PM</td>
                   <td className='eventDescription activity'>Dinner</td>
-                  <td className='eventDescription'>Herbert Wertheim</td>
+                  <td className='eventLocation'>Herbert Wertheim</td>
                 </tr>
                 <tr>
                   <td className='time activity'>9:00PM</td>
                   <td className='eventDescription activity'>WiCSE Intro to React</td>
-                  <td className='eventDescription'>Herbert Wertheim (215)</td>
+                  <td className='eventLocation'>Herbert Wertheim (215)</td>
                 </tr>
                 <tr>
                   <td className='time activity'>10:00PM</td>
                   <td className='eventDescription activity'>Cupcake Social</td>
-                  <td className='eventDescription'>Herbert Wertheim</td>
+                  <td className='eventLocation'>Herbert Wertheim</td>
                 </tr>
               </tbody>
             </table>
@@ -122,7 +123,7 @@ const Schedule = ({}, ref) => {
                     <tr>
                       <th style={{ textAlign: 'left'}} className='time'>Time</th>
                       <th style={{ textAlign:'left'}}>Event</th>
-                      <th style={{ textAlign: 'left'}}>Location</th>
+                      <th style={{ textAlign: 'left'}} className='locationTitle'>Location</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -133,52 +134,52 @@ const Schedule = ({}, ref) => {
                       <tr>
                         <td className='time'>8:00AM</td>
                         <td className='eventDescription'>Breakfast</td>
-                        <td className='eventDescription'>Herbert Wertheim</td>
+                        <td className='eventLocation'>Herbert Wertheim</td>
                       </tr>
                       <tr>
                         <td className='time'>9:00AM</td>
                         <td className='eventDescription'>Workshop 2</td>
-                        <td className='eventDescription'>Herbert Wertheim (215)</td>
+                        <td className='eventLocation'>Herbert Wertheim (215)</td>
                       </tr>
                       <tr>
                         <td className='time activity'>10:15AM</td>
                         <td className='eventDescription activity'>Workshop 3</td>
-                        <td className='eventDescription'>Herbert Wertheim (215)</td>
+                        <td className='eventLocation'>Herbert Wertheim (215)</td>
                       </tr>
                       <tr>
                         <td className='time'>12:00PM</td>
                         <td className='eventDescription'>Lunch</td>
-                        <td className='eventDescription'>Herbert Wertheim</td>
+                        <td className='eventLocation'>Herbert Wertheim</td>
                       </tr>
                       <tr>
                         <td className='time'>1:30PM</td>
                         <td className='eventDescription '>MLH Workshop</td>
-                        <td className='eventDescription'>Herbert Wertheim (215)</td>
+                        <td className='eventLocation'>Herbert Wertheim (215)</td>
                       </tr>
                       <tr>
                         <td className='time'>2:45PM</td>
                         <td className='eventDescription'>Workshop 5</td>
-                        <td className='eventDescription'>Herbert Wertheim (215)</td>
+                        <td className='eventLocation'>Herbert Wertheim (215)</td>
                       </tr>
                       <tr>
                         <td className='time'>4:00PM</td>
                         <td className='eventDescription'>Workshop 6</td>
-                        <td className='eventDescription'>Herbert Wertheim (215)</td>
+                        <td className='eventLocation'>Herbert Wertheim (215)</td>
                       </tr>
                       <tr>
                         <td className='time'>5:15PM</td>
                         <td className='eventDescription'>Workshop 7</td>
-                        <td className='eventDescription'>Herbert Wertheim (215)</td>
+                        <td className='eventLocation'>Herbert Wertheim (215)</td>
                       </tr>
                       <tr>
                         <td className='time'>6:30PM</td>
                         <td className='eventDescription'>Workshop 8</td>
-                        <td className='eventDescription'>Herbert Wertheim (215)</td>
+                        <td className='eventLocation'>Herbert Wertheim (215)</td>
                       </tr>
                       <tr>
                         <td className='time'>8:00PM</td>
                         <td className='eventDescription'>Dinner</td>
-                        <td className='eventDescription'>Herbert Wertheim</td>
+                        <td className='eventLocation'>Herbert Wertheim</td>
                       </tr>
                       <tr>
                         <td className='time'>9:00PM</td>
@@ -191,7 +192,7 @@ const Schedule = ({}, ref) => {
                       <tr>
                         <td className='time'>11:30PM</td>
                         <td className='eventDescription'>Midnight Snacks</td>
-                        <td className='eventDescription'>Herbert Wertheim</td>
+                        <td className='eventLocation'>Herbert Wertheim</td>
                       </tr>
                     </tbody>
                 </table>
@@ -209,24 +210,24 @@ const Schedule = ({}, ref) => {
               <tr>
                 <th style={{ textAlign: 'left'}} className='time'>Time</th>
                 <th style={{ textAlign: 'left'}}>Event </th>
-                <th style={{ textAlign: 'left'}}>Location</th>
+                <th style={{ textAlign: 'left'}} className='locationTitle'>Location</th>
               </tr>
               </thead>
               <tbody>
                 <tr>
                   <td className='time activity'>7:00AM</td>
                   <td className='eventDescription'>Hacking Ends & Devposts Due</td>
-                  <td className='eventDescription'>Herbert Wertheim</td>
+                  <td className='eventLocation'>Herbert Wertheim</td>
                 </tr>
                 <tr>
                   <td className='time activity'>7:30AM</td>
                   <td className='eventDescription'>Breakfast</td>
-                  <td className='eventDescription'>Herbert Wertheim</td>
+                  <td className='eventLocation'>Herbert Wertheim</td>
                 </tr>
                 <tr>
                   <td className='time activity'>9:30AM</td>
                   <td className='eventDescription'>Project Exposition</td>
-                  <td className='eventDescription'>Reitz Union</td>
+                  <td className='eventLocation'>Reitz Union</td>
                 </tr>
                 <tr>
                   <td className='time'>11:30AM</td>
@@ -239,7 +240,7 @@ const Schedule = ({}, ref) => {
                 <tr>
                   <td className='time activity'>12:00PM</td>
                   <td className='eventDescription activity'>Closing Ceremony</td>
-                  <td className='eventDescription'>TUR L007</td>
+                  <td className='eventLocation'>TUR L007</td>
                 </tr>
               </tbody>
             </table>

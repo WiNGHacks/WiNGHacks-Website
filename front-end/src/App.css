@@ -849,12 +849,18 @@ th {
   text-decoration: underline;
 }
 
-.time, .eventDescription, th {
+/* .eventDetails {
+  display: flex;
+  flex-direction: column;
+} */
+
+.time, .eventDescription, .eventLocation,th {
   /* controls the text being spaced evenly */
   vertical-align: middle;
   padding-bottom: 10px;
   padding-right: 50px;
 }
+
 
 /* setting up font style & formation for fri-sun content */
 .content-all {
@@ -885,6 +891,7 @@ th {
 }
 
 .tab {
+  color: black;
   font-family: teacher-semibold;
   font-size: 18px;
   padding: 10px;
