@@ -229,7 +229,7 @@ const Schedule = ({}, ref) => {
                   <td className='eventDescription'>Reitz Union</td>
                 </tr>
                 <tr>
-                  <td className='time'>11:00AM</td>
+                  <td className='time'>11:30AM</td>
                   <td className='eventDescription'>Judges Finalize Winners</td>
                 </tr>
                 <tr>
@@ -237,7 +237,7 @@ const Schedule = ({}, ref) => {
                   <td className='eventDescription'>Grab & Go Lunch</td>
                 </tr>
                 <tr>
-                  <td className='time activity'>11:30AM</td>
+                  <td className='time activity'>12:00PM</td>
                   <td className='eventDescription activity'>Closing Ceremony</td>
                   <td className='eventDescription'>TUR L007</td>
                 </tr>
