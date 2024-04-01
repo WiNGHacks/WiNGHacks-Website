@@ -1611,5 +1611,13 @@ th {
 .card-image {
   width: 15rem;
   height: 15rem;
+}
 
+.awards-tag{
+    background-color: #00AFB9;
+    display: inline-block;
+    color: #fff;
+    border: none; /* Remove border */
+    padding: 0.3rem 0.5rem; /* Add padding for better visibility */
+    border-radius: 30px; /* Add border-radius for rounded corners */
 }
