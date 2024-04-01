@@ -581,3 +581,28 @@
     max-width: 100%;
   }
 }
+
+@media (max-width: 768px) {
+  .carousel-item-container {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    width: 80%; 
+  }
+
+  .card {
+    margin-bottom: 20px;
+  }
+
+  .card-img {
+    height: auto;
+    max-width: 100%; 
+  }
+}
+
+/* Media query for extra small devices (up to 576px) */
+@media (max-width: 576px) {
+  .card {
+    width: 100%;
+  }
+}
