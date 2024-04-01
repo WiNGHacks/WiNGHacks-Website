@@ -446,7 +446,11 @@
 @media only screen and (max-width: 750px) {
   .FAQ {
     .faq-collapse {
+
       padding-left: 0.7rem;
+    }
+    .faq-collapse-container {
+      font-size: 1.1rem;
     }
   }
 }
@@ -586,4 +590,34 @@
   /* .tech-support{
     max
   } */
+}
+
+@media only screen and (max-width: 529px) {
+  /* Schedule CSS */
+  .locationTitle{
+   display: none;
+ }
+
+ td.time{
+   padding-bottom: 90px;
+ }
+
+ .eventDescription {
+   display: block;
+   font-size: 17px;
+   width: 70%;
+ }
+ 
+ .eventLocation {
+   display: block;
+   font-family: teacher-regular;
+   font-size: 16px;
+   margin-top: -0.6rem;
+   width: 80%;
+ }
+
+
+ .tab {
+   font-size: 17.5px;
+ }
 }
