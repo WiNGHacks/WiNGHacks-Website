@@ -605,7 +605,7 @@
  .eventDescription {
    display: block;
    font-size: 17px;
-   width: 70%;
+   width: 60%;
  }
  
  .eventLocation {
@@ -613,7 +613,7 @@
    font-family: teacher-regular;
    font-size: 16px;
    margin-top: -0.6rem;
-   width: 80%;
+   width: 70%;
  }
 
 
