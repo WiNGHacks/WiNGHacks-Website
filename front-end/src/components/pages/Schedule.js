@@ -158,7 +158,7 @@ const Schedule = ({}, ref) => {
                       </tr>
                       <tr>
                         <td className='time'>2:45PM</td>
-                        <td className='eventDescription'>Pitfalls of Building a Career in Engineering...and How to Overcome Them by Electronic Arts (EA)</td>
+                        <td className='eventDescription'>Pitfalls of Building a Career in Engineering... and How to Overcome Them by Electronic Arts (EA)</td>
                         <td className='eventLocation'>Herbert Wertheim, Room 215</td>
                       </tr>
                       <tr>
