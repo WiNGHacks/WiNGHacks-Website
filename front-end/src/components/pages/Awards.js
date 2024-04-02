@@ -39,14 +39,15 @@ const Awards = ({}, ref) => {
 
             <div className="card" key={award.id}>
                         
-            <img className="product-image" src={award.logo_image} alt="product image" />
-            <div className='content'>
-                <h2 className='title'>Best Overall Award</h2>
-                <p className='description'>Awarded to unparalleled excellence in a project's innovation and execution.</p>
-                {/* <p>
-                    <button>Add to Cart</button>
-                </p> */}
-            </div>
+              <img className="product-image" src={award.logo_image} alt={award.alt} />
+              <div className='content'>
+                  <h2 className='title'>{award.title}</h2>
+                  <p className='description'>{award.description}</p>
+                  {/* <p>
+                      <button>Add to Cart</button>
+                  </p> */}
+                  <h6>{award.sponsored}</h6>
+              </div>
             </div>
             
             ))}
@@ -55,7 +56,7 @@ const Awards = ({}, ref) => {
                 <img src={sponsor.logo_image} alt={sponsor.alt} />
             </a> */}
         
-        <div className="card">
+        {/* <div className="card">
             <img className="product-image" src={draggin} alt="product image" />
             <h2>Name</h2>
             <p className="price">Price</p>
@@ -99,7 +100,7 @@ const Awards = ({}, ref) => {
             <p>
                 <button>Add to Cart</button>
             </p>
-        </div>
+        </div> */}
           
         </Carousel>
       </div>
