@@ -15,7 +15,7 @@ export const AwardList = [
         description:"Awarded to unparalleled excellence in a project's innovation and execution.",
         alt: 'Best Overall Award', 
         tag: 'General',
-        sponsored:"sponsored by JPMC",
+        sponsored:"Sponsored by JPMC",
     },
     {
         id: "2",
