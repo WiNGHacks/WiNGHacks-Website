@@ -1722,6 +1722,79 @@ th {
   background-color: rgb(211, 228, 255);
 }
 
+.Awards{
+  .product-image {
+    width: 100%;
+    
+    min-height: 20rem;
+    padding: 1%;
+    /* height: 20em; */
+    object-fit: contain;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 320px;
+    height: 35rem;
+    margin: 1rem 1rem;
+    text-align: center;
+  }
+
+  .content {
+    padding: 1% 5%;
+  }
+
+  .title {
+    font-family: teacher-semibold;
+  }
+  
+  .description {
+    color: grey;
+    font-size: 22px;
+    font-family: teacher-regular;
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .card button:hover {
+    opacity: 0.7;
+  }
+
+}
+
+
+.carousel-item-container {
+  display: inline-flex;
+  width: 33.33%; /* Set the width to 33.33% for displaying three cards at a time */
+  float: left;
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #00AFB9; 
+  border-radius: 45%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 30em;
+  height: 15em;
+}
+
+.carousel-indicators li {
+  background-color: #00AFB9; 
+}
 
 
 

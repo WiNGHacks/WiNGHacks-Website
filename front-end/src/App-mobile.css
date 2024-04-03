@@ -591,6 +591,13 @@
     max
   } */
 }
+@media only screen and (max-width: 400px) {
+  .Awards{
+    h6 {
+      margin-top: -0.6rem;
+    }
+  }
+}
 
 @media only screen and (max-width: 529px) {
   /* Schedule CSS */

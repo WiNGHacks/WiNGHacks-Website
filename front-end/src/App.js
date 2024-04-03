@@ -13,6 +13,7 @@ import Login from './components/pages/applications/Login'
 import SignUp from './components/pages/applications/SignUp';
 import UserPortal from './components/pages/applications/UserPortal';
 import Schedule from './components/pages/Schedule';
+import Awards from './components/pages/Awards';
 
 import VerificationEmail from './components/pages/applications/VerificationEmail';
 import NotifyEmail from './components/pages/applications/NotifyEmail';
@@ -58,9 +59,9 @@ function App() {
                       <Home  ref = {ref} />
                       <AboutUs ref = {ref} />
                       <Schedule ref = {ref} />
+                      <Awards ref = {ref} />
                       <Sponsors  ref = {ref} />
                       <FAQ  ref = {ref} />
-                      
                     </>
                   )}
                 />
