@@ -62,7 +62,6 @@ function App() {
                       <Awards ref = {ref} />
                       <Sponsors  ref = {ref} />
                       <FAQ  ref = {ref} />
-                      
                     </>
                   )}
                 />

@@ -31,7 +31,7 @@ const Awards = ({}, ref) => {
       };
 
   return (
-    <div ref={el => ref.current = { ...ref.current, about: el }}>
+    <div ref={el => ref.current = { ...ref.current, awards: el }}>
       <div className='Page Awards'>
         <h1>Awards</h1>
         <Carousel showDots={true} responsive={responsive}>
