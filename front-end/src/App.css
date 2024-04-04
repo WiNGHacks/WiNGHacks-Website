@@ -1724,9 +1724,9 @@ th {
 
 .Awards{
   .product-image {
-    width: 100%;
-    
-    min-height: 20rem;
+    width: 95%;
+    /* min-height: 10rem; */
+    height: 15rem;
     padding: 1%;
     /* height: 20em; */
     object-fit: contain;
@@ -1750,7 +1750,7 @@ th {
   
   .description {
     color: grey;
-    font-size: 22px;
+    font-size: 20px;
     font-family: teacher-regular;
   }
   

@@ -46,7 +46,8 @@ const Awards = ({}, ref) => {
                   {/* <p>
                       <button>Add to Cart</button>
                   </p> */}
-                  <h6>{award.sponsored}</h6>
+                  <h6><a style={{color:'black'}}href={award.learnMore} target='_blank'>{award.sponsored}</a></h6>
+                  
               </div>
             </div>
             
