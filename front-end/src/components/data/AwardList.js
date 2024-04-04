@@ -6,6 +6,13 @@ import Best_Game from '../pictures/characters/gifs/mushwoom.gif';
 import Best_XR from '../pictures/characters/gifs/draggin.gif';
 import Sponsor_Placeholder from '../pictures/characters/gifs/seaButterfly.gif';
 import infotech_award from '../pictures/sponsor_logo/infotech-logo.png'
+import mongodb_award from '../pictures/bestuse_logo/mongodb.png'
+import goDaddy_award from '../pictures/bestuse_logo/godaddy-registry.png'
+import fidelity_award from '../pictures/bestuse_logo/fidelity.png'
+import starknet_award from '../pictures/bestuse_logo/starkware.png'
+import taipy_award from '../pictures/bestuse_logo/taipy.png'
+
+
 
 export const AwardList = [
     {
@@ -16,6 +23,7 @@ export const AwardList = [
         alt: 'Best Overall Award', 
         tag: 'General',
         sponsored:"Sponsored by JP Morgan Chase",
+        learnMore:"https://www.jpmorganchase.com/",
     },
     {
         id: "2",
@@ -25,6 +33,7 @@ export const AwardList = [
         alt: 'First Flight Award', 
         tag: 'General',
         sponsored:"",
+        learnMore:"",
     },
     {
         id: "3",
@@ -34,6 +43,7 @@ export const AwardList = [
         alt: "People's Choice Award", 
         tag: 'General',
         sponsored:"",
+        learnMore:"",
     },
     {
         id: "4",
@@ -43,6 +53,7 @@ export const AwardList = [
         alt: "Best WiNG Hack", 
         tag: 'Category',
         sponsored:"",
+        learnMore:"",
     },
     {
         id: "5",
@@ -52,6 +63,7 @@ export const AwardList = [
         alt: "Best Game Hack", 
         tag: 'Category',
         sponsored:"",
+        learnMore:"",
     },
     {
         id: "6",
@@ -61,6 +73,7 @@ export const AwardList = [
         alt: "Best XR Hack", 
         tag: 'Category',
         sponsored:"Presented by Society of PC Building and GatorVR",
+        learnMore:"",
     },
     {
         id: "7",
@@ -70,15 +83,67 @@ export const AwardList = [
         alt: "Infotech Challenge", 
         tag: 'Sponsor',
         sponsored:"",
+        learnMore:"",
     },
     {
         id: "8",
+        logo_image: mongodb_award,
+        title: "Best Use of MongoDB",
+        description:" Build a hack using MongoDB Atlas for a chance to win a M5GO IoT Starter Kit for you and each member of your team.",
+        alt: "Best Use of MongoDB", 
+        tag: 'BestUse',
+        sponsored:"Learn more",
+        learnMore:"https://hack.mlh.io/hackuf/prizes",
+    },
+    {
+        id: "9",
+        logo_image: goDaddy_award,
+        title: "Best Domain Name from GoDaddy Registry",
+        description:"Register your domain name with GoDaddy Registry for a chance to win a Hack from Home Kit!",
+        alt: "Best Domain Name from GoDaddy Registry", 
+        tag: 'BestUse',
+        sponsored:"Learn more",
+        learnMore:"https://hack.mlh.io/hackuf/prizes",
+    },
+    {
+        id: "10",
+        logo_image: fidelity_award,
+        title: "Best DEI Hack sponsored by Fidelity",
+        description:"Come up with innovative ways to create forward-thinking financial tech that promotes equality for all people!",
+        alt: "Best DEI Hack sponsored by Fidelity", 
+        tag: 'BestUse',
+        sponsored:"Learn more",
+        learnMore:"https://hack.mlh.io/hackuf/prizes",
+    },
+    {
+        id: "11",
+        logo_image: starknet_award,
+        title: "Best Use of Starknet",
+        description:"Build a hack using Starknet for a chance to win a Starknet Care Package for Coders",
+        alt: "Best Use of Starknet", 
+        tag: 'BestUse',
+        sponsored:"Learn more",
+        learnMore:"https://hack.mlh.io/hackuf/prizes",
+    },
+    {
+        id: "12",
+        logo_image: taipy_award,
+        title: "Best Use of Taipy",
+        description:"Use Taipy in your hackathon project for a chance to win a set of Wireless Headphones for you and each of your team members and a chance to have your project featured on the Taipy website!",
+        alt: "Best Use of Taipy", 
+        tag: 'BestUse',
+        sponsored:"Learn more",
+        learnMore:"https://hack.mlh.io/hackuf/prizes",
+    },
+    {
+        id: "13",
         logo_image: Sponsor_Placeholder,
-        title: "Sponsor Challenge",
+        title: "More Awards Coming Soon!",
         description:"More info soon!",
         alt: "Sponsor Challenge", 
         tag: 'Sponsor',
         sponsored:"",
+        learnMore:"",
     },
     
 
