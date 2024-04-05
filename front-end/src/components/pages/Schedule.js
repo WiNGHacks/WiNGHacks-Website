@@ -81,12 +81,12 @@ const Schedule = ({}, ref) => {
                 <tr>
                   <td className='time'>3:30PM</td>
                   <td className='eventDescription'>Sponsorship Fair</td>
-                  <td className='eventLocation'>Herbert Wertheim</td>
+                  <td className='eventLocation'>Herbert Wertheim, Room 360</td>
                 </tr>
                 <tr>
                   <td className='time'>5:30PM</td>
                   <td className='eventDescription'>Opening Ceremony</td>
-                  <td className='eventLocation'>Malachowsky Hall || Nvidia Auditorium</td>
+                  <td className='eventLocation'>Malachowsky Hall, Nvidia Auditorium</td>
                 </tr>
                 <tr>
                   <td className='time'>7:00PM</td>
@@ -101,7 +101,7 @@ const Schedule = ({}, ref) => {
                 <tr>
                   <td className='time activity'>9:00PM</td>
                   <td className='eventDescription activity'>Intro to React by WiCSE</td>
-                  <td className='eventLocation'>Herbert Wertheim, Room 215</td>
+                  <td className='eventLocation'>Herbert Wertheim, Room 260</td>
                 </tr>
                 <tr>
                   <td className='time activity'>10:00PM</td>
@@ -139,12 +139,12 @@ const Schedule = ({}, ref) => {
                       <tr>
                         <td className='time'>9:00AM</td>
                         <td className='eventDescription'>Intro to Microprocessor Programming by WECE</td>
-                        <td className='eventLocation'>Herbert Wertheim, Room 215</td>
+                        <td className='eventLocation'>Herbert Wertheim, Room 260</td>
                       </tr>
                       <tr>
                         <td className='time activity'>10:15AM</td>
                         <td className='eventDescription activity'>Design Thinking by Infotech</td>
-                        <td className='eventLocation'>Herbert Wertheim, Room 215</td>
+                        <td className='eventLocation'>Herbert Wertheim, Room 260</td>
                       </tr>
                       <tr>
                         <td className='time'>12:00PM</td>
@@ -154,27 +154,27 @@ const Schedule = ({}, ref) => {
                       <tr>
                         <td className='time'>1:30PM</td>
                         <td className='eventDescription '>GitHub Copilot by Major League Hacking (MLH)</td>
-                        <td className='eventLocation'>Herbert Wertheim, Room 215</td>
+                        <td className='eventLocation'>Herbert Wertheim, Room 260</td>
                       </tr>
                       <tr>
                         <td className='time'>2:45PM</td>
                         <td className='eventDescription'>Pitfalls of Building a Career in Engineering... and How to Overcome Them by Electronic Arts (EA)</td>
-                        <td className='eventLocation'>Herbert Wertheim, Room 215</td>
+                        <td className='eventLocation'>Herbert Wertheim, Room 260</td>
                       </tr>
                       <tr>
                         <td className='time'>4:00PM</td>
                         <td className='eventDescription'>AI, LangChain library by ColorStack</td>
-                        <td className='eventLocation'>Herbert Wertheim, Room 215</td>
+                        <td className='eventLocation'>Herbert Wertheim, Room 260</td>
                       </tr>
                       <tr>
                         <td className='time'>5:15PM</td>
                         <td className='eventDescription'>Introduction to XR in Unity by GatorVR</td>
-                        <td className='eventLocation'>Herbert Wertheim, Room 215</td>
+                        <td className='eventLocation'>Herbert Wertheim, Room 260</td>
                       </tr>
                       <tr>
                         <td className='time'>6:30PM</td>
                         <td className='eventDescription'>Databases (SQL, NoSQL, Vector) by ACM</td>
-                        <td className='eventLocation'>Herbert Wertheim, Room 215</td>
+                        <td className='eventLocation'>Herbert Wertheim, Room 260</td>
                       </tr>
                       <tr>
                         <td className='time'>8:00PM</td>
@@ -184,12 +184,12 @@ const Schedule = ({}, ref) => {
                       <tr>
                         <td className='time'>9:00PM</td>
                         <td className='eventDescription'>Social 1</td>
-                        <td className='eventLocation'>Herbert Wertheim, Room 215</td>
+                        <td className='eventLocation'>Herbert Wertheim, Room 260</td>
                       </tr>
                       <tr>
                         <td className='time'>10:00PM</td>
                         <td className='eventDescription'>Social 2</td>
-                        <td className='eventLocation'>Herbert Wertheim, Room 215</td>
+                        <td className='eventLocation'>Herbert Wertheim, Room 260</td>
                       </tr>
                       <tr>
                         <td className='time'>11:30PM</td>
