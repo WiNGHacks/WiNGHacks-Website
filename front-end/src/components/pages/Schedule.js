@@ -130,6 +130,7 @@ const Schedule = ({}, ref) => {
                     <tr>
                         <td className='time'>7:30AM</td>
                         <td className='eventDescription'>Sunrise Social</td>
+                        <td className='eventLocation'>Herbert Wertheim, Lobby</td>
                       </tr>
                       <tr>
                         <td className='time'>8:00AM</td>
@@ -183,17 +184,17 @@ const Schedule = ({}, ref) => {
                       </tr>
                       <tr>
                         <td className='time'>9:00PM</td>
-                        <td className='eventDescription'>Social 1</td>
-                        <td className='eventLocation'>Herbert Wertheim, Room 260</td>
+                        <td className='eventDescription'>Video Game Social</td>
+                        <td className='eventLocation'>Herbert Wertheim, Room 215</td>
                       </tr>
                       <tr>
                         <td className='time'>10:00PM</td>
-                        <td className='eventDescription'>Social 2</td>
-                        <td className='eventLocation'>Herbert Wertheim, Room 260</td>
+                        <td className='eventDescription'>DIY Clay Study Buddy Social</td>
+                        <td className='eventLocation'>Herbert Wertheim, Room 215</td>
                       </tr>
                       <tr>
                         <td className='time'>11:30PM</td>
-                        <td className='eventDescription'>Cupcake Social</td>
+                        <td className='eventDescription'>Cupcake Decorating Social</td>
                         <td className='eventLocation'>Herbert Wertheim, Lobby</td>
                       </tr>
                     </tbody>
