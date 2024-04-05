@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react';
 const AppCountDown = () => {
 
     const calculateTimeLeft = () => {
-        const deadlineDate = new Date("April 5, 2024 17:00:00").getTime();
+        //Do one hour less than the time that 
+        const deadlineDate = new Date("April 5, 2024 15:00:00 EST").getTime();
         const now = new Date().getTime();
-        const distance = deadlineDate - now;
+        const distance = deadlineDate - now - (1 * 3600 * 1000);;
 
         if (distance <= 0) {
             return { days: 0, hours: 0, minutes: 0, seconds: 0 };
