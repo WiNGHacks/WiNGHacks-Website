@@ -140,12 +140,12 @@ const Header = ({}, ref) => {
     {!token && openBanner &&
     <div>
       {/* <div className='application-banner'>Applications are now open!</div>  */}
-        <div className='application-banner'>
+        {/* <div className='application-banner'>
           <AppCountDown/>
         <div>
     </div>
    
-    </div> 
+    </div>  */}
   </div>    }
       
   </div>
