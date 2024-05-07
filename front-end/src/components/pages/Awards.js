@@ -33,7 +33,7 @@ const Awards = ({}, ref) => {
   return (
     <div ref={el => ref.current = { ...ref.current, awards: el }}>
       <div className='Page Awards'>
-        <h1>Awards</h1>
+        <h1>Winners</h1>
         <Carousel showDots={true} responsive={responsive}>
         {AwardList.map((award) => (
 
