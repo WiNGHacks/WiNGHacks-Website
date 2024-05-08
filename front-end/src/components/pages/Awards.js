@@ -5,7 +5,6 @@ import draggin from "../pictures/characters/draggin.png"
 import { AwardList } from '../data/AwardList';
 
 
-//MARIA START HERE :https://winghacks.devpost.com/
 
 const Awards = ({}, ref) => {
 
@@ -39,7 +38,7 @@ const Awards = ({}, ref) => {
 
             <div className="card" key={award.id}>
                         
-              <img className="product-image" src={award.logo_image} alt={award.alt} />
+              <img className="product-image" src={award.winner_image} alt={award.alt} />
               <div className='content'>
                   <h2 className='title'>{award.title}</h2>
                   <p className='description'>{award.description}</p>
