@@ -44,7 +44,7 @@ const Awards = ({}, ref) => {
                   <p className='description'>{award.description}</p>
                   {/* <p>
                       <button>Add to Cart</button>
-                  </p> */}
+                  </p> */} 
                   <h6><a style={{color:'black'}}href={award.learnMore} target='_blank'>{award.sponsored}</a></h6>
                   
               </div>
