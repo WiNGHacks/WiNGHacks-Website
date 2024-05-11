@@ -6,7 +6,6 @@ import { AwardList } from '../data/AwardList';
 
 
 
-
 const Awards = ({}, ref) => {
 
     const responsive = {
@@ -33,19 +32,19 @@ const Awards = ({}, ref) => {
   return (
     <div ref={el => ref.current = { ...ref.current, awards: el }}>
       <div className='Page Awards'>
-        <h1>Awards</h1>
+        <h1>Winners</h1>
         <Carousel showDots={true} responsive={responsive}>
         {AwardList.map((award) => (
 
             <div className="card" key={award.id}>
                         
-              <img className="product-image" src={award.logo_image} alt={award.alt} />
+              <img className="product-image" src={award.winner_image} alt={award.alt} />
               <div className='content'>
                   <h2 className='title'>{award.title}</h2>
                   <p className='description'>{award.description}</p>
                   {/* <p>
                       <button>Add to Cart</button>
-                  </p> */}
+                  </p> */} 
                   <h6><a style={{color:'black'}}href={award.learnMore} target='_blank'>{award.sponsored}</a></h6>
                   
               </div>
