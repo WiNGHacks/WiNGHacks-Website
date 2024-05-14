@@ -35,7 +35,7 @@ const AboutUs = ({}, ref) => {
           <div className='who-we-are-child-container'>
             <h2>Who We Are</h2>
             <p>
-              <span style={{fontWeight: "bolder"}}>WiNGHacks</span> is the University of Florida (UF)'s first hackathon specifically created to uplift <span style={{fontWeight: "bolder"}}>W</span>omen, <span style={{fontWeight: "bolder"}}>N</span>on-binary and <span style={{fontWeight: "bolder"}}>G</span>ender-nonconforming students in their technology journey. During the 36 hours of WiNGHacks, 200 hackers will learn new skills, network with their peers, and create innovative projects for a chance to win category prizes.
+              <span style={{fontWeight: "bolder"}}>WiNGHacks</span> is the University of Florida (UF)'s first hackathon specifically created to uplift <span style={{fontWeight: "bolder"}}>W</span>omen, <span style={{fontWeight: "bolder"}}>N</span>on-binary and <span style={{fontWeight: "bolder"}}>G</span>ender-nonconforming students in their technology journey. During the 36 hours of WiNGHacks,  200 hackers  learn new skills, network with their peers, and create innovative projects for a chance to win category prizes.
             </p>
             <p>{text}</p>
             <p>{text2}</p>
@@ -56,7 +56,7 @@ const AboutUs = ({}, ref) => {
         {/* <img src={mushroom} className='little-guy'/> */}
         <div className = "location-container">
           <div className = "location-child-container">
-            <p>WiNGHacks will be hosted on April 5 - 7, 2024 at the <a style={{color: "#F07167"}} href="https://maps.app.goo.gl/8HVyA9sQLMdAPiwv5" target="_blank">Herbert Wertheim Laboratory of Engineering Excellence</a>. Hacking starts at 7 PM Friday and ends at 7 AM Sunday, for a total of 36 hours.</p>
+            <p>WiNGHacks was hosted on April 5 - 7, 2024 at the <a style={{color: "#F07167"}} href="https://maps.app.goo.gl/8HVyA9sQLMdAPiwv5" target="_blank">Herbert Wertheim Laboratory of Engineering Excellence</a>. Hacking started at 7 PM Friday and ended at 7 AM Sunday, for a total of 36 hours.</p>
           </div>
           <div className = "location-child-container">
           <div className="map">
