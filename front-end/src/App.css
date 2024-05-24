@@ -228,7 +228,6 @@ button:hover{ cursor: pointer; }
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
 .Gallery {
-  min-height: 60vh;
   max-height: 60%;
 }
 
