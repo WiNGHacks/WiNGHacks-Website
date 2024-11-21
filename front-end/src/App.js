@@ -14,13 +14,13 @@ import SignUp from './components/pages/applications/SignUp';
 import UserPortal from './components/pages/applications/UserPortal';
 import Schedule from './components/pages/Schedule';
 import Awards from './components/pages/Awards';
-
 import VerificationEmail from './components/pages/applications/VerificationEmail';
 import NotifyEmail from './components/pages/applications/NotifyEmail';
 import axios from 'axios';
 import SendResults from './components/pages/admin/SendResults';
 import ForgetPassword from './components/pages/applications/ForgetPassword';
 import Footer from './components/Footer';
+import GalleryWall from './components/pages/Gallery';
 
 
 function App() {
@@ -44,6 +44,7 @@ function App() {
     // console.log(firstRender)
   })
 
+
   return (
     <div className='app'>
       
@@ -57,6 +58,7 @@ function App() {
                     <>
                       <Banner ref = {ref} />
                       <Home  ref = {ref} />
+                      <GalleryWall ref={(el) => (ref.current['gallerywall'] = el)} />
                       <AboutUs ref = {ref} />
                       <Schedule ref = {ref} />
                       <Awards ref = {ref} />
