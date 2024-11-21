@@ -51,7 +51,7 @@ const Header = ({}, ref) => {
       // var topVar = -currHeight? + ref?.current[type]?.offsetTop;
       // console.log(type)
       window.scrollTo({
-        top: ref?.current[type]?.offsetTop - currHeight,
+        top: ref?.current[type]?.offsetTop - currHeight + 100,
         left: 0,
         behavior: "smooth",
       });
@@ -82,7 +82,7 @@ const Header = ({}, ref) => {
           <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2024/mlh-trust-badge-2024-blue.svg" 
               alt="Major League Hacking 2024 Hackathon Season" style={{width:100 + '%'}}/>
       </a>
-
+        <Link to = "/#gallerywall"  onClick={() => handleClick('gallerywall')} className = "link">Gallery</Link>
         <Link to = "/#about"  onClick={() => handleClick('about')} className = "link">About Us</Link>
         <Link to = "/#schedule" onClick={() => handleClick('schedule')} className = "link">Schedule</Link>
         <Link to = "/#awards" onClick={() => handleClick('awards')} className = "link">Awards</Link>

@@ -2,6 +2,7 @@ import React , {forwardRef} from 'react'
 import ImageGallery from "react-image-gallery";
 
 
+
 import jp1 from "../pictures/2024_Gallery/JP_Morgan_SponsorFair.jpg"
 import jp2 from "../pictures/2024_Gallery/Chad_JP_Morgan_SponsorFair.jpg"
 import opening_ceremony from "../pictures/2024_Gallery/Opening_Ceremony.jpg"
@@ -135,18 +136,26 @@ const images = [
 ]
 
 
-const GalleryWall = ({}, ref) => {
+// const GalleryWall = ({}, ref) => {
 
-  return (
+//   return (
      
-     <div className='margins Gallery'>
-        <ImageGallery items={images} 
-                        autoPlay = "autoPlay"
-                        showBullets = {true}
-        />
-      </div>
+//      <div className='margins Gallery' id="gallerywall">
+//         <ImageGallery items={images} 
+//                         autoPlay = "autoPlay"
+//                         showBullets = {true}
+//         />
+//       </div>
       
-  )
-}
+//   )
+// }
+
+const GalleryWall = forwardRef((props, ref) => {
+    return (
+      <div className="margins Gallery" id="gallerywall" ref={ref}>
+        <ImageGallery items={images} autoPlay={true} showBullets={true} />
+      </div>
+    );
+  });
 
 export default GalleryWall
