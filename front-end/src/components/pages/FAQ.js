@@ -75,6 +75,12 @@ const items = [
     content: "Yes! We want to make sure that all hackers have a good experience. Refer to MLH's Code of Conduct ",
     link: "https://static.mlh.io/docs/mlh-code-of-conduct.pdf"
   },
+  {
+    key: '14',
+    header: "“I have more questions!",
+    content: "If you have any further questions or concerns, please contact us at ",
+    email: "uf.winghacks@gmail.com"
+  },
 
 ];
 
@@ -93,11 +99,24 @@ const FAQ = React.FC = ({}, ref) => {
               <div className='faq-collapse'>
                 <div>
                   {item.content}
-                  {item.link ? <span style={{fontWeight: "bolder"}}>
-                    <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank">here</a></span> : <div/>}
+                  {(() => {
+                    if (item.link) {
+                      return (
+                        <span style={{ fontWeight: "bolder" }}>
+                          <a href={item.link} target="_blank" rel="noopener noreferrer">here</a>
+                        </span>
+                      );
+                    } else if (item.email) {
+                      return (
+                        <span style={{ fontWeight: "bolder" }}>
+                          <a href={`mailto:${item.email}`} target="_blank" rel="noopener noreferrer">{item.email}</a>
+                        </span>
+                      );
+                    } else {
+                      return <div />;
+                    }
+                  })()}
                 </div>
-                
-
               </div>
               <br></br>
             </Panel>
