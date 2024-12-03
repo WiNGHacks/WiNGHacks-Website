@@ -2,8 +2,6 @@ import React , {forwardRef} from 'react'
 import logo from '../pictures/WiNGHACKS_logo.png'
 import banner from '../pictures/WiNGHacks_Banner.png'
 
-import GalleryWall from './Gallery';
-
 // import { SlSocialLinkedin } from "react-icons/sl";
 import { FaSquareInstagram, FaLinkedin } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
@@ -25,7 +23,6 @@ const Home = ({}, ref) => {
   return (
     // ref = {el => ref.current = { ...ref.current, home: el }}
     <div className='Home'>
-      <GalleryWall/>
       <div className='home-buttons' align="center">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTqVfJUiWjjARDFBh1MkegBLw0F-Kd-GquU2NJO1-H7ybOuQ/viewform"
               target="_blank">

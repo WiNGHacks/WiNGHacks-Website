@@ -1,5 +1,4 @@
 import React, {forwardRef, useState} from 'react';
-import ReactIframe from 'react-iframe';
 
 const Schedule = ({}, ref) => {
     

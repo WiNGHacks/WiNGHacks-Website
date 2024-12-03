@@ -58,7 +58,7 @@ function App() {
                     <>
                       <Banner ref = {ref} />
                       <Home  ref = {ref} />
-                      <GalleryWall ref={(el) => (ref.current['gallerywall'] = el)} />
+                      <GalleryWall ref = {ref} />
                       <AboutUs ref = {ref} />
                       <Schedule ref = {ref} />
                       <Awards ref = {ref} />
