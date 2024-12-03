@@ -136,26 +136,26 @@ const images = [
 ]
 
 
-// const GalleryWall = ({}, ref) => {
+const GalleryWall = ({}, ref) => {
 
-//   return (
-     
-//      <div className='margins Gallery' id="gallerywall">
-//         <ImageGallery items={images} 
-//                         autoPlay = "autoPlay"
-//                         showBullets = {true}
-//         />
-//       </div>
-      
-//   )
-// }
-
-const GalleryWall = forwardRef((props, ref) => {
-    return (
-      <div className="margins Gallery" id="gallerywall" ref={ref}>
-        <ImageGallery items={images} autoPlay={true} showBullets={true} />
+  return (
+    <div ref = {el => ref.current = { ...ref.current, gallerywall: el }}>
+     <div className='margins Gallery' id="gallerywall">
+        <ImageGallery items={images} 
+                        autoPlay = "autoPlay"
+                        showBullets = {true}
+        />
       </div>
-    );
-  });
+    </div>
+  )
+}
 
-export default GalleryWall
+// const GalleryWall = forwardRef((props, ref) => {
+//     return (
+//       <div className="margins Gallery" id="gallerywall" ref={ref}>
+//         <ImageGallery items={images} autoPlay={true} showBullets={true} />
+//       </div>
+//     );
+//   });
+
+  export default forwardRef(GalleryWall)
