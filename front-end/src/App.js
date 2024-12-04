@@ -69,7 +69,7 @@ function App() {
                 />
               
               <Route path="/login" element={<Login/>}></Route>
-              {/* <Route path="/signup" element={<SignUp/>}></Route> */}
+              <Route path="/signup" element={<SignUp/>}></Route>
               <Route path="/portal/:id" element={<UserPortal/>}></Route>
               <Route path="/verify/:token" element={<VerificationEmail/>}></Route>
               <Route path="/notify/email/:emailToken" element={<NotifyEmail/>}></Route>

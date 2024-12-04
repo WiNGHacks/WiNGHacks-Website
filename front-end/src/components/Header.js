@@ -68,7 +68,7 @@ const Header = ({}, ref) => {
     return (
       <div style={{position: + "relative"}}>
         {/* {console.log(currentPath)} */}
-      {/* {token || currentPath === "/login" || currentPath === "/signup" || currentPath === "/forgetPassword" ? (<div/>) : (<Popup/>)} */}
+      {token || currentPath === "/login" || currentPath === "/signup" || currentPath === "/forgetPassword" ? (<div/>) : (<Popup/>)}
       <div className = "navbar" id='navbar'>
 
       <Link to = "/#home"  onClick={() => handleClick('home')} className = "logo-container">
@@ -113,7 +113,7 @@ const Header = ({}, ref) => {
             :
             ( <div className='dynamic'>
                 <Link to="/login" className = "link" onClick={clickedNavbar}>Login</Link>
-                {/* <Link to="/signup" className = "link apply button-glow" onClick={clickedNavbar}>Apply Now</Link> */}
+                <Link to="/signup" className = "link apply button-glow" onClick={clickedNavbar}>Apply Now</Link>
               </div> )
           }
           
