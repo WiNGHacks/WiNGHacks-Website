@@ -1,6 +1,6 @@
 import React , {forwardRef, useState} from 'react'
 import logo from '../pictures/WiNGHACKS_logo.png'
-import banner from '../pictures/WiNGHacks_Banner-2.png'
+import banner from '../pictures/FULL_WiNGHacks_Insta_Banner.png'
 
 const Banner = ({}, ref) => {
 

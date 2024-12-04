@@ -77,7 +77,7 @@ const UserPortal = () => {
                             <h1 className='welcome-message'>Welcome, {firstName} {lastName}!</h1>
                             <div>Thank you for taking the time to make an account with WiNGHacks! Make sure you submit an application and let the uplifting begin!</div>
                         </div>
-                        <img src={flier} className='character'/>
+                        {/* <img src={flier} className='character'/> */}
                     </div>
                     <div className='portal-padding'>
                         <h2>Your Status: <span style={{color: "red"}}>{status}</span></h2>
@@ -97,7 +97,7 @@ const UserPortal = () => {
                             <h1 className='welcome-message'>Welcome, {firstName} {lastName}!</h1>
             
                         </div>
-                        <img src={flier} className='character'/>
+                        {/* <img src={flier} className='character'/> */}
                     </div>
                     <div className='portal-padding'>
                         {status === "Accepted"? 
