@@ -113,7 +113,7 @@ const Header = ({}, ref) => {
             :
             ( <div className='dynamic'>
                 <Link to="/login" className = "link" onClick={clickedNavbar}>Login</Link>
-                <Link to="/signup" className = "link apply button-glow" onClick={clickedNavbar}>Apply Now</Link>
+                <Link to={process.env.REACT_APP_APPLICATION_FORM} target="_blank" className = "link apply button-glow" onClick={clickedNavbar}>Apply Now</Link>
               </div> )
           }
           
