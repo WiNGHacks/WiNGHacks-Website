@@ -28,7 +28,7 @@ const Home = ({}, ref) => {
         <a href=""
               target="_blank">
               <button className='Button Button-home Button-interest'>Become a Mentor (forms will be released later)</button></a>
-        <a href="signup" ><button className='Button Button-home Button-apply button-glow-home-apply'>Apply now!</button></a>
+        <a href={process.env.REACT_APP_APPLICATION_FORM} target="_blank"><button className='Button Button-home Button-apply button-glow-home-apply'>Link to Apply!</button></a>
         <a><button onClick={downloadPDF} className='Button Button-home Button-sponsor'>Sponsorship Packet</button></a>
       </div>
       <div className='socials'>
