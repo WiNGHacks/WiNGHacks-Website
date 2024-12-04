@@ -22,17 +22,17 @@ const items = [
   {
     key: '3',
     header: 'When do applications open?',
-    content: "Applications are closed for our 2024 event date. Come back next academic year for our next event!",
+    content: "Applications open now until January 15th, 2025!",
   },
   {
     key: '4',
     header: "Who can attend? Is this event only for underrepresented people?",
-    content: "We welcome any college student 18 years old and above to participate in WiNGHacks. It’s important to keep in mind that we are looking to create a welcoming and empowering space for women and non-binary students in tech.",
+    content: "We welcome any University of Florida or Santa Fe College student 18 years old and above to participate in WiNGHacks. It’s important to keep in mind that we are looking to create a welcoming and empowering space for women and non-binary students in tech.",
   },
   {
     key: '5',
     header: "How will hackers be accepted?",
-    content: "Applications will close a week and a half before the hackathon weekend. We will admit people up to our capacity of 200 hackers, with some on a waitlist. Hackers must RSVP Yes to attend and must check in in-person during the hackathon.",
+    content: "We will admit people up to our capacity of 180 hackers, with some on a waitlist. Hackers must RSVP Yes to attend and must check in in-person during the hackathon.",
   },
   {
     key: '6',
@@ -47,7 +47,7 @@ const items = [
   {
     key: '8',
     header: "How do I register for a specific track?",
-    content: "You can indicate your interest for a track on the hacker application, but you will only be entered into a track officially when you upload your project onto Devpost under that track."
+    content: "You will be entered into a track officially when you upload your project onto Devpost under that track."
   },
   {
     key: '9',
@@ -57,12 +57,12 @@ const items = [
   {
     key: '10',
     header: "What if I need to leave?",
-    content: "You’re welcome to come and go to the Wertheim building as you please during the hacking hours of the hackathon. We recommend staying on site for a better community experience."
+    content: "You’re welcome to come and go to the Newell Hall building as you please during the hacking hours of the hackathon. We recommend staying on site for a better community experience."
   },
   {
     key: '11',
     header: "How is the venue?",
-    content: "The Wertheim building offers our hackers plenty of space to lounge, sleep, code, socialize, and even shower!"
+    content: "The Newell Hall building offers our hackers plenty of space to lounge, sleep, code, and socialize!"
   },
   {
     key: '12',

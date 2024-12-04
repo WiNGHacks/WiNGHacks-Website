@@ -61,14 +61,14 @@ const UserPortal = () => {
         }
       }, [])
 
-
+    const overrideStatus = "Not Applied";
     return (
         <div className="Page Portal" align='center'>
             {/* {console.log(selectedRSVP)} */}
             {/* {console.log(alreadyRSVP)} */}
             <FetchResponse email = {email} id={id} status={status}/>
             
-            { status === "Not Applied" ? 
+            { overrideStatus === "Not Applied" ? // status === "Not Applied" 
             (
                 <div>
                     {/* {console.log(status)} */}
@@ -80,7 +80,7 @@ const UserPortal = () => {
                         <img src={flier} className='character'/>
                     </div>
                     <div className='portal-padding'>
-                        <h2>Your Status: <span style={{color: "red"}}>{status}</span></h2>
+                        {/* <h2>Your Status: <span style={{color: "red"}}>{status}</span></h2> */}
                         <p>Please wait 5 minutes to see updates. Please only submit one application.</p>
 
                         <button className= "Button apply" onClick={() => {window.open(process.env.REACT_APP_APPLICATION_FORM)}}>
@@ -100,13 +100,13 @@ const UserPortal = () => {
                         <img src={flier} className='character'/>
                     </div>
                     <div className='portal-padding'>
-                        {status === "Accepted"? 
+                        {overrideStatus === "Accepted"? 
                         <h2>Your Status: <span style={{color: "#2ece46"}}>{status}</span></h2>
                         :
                         <h2>Your Status: <span style={{color: "#07888f"}}>{status}</span></h2>
                         }
                     
-                {status === "Accepted"? 
+                {overrideStatus === "Accepted"? 
                     (   
                         <div>
                             {/* <div>
@@ -157,7 +157,7 @@ const UserPortal = () => {
                         // </div>
                     ):(
                         <div>
-                            {status === "Rejected" ? (
+                            {overrideStatus === "Rejected" ? (
                                 <p>Thank you for applying! We hope to see you next year!</p>
                             ):(
                                 <p>Thank you for applying! Check back later for more updates on your application!</p>

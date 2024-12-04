@@ -12,68 +12,68 @@ import BNYMellon_logo from '../pictures/sponsor_logo/bnymellon-logo.png'
 
 
 export const SponsorList = [
+    // {
+    //     id: "1",
+    //     logo_image: bloomberg_logo,
+    //     url: "https://www.bloomberg.com/",
+    //     alt: 'Bloomberg Logo', 
+    // },
+    // {
+    //     id: "2",
+    //     logo_image: rtc_logo,
+    //     url: "https://rewritingthecode.org/",
+    //     alt: 'RTC Logo'
+    // },
+    // {
+    //     id: "3",
+    //     logo_image: c1_logo,
+    //     url: "https://www.capitalone.com/",
+    //     alt: 'Capital One Logo'
+    // },
+    // {
+    //     id: "4",
+    //     logo_image: TI_logo,
+    //     url: "https://www.ti.com/",
+    //     alt: 'Texas Instrument Logo'
+    // },
     {
         id: "1",
-        logo_image: bloomberg_logo,
-        url: "https://www.bloomberg.com/",
-        alt: 'Bloomberg Logo', 
-    },
-    {
-        id: "2",
-        logo_image: rtc_logo,
-        url: "https://rewritingthecode.org/",
-        alt: 'RTC Logo'
-    },
-    {
-        id: "3",
-        logo_image: c1_logo,
-        url: "https://www.capitalone.com/",
-        alt: 'Capital One Logo'
-    },
-    {
-        id: "4",
-        logo_image: TI_logo,
-        url: "https://www.ti.com/",
-        alt: 'Texas Instrument Logo'
-    },
-    {
-        id: "5",
         logo_image: JPMC_logo,
         url: "https://www.jpmorganchase.com/",
         alt: 'JPMC Logo'
     },
+    // {
+    //     id: "6",
+    //     logo_image: UKG_logo,
+    //     url: "https://www.ukg.com/",
+    //     alt: 'UKG Logo'
+    // },
+    // {
+    //     id: "7",
+    //     logo_image: Infotech_logo,
+    //     url: "https://www.infotechinc.com/",
+    //     alt: 'Infotech Logo'
+    // },
+    // {
+    //     id: "8",
+    //     logo_image: GitHub_logo,
+    //     url: "https://github.com",
+    //     alt: 'GitHub Logo'
+    // },
+    // {
+    //     id: "9",
+    //     logo_image: StandoutSticker_logo,
+    //     url: "https://www.hackp.ac/mlh-standoutstickers-hackathons/",
+    //     alt: 'StandoutSticker_logo'
+    // },
+    // {
+    //     id: "10",
+    //     logo_image: EA_logo,
+    //     url: "https://www.ea.com/",
+    //     alt: 'EA_logo'
+    // },
     {
-        id: "6",
-        logo_image: UKG_logo,
-        url: "https://www.ukg.com/",
-        alt: 'UKG Logo'
-    },
-    {
-        id: "7",
-        logo_image: Infotech_logo,
-        url: "https://www.infotechinc.com/",
-        alt: 'Infotech Logo'
-    },
-    {
-        id: "8",
-        logo_image: GitHub_logo,
-        url: "https://github.com",
-        alt: 'GitHub Logo'
-    },
-    {
-        id: "9",
-        logo_image: StandoutSticker_logo,
-        url: "https://www.hackp.ac/mlh-standoutstickers-hackathons/",
-        alt: 'StandoutSticker_logo'
-    },
-    {
-        id: "10",
-        logo_image: EA_logo,
-        url: "https://www.ea.com/",
-        alt: 'EA_logo'
-    },
-    {
-        id: "11",
+        id: "2",
         logo_image: BNYMellon_logo,
         url: "https://www.bnymellon.com/",
         alt: 'BNYMellon_logo'

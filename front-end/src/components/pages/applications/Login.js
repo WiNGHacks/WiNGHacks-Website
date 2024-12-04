@@ -164,9 +164,9 @@ const Login = () => {
 
                     {/* <img src={mushroom} className='little-guy'/> */}
                     
-                    {/* <p>Don't have an account?&nbsp;
+                    <p>Don't have an account?&nbsp;
                         <a href="/signup" >Sign Up Here</a>
-                    </p> */}
+                    </p>
                     <p className='tech-support'>For any techincal issues, please email the <a href="mailto:uf.winghacks.webmaster@gmail.com"> WiNGHacks webmaster.</a></p>
                 </div>
                 

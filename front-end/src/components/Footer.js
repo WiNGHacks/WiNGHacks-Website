@@ -17,7 +17,7 @@ const Footer = () => {
                         <div className='text'>Made with ♥ by the WiNGHacks team</div>
                         
                         <div>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTqVfJUiWjjARDFBh1MkegBLw0F-Kd-GquU2NJO1-H7ybOuQ/viewform"  target="_blank" className='link'>Mentor Applications</a>
+                            <a href=""  target="_blank" className='link'>Mentor Applications</a>
                         </div>
                         
                         <div>
