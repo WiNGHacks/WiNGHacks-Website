@@ -1,6 +1,6 @@
 
 import React,{useState, useEffect, forwardRef} from 'react'
-import logos from '../pictures/WiNGHACKS_Logo_sansWings.png'
+import logos from '../pictures/WiNGHACKS_logo.png'
 
 import wicse from '../pictures/org_logos/wicse_logo.png'
 import csk from '../pictures/org_logos/csk_logo.png'
