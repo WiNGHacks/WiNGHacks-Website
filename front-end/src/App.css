@@ -1178,10 +1178,10 @@ figcaption a {
 .footer-container {
   display: absolute;
   bottom: 0;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 1.2rem;
   text-align: center;
   padding: 2rem;
   padding-top: 4rem;
@@ -1199,8 +1199,9 @@ figcaption a {
 
   .footer-content {
     display: grid;
-    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-columns: 2fr 3fr 2fr;
     align-items: center;
+    justify-content: center;
 
     .image {
       height: 5rem;
@@ -1210,7 +1211,8 @@ figcaption a {
     .column {
       display: flex;
       flex-direction: column;
-      align-content: left;
+      align-content: center;
+      justify-content: center;
       border-left-color: #000;
     }
   }  

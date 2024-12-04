@@ -58,7 +58,7 @@ function App() {
                     <>
                       <Banner ref = {ref} />
                       <Home  ref = {ref} />
-                      <GalleryWall ref={(el) => (ref.current['gallerywall'] = el)} />
+                      <GalleryWall ref = {ref} />
                       <AboutUs ref = {ref} />
                       <Schedule ref = {ref} />
                       <Awards ref = {ref} />
@@ -69,7 +69,7 @@ function App() {
                 />
               
               <Route path="/login" element={<Login/>}></Route>
-              {/* <Route path="/signup" element={<SignUp/>}></Route> */}
+              <Route path="/signup" element={<SignUp/>}></Route>
               <Route path="/portal/:id" element={<UserPortal/>}></Route>
               <Route path="/verify/:token" element={<VerificationEmail/>}></Route>
               <Route path="/notify/email/:emailToken" element={<NotifyEmail/>}></Route>

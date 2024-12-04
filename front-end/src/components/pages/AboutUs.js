@@ -56,11 +56,16 @@ const AboutUs = ({}, ref) => {
         {/* <img src={mushroom} className='little-guy'/> */}
         <div className = "location-container">
           <div className = "location-child-container">
-            <p>WiNGHacks will be hosted on April 5 - 7, 2024 at the <a style={{color: "#F07167"}} href="https://maps.app.goo.gl/jM9GABPNd8B3tsis5" target="_blank">Newell Hall</a>. Hacking starts at 7 PM Friday and ends at 7 AM Sunday, for a total of 36 hours.</p>
+            <p>WiNGHacks will be hosted on February 7 - 9, 2024 at the <a style={{color: "#F07167"}} href="https://maps.app.goo.gl/8HVyA9sQLMdAPiwv5" target="_blank">Herbert Wertheim Laboratory of Engineering Excellence</a>. Hacking starts at 7 PM Friday and ends at 7 AM Sunday, for a total of 36 hours.</p>
           </div>
           <div className = "location-child-container">
           <div className="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.4373091648654!2d-82.34754972446129!3d29.649081975125068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e8a302d12c18a5%3A0x514d5a7f4fe6619c!2sNewell%20Hall!5e0!3m2!1sen!2sus!4v1733197737438!5m2!1sen!2sus"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.4956242087314!2d-82.35060872446137!3d29.647389075126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e8a3162c00e6f1%3A0x45d6790f1bdd4c19!2sHerbert%20Wertheim%20Laboratory%20for%20Engineering%20Excellence!5e0!3m2!1sen!2sus!4v1708024355810!5m2!1sen!2sus"  
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
           </div>
           </div>
 

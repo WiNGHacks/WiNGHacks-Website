@@ -27,7 +27,7 @@ const Popup = ({}, ref) => {
           </div> */}
           <div className="footer">
             {/* <button>Continue</button> */}
-            <Link to="/signup" className = "apply button-glow" onClick={() => {
+            <Link to={process.env.REACT_APP_APPLICATION_FORM} target="_blank" className = "apply button-glow" onClick={() => {
                 setOpenModal(false);
               }}>
               APPLY NOW
