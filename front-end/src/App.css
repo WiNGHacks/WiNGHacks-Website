@@ -452,7 +452,9 @@ button:hover{ cursor: pointer; }
     }
       
     .logo-who-we-are{
-      max-width: 75%;
+      width: 75%;
+      height: auto;
+      padding-left: 10%;
     }
   }
 
