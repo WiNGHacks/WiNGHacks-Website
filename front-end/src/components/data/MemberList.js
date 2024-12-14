@@ -258,7 +258,7 @@ export const MemberList = [
         profile_pic: Rebecca_Borissova_pic,
         linkedIn: "https://www.linkedin.com/in/rborissova/",
         major: "Computer Science",
-        committee_position: "Committee Member",
+        committee_position: "Committee Head",
         committee_name: "Website",
     },
     {
