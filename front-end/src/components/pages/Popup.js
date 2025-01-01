@@ -20,7 +20,7 @@ const Popup = ({}, ref) => {
           </div>
           <div className="title">
             <h1>The 2025 WiNGHacks Hacker Application is OPEN!</h1>
-            <img src={ladyGIF} className='little-guy' />
+            <img src={ladyGIF} className='little-guy' alt='GIF of a WiNGHacks Character'/>
           </div>
           {/* <div className="body">
             <p></p>
