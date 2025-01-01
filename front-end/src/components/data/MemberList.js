@@ -66,7 +66,7 @@ export const MemberList = [
         profile_pic: Mansa_Patel_pic,
         linkedIn: "https://www.linkedin.com/in/mansa-patel",
         major: "Computer Science",
-        committee_position: "Committee Head",
+        committee_position: "Committee Member",
         committee_name: "Awards",
     },
     {
@@ -157,7 +157,7 @@ export const MemberList = [
         profile_pic: Naydelin_Trejo_pic,
         linkedIn: "https://www.linkedin.com/in/naydelin-trejo?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         major: "Computer Science",
-        committee_position: "Committee Member",
+        committee_position: "Committee Head",
         committee_name: "Operations",
     },
     {
@@ -202,7 +202,7 @@ export const MemberList = [
         profile_pic: Divyanshi_Saini_pic,
         linkedIn: "https://www.linkedin.com/in/divyanshisaini", 
         major: "Computer Science and Business Management",
-        committee_position: "Committee Member",
+        committee_position: "Committee Head",
         committee_name: "PR",
     },
     {
