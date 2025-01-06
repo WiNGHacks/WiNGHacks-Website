@@ -15,15 +15,18 @@ const Footer = () => {
                 
                     <div className='column'>
                         <div className='text'>Made with ♥ by the WiNGHacks team</div>
-                        
-                        <div>
-                            <a href=""  target="_blank" className='link'>Mentor Applications</a>
-                        </div>
-                        
                         <div>
                             <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" style={{color: "#0081A7", fontWeight: "bold"}} className='link' target="_blank">MLH Code of Conduct</a>
                         </div>
+
+                        <div>
+                            <p style={{fontSize: "15px" }}>© 2024 WiNGHacks. All rights reserved.</p>
+                        </div>
                         
+                    </div>
+
+                    <div className = 'column'>     
+                        <div className='text'>Connect with Us!</div>
                         <div className='socials' >
                             <a href="https://www.instagram.com/winghacks/" target="_blank" rel="noopener noreferrer">
                                 <FaSquareInstagram className='icons' size='6vh'/>
@@ -34,12 +37,7 @@ const Footer = () => {
                             <a href="mailto:uf.winghacks@gmail.com" target="_blank" rel="noopener noreferrer">
                                 <IoMdMail className='icons' size='6vh'/>
                             </a>
-                        </div>
-
-                        <div>
-                            <p style={{fontSize: "15px" }}>© 2024 WiNGHacks. All rights reserved.</p>
-                        </div>
-                        
+                        </div>     
                     </div>
                
                 </div>
