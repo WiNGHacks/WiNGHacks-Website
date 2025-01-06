@@ -228,8 +228,16 @@ button:hover{ cursor: pointer; }
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
 .Gallery {
-  min-height: 60vh;
+  min-height: 35vh;
   max-height: 60%;
+}
+
+.image-gallery img {
+  object-fit: contain;
+}
+
+.image-gallery-slide img {
+  max-width: 100%;
 }
 
 .Home { 
