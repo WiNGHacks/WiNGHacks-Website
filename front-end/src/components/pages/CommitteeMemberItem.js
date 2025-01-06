@@ -10,7 +10,7 @@ const CommitteeMemberItem = ({name, image, position, linkedIn}) =>{
                     <figcaption>
                         <h3>{name}</h3>
                         <h4>{position}</h4>
-                        <a target='_blank' href={linkedIn}>Connect</a>
+                        <a href={linkedIn} target='_blank' >Connect</a>
                     </figcaption>
                 </figure>
             </li>

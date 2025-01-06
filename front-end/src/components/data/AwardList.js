@@ -36,7 +36,7 @@ export const AwardList = [
         description:"Checkout the projects on Devpost!",
         alt: "Congratulations WingHacks Winners!", 
         tag: 'BestUse',
-        sponsored:"Learn more",
+        sponsored:"WiNGHacks Devpost",
         learnMore:"https://winghacks.devpost.com/",
     },
     {
@@ -125,7 +125,7 @@ export const AwardList = [
         description:" Build a hack using MongoDB Atlas for a chance to win a M5GO IoT Starter Kit for you and each member of your team.",
         alt: "Best Use of MongoDB", 
         tag: 'BestUse',
-        sponsored:"Learn more",
+        sponsored:"2024 WiNGHacks Prizes",
         learnMore:"https://hack.mlh.io/hackuf/prizes",
     },
     {
@@ -136,7 +136,7 @@ export const AwardList = [
         description:"Register your domain name with GoDaddy Registry for a chance to win a Hack from Home Kit!",
         alt: "Best Domain Name from GoDaddy Registry", 
         tag: 'BestUse',
-        sponsored:"Learn more",
+        sponsored:"2024 WiNGHacks Prizes",
         learnMore:"https://hack.mlh.io/hackuf/prizes",
     },
     {
@@ -147,7 +147,7 @@ export const AwardList = [
         description:"Come up with innovative ways to create forward-thinking financial tech that promotes equality for all people!",
         alt: "Best DEI Hack sponsored by Fidelity", 
         tag: 'BestUse',
-        sponsored:"Learn more",
+        sponsored:"2024 WiNGHacks Prizes",
         learnMore:"https://hack.mlh.io/hackuf/prizes",
     },
     // {
@@ -157,7 +157,7 @@ export const AwardList = [
     //     description:"Build a hack using Starknet for a chance to win a Starknet Care Package for Coders",
     //     alt: "Best Use of Starknet", 
     //     tag: 'BestUse',
-    //     sponsored:"Learn more",
+    //     sponsored:"2024 WiNGHacks Prizes",
     //     learnMore:"https://hack.mlh.io/hackuf/prizes",
     // },
     {
@@ -168,7 +168,7 @@ export const AwardList = [
         description:"Use Taipy in your hackathon project for a chance to win a set of Wireless Headphones for you and each of your team members and a chance to have your project featured on the Taipy website!",
         alt: "Best Use of Taipy", 
         tag: 'BestUse',
-        sponsored:"Learn more",
+        sponsored:"2024 WiNGHacks Prizes",
         learnMore:"https://hack.mlh.io/hackuf/prizes",
     },
     

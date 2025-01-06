@@ -25,9 +25,9 @@ const Home = ({}, ref) => {
     <div className='Home'>
       <div className='home-buttons' align="center">
         {/* last year's become a mentor form: https://docs.google.com/forms/d/e/1FAIpQLSeTqVfJUiWjjARDFBh1MkegBLw0F-Kd-GquU2NJO1-H7ybOuQ/viewform */}
-        <a href=""
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcH7xPMC3ERh2Bj3X6iRDo5-_8AuHoCK3aQbMfBKTDw5uM2g/viewform?pli=1&pli=1"
               target="_blank">
-              <button className='Button Button-home Button-interest'>Become a Mentor (forms will be released later)</button></a>
+              <button className='Button Button-home Button-interest'>Become a Mentor</button></a>
         <a href={process.env.REACT_APP_APPLICATION_FORM} target="_blank"><button className='Button Button-home Button-apply button-glow-home-apply'>Link to Apply!</button></a>
         <a><button onClick={downloadPDF} className='Button Button-home Button-sponsor'>Sponsorship Packet</button></a>
       </div>

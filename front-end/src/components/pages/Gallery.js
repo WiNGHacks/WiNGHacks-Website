@@ -144,6 +144,8 @@ const GalleryWall = ({}, ref) => {
         <ImageGallery items={images} 
                         autoPlay = "autoPlay"
                         showBullets = {true}
+                        originalAlt = 'Gallery Image'
+                        thumbnailAlt = 'Gallery Thumbnail Image'
         />
       </div>
     </div>
