@@ -15,10 +15,7 @@ const Sponsors = ({}, ref) => {
     // link.click();
     // document.body.removeChild(link);
 
-    setOpenPDF(!openPDF)
-
-
-    
+    setOpenPDF(!openPDF)  
   };
 
   const downloadPDF = () => {
@@ -35,8 +32,33 @@ const Sponsors = ({}, ref) => {
     <div ref = {el => ref.current = { ...ref.current, sponsor: el }} 
       align='center' className='margins'>
       <h1 align='left'>Sponsors</h1>
-        <div  align='center'className='sponsor-logo-container'>
-        {SponsorList.map((sponsor) => (
+        <h2>Platinum Sponsors</h2>
+        <div align='center' className='sponsor-logo-container'>
+        {SponsorList.filter((sponsor) => sponsor.tier === 'Platinum').map((sponsor) => (
+          <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer" style={{border: '3px solid rgb(182, 214, 230)'}}>
+              <img src={sponsor.logo_image} alt={sponsor.alt} />
+          </a>
+        ))}
+        </div>
+        <h2>Gold Sponsors</h2>
+        <div align='center' className='sponsor-logo-container'>
+        {SponsorList.filter((sponsor) => sponsor.tier === 'Gold').map((sponsor) => (
+          <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer" style={{border: '3px solid rgb(238, 218, 107)'}}>
+              <img src={sponsor.logo_image} alt={sponsor.alt} />
+          </a>
+        ))}
+        </div>
+        <h2>Silver Sponsors</h2>
+        <div align='center' className='sponsor-logo-container'>
+        {SponsorList.filter((sponsor) => sponsor.tier === 'Silver').map((sponsor) => (
+          <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer" style={{border: '3px solid rgb(200, 203, 206)'}}>
+              <img src={sponsor.logo_image} alt={sponsor.alt} />
+          </a>
+        ))}
+        </div>
+        <h2>Other Sponsors</h2>
+        <div align='center' className='sponsor-logo-container'>
+        {SponsorList.filter((sponsor) => sponsor.tier === 'Other').map((sponsor) => (
           <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer">
               <img src={sponsor.logo_image} alt={sponsor.alt} />
           </a>

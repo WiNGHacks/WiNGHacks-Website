@@ -18,6 +18,7 @@ export const SponsorList = [
         logo_image: bloomberg_logo,
         url: "https://www.bloomberg.com/",
         alt: 'Bloomberg Logo', 
+        tier: 'Silver',
     },
     // {
     //     id: "2",
@@ -41,7 +42,8 @@ export const SponsorList = [
         id: "5",
         logo_image: JPMC_logo,
         url: "https://www.jpmorganchase.com/",
-        alt: 'JPMC Logo'
+        alt: 'JPMC Logo',
+        tier: 'Platinum'
     },
     // {
     //     id: "6",
@@ -53,7 +55,8 @@ export const SponsorList = [
         id: "7",
         logo_image: Infotech_logo,
         url: "https://www.infotechinc.com/",
-        alt: 'Infotech Logo'
+        alt: 'Infotech Logo',
+        tier: 'Silver',
     },
     // {
     //     id: "8",
@@ -65,7 +68,8 @@ export const SponsorList = [
         id: "9",
         logo_image: StandoutSticker_logo,
         url: "https://www.hackp.ac/mlh-standoutstickers-hackathons/",
-        alt: 'StandoutSticker_logo'
+        alt: 'StandoutSticker_logo',
+        tier: 'Other',
     },
     // {
     //     id: "10",
@@ -77,19 +81,22 @@ export const SponsorList = [
         id: "11",
         logo_image: BNYMellon_logo,
         url: "https://www.bnymellon.com/",
-        alt: 'BNYMellon_logo'
+        alt: 'BNYMellon_logo',
+        tier: 'Platinum',
     },
     {
         id: "12",
         logo_image: VSPVision_logo,
         url: "https://www.vsp.com/",
-        alt: 'VSPVision_logo'
+        alt: 'VSPVision_logo',
+        tier: 'Gold',
     },
     {
         id: "13",
         logo_image: MLH_logo,
         url: "https://mlh.io/",
-        alt: 'MLH_logo'
+        alt: 'MLH_logo',
+        tier: 'Other',
     }
 
 ]

@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import Cookies from "universal-cookie";
 import { jwtDecode } from "jwt-decode";
 import { FaBars, FaTimes } from "react-icons/fa";
-import '../App.css';
 import logo from './pictures/WiNGHACKS_logo.png'
 import Popup from './pages/Popup'
 import AppCountDown from './AppCountDown';
