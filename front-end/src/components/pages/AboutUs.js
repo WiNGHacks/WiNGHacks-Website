@@ -22,7 +22,6 @@ const AboutUs = ({}, ref) => {
       <div className='Page About'>
         <div className='mission-container'>
           <h1>WiNGHacks are the wings that uplift women, nonbinary people, and gender minorities.</h1>
-          {/* <p>{text}</p> */}
         </div>
         <div className='who-we-are-container'>
           <div className='who-we-are-child-container'>

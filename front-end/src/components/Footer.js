@@ -25,8 +25,7 @@ const Footer = () => {
                         
                     </div>
 
-                    <div className = 'column'>     
-                        <div className='text'>Connect with Us!</div>
+                    <div className = 'column'>
                         <div className='socials' >
                             <a href="https://www.instagram.com/winghacks/" target="_blank" rel="noopener noreferrer">
                                 <FaSquareInstagram className='icons' size='6vh'/>
