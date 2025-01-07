@@ -43,7 +43,7 @@ export const SponsorList = [
         logo_image: JPMC_logo,
         url: "https://www.jpmorganchase.com/",
         alt: 'JPMC Logo',
-        tier: 'Platinum'
+        tier: 'Co-Host'
     },
     // {
     //     id: "6",
