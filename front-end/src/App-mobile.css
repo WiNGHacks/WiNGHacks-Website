@@ -553,15 +553,6 @@
     max-height: 40vh !important;
   }
 
-  .sponsor-logo-container img {
-    max-width: 100%;
-    max-height: 100%;
-  }
-
-  .sponsor-logo-container a {
-    padding: -2rem;
-  }
-
   .RSVP {
     #msform fieldset {
       min-width: 100%;
