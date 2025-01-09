@@ -32,45 +32,61 @@ const Sponsors = ({}, ref) => {
     <div ref = {el => ref.current = { ...ref.current, sponsor: el }} 
       align='center' className='margins'>
       <h1 align='left'>Sponsors</h1>
-        <h2>Co-Host</h2>
-        <div align='center' className='sponsor-logo-container'>
-        {SponsorList.filter((sponsor) => sponsor.tier === 'Co-Host').map((sponsor) => (
-          <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer" style={{border: '3px solid rgb(61, 61, 61)'}}>
-              <img src={sponsor.logo_image} alt={sponsor.alt} />
-          </a>
-        ))}
+        <div className='sponsor-row'>
+          <div className='sponsor-tier-container'>
+            <h2>Co-Host</h2>
+            <div align='center' className='sponsor-logo-container'>
+            {SponsorList.filter((sponsor) => sponsor.tier === 'Co-Host').map((sponsor) => (
+              <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer" style={{border: '3px solid rgb(61, 61, 61)'}}>
+                  <img src={sponsor.logo_image} alt={sponsor.alt} />
+              </a>
+            ))}
+            </div>
+          </div>
+          <div className='sponsor-tier-container'>
+            <h2>Platinum Sponsors</h2>
+            <div align='center' className='sponsor-logo-container'>
+            {SponsorList.filter((sponsor) => sponsor.tier === 'Platinum').map((sponsor) => (
+              <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer" style={{border: '3px solid rgb(182, 214, 230)'}}>
+                  <img src={sponsor.logo_image} alt={sponsor.alt} />
+              </a>
+            ))}
+            </div>
+          </div>
         </div>
-        <h2>Platinum Sponsors</h2>
-        <div align='center' className='sponsor-logo-container'>
-        {SponsorList.filter((sponsor) => sponsor.tier === 'Platinum').map((sponsor) => (
-          <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer" style={{border: '3px solid rgb(182, 214, 230)'}}>
-              <img src={sponsor.logo_image} alt={sponsor.alt} />
-          </a>
-        ))}
+        <div className='sponsor-row'>
+          <div className='sponsor-tier-container'>
+            <h2>Gold Sponsors</h2>
+            <div align='center' className='sponsor-logo-container'>
+            {SponsorList.filter((sponsor) => sponsor.tier === 'Gold').map((sponsor) => (
+              <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer" style={{border: '3px solid rgb(238, 218, 107)'}}>
+                  <img src={sponsor.logo_image} alt={sponsor.alt} />
+              </a>
+            ))}
+            </div>
+          </div>
+          <div className='sponsor-tier-container'>
+            <h2>Silver Sponsors</h2>
+            <div align='center' className='sponsor-logo-container'>
+            {SponsorList.filter((sponsor) => sponsor.tier === 'Silver').map((sponsor) => (
+              <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer" style={{border: '3px solid rgb(200, 203, 206)'}}>
+                  <img src={sponsor.logo_image} alt={sponsor.alt} />
+              </a>
+            ))}
+            </div>
+          </div>
         </div>
-        <h2>Gold Sponsors</h2>
-        <div align='center' className='sponsor-logo-container'>
-        {SponsorList.filter((sponsor) => sponsor.tier === 'Gold').map((sponsor) => (
-          <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer" style={{border: '3px solid rgb(238, 218, 107)'}}>
-              <img src={sponsor.logo_image} alt={sponsor.alt} />
-          </a>
-        ))}
-        </div>
-        <h2>Silver Sponsors</h2>
-        <div align='center' className='sponsor-logo-container'>
-        {SponsorList.filter((sponsor) => sponsor.tier === 'Silver').map((sponsor) => (
-          <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer" style={{border: '3px solid rgb(200, 203, 206)'}}>
-              <img src={sponsor.logo_image} alt={sponsor.alt} />
-          </a>
-        ))}
-        </div>
-        <h2>Other Sponsors</h2>
-        <div align='center' className='sponsor-logo-container'>
-        {SponsorList.filter((sponsor) => sponsor.tier === 'Other').map((sponsor) => (
-          <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer">
-              <img src={sponsor.logo_image} alt={sponsor.alt} />
-          </a>
-        ))}
+        <div className='sponsor-row'>
+          <div className='sponsor-tier-container'>
+            <h2>Other Sponsors</h2>
+            <div align='center' className='sponsor-logo-container'>
+            {SponsorList.filter((sponsor) => sponsor.tier === 'Other').map((sponsor) => (
+              <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer">
+                  <img src={sponsor.logo_image} alt={sponsor.alt} />
+              </a>
+            ))}
+            </div>
+          </div>
         </div>
 
       <button className='Button Button-sponsor-page' onClick ={onButtonClick}>
