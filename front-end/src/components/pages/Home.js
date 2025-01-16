@@ -1,5 +1,4 @@
 import React , {forwardRef} from 'react'
-import logo from '../pictures/WiNGHacks_logo.png'
 import banner from '../pictures/WiNGHacks_Banner.png'
 
 // import { SlSocialLinkedin } from "react-icons/sl";
