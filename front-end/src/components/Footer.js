@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaSquareInstagram, FaLinkedin } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
-import logo from './pictures/WiNGHacks_logo.png'
+import logo from '../pictures/WiNGHacks_logo.png'
 
 const Footer = () => {
 
