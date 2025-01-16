@@ -1,6 +1,6 @@
 
 import React,{useState, useEffect, forwardRef} from 'react'
-import logos from '../pictures/WiNGHACKS_logo.png'
+import logos from '../pictures/WiNGHacks_logo.png'
 
 import CommitteeMemberItem from './CommitteeMemberItem.js'
 import { MemberList } from '../data/MemberList.js'
