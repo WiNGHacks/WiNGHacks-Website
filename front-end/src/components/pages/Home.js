@@ -27,7 +27,7 @@ const Home = ({}, ref) => {
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcH7xPMC3ERh2Bj3X6iRDo5-_8AuHoCK3aQbMfBKTDw5uM2g/viewform?pli=1&pli=1"
               target="_blank">
               <button className='Button Button-home Button-interest'>Become a Mentor</button></a>
-        <a href={process.env.REACT_APP_APPLICATION_FORM} target="_blank"><button className='Button Button-home Button-apply button-glow-home-apply'>Link to Apply!</button></a>
+        {/* <a href={process.env.REACT_APP_APPLICATION_FORM} target="_blank"><button className='Button Button-home Button-apply button-glow-home-apply'>Link to Apply!</button></a> */}
         <a><button onClick={downloadPDF} className='Button Button-home Button-sponsor'>Sponsorship Packet</button></a>
       </div>
       <div className='socials'>
