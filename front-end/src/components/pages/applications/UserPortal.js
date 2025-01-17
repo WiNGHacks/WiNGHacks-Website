@@ -83,9 +83,9 @@ const UserPortal = () => {
                         {/* <h2>Your Status: <span style={{color: "red"}}>{status}</span></h2> */}
                         <p>Please wait 5 minutes to see updates. Please only submit one application.</p>
 
-                        <button className= "Button apply" onClick={() => {window.open(process.env.REACT_APP_APPLICATION_FORM)}}>
+                        {/* <button className= "Button apply" onClick={() => {window.open(process.env.REACT_APP_APPLICATION_FORM)}}>
                             Apply Now
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             )
