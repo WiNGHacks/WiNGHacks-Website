@@ -67,7 +67,7 @@ const Header = ({}, ref) => {
     return (
       <div style={{position: + "relative"}}>
         {/* {console.log(currentPath)} */}
-      {token || currentPath === "/login" || currentPath === "/signup" || currentPath === "/forgetPassword" ? (<div/>) : (<Popup/>)}
+      {/* {token || currentPath === "/login" || currentPath === "/signup" || currentPath === "/forgetPassword" ? (<div/>) : (<Popup/>)} */}
       <div className = "navbar" id='navbar'>
 
       <Link to = "/#home"  onClick={() => handleClick('home')} className = "logo-container">
