@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Cookies from "universal-cookie";
 import { jwtDecode } from "jwt-decode";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logo from './pictures/WiNGHACKS_logo.png'
+import logo from './pictures/WiNGHacks_logo.png'
 import Popup from './pages/Popup'
 import AppCountDown from './AppCountDown';
 
@@ -67,7 +67,7 @@ const Header = ({}, ref) => {
     return (
       <div style={{position: + "relative"}}>
         {/* {console.log(currentPath)} */}
-      {token || currentPath === "/login" || currentPath === "/signup" || currentPath === "/forgetPassword" ? (<div/>) : (<Popup/>)}
+      {/* {token || currentPath === "/login" || currentPath === "/signup" || currentPath === "/forgetPassword" ? (<div/>) : (<Popup/>)} */}
       <div className = "navbar" id='navbar'>
 
       <Link to = "/#home"  onClick={() => handleClick('home')} className = "logo-container">
@@ -112,7 +112,7 @@ const Header = ({}, ref) => {
             :
             ( <div className='dynamic'>
                 <Link to="/login" className = "link" onClick={clickedNavbar}>Login</Link>
-                <Link to={process.env.REACT_APP_APPLICATION_FORM} target="_blank" className = "link apply button-glow" onClick={clickedNavbar}>Apply Now</Link>
+                {/* <Link to={process.env.REACT_APP_APPLICATION_FORM} target="_blank" className = "link apply button-glow" onClick={clickedNavbar}>Apply Now</Link> */}
               </div> )
           }
           
