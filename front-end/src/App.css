@@ -1,7 +1,7 @@
 .app {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   /* background-color: #BFEBF4; */
-  background-image: linear-gradient(#BFEBF4 100vh, #f4f7ff);
+  background-image: linear-gradient(#24301f 40%, #e7faea);
   /* background-image: url(./components/pictures/Blue-Purple_background.png);
   background-attachment: fixed;
   background-position: center;  */
@@ -109,7 +109,7 @@ button:hover{ cursor: pointer; }
   
     .link {
       cursor: pointer;
-      color: #0081A7;
+      color: #4da99e;
       font-family: teacher-semibold;
       font-weight: bold;
       text-transform: uppercase;
@@ -123,7 +123,7 @@ button:hover{ cursor: pointer; }
       white-space: nowrap;
       }
     .link:hover {
-      color: #2edaed;
+      color: #83ddcd;
       /* Change text color on hover (you can choose any color you like) */
     }
 
@@ -221,7 +221,7 @@ button:hover{ cursor: pointer; }
   font-family: bitter;
   font-variant: small-caps;
   font-size: clamp(1rem, 2vw, 2rem);
-  color: #0081A7;
+  color: #4da99e;
   max-width: 600px;
 }
 
@@ -264,13 +264,13 @@ button:hover{ cursor: pointer; }
   
     .icons {
       padding: 0rem clamp(0.5rem);
-      color: #e25167;
+      color: #cda95f;
       font-size: 5rem;
     }
   
     .icons:hover {
       border-radius: 5px;
-      color: #ff3700;
+      color: #ffd175;
       cursor: pointer;
     }
   }
@@ -292,7 +292,7 @@ button:hover{ cursor: pointer; }
       font-family: bitter;
       font-variant: small-caps;
       font-size: clamp(2rem, 4vw, 4rem);
-      color: #0081A7;
+      color: #4da99e;
       max-width: 800px;
       animation-name: floating;
       animation-duration: 3s;
@@ -325,8 +325,8 @@ button:hover{ cursor: pointer; }
       font-variant: small-caps;
       font-size: clamp(1rem, 3vw, 3rem);
       font-style: bold;
-      color: #F07167;
-      -webkit-text-stroke: #712020;
+      color: #cda95f;
+      -webkit-text-stroke: #7b7144;
       max-width: 600px;
     }
 
@@ -377,8 +377,8 @@ button:hover{ cursor: pointer; }
 }
 
 .Button-interest{
-  background-color: #00AFB9;
-  -webkit-box-shadow:inset 0 1px 0 #00AFB9, 0 10px 0 #00424b;
+  background-color: #4da99e;
+  -webkit-box-shadow:inset 0 1px 0 #4da99e, 0 10px 0 #00424b;
   border-color: #22457d;
 }
 
@@ -431,7 +431,7 @@ button:hover{ cursor: pointer; }
 .About {
   .mission-container {
     display: inline;
-    color: #d15047;
+    color: #4da99e;
     font-family: teacher-regular;
     font-size: clamp(0.5rem, 1rem, 1rem);
   }
@@ -500,8 +500,8 @@ button:hover{ cursor: pointer; }
         flex: 2;
       }
       .btn-committee-names button{
-        background-color: #F07167;
-        border:0.5px solid #441305;
+        background-color: #cda95f;
+        border:0.5px solid #7b7144;
         font-family: teacher-semibold;
         color: white;
         a { color: white; }
@@ -518,7 +518,7 @@ button:hover{ cursor: pointer; }
       }
 
       .btn-committee-names button:hover{
-        background-color: #712020;
+        background-color: #7b7144;
       }
     }
 
@@ -564,7 +564,7 @@ figure {
   margin: 0 1.25em 1.25em 0;
   position: relative;
   text-align: center;
-  border: 0.3em solid  #F07167;
+  border: 0.3em solid  #cda95f;
   border-radius: 0.5em;
   overflow: scroll;
 
@@ -580,7 +580,7 @@ figure::-webkit-scrollbar {
 
 
 figure:hover{
-  border: 0.4em solid #712020;
+  border: 0.4em solid #7b7144;
   img {
     opacity: 0.1;
     transition: all .2s ease-in-out .2s;
@@ -611,7 +611,7 @@ figcaption{
 figcaption a {
   font-weight: bold;
   text-decoration: none;
-  background-color: #F07167;
+  background-color: #cda95f;
   display: inline-block;
   text-align: center;
   color: white;
@@ -624,7 +624,7 @@ figcaption a {
 
 
   &:hover{
-    background-color: #712020;
+    background-color: #7b7144;
   }
 }
 
@@ -749,6 +749,11 @@ figcaption a {
   }
 }
 
+/* .app.page-login {
+  border: 5px solid white;
+  background-image: linear-gradient(#24301f 100vh, #f4f7ff);
+} */
+
 .login-container {
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -790,7 +795,7 @@ figcaption a {
       font-weight: 700;
       font-size: 14px;
       letter-spacing: 1px;
-      background-color: rgb(62, 141, 211);
+      background-color: #cda95f;
       padding: 10px 20px;
       border: none;
       border-radius: 20px;
@@ -805,7 +810,7 @@ figcaption a {
       
     }
     .submitBubble:hover {
-      background-color: rgb(44, 19, 153);
+      background-color: #7b7144;
       color: white;
       flex-direction: column;
       align-self: center;
@@ -845,7 +850,7 @@ figcaption a {
   }
 
   .name-banner {
-    background-color:  rgb(255, 164, 157);
+    background-color:  #4da99e;
     display: flex;
     flex: auto;
     border-top-left-radius: 25px;
@@ -913,7 +918,7 @@ figcaption a {
     font-weight: 700;
     font-size: 14px;
     letter-spacing: 1px;
-    background-color: rgb(62, 141, 211);
+    background-color: #cda95f;
     padding: 10px 20px;
     border: none;
     border-radius: 20px;
@@ -929,7 +934,7 @@ figcaption a {
     
   }
   .Button-rsvp:hover {
-    background-color: rgb(44, 19, 153);
+    background-color: #7b7144;
     color: white;
     flex-direction: column;
     align-self: center;
@@ -1212,7 +1217,7 @@ figcaption a {
   .link {
     font-weight: bold;
     text-decoration: none;
-    color: #ff8178;
+    color: #cda95f;
     height: 15px;
   }
 
@@ -1226,7 +1231,7 @@ figcaption a {
   }
   .socials .icons {
     padding: 0rem clamp(0.5rem);
-    color: #58a8d1;
+    color: #cda95f;
     font-size: 2rem;
     text-align: left;
     float: left;
@@ -1234,7 +1239,7 @@ figcaption a {
 
   .socials .icons:hover {
     border-radius: 5px;
-    color: #7579c5;
+    color: #7b7144;
     cursor: pointer;
   }
 
@@ -1484,7 +1489,7 @@ th {
   /*buttons*/
   #msform .action-button {
     width: 100px;
-    background: #00AFB9;
+    background: #cda95f;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -1496,7 +1501,7 @@ th {
     font-size: 14px;
   }
   #msform .action-button:hover, #msform .action-button:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #00AFB9;
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #7b7144;
   }
   /*headings*/
   .fs-title {
@@ -1507,7 +1512,7 @@ th {
   }
 
   .congrats {
-    color: #00AFB9;
+    color: #4da99e;
     font-size: 2rem;
   }
 
@@ -1565,7 +1570,7 @@ th {
   /*marking active/completed steps green*/
   /*The number of the step and the connector before it = green*/
   #progressbar li.active:before,  #progressbar li.active:after{
-    background: #00AFB9;
+    background: #4da99e;
     color: white;
   }
 
@@ -1736,6 +1741,8 @@ th {
   
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    background-color: #e7faea;
     max-width: 320px;
     height: 35rem;
     margin: 1rem 1rem;
@@ -1784,7 +1791,7 @@ th {
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: #00AFB9; 
+  background-color: #4da99e; 
   border-radius: 45%;
 }
 
@@ -1795,7 +1802,7 @@ th {
 }
 
 .carousel-indicators li {
-  background-color: #00AFB9; 
+  background-color: #4da99e; 
 }
 
 
