@@ -104,7 +104,7 @@ const Login = () => {
       
 
     return (
-        <div>
+        <div className='app.page-login'>
             <div className='login-container'>
                 <div className='form-container' align= "center">
                     <h1 >User Login</h1>

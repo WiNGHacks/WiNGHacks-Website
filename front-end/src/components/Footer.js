@@ -16,7 +16,7 @@ const Footer = () => {
                     <div className='column'>
                         <div className='text'>Made with ♥ by the WiNGHacks team</div>
                         <div>
-                            <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" style={{color: "#0081A7", fontWeight: "bold"}} className='link' target="_blank">MLH Code of Conduct</a>
+                            <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" style={{color: "#4da99e", fontWeight: "bold"}} className='link' target="_blank">MLH Code of Conduct</a>
                         </div>
 
                         <div>
