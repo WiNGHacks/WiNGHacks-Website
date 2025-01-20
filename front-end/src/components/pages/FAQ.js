@@ -22,7 +22,7 @@ const items = [
   {
     key: '3',
     header: 'When do applications open?',
-    content: "Applications open now until January 15th, 2025!",
+    content: "Applications are closed for WiNGHacks 2025. Come back next year!",
   },
   {
     key: '4',
