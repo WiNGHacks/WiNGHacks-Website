@@ -53,8 +53,6 @@ const Sponsors = ({}, ref) => {
             ))}
             </div>
           </div>
-        </div>
-        <div className='sponsor-row'>
           <div className='sponsor-tier-container'>
             <h2>Gold Sponsors</h2>
             <div align='center' className='sponsor-logo-container'>
@@ -65,11 +63,23 @@ const Sponsors = ({}, ref) => {
             ))}
             </div>
           </div>
+        </div>
+        <div className='sponsor-row'>
           <div className='sponsor-tier-container'>
             <h2>Silver Sponsors</h2>
             <div align='center' className='sponsor-logo-container'>
             {SponsorList.filter((sponsor) => sponsor.tier === 'Silver').map((sponsor) => (
               <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer" style={{border: '3px solid rgb(200, 203, 206)'}}>
+                  <img src={sponsor.logo_image} alt={sponsor.alt} />
+              </a>
+            ))}
+            </div>
+          </div>
+          <div className='sponsor-tier-container'>
+            <h2>Bronze Sponsors</h2>
+            <div align='center' className='sponsor-logo-container'>
+            {SponsorList.filter((sponsor) => sponsor.tier === 'Bronze').map((sponsor) => (
+              <a key={sponsor.id} href={sponsor.url} target="_blank" rel="noopener noreferrer" style={{border: '3px solid rgba(214, 134, 54, 0.7)'}}>
                   <img src={sponsor.logo_image} alt={sponsor.alt} />
               </a>
             ))}

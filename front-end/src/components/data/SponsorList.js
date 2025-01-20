@@ -1,6 +1,6 @@
 import bloomberg_logo from '../pictures/sponsor_logo/bloomberg-logo.png'
 // import rtc_logo from '../pictures/sponsor_logo/rtc-logo.png'
-// import c1_logo from '../pictures/sponsor_logo/capitalone-logo.png'
+import c1_logo from '../pictures/sponsor_logo/capitalone-logo.png'
 // import TI_logo from '../pictures/sponsor_logo/TI-logo.png'
 import JPMC_logo from '../pictures/sponsor_logo/jpmc-logo.png'
 // import UKG_logo from '../pictures/sponsor_logo/ukg-logo.png'
@@ -11,6 +11,8 @@ import StandoutSticker_logo from '../pictures/sponsor_logo/standoutsticker-logo.
 import BNYMellon_logo from '../pictures/sponsor_logo/bnymellon-logo.png'
 import VSPVision_logo from '../pictures/sponsor_logo/vspvision-logo.png'
 import MLH_logo from '../pictures/sponsor_logo/mlh-logo.png'
+import Epsilon_logo from '../pictures/sponsor_logo/epsilon-logo.svg'
+import NordVPN_logo from '../pictures/sponsor_logo/nordvpn-logo.png'
 
 export const SponsorList = [
     {
@@ -26,12 +28,13 @@ export const SponsorList = [
     //     url: "https://rewritingthecode.org/",
     //     alt: 'RTC Logo'
     // },
-    // {
-    //     id: "3",
-    //     logo_image: c1_logo,
-    //     url: "https://www.capitalone.com/",
-    //     alt: 'Capital One Logo'
-    // },
+    {
+        id: "3",
+        logo_image: c1_logo,
+        url: "https://www.capitalone.com/",
+        alt: 'Capital One Logo',
+        tier: 'Silver',
+    },
     // {
     //     id: "4",
     //     logo_image: TI_logo,
@@ -97,6 +100,20 @@ export const SponsorList = [
         url: "https://mlh.io/",
         alt: 'MLH_logo',
         tier: 'Other',
-    }
+    },
+    {
+        id: "14",
+        logo_image: Epsilon_logo,
+        url: "https://www.epsilonsystems.com/",
+        alt: 'Epislon_logo',
+        tier: 'Bronze',
+    },
+    {
+        id: "15",
+        logo_image: NordVPN_logo,
+        url: "https://nordvpn.com/nord-site/",
+        alt: 'NordVPN_logo',
+        tier: 'Other',
+    },
 
 ]
