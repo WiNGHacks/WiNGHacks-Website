@@ -731,7 +731,7 @@ figcaption a {
     font-size: 1.25rem;
     font-weight: 550;
     border: none;
-    background: rgb(211, 228, 255);
+    background: #98d1cb;
     /* font-weight: bold; */
     font-family: bitter;
     margin-bottom: 2rem;
@@ -850,7 +850,7 @@ figcaption a {
   }
 
   .name-banner {
-    background-color:  #83ddcd;
+    background-color:  #98d1cb;
     display: flex;
     flex: auto;
     border-top-left-radius: 25px;
