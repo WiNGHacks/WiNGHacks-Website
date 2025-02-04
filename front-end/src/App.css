@@ -674,8 +674,9 @@ figcaption a {
 }
 
 .sponsor-logo-container {
-  justify-content: space-around;
+  justify-content: center;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .sponsor-logo-container a {
@@ -683,12 +684,10 @@ figcaption a {
   justify-content: center;
   align-items: center;
   width: 16vw;
-  flex: 1 1 calc(25% - 1rem);
   max-height: 100%;
   background-color: white;
   object-fit: contain;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin: 0.5rem;
   padding: 2rem;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 7px;
