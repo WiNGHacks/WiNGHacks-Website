@@ -39,7 +39,7 @@ const AboutUs = ({}, ref) => {
         {/* <img src={mushroom} className='little-guy'/> */}
         <div className = "location-container">
           <div className = "location-child-container">
-            <p>WiNGHacks will be hosted on February 7 - 9, 2025 at the <a style={{color: "#F07167"}} href="https://maps.app.goo.gl/jM9GABPNd8B3tsis5" target="_blank">Newell Hall</a>. Hacking starts at 7 PM Friday and ends at 7 AM Sunday, for a total of 36 hours.</p>
+            <p>WiNGHacks will be hosted on February 7 - 9, 2025 at the <a style={{color: "#4da99e"}} href="https://maps.app.goo.gl/jM9GABPNd8B3tsis5" target="_blank">Newell Hall</a>. Hacking starts at 7 PM Friday and ends at 7 AM Sunday, for a total of 36 hours.</p>
           </div>
           <div className = "location-child-container">
           <div className="map">
