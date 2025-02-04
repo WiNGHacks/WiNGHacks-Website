@@ -55,7 +55,7 @@ const Sponsors = ({}, ref) => {
           </div>
         </div>
         <div className='sponsor-row'>
-          <div className='sponsor-tier-container'>
+          {/* <div className='sponsor-tier-container'>
             <h2>Gold Sponsors</h2>
             <div align='center' className='sponsor-logo-container'>
             {SponsorList.filter((sponsor) => sponsor.tier === 'Gold').map((sponsor) => (
@@ -64,7 +64,7 @@ const Sponsors = ({}, ref) => {
               </a>
             ))}
             </div>
-          </div>
+          </div> */}
           <div className='sponsor-tier-container'>
             <h2>Silver Sponsors</h2>
             <div align='center' className='sponsor-logo-container'>

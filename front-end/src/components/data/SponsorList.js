@@ -1,16 +1,10 @@
 import bloomberg_logo from '../pictures/sponsor_logo/bloomberg-logo.png'
-// import rtc_logo from '../pictures/sponsor_logo/rtc-logo.png'
-// import c1_logo from '../pictures/sponsor_logo/capitalone-logo.png'
-// import TI_logo from '../pictures/sponsor_logo/TI-logo.png'
 import JPMC_logo from '../pictures/sponsor_logo/jpmc-logo.png'
-// import UKG_logo from '../pictures/sponsor_logo/ukg-logo.png'
 import Infotech_logo from '../pictures/sponsor_logo/infotech-logo.png'
-// import GitHub_logo from '../pictures/sponsor_logo/github-logo.png'
 import StandoutSticker_logo from '../pictures/sponsor_logo/standoutsticker-logo.png'
-// import EA_logo from '../pictures/sponsor_logo/ea-logo.png'
 import BNYMellon_logo from '../pictures/sponsor_logo/bnymellon-logo.png'
-import VSPVision_logo from '../pictures/sponsor_logo/vspvision-logo.png'
 import MLH_logo from '../pictures/sponsor_logo/mlh-logo.png'
+import Dominos_logo from '../pictures/sponsor_logo/dominos-logo.png'
 
 export const SponsorList = [
     {
@@ -68,7 +62,7 @@ export const SponsorList = [
         id: "9",
         logo_image: StandoutSticker_logo,
         url: "https://www.hackp.ac/mlh-standoutstickers-hackathons/",
-        alt: 'StandoutSticker_logo',
+        alt: 'StandoutSticker Logo',
         tier: 'Other',
     },
     // {
@@ -81,22 +75,28 @@ export const SponsorList = [
         id: "11",
         logo_image: BNYMellon_logo,
         url: "https://www.bnymellon.com/",
-        alt: 'BNYMellon_logo',
+        alt: 'BNYMellon Logo',
         tier: 'Platinum',
     },
-    {
-        id: "12",
-        logo_image: VSPVision_logo,
-        url: "https://www.vsp.com/",
-        alt: 'VSPVision_logo',
-        tier: 'Gold',
-    },
+    // {
+    //     id: "12",
+    //     logo_image: VSPVision_logo,
+    //     url: "https://www.vsp.com/",
+    //     alt: 'VSPVision_logo',
+    //     tier: 'Gold',
+    // },
     {
         id: "13",
         logo_image: MLH_logo,
         url: "https://mlh.io/",
-        alt: 'MLH_logo',
+        alt: 'MLH Logo',
+        tier: 'Other',
+    },
+    {
+        id: "14",
+        logo_image: Dominos_logo,
+        url: "https://www.dominos.com/en/",
+        alt: 'Dominos Logo',
         tier: 'Other',
     }
-
 ]
