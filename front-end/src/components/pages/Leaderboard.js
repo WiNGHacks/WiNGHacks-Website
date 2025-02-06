@@ -7,7 +7,7 @@ const Leaderboard = ({}, ref) => {
   useEffect(() => {
     const fetchLeaderboardData = async () => {
       try {
-        const response = await axios.get('https://script.googleusercontent.com/macros/echo?user_content_key=V7klmfPn7gv44-eqPFg_IHg0gvDP0EwbPmdeiLPfT-mQYiExCTWArT4ZWDh090w4gXNTVckDWVovXFo3vZegD1ah1ABrcsxHm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnJAijG8b6opCXNZwIk_Tqi15mqIi28X9n96YzYkApW6niDGK7do12PVMbIqqFMbiFdIy5ocxsTPO2roF23zxq-dKoSOdad6tfw&lib=MtT1SYepJgWz2CdakqnTTjJ2JNqGx101o');
+        const response = await axios.get('https://script.google.com/macros/s/AKfycby5qne29WUSJpl4RNPhkR5SWSq9Akw54J9DKZ7rQIHtlNLggGxP7gjiSL9KDxXBJlQt/exec');
         const filteredData = response.data.filter(entry => entry.every(field => field !== "")).slice(0, 5);
         setLeaderboardData(filteredData);
       } catch (error) {
