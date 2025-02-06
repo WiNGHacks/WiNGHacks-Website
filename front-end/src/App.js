@@ -21,6 +21,7 @@ import SendResults from './components/pages/admin/SendResults';
 import ForgetPassword from './components/pages/applications/ForgetPassword';
 import Footer from './components/Footer';
 import GalleryWall from './components/pages/Gallery';
+import Leaderboard from './components/pages/Leaderboard';
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
                       <Home  ref = {ref} />
                       <GalleryWall ref = {ref} />
                       <AboutUs ref = {ref} />
+                      <Leaderboard ref = {ref} />
                       <Schedule ref = {ref} />
                       <Awards ref = {ref} />
                       <Sponsors  ref = {ref} />
