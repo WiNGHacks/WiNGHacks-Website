@@ -6,8 +6,11 @@ import StandoutSticker_logo from '../pictures/sponsor_logo/standoutsticker-logo.
 import BNYMellon_logo from '../pictures/sponsor_logo/bnymellon-logo.png'
 import MLH_logo from '../pictures/sponsor_logo/mlh-logo.png'
 import Epsilon_logo from '../pictures/sponsor_logo/epsilon-logo.svg'
-import NordVPN_logo from '../pictures/sponsor_logo/nordvpn-logo.png'
 import Dominos_logo from '../pictures/sponsor_logo/dominos-logo.png'
+import NordVPN_logo from '../pictures/sponsor_logo/nordvpn-logo.png'
+import NordPass_logo from '../pictures/sponsor_logo/nordpass-logo.png'
+import Cog_logo from '../pictures/sponsor_logo/cog-logo.png'
+import Saily_logo from '../pictures/sponsor_logo/saily-logo.png'
 
 export const SponsorList = [
     {
@@ -68,17 +71,37 @@ export const SponsorList = [
     },
     {
         id: "9",
-        logo_image: NordVPN_logo,
-        url: "https://nordvpn.com/nord-site/",
-        alt: 'NordVPN Logo',
-        tier: 'Other',
-    },
-    {
-        id: "10",
         logo_image: Dominos_logo,
         url: "https://www.dominos.com/en/",
         alt: 'Dominos Logo',
         tier: 'Other',
     },
-
+    {
+        id: "10",
+        logo_image: NordVPN_logo,
+        url: "https://nordvpn.com/hackathons",
+        alt: 'NordVPN Logo',
+        tier: 'Other',
+    },
+    {
+        id: "11",
+        logo_image: Cog_logo,
+        url: "https://incogni.com/",
+        alt: 'Cog Logo',
+        tier: 'Other',
+    },
+    {
+        id: "12",
+        logo_image: NordPass_logo,
+        url: "https://nordpass.com/",
+        alt: 'NordPass Logo',
+        tier: 'Other',
+    },
+    {
+        id: "13",
+        logo_image: Saily_logo,
+        url: "https://saily.com/",
+        alt: 'Saily Logo',
+        tier: 'Other',
+    },
 ]
