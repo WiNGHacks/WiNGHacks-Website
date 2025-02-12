@@ -21,10 +21,18 @@ import BiasGuessr from '../pictures/winner_pics/BiasGuessr.png'
 import Blot from '../pictures/winner_pics/BLOT.png'
 import BreakingDownBias from '../pictures/winner_pics/BreakingDownBias.png'
 import Congrats from '../pictures/winner_pics/Congratulations.png'
-
-
-
-
+import Switch from '../pictures/2025_Gallery_Awards/switch.jpeg'
+import headphones from '../pictures/2025_Gallery_Awards/Headphones.jpeg'
+import projector from '../pictures/2025_Gallery_Awards/Projector.jpeg'
+import screen from '../pictures/2025_Gallery_Awards/Screen.jpeg'
+import digital from '../pictures/2025_Gallery_Awards/DigiCam.jpeg'
+import genAI from '../pictures/2025_Gallery_Awards/GenAI.jpeg'
+import jbl from '../pictures/2025_Gallery_Awards/JBL.jpeg'
+import keyboard from '../pictures/2025_Gallery_Awards/Keyboard.jpeg'
+import m5go from '../pictures/2025_Gallery_Awards/M5GO.jpeg'
+import nord from '../pictures/2025_Gallery_Awards/NordVPN.jpeg'
+import plushie from '../pictures/2025_Gallery_Awards/Plushie.jpeg'
+import godaddy from '../pictures/2025_Gallery_Awards/goDaddy.jpeg'
 
 
 export const AwardList = [
@@ -43,7 +51,7 @@ export const AwardList = [
         
         id: "2",
         logo_image: Best_Overall,
-        winner_image: CrySense,
+        winner_image: Switch,
         title: "Best Overall Award",
         description:"Awarded to unparalleled excellence in a project's innovation and execution.",
         alt: 'Best Overall Award', 
@@ -52,9 +60,21 @@ export const AwardList = [
         learnMore:"https://www.jpmorganchase.com/",
     },
     {
+        
         id: "3",
+        logo_image: Best_Overall,
+        winner_image: nord,
+        title: "Best Overall Award",
+        description:"Awarded to unparalleled excellence in a project's innovation and execution.",
+        alt: 'Best Overall Award', 
+        tag: 'General',
+        sponsored:"Sponsored by NordVPN",
+        learnMore:"https://www.jpmorganchase.com/",
+    },
+    {
+        id: "4",
         logo_image: Peoples_Choice,
-        winner_image: WingAJob,
+        winner_image: headphones,
         title: "People's Choice Award",
         description:"The project with the most community votes on DevPost",
         alt: "People's Choice Award", 
@@ -63,42 +83,42 @@ export const AwardList = [
         learnMore:"",
     },
     {
-        id: "4",
-        logo_image: Best_WiNG,
-        winner_image: Catpanion,
-        title: "Best WiNG Hack",
-        description:"Best tackles an issue related to women, non-binary, gender-nonconforming communities.",
-        alt: "Best WiNG Hack", 
-        tag: 'Category',
-        sponsored:"",
-        learnMore:"",
-    },
-    {
         id: "5",
-        logo_image: Best_Game,
-        winner_image: PaintCatExe,
-        title: "Best Game Hack",
-        description:"Most innovative game designs, including  mechanics to narratives.",
-        alt: "Best Game Hack", 
+        logo_image: Best_WiNG,
+        winner_image: projector,
+        title: "Best WiNG Award",
+        description:"Best tackles an issue related to women, non-binary, gender-nonconforming communities.",
+        alt: "Best WiNG Award", 
         tag: 'Category',
         sponsored:"",
         learnMore:"",
     },
     {
         id: "6",
+        logo_image: Best_Game,
+        winner_image: screen,
+        title: "Best Game Award",
+        description:"Most innovative game designs, including  mechanics to narratives.",
+        alt: "Best Game Award", 
+        tag: 'Category',
+        sponsored:"",
+        learnMore:"",
+    },
+    {
+        id: "7",
         logo_image: Best_XR,
-        winner_image: VisionVideoRoulette,
-        title: "Best XR Hack",
+        winner_image: jbl,
+        title: "Best XR Award",
         description:"Recognizes exceptional use of extended reality as a medium.",
-        alt: "Best XR Hack", 
+        alt: "Best XR Award", 
         tag: 'Category',
         sponsored:"Presented by Society of PC Building and GatorVR",
         learnMore:"",
     },
     {
-        id: "7",
+        id: "8",
         logo_image: First_Flight,
-        winner_image: WingIt,
+        winner_image: digital,
         title: "First Flight Award",
         description:"Best project made by a team of ONLY first-time hackers.",
         alt: 'First Flight Award', 
@@ -107,47 +127,47 @@ export const AwardList = [
         learnMore:"",
     },
     {
-        id: "8",
+        id: "9",
         logo_image: infotech_award,
-        winner_image: CrySense,
-        title: "Infotech Challenge",
-        description:"Most innovative use of a public dataset for the public good",
-        alt: "Infotech Challenge", 
+        winner_image: keyboard,
+        title: "Best UI/UX Award",
+        description:"Most inntuitive, visually appealing, and user-centered design that enhances user interaction, accessibility, and overall experience.",
+        alt: "Best UI/UX Award", 
         tag: 'Sponsor',
         sponsored:"",
         learnMore:"",
     },
     {
-        id: "9",
+        id: "10",
         logo_image: mongodb_award,
-        winner_image: Catpanion,
+        winner_image: m5go,
         title: "Best Use of MongoDB",
         description:" Build a hack using MongoDB Atlas for a chance to win a M5GO IoT Starter Kit for you and each member of your team.",
         alt: "Best Use of MongoDB", 
         tag: 'BestUse',
-        sponsored:"2024 WiNGHacks Prizes",
-        learnMore:"https://hack.mlh.io/hackuf/prizes",
-    },
-    {
-        id: "10",
-        logo_image: goDaddy_award,
-        winner_image: BiasGuessr,
-        title: "Best Domain Name from GoDaddy Registry",
-        description:"Register your domain name with GoDaddy Registry for a chance to win a Hack from Home Kit!",
-        alt: "Best Domain Name from GoDaddy Registry", 
-        tag: 'BestUse',
-        sponsored:"2024 WiNGHacks Prizes",
+        sponsored:"2025 WiNGHacks Prizes",
         learnMore:"https://hack.mlh.io/hackuf/prizes",
     },
     {
         id: "11",
-        logo_image: fidelity_award,
-        winner_image: Blot,
-        title: "Best DEI Hack sponsored by Fidelity",
-        description:"Come up with innovative ways to create forward-thinking financial tech that promotes equality for all people!",
-        alt: "Best DEI Hack sponsored by Fidelity", 
+        logo_image: goDaddy_award,
+        winner_image: godaddy,
+        title: "Best Domain Name from GoDaddy Registry",
+        description:"Register your domain name with GoDaddy Registry for a chance to win a Hack from Home Kit!",
+        alt: "Best Domain Name from GoDaddy Registry", 
         tag: 'BestUse',
-        sponsored:"2024 WiNGHacks Prizes",
+        sponsored:"2025 WiNGHacks Prizes",
+        learnMore:"https://hack.mlh.io/hackuf/prizes",
+    },
+    {
+        id: "12",
+        logo_image: fidelity_award,
+        winner_image: genAI,
+        title: "Best Use of Gen AI",
+        description:"Sponsored by Gen AI.",
+        alt: "Best Use of Gen AI sponsored by Gen AI.", 
+        tag: 'BestUse',
+        sponsored:"2025 WiNGHacks Prizes",
         learnMore:"https://hack.mlh.io/hackuf/prizes",
     },
     // {
@@ -160,17 +180,17 @@ export const AwardList = [
     //     sponsored:"2024 WiNGHacks Prizes",
     //     learnMore:"https://hack.mlh.io/hackuf/prizes",
     // },
-    {
-        id: "12",
-        logo_image: taipy_award,
-        winner_image: BreakingDownBias,
-        title: "Best Use of Taipy",
-        description:"Use Taipy in your hackathon project for a chance to win a set of Wireless Headphones for you and each of your team members and a chance to have your project featured on the Taipy website!",
-        alt: "Best Use of Taipy", 
-        tag: 'BestUse',
-        sponsored:"2024 WiNGHacks Prizes",
-        learnMore:"https://hack.mlh.io/hackuf/prizes",
-    },
+    // {
+    //     id: "12",
+    //     logo_image: taipy_award,
+    //     winner_image: BreakingDownBias,
+    //     title: "Best Use of Taipy",
+    //     description:"Use Taipy in your hackathon project for a chance to win a set of Wireless Headphones for you and each of your team members and a chance to have your project featured on the Taipy website!",
+    //     alt: "Best Use of Taipy", 
+    //     tag: 'BestUse',
+    //     sponsored:"2024 WiNGHacks Prizes",
+    //     learnMore:"https://hack.mlh.io/hackuf/prizes",
+    // },
     
 
 ]
