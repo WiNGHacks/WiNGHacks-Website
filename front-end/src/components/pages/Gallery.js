@@ -1,138 +1,132 @@
 import React , {forwardRef} from 'react'
 import ImageGallery from "react-image-gallery";
 
+import bny from '../pictures/2025_Gallery/bny.JPG'
+import codirectors from '../pictures/2025_Gallery/codirectors.JPG'
+import committee from '../pictures/2025_Gallery/committee.JPG'
+import committeehearts from '../pictures/2025_Gallery/committeehearts.JPG'
+import food1 from '../pictures/2025_Gallery/food1.JPG'
+import food2 from '../pictures/2025_Gallery/food2.JPG'
+import hackers1 from '../pictures/2025_Gallery/hackers1.JPG'
+import hackers2 from '../pictures/2025_Gallery/hackers2.JPG'
+import hackers3 from '../pictures/2025_Gallery/hackers3.JPG'
+import hackers4 from '../pictures/2025_Gallery/hackers4.JPG'
+import jpmorgan from '../pictures/2025_Gallery/jpmorgan.JPG'
+import judging1 from '../pictures/2025_Gallery/judging1.JPG'
+import judging2 from '../pictures/2025_Gallery/judging2.JPG'
+import judging3 from '../pictures/2025_Gallery/judging3.JPG'
+import mentor from '../pictures/2025_Gallery/mentor.JPG'
+import merch from '../pictures/2025_Gallery/merch.JPG'
+import mlh from '../pictures/2025_Gallery/mlh.JPG'
+import opening1 from '../pictures/2025_Gallery/opening1.JPG'
+import opening2 from '../pictures/2025_Gallery/opening2.JPG'
+import opening3 from '../pictures/2025_Gallery/opening3.JPG'
+import photospot from '../pictures/2025_Gallery/photospot.jpg'
+import prizes from '../pictures/2025_Gallery/prizes.JPG'
+import website from '../pictures/2025_Gallery/website.JPG'
+import workshop from '../pictures/2025_Gallery/workshop.JPG'
 
-
-import jp1 from "../pictures/2024_Gallery/JP_Morgan_SponsorFair.jpg"
-import jp2 from "../pictures/2024_Gallery/Chad_JP_Morgan_SponsorFair.jpg"
-import opening_ceremony from "../pictures/2024_Gallery/Opening_Ceremony.jpg"
-import savannah_sponsor from "../pictures/2024_Gallery/Savannah_SponsorFair.jpg"
-import vr from "../pictures/2024_Gallery/VR_Demo.jpg"
-import vr2 from "../pictures/2024_Gallery/VR_Demo2.jpg"
-import hackers1 from "../pictures/2024_Gallery/Hackers_Opening.jpg"
-import mlh from "../pictures/2024_Gallery/MLH_Swag.jpg"
-import photobooth from "../pictures/2024_Gallery/Photobooth.jpg"
-import awards from "../pictures/2024_Gallery/Awards.jpg"
-import hackers2 from "../pictures/2024_Gallery/Hackers2.jpg"
-import hackers3 from "../pictures/2024_Gallery/Hackers3.jpg"
-import hackers4 from "../pictures/2024_Gallery/Hackers4.jpg"
-import hackers5 from "../pictures/2024_Gallery/Hackers5.jpg"
-import hackers6 from "../pictures/2024_Gallery/Hackers6.jpg"
-import infot1 from "../pictures/2024_Gallery/Jillian_InfoTech.jpg"
-import bnym from "../pictures/2024_Gallery/BNY_Mellon.jpg"
-
-import mentors1 from "../pictures/2024_Gallery/Mentors1.jpg"
-import mentors2 from "../pictures/2024_Gallery/Mentors2.jpg"
-import mv from "../pictures/2024_Gallery/Maddie_Vy_Opening.jpg"
-import mv2 from "../pictures/2024_Gallery/Maddie_Vy_Best_Founders_Ever.jpg"
-
-import cami_react from "../pictures/2024_Gallery/React_Workshop_Cami.jpg"
-import organizers from '../pictures/2024_Gallery/Organizers_Group.jpg'
 
 const images = [
-    
     {
-        original: opening_ceremony,
-        thumbnail: opening_ceremony,
+        original: committee,
+        thumbnail: committee,
     },
     {
-        original: savannah_sponsor,
-        thumbnail: savannah_sponsor,
+        original: prizes,
+        thumbnail: prizes,
     },
     {
-        original: hackers6,
-        thumbnail: hackers6,
+        original: opening1,
+        thumbnail: opening1,
     },
     {
-        original: vr2,
-        thumbnail: vr2,
-    },
-    {
-        original: jp1,
-        thumbnail: jp1,
-        originalHeight: "4000",
-        thumbnailHeight: "60",
-        thumbnailWidth: "10px",
-    },
-    {
-        original: photobooth,
-        thumbnail: photobooth,
-    },
-    {
-        original: awards,
-        thumbnail: awards,
-    },
-    {
-        original: mv,
-        thumbnail: mv,
-    },
-    {
-        original: mentors2,
-        thumbnail: mentors2,
-    },
-    {
-        original: infot1,
-        thumbnail: infot1,
-    },
-    {
-        original: mv2,
-        thumbnail: mv2,
-        originalHeight: "4000",
-        thumbnailHeight: "60",
-        thumbnailWidth: "10px",
-    },
-    {
-        original: organizers,
-        thumbnail: organizers,
-    },
-    {
-        original: hackers4,
-        thumbnail: hackers4,
-    },
-    {
-        original: bnym,
-        thumbnail: bnym,
-        originalHeight: "4000",
-        thumbnailHeight: "60",
-        thumbnailWidth: "10px",
+        original: codirectors,
+        thumbnail: codirectors,
     },
     {
         original: hackers1,
         thumbnail: hackers1,
     },
     {
-        original: vr,
-        thumbnail: vr,
+        original: mlh,
+        thumbnail: mlh,
+    },
+    {
+        original: food1,
+        thumbnail: food1,
     },
     {
         original: hackers2,
         thumbnail: hackers2,
     },
     {
-        original: jp2,
-        thumbnail: jp2,
+        original: photospot,
+        thumbnail: photospot,
+        originalHeight: "4000",
+        thumbnailHeight: "60",
+        thumbnailWidth: "10px",
     },
     {
-        original: mlh,
-        thumbnail: mlh,
+        original: mentor,
+        thumbnail: mentor,
     },
     {
-        original: cami_react,
-        thumbnail: cami_react,
+        original: opening2,
+        thumbnail: opening2,
+    },
+    {
+        original: food2,
+        thumbnail: food2,
     },
     {
         original: hackers3,
         thumbnail: hackers3,
     },
     {
-        original: mentors1,
-        thumbnail: mentors1,
+        original: jpmorgan,
+        thumbnail: jpmorgan,
     },
     {
-        original: hackers5,
-        thumbnail: hackers5,
+        original: judging1,
+        thumbnail: judging1,
     },
-  
+    {
+        original: judging2,
+        thumbnail: judging2,
+    },
+    {
+        original: bny,
+        thumbnail: bny,
+    },
+    {
+        original: opening3,
+        thumbnail: opening3,
+    },
+    {
+        original: workshop,
+        thumbnail: workshop,
+    },
+    {
+        original: judging3,
+        thumbnail: judging3,
+    },
+    {
+        original: website,
+        thumbnail: website,
+    },
+    {
+        original: hackers4,
+        thumbnail: hackers4,
+    },
+    {
+        original: merch,
+        thumbnail: merch,
+    },
+    {
+        original: committeehearts,
+        thumbnail: committeehearts,
+    },
 ]
 
 
