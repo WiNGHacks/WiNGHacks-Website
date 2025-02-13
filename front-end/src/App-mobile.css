@@ -9,7 +9,7 @@
   }
 
   figure:hover{
-    border: 0.5em solid #712020;
+    border: 0.5em solid #7b7144;
     img {
       opacity: 0.1;
       transition: all .2s ease-in-out .2s;
@@ -95,17 +95,6 @@
   }
 
   .footer-container {
-  
-    .footer-content {
-      grid-template-columns: 2fr 1fr 5fr;
-      .image {
-        height: 6vh;
-        align-self: center;
-      }
-    }  
-    .socials {
-      column-gap: 0.25rem;
-    }
     .socials .icons {
       font-size: 1.75rem;
     }
@@ -126,14 +115,14 @@
     padding: 1rem 2rem;
     border-radius: 25px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    margin: 0% 5% 3%;
+    margin: 3% 5% 3%;
 
     .home-buttons {
 
       flex-direction: column;
       row-gap: 0.1rem;
       align-self: center;
-      align-items: cen hter;
+      align-items: center;
       justify-content: center;
     }
   
@@ -184,6 +173,11 @@
   .Button-home {
     width: clamp(13rem, 13rem, 20rem);
   }
+
+  .image-gallery-slide img {
+    max-width: 100%;
+    max-height: 25vh !important;
+  }
   
   .About{    
     .logo-who-we-are{
@@ -195,12 +189,12 @@
     margin: 0 1.25em 1.25em 0;
     position: relative;
     text-align: center;
-    border: 0.5em solid #F07167;
+    border: 0.5em solid #cda95f;
     border-radius: 0.5em;
   }
 
   figure:hover{
-    border: 0.5em solid #712020;
+    border: 0.5em solid #7b7144;
     img {
       opacity: 0.1;
       transition: all .2s ease-in-out .2s;
@@ -270,6 +264,11 @@
 }
 
 @media only screen and (max-width: 900px) {
+  .image-gallery-slide img {
+    max-width: 100%;
+    max-height: 50vh !important;
+  }
+
   .members {
     max-height: 300px;
     overflow: scroll;
@@ -320,7 +319,7 @@
       transition: 0.4s;
 
       .link {
-        color: #0081A7;
+        color: #4da99e;
         font-family: teacher-semibold;
         font-weight: bold;
         font-variant: small-caps;
@@ -334,7 +333,7 @@
         }
       .link:hover {
         cursor: pointer;
-        color: #2edaed;
+        color: #83ddcd;
         /* Change text color on hover (you can choose any color you like) */
       }
 
@@ -420,7 +419,6 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-    }
     
     .who-we-are-child-container{
       flex: 1;
@@ -430,6 +428,14 @@
     .who-we-are-child-container p {
       max-width: 93%;
     }
+    
+    .logo-who-we-are{
+      display: flex;
+      width: 50%;
+      justify-self: center;
+      padding-left: 0%;
+    }
+  }
 
     .collaborators-container{
       display: grid;
@@ -524,18 +530,27 @@
   }
 
   .footer-container {
+    font-size: 1.0rem;
+    .footer-content {
+      grid-template-columns: 1fr;
+      .image {
+        height: 6vh;
+        align-self: center;
+      }
+
+      .socials {
+        padding-top: 0%;
+        column-gap: 0.25rem;
+      }
+    }  
     margin-inline: 1rem;
   }
 }
 
 @media only screen and (max-width: 700px) {
-  .sponsor-logo-container img {
-    max-width: 90%;
-    max-height: 100%;
-  }
-
-  .sponsor-logo-container a {
-    padding: -2rem;
+  .image-gallery-slide img {
+    max-width: 100%;
+    max-height: 40vh !important;
   }
 
   .RSVP {
@@ -548,7 +563,7 @@
     }
   
     .congrats {
-      color: #00AFB9;
+      color: #4da99e;
       font-size: 1rem;
     }
   

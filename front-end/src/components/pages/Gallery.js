@@ -144,18 +144,12 @@ const GalleryWall = ({}, ref) => {
         <ImageGallery items={images} 
                         autoPlay = "autoPlay"
                         showBullets = {true}
+                        originalAlt = 'Gallery Image'
+                        thumbnailAlt = 'Gallery Thumbnail Image'
         />
       </div>
     </div>
   )
 }
-
-// const GalleryWall = forwardRef((props, ref) => {
-//     return (
-//       <div className="margins Gallery" id="gallerywall" ref={ref}>
-//         <ImageGallery items={images} autoPlay={true} showBullets={true} />
-//       </div>
-//     );
-//   });
 
   export default forwardRef(GalleryWall)

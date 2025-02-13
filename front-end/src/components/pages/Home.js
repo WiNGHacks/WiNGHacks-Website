@@ -1,5 +1,4 @@
 import React , {forwardRef} from 'react'
-import logo from '../pictures/WiNGHACKS_logo.png'
 import banner from '../pictures/WiNGHacks_Banner.png'
 
 // import { SlSocialLinkedin } from "react-icons/sl";
@@ -24,10 +23,11 @@ const Home = ({}, ref) => {
     // ref = {el => ref.current = { ...ref.current, home: el }}
     <div className='Home'>
       <div className='home-buttons' align="center">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTqVfJUiWjjARDFBh1MkegBLw0F-Kd-GquU2NJO1-H7ybOuQ/viewform"
+        {/* last year's become a mentor form: https://docs.google.com/forms/d/e/1FAIpQLSeTqVfJUiWjjARDFBh1MkegBLw0F-Kd-GquU2NJO1-H7ybOuQ/viewform */}
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcH7xPMC3ERh2Bj3X6iRDo5-_8AuHoCK3aQbMfBKTDw5uM2g/viewform?pli=1&pli=1"
               target="_blank">
               <button className='Button Button-home Button-interest'>Become a Mentor</button></a>
-        {/* <a href="signup" ><button className='Button Button-home Button-apply button-glow-home-apply'>Apply now!</button></a> */}
+        {/* <a href={process.env.REACT_APP_APPLICATION_FORM} target="_blank"><button className='Button Button-home Button-apply button-glow-home-apply'>Link to Apply!</button></a> */}
         <a><button onClick={downloadPDF} className='Button Button-home Button-sponsor'>Sponsorship Packet</button></a>
       </div>
       <div className='socials'>

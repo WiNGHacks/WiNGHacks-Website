@@ -3,8 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Cookies from "universal-cookie";
 import { jwtDecode } from "jwt-decode";
 import { FaBars, FaTimes } from "react-icons/fa";
-import '../App.css';
-import logo from './pictures/WiNGHACKS_logo.png'
+import logo from './pictures/WiNGHacks_logo.png'
 import Popup from './pages/Popup'
 import AppCountDown from './AppCountDown';
 
@@ -79,7 +78,7 @@ const Header = ({}, ref) => {
       <a id="mlh-trust-badge" className='mlh-banner-mobile' 
         href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2024-season&utm_content=blue" 
         target="_blank">
-          <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2024/mlh-trust-badge-2024-blue.svg" 
+          <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2025/mlh-trust-badge-2025-blue.svg" 
               alt="Major League Hacking 2024 Hackathon Season" style={{width:100 + '%'}}/>
       </a>
         <Link to = "/#gallerywall"  onClick={() => handleClick('gallerywall')} className = "link">Gallery</Link>
@@ -88,6 +87,7 @@ const Header = ({}, ref) => {
         <Link to = "/#awards" onClick={() => handleClick('awards')} className = "link">Awards</Link>
         <Link to = "/#sponsor" onClick={() => handleClick('sponsor')} className = "link">Sponsors</Link>
         <Link to = "/#faq" onClick={() => handleClick('faq')} className = "link">FAQ</Link>
+        <Link to = "/attendance" onClick={() => handleClick('attendance')} className = "link">Attendance</Link>
         
 
           { token ?
@@ -113,7 +113,7 @@ const Header = ({}, ref) => {
             :
             ( <div className='dynamic'>
                 <Link to="/login" className = "link" onClick={clickedNavbar}>Login</Link>
-                {/* <Link to="/signup" className = "link apply button-glow" onClick={clickedNavbar}>Apply Now</Link> */}
+                {/* <Link to={process.env.REACT_APP_APPLICATION_FORM} target="_blank" className = "link apply button-glow" onClick={clickedNavbar}>Apply Now</Link> */}
               </div> )
           }
           
@@ -133,7 +133,7 @@ const Header = ({}, ref) => {
     <a id="mlh-trust-badge" className='mlh-banner' 
         href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2024-season&utm_content=blue" 
         target="_blank">
-          <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2024/mlh-trust-badge-2024-blue.svg" 
+          <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2025/mlh-trust-badge-2025-blue.svg" 
               alt="Major League Hacking 2024 Hackathon Season" style={{width:100 + '%'}}/>
       </a>
     </div>

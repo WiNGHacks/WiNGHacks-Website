@@ -19,15 +19,15 @@ const Popup = ({}, ref) => {
               <FaTimes/> </button>
           </div>
           <div className="title">
-            <h1>The 2024 WiNGHacks Hacker Application is OPEN!</h1>
-            <img src={ladyGIF} className='little-guy' />
+            <h1>The 2025 WiNGHacks Hacker Application is OPEN!</h1>
+            <img src={ladyGIF} className='little-guy' alt='GIF of a WiNGHacks Character'/>
           </div>
           {/* <div className="body">
             <p></p>
           </div> */}
           <div className="footer">
             {/* <button>Continue</button> */}
-            <Link to="/signup" className = "apply button-glow" onClick={() => {
+            <Link to={process.env.REACT_APP_APPLICATION_FORM} target="_blank" className = "apply button-glow" onClick={() => {
                 setOpenModal(false);
               }}>
               APPLY NOW

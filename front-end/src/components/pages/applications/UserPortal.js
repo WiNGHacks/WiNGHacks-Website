@@ -61,14 +61,14 @@ const UserPortal = () => {
         }
       }, [])
 
-
+    const overrideStatus = "Not Applied";
     return (
         <div className="Page Portal" align='center'>
             {/* {console.log(selectedRSVP)} */}
             {/* {console.log(alreadyRSVP)} */}
             <FetchResponse email = {email} id={id} status={status}/>
             
-            { status === "Not Applied" ? 
+            { overrideStatus === "Not Applied" ? // status === "Not Applied" 
             (
                 <div>
                     {/* {console.log(status)} */}
@@ -77,15 +77,15 @@ const UserPortal = () => {
                             <h1 className='welcome-message'>Welcome, {firstName} {lastName}!</h1>
                             <div>Thank you for taking the time to make an account with WiNGHacks! Make sure you submit an application and let the uplifting begin!</div>
                         </div>
-                        <img src={flier} className='character'/>
+                        {/* <img src={flier} className='character'/> */}
                     </div>
                     <div className='portal-padding'>
-                        <h2>Your Status: <span style={{color: "red"}}>{status}</span></h2>
+                        {/* <h2>Your Status: <span style={{color: "red"}}>{status}</span></h2> */}
                         <p>Please wait 5 minutes to see updates. Please only submit one application.</p>
 
-                        <button className= "Button apply" onClick={() => {window.open(process.env.REACT_APP_APPLICATION_FORM)}}>
+                        {/* <button className= "Button apply" onClick={() => {window.open(process.env.REACT_APP_APPLICATION_FORM)}}>
                             Apply Now
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             )
@@ -97,16 +97,16 @@ const UserPortal = () => {
                             <h1 className='welcome-message'>Welcome, {firstName} {lastName}!</h1>
             
                         </div>
-                        <img src={flier} className='character'/>
+                        {/* <img src={flier} className='character'/> */}
                     </div>
                     <div className='portal-padding'>
-                        {status === "Accepted"? 
+                        {overrideStatus === "Accepted"? 
                         <h2>Your Status: <span style={{color: "#2ece46"}}>{status}</span></h2>
                         :
                         <h2>Your Status: <span style={{color: "#07888f"}}>{status}</span></h2>
                         }
                     
-                {status === "Accepted"? 
+                {overrideStatus === "Accepted"? 
                     (   
                         <div>
                             {/* <div>
@@ -131,7 +131,7 @@ const UserPortal = () => {
                                                 <div>
                                                     <h4>1. Join the <a href="http://discord.gg/U7Am39uzZx" target="_blank" style={{color: "blue"}}>WiNGHacks discord.</a></h4>
                                                     <h4>2. Join the REMIND by texting "@winghacks" to 81010.</h4>
-                                                    <h4>3. Join us on our <a href="https://winghacks.devpost.com/" target="_blank" style={{color: "blue"}}>Devpost</a>!</h4>
+                                                    <h4>3. Join us on our <a href="http://winghacks-2025.devpost.com/" target="_blank" style={{color: "blue"}}>Devpost</a>!</h4>
                                                 </div>
                                             </div>
                                       
@@ -157,7 +157,7 @@ const UserPortal = () => {
                         // </div>
                     ):(
                         <div>
-                            {status === "Rejected" ? (
+                            {overrideStatus === "Rejected" ? (
                                 <p>Thank you for applying! We hope to see you next year!</p>
                             ):(
                                 <p>Thank you for applying! Check back later for more updates on your application!</p>
