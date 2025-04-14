@@ -30,18 +30,6 @@ import Congrats from '../pictures/winner_pics/Congratulations.png'
 export const AwardList = [
     {
         id: "1",
-        logo_image: Sponsor_Placeholder,
-        winner_image: Congrats,
-        title: "See you next year!",
-        description:"Checkout the projects on Devpost!",
-        alt: "Congratulations WingHacks Winners!", 
-        tag: 'BestUse',
-        sponsored:"WiNGHacks Devpost",
-        learnMore:"https://winghacks.devpost.com/",
-    },
-    {
-        
-        id: "2",
         logo_image: Best_Overall,
         winner_image: CrySense,
         title: "Best Overall Award",
@@ -52,7 +40,7 @@ export const AwardList = [
         learnMore:"https://www.jpmorganchase.com/",
     },
     {
-        id: "3",
+        id: "2",
         logo_image: Peoples_Choice,
         winner_image: WingAJob,
         title: "People's Choice Award",
@@ -63,7 +51,7 @@ export const AwardList = [
         learnMore:"",
     },
     {
-        id: "4",
+        id: "3",
         logo_image: Best_WiNG,
         winner_image: Catpanion,
         title: "Best WiNG Hack",
@@ -74,7 +62,7 @@ export const AwardList = [
         learnMore:"",
     },
     {
-        id: "5",
+        id: "4",
         logo_image: Best_Game,
         winner_image: PaintCatExe,
         title: "Best Game Hack",
@@ -85,18 +73,7 @@ export const AwardList = [
         learnMore:"",
     },
     {
-        id: "6",
-        logo_image: Best_XR,
-        winner_image: VisionVideoRoulette,
-        title: "Best XR Hack",
-        description:"Recognizes exceptional use of extended reality as a medium.",
-        alt: "Best XR Hack", 
-        tag: 'Category',
-        sponsored:"Presented by Society of PC Building and GatorVR",
-        learnMore:"",
-    },
-    {
-        id: "7",
+        id: "5",
         logo_image: First_Flight,
         winner_image: WingIt,
         title: "First Flight Award",
@@ -107,7 +84,7 @@ export const AwardList = [
         learnMore:"",
     },
     {
-        id: "8",
+        id: "6",
         logo_image: infotech_award,
         winner_image: CrySense,
         title: "Infotech Challenge",
@@ -118,7 +95,7 @@ export const AwardList = [
         learnMore:"",
     },
     {
-        id: "9",
+        id: "7",
         logo_image: mongodb_award,
         winner_image: Catpanion,
         title: "Best Use of MongoDB",
@@ -129,7 +106,7 @@ export const AwardList = [
         learnMore:"https://hack.mlh.io/hackuf/prizes",
     },
     {
-        id: "10",
+        id: "8",
         logo_image: goDaddy_award,
         winner_image: BiasGuessr,
         title: "Best Domain Name from GoDaddy Registry",
@@ -140,7 +117,7 @@ export const AwardList = [
         learnMore:"https://hack.mlh.io/hackuf/prizes",
     },
     {
-        id: "11",
+        id: "9",
         logo_image: fidelity_award,
         winner_image: Blot,
         title: "Best DEI Hack sponsored by Fidelity",
@@ -150,18 +127,8 @@ export const AwardList = [
         sponsored:"2024 WiNGHacks Prizes",
         learnMore:"https://hack.mlh.io/hackuf/prizes",
     },
-    // {
-    //     id: "11",
-    //     logo_image: starknet_award,
-    //     title: "Best Use of Starknet",
-    //     description:"Build a hack using Starknet for a chance to win a Starknet Care Package for Coders",
-    //     alt: "Best Use of Starknet", 
-    //     tag: 'BestUse',
-    //     sponsored:"2024 WiNGHacks Prizes",
-    //     learnMore:"https://hack.mlh.io/hackuf/prizes",
-    // },
     {
-        id: "12",
+        id: "10",
         logo_image: taipy_award,
         winner_image: BreakingDownBias,
         title: "Best Use of Taipy",
@@ -171,6 +138,4 @@ export const AwardList = [
         sponsored:"2024 WiNGHacks Prizes",
         learnMore:"https://hack.mlh.io/hackuf/prizes",
     },
-    
-
 ]
