@@ -21,6 +21,8 @@ import SendResults from './components/pages/admin/SendResults';
 import ForgetPassword from './components/pages/applications/ForgetPassword';
 import Footer from './components/Footer';
 import GalleryWall from './components/pages/Gallery';
+import Leaderboard from './components/pages/Leaderboard';
+import Attendance from './components/pages/Attendance';
 
 
 function App() {
@@ -60,6 +62,7 @@ function App() {
                       <Home  ref = {ref} />
                       <GalleryWall ref = {ref} />
                       <AboutUs ref = {ref} />
+                      <Leaderboard ref = {ref} />
                       <Schedule ref = {ref} />
                       <Awards ref = {ref} />
                       <Sponsors  ref = {ref} />
@@ -75,6 +78,7 @@ function App() {
               <Route path="/notify/email/:emailToken" element={<NotifyEmail/>}></Route>
               <Route path="/admin/sendResult/:id" element={<SendResults/>}></Route>
               <Route path="/forgetPassword" element={<ForgetPassword/>}></Route>
+              <Route path="/attendance" element={<Attendance/>}></Route>
               
             </Routes> 
             <Footer/>
