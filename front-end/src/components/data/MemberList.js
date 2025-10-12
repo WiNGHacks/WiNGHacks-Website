@@ -5,6 +5,7 @@ import Teji_Kari_pic from '../pictures/profile_pics/directors/Teji_Kari.jpg'
 import Valentina_Esteban_pic from '../pictures/profile_pics/directors/Valentina_Esteban.png'
 import Sofia_DAurio_pic from '../pictures/profile_pics/merch/DAurio_Sofia.jpg'
 import Hannah_Imler_pic from '../pictures/profile_pics/merch/Imler_Hannah.jpeg'
+import Wenhui_Chen_pic from '../pictures/profile_pics/merch/Wenhui_Chen.jpg'
 import Aarithi_Rajendren_pic from '../pictures/profile_pics/operations/Aarithi_Rajendren.jpg'
 import Bhavana_Kavarthapu_pic from '../pictures/profile_pics/operations/Bhavana_Kavarthapu.jpg'
 import Diksha_Gupta_pic from '../pictures/profile_pics/operations/Diksha_Gupta.jpg'
@@ -16,17 +17,16 @@ import Nil_Aydinoz_pic from '../pictures/profile_pics/operations/Nil_Aydinoz.JPG
 import Steiert_Skyler_pic from '../pictures/profile_pics/operations/Steiert_Skyler.jpeg'
 import Ananya_Harshe_pic from '../pictures/profile_pics/pr/Ananya_Harshe.jpg'
 import Andria_Subhit_pic from '../pictures/profile_pics/pr/Andria_Subhit.jpg'
+import Sheilah_Jamasi_pic from '../pictures/profile_pics/pr/Sheilah_Jamasi.jpg'
 import Divyanshi_Saini_pic from '../pictures/profile_pics/pr/Divyanshi_Saini.jpeg'
 import Imaan_Edhi_pic from '../pictures/profile_pics/pr/Imaan_Edhi.JPG'
 import Stephanie_Nguyen_pic from '../pictures/profile_pics/sponsorship/Stephanie_Nguyen.jpg'
+import Veronic_Igwe_pic from '../pictures/profile_pics/sponsorship/Veronic_Igwe.jpg'
 import ELizabeth_Gonzalez_pic from '../pictures/profile_pics/tech/Gonzalez_Elizabeth.jpeg'
 import Mya_Ramsey_pic from '../pictures/profile_pics/tech/Mya_Ramsey.png'
+import Lu_Ighodalo_pic from '../pictures/profile_pics/tech/Lu_Ighodalo.jpg'
 import Gaby_Smith_pic from '../pictures/profile_pics/website/Gaby_Smith.jpg'
-import Jacqueline_Jurado_pic from '../pictures/profile_pics/website/Jaqueline_Jurado.jpg'
-import Alyssa_Mann_pic from '../pictures/profile_pics/website/Mann_Alyssa.jpeg'
-import Rebecca_Borissova_pic from '../pictures/profile_pics/website/rebecca_borissova.JPEG'
-import Sarah_Tran_pic from '../pictures/profile_pics/website/Tran_Sarah.jpg'
-import Kelly_Yuan_pic from '../pictures/profile_pics/website/Yuan_Kelly.jpg'
+import Ivette_SaldanaHernandez_pic from '../pictures/profile_pics/website/Ivette_SaldanaHernandez.jpg'
 import Anh_Nguyen_pic from '../pictures/profile_pics/workshop/Anh_Nguyen.JPG'
 import Milana_T_pic from '../pictures/profile_pics/workshop/Milana_T.jpg'
 import Mina_Alkhazraji_pic from '../pictures/profile_pics/workshop/Mina_Alkhazraji.jpeg'
@@ -98,6 +98,15 @@ export const MemberList = [
     },
     {
         id: "8",
+        name: "Wenhui Chen (she/her)",
+        profile_pic: Wenhui_Chen_pic,
+        linkedIn: "https://www.linkedin.com/in/wenhuichen005/",
+        major: "Computer Egnineering",
+        committee_position: "Committee Member",
+        committee_name: "Merch",
+    },
+    {
+        id: "9",
         name: "Janna Rabanal (she/her)",
         profile_pic: Janna_Rabanal_pic,
         linkedIn: "https://www.linkedin.com/in/janna-rabanal/",
@@ -106,7 +115,7 @@ export const MemberList = [
         committee_name: "Operations",
     },
     {
-        id: "9",
+        id: "10",
         name: "Aarithi Rajendren (she/her)",
         profile_pic: Aarithi_Rajendren_pic,
         // linkedIn: "https://www.linkedin.com/in/janna-rabanal/",
@@ -115,7 +124,7 @@ export const MemberList = [
         committee_name: "Operations",
     },
     {
-        id: "10",
+        id: "11",
         name: "Bhavana Kavarthapu (she/her)",
         profile_pic: Bhavana_Kavarthapu_pic,
         linkedIn: "linkedin.com/in/bhavana-kavarthapu/",
@@ -125,7 +134,7 @@ export const MemberList = [
         
     },
     {
-        id: "11",
+        id: "12",
         name: "Diksha Gupta (she/her)",
         profile_pic: Diksha_Gupta_pic,
         linkedIn: "www.linkedin.com/in/dikshagupt",
@@ -134,7 +143,7 @@ export const MemberList = [
         committee_name: "Operations",
     },
     {
-        id: "12",
+        id: "13",
         name: "Grace Cavarretta (she/her)",
         profile_pic: Grace_Cavarretta_pic,
         linkedIn: "https://www.linkedin.com/in/grace-cavarretta/",
@@ -143,7 +152,7 @@ export const MemberList = [
         committee_name: "Operations",
     },
     {
-        id: "13",
+        id: "14",
         name: "Anushka Kapoor (she/her)",
         profile_pic: Kapoor_Anushka_pic,
         // linkedIn: "http://linkedin.com/in/danielavillagomez",
@@ -152,7 +161,7 @@ export const MemberList = [
         committee_name: "Operations",
     },
     {
-        id: "14",
+        id: "15",
         name: "Naydelin Trejo (she/her)",
         profile_pic: Naydelin_Trejo_pic,
         linkedIn: "https://www.linkedin.com/in/naydelin-trejo?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
@@ -161,7 +170,7 @@ export const MemberList = [
         committee_name: "Operations",
     },
     {
-        id: "15",
+        id: "16",
         name: "Skyler Steiert (they/them)",
         profile_pic: Steiert_Skyler_pic,
         linkedIn: "https://www.linkedin.com/in/skyler-steiert-b66a48296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
@@ -170,7 +179,7 @@ export const MemberList = [
         committee_name: "Operations",
     },
     {
-        id: "16",
+        id: "17",
         name: "Nil Aydinoz (she/her)",
         profile_pic: Nil_Aydinoz_pic,
         linkedIn: "www.linkedin.com/in/nilaydinoz",
@@ -179,7 +188,7 @@ export const MemberList = [
         committee_name: "Operations",
     },
     {
-        id: "17",
+        id: "18",
         name: "Ananya Harshe (she/her)",
         profile_pic: Ananya_Harshe_pic,
         linkedIn: "https://www.linkedin.com/in/ananya-harshe-68973a296/",
@@ -188,7 +197,7 @@ export const MemberList = [
         committee_name: "PR",
     },
     {
-        id: "18",
+        id: "19",
         name: "Andria Subhit (she/her)",
         profile_pic: Andria_Subhit_pic,
         linkedIn: "https://www.linkedin.com/in/andria-subhit-43b95728a/",
@@ -197,7 +206,7 @@ export const MemberList = [
         committee_name: "PR",
     },
     {
-        id: "19",
+        id: "20",
         name: "Divyanshi Saini (she/her)",
         profile_pic: Divyanshi_Saini_pic,
         linkedIn: "https://www.linkedin.com/in/divyanshisaini", 
@@ -206,7 +215,16 @@ export const MemberList = [
         committee_name: "PR",
     },
     {
-        id: "20",
+        id: "21",
+        name: "Sheilah Jamasi (she/her)",
+        profile_pic: Sheilah_Jamasi_pic,
+        linkedIn: "http://linkedin.com/in/sheilah-jamasi-237008354",
+        major: "Civil Engineering",
+        committee_position: "Committee Member",
+        committee_name: "PR",
+    },
+    {
+        id: "22",
         name: "Imaan Edhi (she/her)",
         profile_pic: Imaan_Edhi_pic,
         linkedIn: "https://www.linkedin.com/in/imaan-edhi",
@@ -215,7 +233,7 @@ export const MemberList = [
         committee_name: "PR",
     },
     {
-        id: "21",
+        id: "23",
         name: "Stephanie Nguyen (she/her)",
         profile_pic: Stephanie_Nguyen_pic,
         linkedIn: "https://www.linkedin.com/in/stephanienguyen25/",
@@ -224,7 +242,16 @@ export const MemberList = [
         committee_name: "Sponsorship",
     },
     {
-        id: "22",
+        id: "24",
+        name: "Veronic Igwe (she/her)",
+        profile_pic: Veronic_Igwe_pic,
+        // linkedIn: "https://www.linkedin.com/in/stephanienguyen25/",
+        major: "Computer Science",
+        committee_position: "Committee Member",
+        committee_name: "Sponsorship",
+    },
+    {
+        id: "25",
         name: "Mya Ramsey (she/her)",
         profile_pic: Mya_Ramsey_pic,
         linkedIn: "https://www.linkedin.com/in/mya-ramsey-uf/",
@@ -234,7 +261,7 @@ export const MemberList = [
           
      },
     {
-        id: "23",
+        id: "26",
         name: "ELizabeth Gonzalez (she/they)",
         profile_pic: ELizabeth_Gonzalez_pic,
         linkedIn: "https://www.linkedin.com/in/elizabethgonzalez/",
@@ -243,35 +270,16 @@ export const MemberList = [
         committee_name: "Tech-support",
     },
     {
-        id: "24",
-        name: "Kelly Yuan (she/her)",
-        profile_pic: Kelly_Yuan_pic,
-        linkedIn: "https://www.linkedin.com/in/kelly-y-yuan/",
-        major: "Computer Science",
-        committee_position: "Committee Head",
-        committee_name: "Website",
-        
-    },
-    {
-        id: "25",
-        name: "Rebecca Borissova (she/her)",
-        profile_pic: Rebecca_Borissova_pic,
-        linkedIn: "https://www.linkedin.com/in/rborissova/",
-        major: "Computer Science",
-        committee_position: "Committee Head",
-        committee_name: "Website",
-    },
-    {
-        id: "26",
-        name: "Alyssa Mann (she/her)",
-        profile_pic: Alyssa_Mann_pic,
-        linkedIn: "https://www.linkedin.com/in/alyssa-m-mann/",
+        id: "27",
+        name: "Lu Ighodalo (she/her)",
+        profile_pic: Lu_Ighodalo_pic,
+        linkedIn: "https://www.linkedin.com/in/luighodalo/",
         major: "Computer Science",
         committee_position: "Committee Member",
-        committee_name: "Website",
+        committee_name: "Tech-support",
     },
     {
-        id: "27",
+        id: "28",
         name: "Gaby Smith (she/her)",
         profile_pic: Gaby_Smith_pic,
         linkedIn: "https://www.linkedin.com/in/gabriella-rose-smith/",
@@ -280,22 +288,13 @@ export const MemberList = [
         committee_name: "Website",
     },
     {
-        id: "28",
-        name: "Jackie Jurado (she/her)",
-        profile_pic: Jacqueline_Jurado_pic,
-        linkedIn: "https://www.linkedin.com/in/jackiejurado/",
+        id: "29",
+        name: "Ivette Saldana Hernandez (she/her)",
+        profile_pic: Ivette_SaldanaHernandez_pic,
+        linkedIn: "http://www.linkedin.com/in/ivettesaldanahernandez/",
         major: "Computer Science",
         committee_position: "Committee Member",
         committee_name: "Website",
-    },
-    {
-        id: "29",
-        name: "Sarah Tran (she/her)",
-        profile_pic: Sarah_Tran_pic,
-        linkedIn: "https://www.linkedin.com/in/sarah-tran1029/",
-        major: "Computer Science",
-        committee_position: "Committee Member",
-        committee_name: "Website"
     },
     {
         id: "30",
