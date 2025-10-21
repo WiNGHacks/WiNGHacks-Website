@@ -27,7 +27,7 @@ const Leaderboard = ({}, ref) => {
             <h2 className="disclaimer">Name</h2>
             <h2 className="disclaimer">Number of Workshops Attended</h2>
           </div>
-          {leaderboardData.map((entry, index) => (
+          {/* {leaderboardData.map((entry, index) => (
             <div
               key={index}
               style={{
@@ -38,7 +38,8 @@ const Leaderboard = ({}, ref) => {
               <div style={styles.name}>{entry[0]} {entry[1]}</div>
               <div style={styles.attendance}>{entry[2]}</div>
             </div>
-          ))}
+          ))} */}
+          <h1>Check back during the hackathon to see the leaderboard</h1>
         </div>
       </div>
     </div>

@@ -1,11 +1,11 @@
 import Mansa_Patel_pic from '../pictures/profile_pics/awards/MANSA_PATEL.jpeg'
-import Lan_Ahn_Do_pic from '../pictures/profile_pics/awards/Lan_Ahn_Do.png'
+import Lan_Ahn_Do_pic from '../pictures/profile_pics/awards/Lan_Ahn_Do.jpg'
 import Zaynab_Boustique_pic from '../pictures/profile_pics/awards/zaynab_boustique.JPG'
 import Teji_Kari_pic from '../pictures/profile_pics/directors/Teji_Kari.jpg'
 import Valentina_Esteban_pic from '../pictures/profile_pics/directors/Valentina_Esteban.png'
 import Sofia_DAurio_pic from '../pictures/profile_pics/merch/DAurio_Sofia.jpg'
-import Hannah_Imler_pic from '../pictures/profile_pics/merch/Imler_Hannah.jpeg'
-import Wenhui_Chen_pic from '../pictures/profile_pics/merch/Wenhui_Chen.jpg'
+import Jules_Bush_pic from '../pictures/profile_pics/merch/Jules_Bush.JPG'
+import Wenhui_Chen_pic from '../pictures/profile_pics/merch/Wenhui_Chen.png'
 import Aarithi_Rajendren_pic from '../pictures/profile_pics/operations/Aarithi_Rajendren.jpg'
 import Bhavana_Kavarthapu_pic from '../pictures/profile_pics/operations/Bhavana_Kavarthapu.jpg'
 import Diksha_Gupta_pic from '../pictures/profile_pics/operations/Diksha_Gupta.jpg'
@@ -15,16 +15,16 @@ import Kapoor_Anushka_pic from '../pictures/profile_pics/operations/Kapoor_Anush
 import Naydelin_Trejo_pic from '../pictures/profile_pics/operations/Naydelin_Trejo.jpeg'
 import Nil_Aydinoz_pic from '../pictures/profile_pics/operations/Nil_Aydinoz.JPG'
 import Steiert_Skyler_pic from '../pictures/profile_pics/operations/Steiert_Skyler.jpeg'
-import Ananya_Harshe_pic from '../pictures/profile_pics/pr/Ananya_Harshe.jpg'
-import Andria_Subhit_pic from '../pictures/profile_pics/pr/Andria_Subhit.jpg'
-import Sheilah_Jamasi_pic from '../pictures/profile_pics/pr/Sheilah_Jamasi.jpg'
-import Divyanshi_Saini_pic from '../pictures/profile_pics/pr/Divyanshi_Saini.jpeg'
+import Ananya_Harshe_pic from '../pictures/profile_pics/pr/Ananya_Harshe.png'
+import Andria_Subhit_pic from '../pictures/profile_pics/pr/Andria_Subhit.jpeg'
+import Sheilah_Jamasi_pic from '../pictures/profile_pics/pr/Sheilah_Jamasi.png'
+import Aradhana_Hegde_pic from '../pictures/profile_pics/pr/Aradhana_Hegde.jpeg'
 import Imaan_Edhi_pic from '../pictures/profile_pics/pr/Imaan_Edhi.JPG'
 import Stephanie_Nguyen_pic from '../pictures/profile_pics/sponsorship/Stephanie_Nguyen.jpg'
-import Veronic_Igwe_pic from '../pictures/profile_pics/sponsorship/Veronic_Igwe.jpg'
-import ELizabeth_Gonzalez_pic from '../pictures/profile_pics/tech/Gonzalez_Elizabeth.jpeg'
-import Mya_Ramsey_pic from '../pictures/profile_pics/tech/Mya_Ramsey.png'
-import Lu_Ighodalo_pic from '../pictures/profile_pics/tech/Lu_Ighodalo.jpg'
+import Veronic_Igwe_pic from '../pictures/profile_pics/sponsorship/Veronic_Igwe.png'
+import Olivia_Schwartz_pic from '../pictures/profile_pics/tech/Olivia_Schwartz.jpg'
+import Kelly_Tran_pic from '../pictures/profile_pics/tech/Kelly_Tran.jpeg'
+import Lu_Ighodalo_pic from '../pictures/profile_pics/tech/Lu_Ighodalo.jpeg'
 import Gaby_Smith_pic from '../pictures/profile_pics/website/Gaby_Smith.jpg'
 import Ivette_SaldanaHernandez_pic from '../pictures/profile_pics/website/Ivette_SaldanaHernandez.jpg'
 import Anh_Nguyen_pic from '../pictures/profile_pics/workshop/Anh_Nguyen.JPG'
@@ -89,10 +89,10 @@ export const MemberList = [
     },
     {
         id: "7",
-        name: "Hannah Imler (she/her)",
-        profile_pic: Hannah_Imler_pic,
-        linkedIn: "linkedin.com/in/hannah-imler-782548322",
-        major: "Computer Science/Digital Arts and Sciences",
+        name: "Jules Bush (they/them)",
+        profile_pic: Jules_Bush_pic,
+        linkedIn: "http://www.linkedin.in/julia-k-bush",
+        major: "Computer Science",
         committee_position: "Committee Member",
         committee_name: "Merch",
     },
@@ -207,11 +207,11 @@ export const MemberList = [
     },
     {
         id: "20",
-        name: "Divyanshi Saini (she/her)",
-        profile_pic: Divyanshi_Saini_pic,
-        linkedIn: "https://www.linkedin.com/in/divyanshisaini", 
-        major: "Computer Science and Business Management",
-        committee_position: "Committee Head",
+        name: "Aradhana Hegde (she/her)",
+        profile_pic: Aradhana_Hegde_pic,
+        linkedIn: "http://www.linkedin.com/in/aradhana-hegde", 
+        major: "Computer Science",
+        committee_position: "Committee Member",
         committee_name: "PR",
     },
     {
@@ -252,19 +252,19 @@ export const MemberList = [
     },
     {
         id: "25",
-        name: "Mya Ramsey (she/her)",
-        profile_pic: Mya_Ramsey_pic,
-        linkedIn: "https://www.linkedin.com/in/mya-ramsey-uf/",
-        major: "Digital Arts and Sciences",
-        committee_position: "Committee Member",
+        name: "Olivia Schwartz (she/her/hers)",
+        profile_pic: Olivia_Schwartz_pic,
+        linkedIn: "https://www.linkedin.com/in/olivia-schwartz-2a5912273/",
+        major: "Computer Science",
+        committee_position: "Committee Head",
         committee_name: "Tech-support",
           
      },
     {
         id: "26",
-        name: "ELizabeth Gonzalez (she/they)",
-        profile_pic: ELizabeth_Gonzalez_pic,
-        linkedIn: "https://www.linkedin.com/in/elizabethgonzalez/",
+        name: "Kelly Tran (she/her)",
+        profile_pic: Kelly_Tran_pic,
+        linkedIn: "http://www.linkedin.com/in/kellyltran",
         major: "Computer Science",
         committee_position: "Committee Member",
         committee_name: "Tech-support",
