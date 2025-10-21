@@ -1,5 +1,5 @@
 import Mansa_Patel_pic from '../pictures/profile_pics/awards/MANSA_PATEL.jpeg'
-//import Lan_Ahn_Do_pic from '../pictures/profile_pics/awards/Lan_Ahn_Do.png'
+import Lan_Ahn_Do_pic from '../pictures/profile_pics/awards/Lan_Ahn_Do.jpg'
 import Zaynab_Boustique_pic from '../pictures/profile_pics/awards/zaynab_boustique.JPG'
 import Teji_Kari_pic from '../pictures/profile_pics/directors/Teji_Kari.jpg'
 import Valentina_Esteban_pic from '../pictures/profile_pics/directors/Valentina_Esteban.png'
@@ -16,12 +16,12 @@ import Naydelin_Trejo_pic from '../pictures/profile_pics/operations/Naydelin_Tre
 import Nil_Aydinoz_pic from '../pictures/profile_pics/operations/Nil_Aydinoz.JPG'
 import Steiert_Skyler_pic from '../pictures/profile_pics/operations/Steiert_Skyler.jpeg'
 import Ananya_Harshe_pic from '../pictures/profile_pics/pr/Ananya_Harshe.png'
-//import Andria_Subhit_pic from '../pictures/profile_pics/pr/Andria_Subhit.jpg'
-//import Sheilah_Jamasi_pic from '../pictures/profile_pics/pr/Sheilah_Jamasi.jpg'
+import Andria_Subhit_pic from '../pictures/profile_pics/pr/Andria_Subhit.jpeg'
+import Sheilah_Jamasi_pic from '../pictures/profile_pics/pr/Sheilah_Jamasi.png'
 import Aradhana_Hegde_pic from '../pictures/profile_pics/pr/Aradhana_Hegde.jpeg'
 import Imaan_Edhi_pic from '../pictures/profile_pics/pr/Imaan_Edhi.JPG'
 import Stephanie_Nguyen_pic from '../pictures/profile_pics/sponsorship/Stephanie_Nguyen.jpg'
-//import Veronic_Igwe_pic from '../pictures/profile_pics/sponsorship/Veronic_Igwe.jpg'
+import Veronic_Igwe_pic from '../pictures/profile_pics/sponsorship/Veronic_Igwe.png'
 import Olivia_Schwartz_pic from '../pictures/profile_pics/tech/Olivia_Schwartz.jpg'
 import Kelly_Tran_pic from '../pictures/profile_pics/tech/Kelly_Tran.jpeg'
 import Lu_Ighodalo_pic from '../pictures/profile_pics/tech/Lu_Ighodalo.jpeg'
@@ -54,7 +54,7 @@ export const MemberList = [
     {
         id: "3",
         name: "Lan Anh Do (she/her)",
-        //profile_pic: Lan_Ahn_Do_pic,
+        profile_pic: Lan_Ahn_Do_pic,
         linkedIn: "https://www.linkedin.com/in/lananhnguyendo",
         major: "Computer Engineering",
         committee_position: "Committee Head",
@@ -199,7 +199,7 @@ export const MemberList = [
     {
         id: "19",
         name: "Andria Subhit (she/her)",
-        //profile_pic: Andria_Subhit_pic,
+        profile_pic: Andria_Subhit_pic,
         linkedIn: "https://www.linkedin.com/in/andria-subhit-43b95728a/",
         major: "Computer Science",
         committee_position: "Committee Member",
@@ -217,7 +217,7 @@ export const MemberList = [
     {
         id: "21",
         name: "Sheilah Jamasi (she/her)",
-        //profile_pic: Sheilah_Jamasi_pic,
+        profile_pic: Sheilah_Jamasi_pic,
         linkedIn: "http://linkedin.com/in/sheilah-jamasi-237008354",
         major: "Civil Engineering",
         committee_position: "Committee Member",
@@ -244,7 +244,7 @@ export const MemberList = [
     {
         id: "24",
         name: "Veronic Igwe (she/her)",
-        //profile_pic: Veronic_Igwe_pic,
+        profile_pic: Veronic_Igwe_pic,
         // linkedIn: "https://www.linkedin.com/in/stephanienguyen25/",
         major: "Computer Science",
         committee_position: "Committee Member",
