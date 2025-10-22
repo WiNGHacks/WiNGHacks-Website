@@ -22,7 +22,7 @@ const Schedule = ({}, ref) => {
 
       <div className='Page entire-schedule'>
         <h1>Schedule</h1>
-        <h2 className="disclaimer">Please note that the schedule is subject to change.</h2>
+        {/* <h2 className="disclaimer">Please note that the schedule is subject to change.</h2> */}
 
         
         
@@ -49,7 +49,7 @@ const Schedule = ({}, ref) => {
           </div> 
         </div> */}
 
-        <div className = "location-container">
+        {/* <div className = "location-container">
           <div className = "location-child-container">
           <div className="map" style={{justifyContent: "center", display: "flex"}}>
             <iframe 
@@ -61,7 +61,8 @@ const Schedule = ({}, ref) => {
               </iframe>
             </div>
           </div>
-        </div>
+        </div> */}
+        <h2>Check back later for the complete schedule</h2>
 
       </div>
     </div> 
