@@ -39,7 +39,7 @@ const Leaderboard = ({}, ref) => {
               <div style={styles.attendance}>{entry[2]}</div>
             </div>
           ))} */}
-          <h1>Check back during the hackathon to see the leaderboard</h1>
+          <h1>Check back later during the hackathon to see the leaderboard</h1>
         </div>
       </div>
     </div>
