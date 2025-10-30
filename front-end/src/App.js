@@ -62,7 +62,7 @@ function App() {
                       <Home  ref = {ref} />
                       <GalleryWall ref = {ref} />
                       <AboutUs ref = {ref} />
-                      <Leaderboard ref = {ref} />
+                      {/* <Leaderboard ref = {ref} /> */}
                       <Schedule ref = {ref} />
                       <Awards ref = {ref} />
                       <Sponsors  ref = {ref} />

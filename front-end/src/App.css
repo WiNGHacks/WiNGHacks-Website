@@ -529,7 +529,7 @@ button:hover{ cursor: pointer; }
 
       .members img {
         width: 100%;
-        height: auto;
+        height: 150px;
         display: block;
       }
       
@@ -580,7 +580,7 @@ figure::-webkit-scrollbar {
 
 
 figure:hover{
-  border: 0.4em solid #7b7144;
+  border-color: #7b7144;
   img {
     opacity: 0.1;
     transition: all .2s ease-in-out .2s;
