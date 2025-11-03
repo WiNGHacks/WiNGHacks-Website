@@ -81,13 +81,23 @@ const Header = ({}, ref) => {
           <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2025/mlh-trust-badge-2025-blue.svg" 
               alt="Major League Hacking 2024 Hackathon Season" style={{width:100 + '%'}}/>
       </a>
-        <Link to = "/#gallerywall"  onClick={() => handleClick('gallerywall')} className = "link">Gallery</Link>
+        <Link to = "/#home"  onClick={() => handleClick('home')} className = "link">Home</Link>
+        <Link to = "/#sponsor"  onClick={() => handleClick('sponsor')} className = "link">Sponsors</Link>
+        <a href="https://discord.gg/YOUR_DISCORD_INVITE" target="_blank" rel="noopener noreferrer" className="link">
+          Discord
+        </a>
+        <a href="https://www.instagram.com/winghacks?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="link">
+          Instagram
+        </a>
+
+        
+        {/* <Link to = "/#gallerywall"  onClick={() => handleClick('gallerywall')} className = "link">Gallery</Link>
         <Link to = "/#about"  onClick={() => handleClick('about')} className = "link">About Us</Link>
         <Link to = "/#schedule" onClick={() => handleClick('schedule')} className = "link">Schedule</Link>
         <Link to = "/#awards" onClick={() => handleClick('awards')} className = "link">Awards</Link>
         <Link to = "/#sponsor" onClick={() => handleClick('sponsor')} className = "link">Sponsors</Link>
         <Link to = "/#faq" onClick={() => handleClick('faq')} className = "link">FAQ</Link>
-        <Link to = "/attendance" onClick={() => handleClick('attendance')} className = "link">Attendance</Link>
+        <Link to = "/attendance" onClick={() => handleClick('attendance')} className = "link">Attendance</Link> */}
         
 
           { token ?
