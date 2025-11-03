@@ -1,5 +1,5 @@
 import React , {forwardRef, useState} from 'react'
-import banner from '../pictures/WiNGHacks_Banner.png'
+import banner from '../pictures/WINGHacks_Sea_Banner_2025.gif'
 
 const Banner = ({}, ref) => {
 
