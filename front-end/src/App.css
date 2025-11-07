@@ -75,7 +75,7 @@ button:hover{ cursor: pointer; }
   background: white;
   /* padding: 0.2rem calc((100vw - 1000px) / 2); */
   padding: 0.2rem 0.75rem;
-  max-height: clamp(4rem, 5vw, 7rem);
+  max-height: clamp(3rem, 4vw, 6rem);
   z-index: 12;
   position: sticky; 
   top: 0;
@@ -91,7 +91,7 @@ button:hover{ cursor: pointer; }
     padding-top: 2%;
     padding-left: 1%;
     padding-right: 5%;
-    max-width: clamp(10rem, 10vw, 15rem);
+    max-width: clamp(8rem, 8vw, 12rem);
     min-width: 8rem;
     align-self: center;
   }
@@ -103,7 +103,7 @@ button:hover{ cursor: pointer; }
   
   .links {
     align-items: flex-end;
-    padding: 3rem 1rem 1rem; /* top, x, bottom */
+    padding: 0.75rem 1rem 0.05rem; /* top, x, bottom */
     justify-content: space-around;
     display: flex;
   
