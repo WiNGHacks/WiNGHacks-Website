@@ -74,7 +74,7 @@ button:hover{ cursor: pointer; }
 .navbar {
   background: white;
   /* padding: 0.2rem calc((100vw - 1000px) / 2); */
-  padding: 0.2rem 0.75rem;
+  padding: 1% 1% 0.25%;
   max-height: clamp(4rem, 5vw, 7rem);
   z-index: 12;
   position: sticky; 

@@ -6,6 +6,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import logo from './pictures/WiNGHacks_logo.png'
 import Popup from './pages/Popup'
 import AppCountDown from './AppCountDown';
+import { FaDiscord, FaInstagram} from "react-icons/fa";
 
 const cookies = new Cookies();
 
@@ -84,10 +85,10 @@ const Header = ({}, ref) => {
         <Link to = "/#home"  onClick={() => handleClick('home')} className = "link">Home</Link>
         <Link to = "/#sponsor"  onClick={() => handleClick('sponsor')} className = "link">Sponsors</Link>
         <a href="https://discord.gg/YOUR_DISCORD_INVITE" target="_blank" rel="noopener noreferrer" className="link">
-          Discord
+          <FaDiscord />
         </a>
         <a href="https://www.instagram.com/winghacks?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="link">
-          Instagram
+          <FaInstagram />
         </a>
 
         
