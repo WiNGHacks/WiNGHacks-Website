@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Banner from './components/pages/Banner'
 import Home from './components/pages/Home';
 import AboutUs from './components/pages/AboutUs';
+import Track from './components/pages/Track';
 import Sponsors from './components/pages/Sponsors';
 import FAQ from './components/pages/FAQ';
 import Login from './components/pages/applications/Login'
@@ -62,6 +63,7 @@ function App() {
                       <Home  ref = {ref} />
                       <GalleryWall ref = {ref} />
                       <AboutUs ref = {ref} />
+                      <Track ref = {ref} />
                       {/* <Leaderboard ref = {ref} /> */}
                       <Schedule ref = {ref} />
                       <Awards ref = {ref} />
