@@ -83,6 +83,7 @@ const Header = ({}, ref) => {
       </a>
         <Link to = "/#gallerywall"  onClick={() => handleClick('gallerywall')} className = "link">Gallery</Link>
         <Link to = "/#about"  onClick={() => handleClick('about')} className = "link">About Us</Link>
+        <Link to = "/#track" onClick={() => handleClick('track')} className = "link">Track</Link>
         <Link to = "/#schedule" onClick={() => handleClick('schedule')} className = "link">Schedule</Link>
         <Link to = "/#awards" onClick={() => handleClick('awards')} className = "link">Awards</Link>
         <Link to = "/#sponsor" onClick={() => handleClick('sponsor')} className = "link">Sponsors</Link>
