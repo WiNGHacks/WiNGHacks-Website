@@ -2,6 +2,7 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   /* background-color: #BFEBF4; */
   background-image: linear-gradient(#a8cce4 40%, #000a82);
+  /* background-image: linear-gradient(#00095b 40%, #a8cce4); */
   /* background-image: url(./components/pictures/Blue-Purple_background.png);
   background-attachment: fixed;
   background-position: center;  */
@@ -198,6 +199,19 @@ button:hover{ cursor: pointer; }
   display: flex;
   align-content: center;
   justify-content: center;
+  /* position: relative;
+  overflow: hidden;
+}
+
+.banner-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(to bottom, transparent 0%, #a8cce4 100%);
+  pointer-events: none; */
 }
 
 .banner {
@@ -205,7 +219,7 @@ button:hover{ cursor: pointer; }
   top: 0;
   left: 0;
   max-width: 100%;
-
+  display: block;
 }
 
 .info-container {
@@ -1804,10 +1818,3 @@ th {
 .carousel-indicators li {
   background-color: #4da99e; 
 }
-
-
-
-
-
-
-
