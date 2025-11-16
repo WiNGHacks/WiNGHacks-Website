@@ -1,11 +1,6 @@
 .app {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  /* background-color: #BFEBF4; */
-  background-image: linear-gradient(#a8cce4 40%, #000a82);
-  /* background-image: linear-gradient(#00095b 40%, #a8cce4); */
-  /* background-image: url(./components/pictures/Blue-Purple_background.png);
-  background-attachment: fixed;
-  background-position: center;  */
+  background-image: linear-gradient(#a8cce4 20%, #00095b);
   min-height: 100vh;
   height: 100%;
 
@@ -15,7 +10,6 @@
 }
 
 .App {
-
 }
 
 @font-face {
@@ -199,7 +193,7 @@ button:hover{ cursor: pointer; }
   display: flex;
   align-content: center;
   justify-content: center;
-  /* position: relative;
+  position: relative;
   overflow: hidden;
 }
 
@@ -211,7 +205,7 @@ button:hover{ cursor: pointer; }
   width: 100%;
   height: 20%;
   background: linear-gradient(to bottom, transparent 0%, #a8cce4 100%);
-  pointer-events: none; */
+  pointer-events: none;
 }
 
 .banner {
