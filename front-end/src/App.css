@@ -1,10 +1,6 @@
 .app {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  /* background-color: #BFEBF4; */
-  background-image: linear-gradient(#a8cce4 40%, #000a82);
-  /* background-image: url(./components/pictures/Blue-Purple_background.png);
-  background-attachment: fixed;
-  background-position: center;  */
+  background-image: linear-gradient(#a8cce4 20%, #00095b);
   min-height: 100vh;
   height: 100%;
 
@@ -14,7 +10,6 @@
 }
 
 .App {
-
 }
 
 @font-face {
@@ -198,6 +193,19 @@ button:hover{ cursor: pointer; }
   display: flex;
   align-content: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(to bottom, transparent 0%, #a8cce4 100%);
+  pointer-events: none;
 }
 
 .banner {
@@ -205,7 +213,7 @@ button:hover{ cursor: pointer; }
   top: 0;
   left: 0;
   max-width: 100%;
-
+  display: block;
 }
 
 .info-container {
@@ -385,6 +393,18 @@ button:hover{ cursor: pointer; }
 .Button-interest:hover{
   top:10px;
   background-color: rgb(13, 99, 137);
+  -webkit-box-shadow:inset 0 2px 0 #c4eaff, inset 0 0px 0 #00424b;
+}
+
+.Button-hacker{
+  background-color: #393462;
+  -webkit-box-shadow:inset 0 1px 0 rgb(107, 97, 183), 0 10px 0 rgb(41, 36, 81);
+  border-color: rgb(107, 97, 183);
+}
+
+.Button-hacker:hover{
+  top:10px;
+  background-color: rgb(41, 36, 81);
   -webkit-box-shadow:inset 0 2px 0 #c4eaff, inset 0 0px 0 #00424b;
 }
 
@@ -657,6 +677,8 @@ figcaption a {
   background-color: #441305;
   -webkit-box-shadow:inset 0 2px 0 #ffcbcb, inset 0 0px 0 #ba3d1b;
 }
+
+
 
 .sponsor-row {
   display: flex;

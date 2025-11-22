@@ -30,14 +30,15 @@ import Ivette_SaldanaHernandez_pic from '../pictures/profile_pics/website/Ivette
 import Anh_Nguyen_pic from '../pictures/profile_pics/workshop/Anh_Nguyen.JPG'
 import Milana_T_pic from '../pictures/profile_pics/workshop/Milana_T.jpg'
 import Mina_Alkhazraji_pic from '../pictures/profile_pics/workshop/Mina_Alkhazraji.jpeg'
+import Mansa_pic from '../pictures/profile_pics/directors/MANSA_PATEL.jpeg'
 
 
 export const MemberList = [
     {
         id: "1",
-        name: "Teji Kari (she/her)",
-        profile_pic: Teji_Kari_pic,
-        linkedIn: "https://www.linkedin.com/in/teji-kari",
+        name: "Mansa Patel (she/her)",
+        profile_pic: Mansa_Patel_pic,
+        linkedIn: "https://www.linkedin.com/in/mansa-patel",
         major: "Computer Science",
         committee_position: "Co-director",
         committee_name: "Directors",

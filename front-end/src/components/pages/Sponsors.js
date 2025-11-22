@@ -33,7 +33,7 @@ const Sponsors = ({}, ref) => {
       align='center' className='margins'>
       <h1 align='left'>Sponsors</h1>
         <div className='sponsor-row'>
-          <div className='sponsor-tier-container'>
+          {/* <div className='sponsor-tier-container'>
             <h2>Co-Host</h2>
             <div align='center' className='sponsor-logo-container'>
             {SponsorList.filter((sponsor) => sponsor.tier === 'Co-Host').map((sponsor) => (
@@ -52,7 +52,7 @@ const Sponsors = ({}, ref) => {
               </a>
             ))}
             </div>
-          </div>
+          </div> */}
           {/* <div className='sponsor-tier-container'>
             <h2>Gold Sponsors</h2>
             <div align='center' className='sponsor-logo-container'>
@@ -64,7 +64,7 @@ const Sponsors = ({}, ref) => {
             </div>
           </div> */}
         </div>
-        <div className='sponsor-row'>
+        {/* <div className='sponsor-row'>
           <div className='sponsor-tier-container'>
             <h2>Silver Sponsors</h2>
             <div align='center' className='sponsor-logo-container'>
@@ -97,7 +97,7 @@ const Sponsors = ({}, ref) => {
             ))}
             </div>
           </div>
-        </div>
+        </div> */}
 
       <button className='Button Button-sponsor-page' onClick ={onButtonClick}>
         <div className='arrow'>{openPDF? (<SlArrowUp /> ): (<SlArrowDown />)}</div>
