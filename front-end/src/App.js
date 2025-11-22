@@ -63,17 +63,17 @@ function App() {
                       <Home  ref = {ref} />
                       <GalleryWall ref = {ref} />
                       <AboutUs ref = {ref} />
-                      <Track ref = {ref} />
+                      {/* <Track ref = {ref} /> */}
                       {/* <Leaderboard ref = {ref} /> */}
-                      <Schedule ref = {ref} />
-                      <Awards ref = {ref} />
+                      {/* <Schedule ref = {ref} /> */}
+                      {/* <Awards ref = {ref} /> */}
                       <Sponsors  ref = {ref} />
                       <FAQ  ref = {ref} />
                     </>
                   )}
                 />
               
-              <Route path="/login" element={<Login/>}></Route>
+              {/* <Route path="/login" element={<Login/>}></Route> */}
               <Route path="/signup" element={<SignUp/>}></Route>
               <Route path="/portal/:id" element={<UserPortal/>}></Route>
               <Route path="/verify/:token" element={<VerificationEmail/>}></Route>

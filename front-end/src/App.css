@@ -396,6 +396,18 @@ button:hover{ cursor: pointer; }
   -webkit-box-shadow:inset 0 2px 0 #c4eaff, inset 0 0px 0 #00424b;
 }
 
+.Button-hacker{
+  background-color: #393462;
+  -webkit-box-shadow:inset 0 1px 0 rgb(107, 97, 183), 0 10px 0 rgb(41, 36, 81);
+  border-color: rgb(107, 97, 183);
+}
+
+.Button-hacker:hover{
+  top:10px;
+  background-color: rgb(41, 36, 81);
+  -webkit-box-shadow:inset 0 2px 0 #c4eaff, inset 0 0px 0 #00424b;
+}
+
 .Button-apply{
   background-color: #fefeaa;
   color: black;
@@ -665,6 +677,8 @@ figcaption a {
   background-color: #441305;
   -webkit-box-shadow:inset 0 2px 0 #ffcbcb, inset 0 0px 0 #ba3d1b;
 }
+
+
 
 .sponsor-row {
   display: flex;
