@@ -87,6 +87,9 @@ const Header = ({}, ref) => {
         <a href="https://www.instagram.com/winghacks?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="link">
           <FaInstagram />
         </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdusvJ_vntBDq33Dqx5DgR0LXx7So5OtFqxHxqETg2j1qWn0Q/viewform" target="_blank" rel="noopener noreferrer" className="link">
+          Apply
+        </a>
 
         
         {/* <Link to = "/#gallerywall"  onClick={() => handleClick('gallerywall')} className = "link">Gallery</Link>
