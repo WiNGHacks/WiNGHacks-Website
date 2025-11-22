@@ -1826,3 +1826,46 @@ th {
 .carousel-indicators li {
   background-color: #4da99e; 
 }
+
+.Track {
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    background-color: #c7f2fc;
+    max-width: 320px;
+    height: 35rem;
+    margin: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .product-image {
+    width: 95%;
+    height: 15rem;
+    padding: 1%;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
+  .content {
+    padding: 1% 5%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-family: 'teacher-semibold';
+    margin: 0.5rem 0;
+  }
+
+  .description {
+    color: grey;
+    font-size: 20px;
+    font-family: 'teacher-regular';
+    flex-grow: 1;
+  }
+}
