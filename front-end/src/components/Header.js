@@ -84,9 +84,6 @@ const Header = ({}, ref) => {
       </a>
         <Link to = "/#home"  onClick={() => handleClick('home')} className = "link">Home</Link>
         <Link to = "/#sponsor"  onClick={() => handleClick('sponsor')} className = "link">Sponsors</Link>
-        <a href="https://discord.gg/YOUR_DISCORD_INVITE" target="_blank" rel="noopener noreferrer" className="link">
-          <FaDiscord />
-        </a>
         <a href="https://www.instagram.com/winghacks?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="link">
           <FaInstagram />
         </a>
@@ -108,14 +105,14 @@ const Header = ({}, ref) => {
                 {/* {console.log(jwtDecode(token).admin)} */}
                 {jwtDecode(token).admin ? (
                   <div>
-                    <div className = "link" onClick={adminClick}>Admin</div>
-                    <div to="/login" className = "link" onClick={logoutClick}>Logout</div>
+                    {/* <div className = "link" onClick={adminClick}>Admin</div> */}
+                    {/* <div to="/login" className = "link" onClick={logoutClick}>Logout</div> */}
                   </div>
                 
                 ):(
                   <div className='dynamic lessSpace'>
-                      <div className = "link" onClick={portalClick}>Portal</div>
-                      <div to="/login" className = "link" onClick={logoutClick}>Logout</div>
+                      {/* <div className = "link" onClick={portalClick}>Portal</div> */}
+                      {/* <div to="/login" className = "link" onClick={logoutClick}>Logout</div> */}
                   </div> 
 
                 )}
@@ -124,7 +121,7 @@ const Header = ({}, ref) => {
             )
             :
             ( <div className='dynamic'>
-                <Link to="/login" className = "link" onClick={clickedNavbar}>Login</Link>
+                {/* <Link to="/login" className = "link" onClick={clickedNavbar}>Login</Link> */}
                 {/* <Link to={process.env.REACT_APP_APPLICATION_FORM} target="_blank" className = "link apply button-glow" onClick={clickedNavbar}>Apply Now</Link> */}
               </div> )
           }
