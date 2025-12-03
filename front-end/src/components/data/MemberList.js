@@ -1,43 +1,50 @@
-import Mansa_Patel_pic from '../pictures/profile_pics/awards/MANSA_PATEL.jpeg'
+// Directors
+import Mina_Alkhazraji_pic from '../pictures/profile_pics/directors/Mina_Alkhazraji.jpeg'
+import Mansa_pic from '../pictures/profile_pics/directors/MANSA_PATEL.jpeg'
+// Awards, shirley no pic
 import Lan_Ahn_Do_pic from '../pictures/profile_pics/awards/Lan_Ahn_Do.jpg'
-import Zaynab_Boustique_pic from '../pictures/profile_pics/awards/zaynab_boustique.JPG'
-import Teji_Kari_pic from '../pictures/profile_pics/directors/Teji_Kari.jpg'
-import Valentina_Esteban_pic from '../pictures/profile_pics/directors/Valentina_Esteban.png'
-import Sofia_DAurio_pic from '../pictures/profile_pics/merch/DAurio_Sofia.jpg'
-import Jules_Bush_pic from '../pictures/profile_pics/merch/Jules_Bush.JPG'
+// Merch
+import Zhiting_Li_pic from '../pictures/profile_pics/merch/Zhiting_Li.JPG'
 import Wenhui_Chen_pic from '../pictures/profile_pics/merch/Wenhui_Chen.png'
-import Aarithi_Rajendren_pic from '../pictures/profile_pics/operations/Aarithi_Rajendren.jpg'
-import Bhavana_Kavarthapu_pic from '../pictures/profile_pics/operations/Bhavana_Kavarthapu.jpg'
-import Diksha_Gupta_pic from '../pictures/profile_pics/operations/Diksha_Gupta.jpg'
+import Tiffany_Huang_pic from '../pictures/profile_pics/merch/Tiffany_Huang.jpeg'
+import Jules_Bush_pic from '../pictures/profile_pics/merch/Jules_Bush.JPG'
+// Operations
 import Grace_Cavarretta_pic from '../pictures/profile_pics/operations/Grace_Cavarretta.png'
-import Janna_Rabanal_pic from '../pictures/profile_pics/operations/Janna_Rabanal.jpg'
-import Kapoor_Anushka_pic from '../pictures/profile_pics/operations/Kapoor_Anushka.jpeg'
-import Naydelin_Trejo_pic from '../pictures/profile_pics/operations/Naydelin_Trejo.jpeg'
-import Nil_Aydinoz_pic from '../pictures/profile_pics/operations/Nil_Aydinoz.JPG'
-import Steiert_Skyler_pic from '../pictures/profile_pics/operations/Steiert_Skyler.jpeg'
+import Skyler_Steiert_pic from '../pictures/profile_pics/operations/Skyler_Steiert.jpeg'
+import Anna_Stepanova_pic from '../pictures/profile_pics/operations/Anna_Stepanova.jpg'
+import Nico_Nguyen_pic from '../pictures/profile_pics/operations/Nico_Nguyen.jpg'
+import Jade_Vega_pic from '../pictures/profile_pics/operations/Jade_Vega.png'
+import Thien_Duyen_Hoang_pic from '../pictures/profile_pics/operations/Thien_Duyen_Hoang.jpeg'
+// PR
 import Ananya_Harshe_pic from '../pictures/profile_pics/pr/Ananya_Harshe.png'
 import Andria_Subhit_pic from '../pictures/profile_pics/pr/Andria_Subhit.jpeg'
 import Sheilah_Jamasi_pic from '../pictures/profile_pics/pr/Sheilah_Jamasi.png'
 import Aradhana_Hegde_pic from '../pictures/profile_pics/pr/Aradhana_Hegde.jpeg'
-import Imaan_Edhi_pic from '../pictures/profile_pics/pr/Imaan_Edhi.JPG'
-import Stephanie_Nguyen_pic from '../pictures/profile_pics/sponsorship/Stephanie_Nguyen.jpg'
+import AnnaRose_Wheatle_pic from '../pictures/profile_pics/pr/AnnaRose_Wheatle.jpeg'
+// Sponsorship
+import Deshna_Naruka_pic from '../pictures/profile_pics/sponsorship/Deshna_Naruka.png'
+import Helen_Zhang_pic from '../pictures/profile_pics/sponsorship/Helen_Zhang.jpg'
+import Hana_Elbatouty_pic from '../pictures/profile_pics/sponsorship/Hana_Elbatouty.jpeg'
 import Veronic_Igwe_pic from '../pictures/profile_pics/sponsorship/Veronic_Igwe.png'
+// Tech Support
 import Olivia_Schwartz_pic from '../pictures/profile_pics/tech/Olivia_Schwartz.jpg'
 import Kelly_Tran_pic from '../pictures/profile_pics/tech/Kelly_Tran.jpeg'
 import Lu_Ighodalo_pic from '../pictures/profile_pics/tech/Lu_Ighodalo.jpeg'
+// Website
 import Gaby_Smith_pic from '../pictures/profile_pics/website/Gaby_Smith.jpg'
 import Ivette_SaldanaHernandez_pic from '../pictures/profile_pics/website/Ivette_SaldanaHernandez.jpg'
-import Anh_Nguyen_pic from '../pictures/profile_pics/workshop/Anh_Nguyen.JPG'
-import Milana_T_pic from '../pictures/profile_pics/workshop/Milana_T.jpg'
-import Mina_Alkhazraji_pic from '../pictures/profile_pics/workshop/Mina_Alkhazraji.jpeg'
-import Mansa_pic from '../pictures/profile_pics/directors/MANSA_PATEL.jpeg'
-
+import Diksha_Kushwah_pic from '../pictures/profile_pics/website/Diksha_Kushwah.jpg'
+import Adora_Lin_pic from '../pictures/profile_pics/website/Adora_Lin.jpg'
+// Workshop, add Rebecca, Emma
+import Rebecca_Borissova_pic from '../pictures/profile_pics/workshop/Rebecca_Borissova.jpg'
+import Emma_Wolman_pic from '../pictures/profile_pics/workshop/Emma_Wolman.jpeg'
 
 export const MemberList = [
+    // Directors
     {
         id: "1",
         name: "Mansa Patel (she/her)",
-        profile_pic: Mansa_Patel_pic,
+        profile_pic: Mansa_pic,
         linkedIn: "https://www.linkedin.com/in/mansa-patel",
         major: "Computer Science",
         committee_position: "Co-director",
@@ -45,13 +52,14 @@ export const MemberList = [
     },
     {
         id: "2",
-        name: "Valentina Esteban (she/her)",
-        profile_pic: Valentina_Esteban_pic,
-        // linkedIn: "https://www.linkedin.com/in/vyvudb",
-        major: "Computer Science",
+        name: "Mina Alkhazraji (she/her)",
+        profile_pic: Mina_Alkhazraji_pic,
+        linkedIn: "https://www.linkedin.com/in/mina-alkhazraji",
+        major: "Computer Engineering",
         committee_position: "Co-director",
         committee_name: "Directors",
     },
+    // Awards
     {
         id: "3",
         name: "Lan Anh Do (she/her)",
@@ -61,31 +69,32 @@ export const MemberList = [
         committee_position: "Committee Head",
         committee_name: "Awards",
     },
-    // {
-    //     id: "4",
-    //     name: "Mansa Patel (she/her)",
-    //     profile_pic: Mansa_Patel_pic,
-    //     linkedIn: "https://www.linkedin.com/in/mansa-patel",
-    //     major: "Computer Science",
-    //     committee_position: "Committee Member",
-    //     committee_name: "Awards",
-    // },
+    // Merch
+    {
+        id: "4",
+        name: "Zhiting Li (she/her)",
+        profile_pic: Zhiting_Li_pic,
+        linkedIn: "http://www.linkedin.com/in/zhitingli",
+        major: "Computer Engineering",
+        committee_position: "Committee Head",
+        committee_name: "Merch",
+    },
     {
         id: "5",
-        name: "Zaynab Boustique (she/her)",
-        profile_pic: Zaynab_Boustique_pic,
-        // linkedIn: "https://www.linkedin.com/in/valentinaesteban/",
-        major: "Math",
+        name: "Wenhui Chen (she/her)",
+        profile_pic: Wenhui_Chen_pic,
+        linkedIn: "https://www.linkedin.com/in/wenhuichen005/",
+        major: "Computer Engineering",
         committee_position: "Committee Member",
-        committee_name: "Awards",
+        committee_name: "Merch",
     },
     {
         id: "6",
-        name: "Sofia D'Aurio (she/her)",
-        profile_pic: Sofia_DAurio_pic,
-        linkedIn: "https://www.linkedin.com/in/sofia-daurio/",
-        major: "Digital Arts and Sciences",
-        committee_position: "Committee Head",
+        name: "Tiffany Huang (she/her)",
+        profile_pic: Tiffany_Huang_pic,
+        linkedIn: "http://linkedin.com/in/tiffanyhuang1010",
+        major: "Computer Science",
+        committee_position: "Committee Member",
         committee_name: "Merch",
     },
     {
@@ -97,99 +106,64 @@ export const MemberList = [
         committee_position: "Committee Member",
         committee_name: "Merch",
     },
+    // Operations
     {
         id: "8",
-        name: "Wenhui Chen (she/her)",
-        profile_pic: Wenhui_Chen_pic,
-        linkedIn: "https://www.linkedin.com/in/wenhuichen005/",
-        major: "Computer Egnineering",
-        committee_position: "Committee Member",
-        committee_name: "Merch",
+        name: "Grace Cavarretta (she/her)",
+        profile_pic: Grace_Cavarretta_pic,
+        linkedIn: "https://www.linkedin.com/in/grace-cavarretta/",
+        major: "Computer Science",
+        committee_position: "Committee Head",
+        committee_name: "Operations",
     },
     {
         id: "9",
-        name: "Janna Rabanal (she/her)",
-        profile_pic: Janna_Rabanal_pic,
-        linkedIn: "https://www.linkedin.com/in/janna-rabanal/",
-        major: "Information Systems",
+        name: "Skyler Steiert (they/them)",
+        profile_pic: Skyler_Steiert_pic,
+        linkedIn: "https://www.linkedin.com/in/skyler-steiert-b66a48296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        major: "Computer Science",
         committee_position: "Committee Head",
         committee_name: "Operations",
     },
     {
         id: "10",
-        name: "Aarithi Rajendren (she/her)",
-        profile_pic: Aarithi_Rajendren_pic,
-        // linkedIn: "https://www.linkedin.com/in/janna-rabanal/",
-        major: "Computer Science",
+        name: "Anna Stepanova (she/her)",
+        profile_pic: Anna_Stepanova_pic,
+        linkedIn: "https://www.linkedin.com/in/ufannastepanova17",
+        major: "Statistics, Economics",
         committee_position: "Committee Member",
         committee_name: "Operations",
     },
     {
         id: "11",
-        name: "Bhavana Kavarthapu (she/her)",
-        profile_pic: Bhavana_Kavarthapu_pic,
-        linkedIn: "linkedin.com/in/bhavana-kavarthapu/",
-        major: "Computer Science",
+        name: "Nico Nguyen (they/them)",
+        profile_pic: Nico_Nguyen_pic,
+        linkedIn: "https://www.linkedin.com/in/nora-l-nguyen/",
+        major: "Computer Engineering",
         committee_position: "Committee Member",
         committee_name: "Operations",
-        
     },
     {
         id: "12",
-        name: "Diksha Gupta (she/her)",
-        profile_pic: Diksha_Gupta_pic,
-        linkedIn: "www.linkedin.com/in/dikshagupt",
+        name: "Jade Vega (she/her)",
+        profile_pic: Jade_Vega_pic,
+        linkedIn: "",
         major: "Computer Science",
         committee_position: "Committee Member",
         committee_name: "Operations",
     },
     {
         id: "13",
-        name: "Grace Cavarretta (she/her)",
-        profile_pic: Grace_Cavarretta_pic,
-        linkedIn: "https://www.linkedin.com/in/grace-cavarretta/",
-        major: "Computer Science",
+        name: "Thien Duyen Hoang (she/her)",
+        profile_pic: Thien_Duyen_Hoang_pic,
+        linkedIn: "https://www.linkedin.com/in/thien-duyen-hoang-074696327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        major: "Information Systems",
         committee_position: "Committee Member",
         committee_name: "Operations",
     },
+    // PR
     {
         id: "14",
-        name: "Anushka Kapoor (she/her)",
-        profile_pic: Kapoor_Anushka_pic,
-        // linkedIn: "http://linkedin.com/in/danielavillagomez",
-        major: "Computer Science",
-        committee_position: "Committee Member",
-        committee_name: "Operations",
-    },
-    {
-        id: "15",
-        name: "Naydelin Trejo (she/her)",
-        profile_pic: Naydelin_Trejo_pic,
-        linkedIn: "https://www.linkedin.com/in/naydelin-trejo?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        major: "Computer Science",
-        committee_position: "Committee Head",
-        committee_name: "Operations",
-    },
-    {
-        id: "16",
-        name: "Skyler Steiert (they/them)",
-        profile_pic: Steiert_Skyler_pic,
-        linkedIn: "https://www.linkedin.com/in/skyler-steiert-b66a48296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        major: "Computer Science",
-        committee_position: "Committee Member",
-        committee_name: "Operations",
-    },
-    {
-        id: "17",
-        name: "Nil Aydinoz (she/her)",
-        profile_pic: Nil_Aydinoz_pic,
-        linkedIn: "www.linkedin.com/in/nilaydinoz",
-        major: "Computer Science",
-        committee_position: "Committee Member",
-        committee_name: "Operations",
-    },
-    {
-        id: "18",
         name: "Ananya Harshe (she/her)",
         profile_pic: Ananya_Harshe_pic,
         linkedIn: "https://www.linkedin.com/in/ananya-harshe-68973a296/",
@@ -198,16 +172,16 @@ export const MemberList = [
         committee_name: "PR",
     },
     {
-        id: "19",
+        id: "15",
         name: "Andria Subhit (she/her)",
         profile_pic: Andria_Subhit_pic,
         linkedIn: "https://www.linkedin.com/in/andria-subhit-43b95728a/",
         major: "Computer Science",
-        committee_position: "Committee Member",
+        committee_position: "Committee Head",
         committee_name: "PR",
     },
     {
-        id: "20",
+        id: "16",
         name: "Aradhana Hegde (she/her)",
         profile_pic: Aradhana_Hegde_pic,
         linkedIn: "http://www.linkedin.com/in/aradhana-hegde", 
@@ -216,7 +190,7 @@ export const MemberList = [
         committee_name: "PR",
     },
     {
-        id: "21",
+        id: "17",
         name: "Sheilah Jamasi (she/her)",
         profile_pic: Sheilah_Jamasi_pic,
         linkedIn: "http://linkedin.com/in/sheilah-jamasi-237008354",
@@ -225,34 +199,54 @@ export const MemberList = [
         committee_name: "PR",
     },
     {
-        id: "22",
-        name: "Imaan Edhi (she/her)",
-        profile_pic: Imaan_Edhi_pic,
-        linkedIn: "https://www.linkedin.com/in/imaan-edhi",
+        id: "18",
+        name: "AnnaRose Wheatle (she/her)",
+        profile_pic: AnnaRose_Wheatle_pic,
+        linkedIn: "https://www.linkedin.com/in/annarose-wheatle-368501306",
         major: "Computer Science",
         committee_position: "Committee Member",
         committee_name: "PR",
     },
+    // Sponsorship
     {
-        id: "23",
-        name: "Stephanie Nguyen (she/her)",
-        profile_pic: Stephanie_Nguyen_pic,
-        linkedIn: "https://www.linkedin.com/in/stephanienguyen25/",
+        id: "19",
+        name: "Deshna Naruka (she/her)",
+        profile_pic: Deshna_Naruka_pic,
+        linkedIn: "https://www.linkedin.com/in/deshna-naruka-dn1/",
         major: "Computer Science",
         committee_position: "Committee Head",
         committee_name: "Sponsorship",
     },
     {
-        id: "24",
-        name: "Veronic Igwe (she/her)",
-        profile_pic: Veronic_Igwe_pic,
-        // linkedIn: "https://www.linkedin.com/in/stephanienguyen25/",
+        id: "20",
+        name: "Helen Zhang (she/her)",
+        profile_pic: Helen_Zhang_pic,
+        linkedIn: "https://www.linkedin.com/in/helendzhang/",
         major: "Computer Science",
         committee_position: "Committee Member",
         committee_name: "Sponsorship",
     },
     {
-        id: "25",
+        id: "21",
+        name: "Hana Elbatouty (she/her)",
+        profile_pic: Hana_Elbatouty_pic,
+        linkedIn: "https://www.linkedin.com/in/hana-elbatouty-4a8958200/",
+        major: "Computer Science",
+        committee_position: "Committee Member",
+        committee_name: "Sponsorship",
+    },
+    {
+        id: "22",
+        name: "Veronic Igwe (she/her)",
+        profile_pic: Veronic_Igwe_pic,
+        linkedIn: "https://www.linkedin.com/in/veronica-igwe-7272b1337/",
+        major: "Computer Science",
+        committee_position: "Committee Member",
+        committee_name: "Sponsorship",
+    },
+    // Tech Support
+    {
+        id: "23",
         name: "Olivia Schwartz (she/her/hers)",
         profile_pic: Olivia_Schwartz_pic,
         linkedIn: "https://www.linkedin.com/in/olivia-schwartz-2a5912273/",
@@ -262,7 +256,7 @@ export const MemberList = [
           
      },
     {
-        id: "26",
+        id: "24",
         name: "Kelly Tran (she/her)",
         profile_pic: Kelly_Tran_pic,
         linkedIn: "http://www.linkedin.com/in/kellyltran",
@@ -271,7 +265,7 @@ export const MemberList = [
         committee_name: "Tech-support",
     },
     {
-        id: "27",
+        id: "25",
         name: "Lu Ighodalo (she/her)",
         profile_pic: Lu_Ighodalo_pic,
         linkedIn: "https://www.linkedin.com/in/luighodalo/",
@@ -279,8 +273,9 @@ export const MemberList = [
         committee_position: "Committee Member",
         committee_name: "Tech-support",
     },
+    // Website
     {
-        id: "28",
+        id: "26",
         name: "Gaby Smith (she/her)",
         profile_pic: Gaby_Smith_pic,
         linkedIn: "https://www.linkedin.com/in/gabriella-rose-smith/",
@@ -289,7 +284,7 @@ export const MemberList = [
         committee_name: "Website",
     },
     {
-        id: "29",
+        id: "27",
         name: "Ivette Saldana Hernandez (she/her)",
         profile_pic: Ivette_SaldanaHernandez_pic,
         linkedIn: "http://www.linkedin.com/in/ivettesaldanahernandez/",
@@ -298,31 +293,41 @@ export const MemberList = [
         committee_name: "Website",
     },
     {
+        id: "28",
+        name: "Diksha Kushwah (she/her)",
+        profile_pic: Diksha_Kushwah_pic,
+        linkedIn: "https://www.linkedin.com/in/dikshakushwah08/",
+        major: "Computer Science",
+        committee_position: "Committee Member",
+        committee_name: "Website",
+    },
+    {
+        id: "29",
+        name: "Adora Lin (she/her)",
+        profile_pic: Adora_Lin_pic,
+        linkedIn: "https://www.linkedin.com/in/adora-lin-/",
+        major: "Computer Science",
+        committee_position: "Committee Member",
+        committee_name: "Website",
+    },
+    // Workshop
+    {
         id: "30",
-        name: "Mina Alkhazraji (she/her)",
-        profile_pic: Mina_Alkhazraji_pic,
-        linkedIn: "https://www.linkedin.com/in/mina-alkhazraji",
-        major: "Computer Engineering",
+        name: "Rebecca Borissova (she/her)",
+        profile_pic: Rebecca_Borissova_pic,
+        linkedIn: "https://www.linkedin.com/in/rborissova/",
+        major: "Computer Science",
         committee_position: "Committee Head",
-        committee_name: "Workshop"
+        committee_name: "Workshop",
     },
     {
         id: "31",
-        name: "Milana Tratsevska (she/her)",
-        profile_pic: Milana_T_pic,
-        linkedIn: "https://www.linkedin.com/in/milana-tratsevska/",
+        name: "Emma Wolman (she/her)",
+        profile_pic: Emma_Wolman_pic,
+        linkedIn: "https://www.linkedin.com/in/emmawolman/",
         major: "Computer Science",
         committee_position: "Committee Member",
-        committee_name: "Workshop"
-    },
-    {
-        id: "32",
-        name: "Anh Nguyen (she/her)",
-        profile_pic: Anh_Nguyen_pic,
-        // linkedIn: "https://www.linkedin.com/in/sarah-tran1029/",
-        major: "Computer Science",
-        committee_position: "Committee Member",
-        committee_name: "Workshop"
+        committee_name: "Workshop",
     },
 
 ]

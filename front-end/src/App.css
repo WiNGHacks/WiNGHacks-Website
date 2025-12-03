@@ -1,12 +1,13 @@
 .app {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   background-image: linear-gradient(#a8cce4 20%, #00095b);
   min-height: 100vh;
   height: 100%;
 
   padding-bottom: 0%;
   margin-bottom: 0;
-  
 }
 
 .App {
@@ -48,23 +49,38 @@
 }
 
 @keyframes floating {
-  0% { transform: translate(0,  0px); }
-  50% { transform: translate(0, 15px); }
-  100% { transform: translate(0, -0px); }    
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, -0px);
+  }
 }
 
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+}
 
 p {
   font-family: teacher-regular;
   font-size: larger;
 }
 
-h1 { font-family: teacher-semibold; font-weight: bold;}
+h1 {
+  font-family: teacher-semibold;
+  font-weight: bold;
+}
 
-h2 { font-family: teacher-regular; }
+h2 {
+  font-family: teacher-regular;
+}
 
-button:hover{ cursor: pointer; }
+button:hover {
+  cursor: pointer;
+}
 
 .navbar {
   background: white;
@@ -72,7 +88,7 @@ button:hover{ cursor: pointer; }
   padding: 1% 1% 0.25%;
   max-height: clamp(4rem, 5vw, 7rem);
   z-index: 12;
-  position: sticky; 
+  position: sticky;
   top: 0;
   display: flex;
   flex: auto;
@@ -90,18 +106,18 @@ button:hover{ cursor: pointer; }
     min-width: 8rem;
     align-self: center;
   }
-  
+
   .logo-container img {
     align-self: center;
     width: 100%;
   }
-  
+
   .links {
     align-items: flex-end;
     padding: 3rem 1rem 1rem; /* top, x, bottom */
     justify-content: space-around;
     display: flex;
-  
+
     .link {
       cursor: pointer;
       color: #4da99e;
@@ -116,7 +132,7 @@ button:hover{ cursor: pointer; }
       display: inline-block;
       vertical-align: middle;
       white-space: nowrap;
-      }
+    }
     .link:hover {
       color: #83ddcd;
       /* Change text color on hover (you can choose any color you like) */
@@ -173,7 +189,6 @@ button:hover{ cursor: pointer; }
     outline: none;
     font-size: 1.8rem;
   }
-
 }
 
 .Page {
@@ -198,7 +213,7 @@ button:hover{ cursor: pointer; }
 }
 
 .banner-container::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -248,8 +263,7 @@ button:hover{ cursor: pointer; }
   max-width: 100%;
 }
 
-.Home { 
-
+.Home {
   .home-buttons {
     font-family: teacher-semibold;
     text-transform: uppercase;
@@ -261,7 +275,7 @@ button:hover{ cursor: pointer; }
     align-items: center;
     justify-content: center;
   }
-  
+
   .socials {
     padding-top: 0%;
     position: relative;
@@ -269,13 +283,13 @@ button:hover{ cursor: pointer; }
     display: flex;
     flex-direction: row;
     column-gap: 1rem;
-  
+
     .icons {
       padding: 0rem clamp(0.5rem);
       color: #cda95f;
       font-size: 5rem;
     }
-  
+
     .icons:hover {
       border-radius: 5px;
       color: #ffd175;
@@ -283,8 +297,8 @@ button:hover{ cursor: pointer; }
     }
   }
 
-  .welcome-container { 
-    display: flex; 
+  .welcome-container {
+    display: flex;
 
     .floating-container {
       padding-top: 2rem;
@@ -324,7 +338,9 @@ button:hover{ cursor: pointer; }
       animation-timing-function: ease-in-out;
     }
 
-    .logo-home:hover { animation-duration: 1s; }
+    .logo-home:hover {
+      animation-duration: 1s;
+    }
 
     .home-date {
       align-self: center;
@@ -349,13 +365,12 @@ button:hover{ cursor: pointer; }
       padding-right: 0.75rem;
     }
   }
-
 }
 
-.Button{
+.Button {
   align-self: center;
   text-align: center;
-  border:none;
+  border: none;
   padding: 1rem 1rem;
   border-radius: 0.2rem;
   display: inline-block;
@@ -384,69 +399,87 @@ button:hover{ cursor: pointer; }
   text-transform: uppercase;
 }
 
-.Button-interest{
+.Button-interest {
   background-color: #4da99e;
-  -webkit-box-shadow:inset 0 1px 0 #4da99e, 0 10px 0 #00424b;
+  -webkit-box-shadow:
+    inset 0 1px 0 #4da99e,
+    0 10px 0 #00424b;
   border-color: #22457d;
 }
 
-.Button-interest:hover{
-  top:10px;
+.Button-interest:hover {
+  top: 10px;
   background-color: rgb(13, 99, 137);
-  -webkit-box-shadow:inset 0 2px 0 #c4eaff, inset 0 0px 0 #00424b;
+  -webkit-box-shadow:
+    inset 0 2px 0 #c4eaff,
+    inset 0 0px 0 #00424b;
 }
 
-.Button-hacker{
+.Button-hacker {
   background-color: #393462;
-  -webkit-box-shadow:inset 0 1px 0 rgb(19, 16, 38), 0 10px 0 rgb(41, 36, 81);
+  -webkit-box-shadow:
+    inset 0 1px 0 rgb(19, 16, 38),
+    0 10px 0 rgb(41, 36, 81);
   border-color: rgb(19, 16, 38);
 }
 
-.Button-hacker:hover{
-  top:10px;
+.Button-hacker:hover {
+  top: 10px;
   background-color: rgb(41, 36, 81);
-  -webkit-box-shadow:inset 0 2px 0 #c4eaff, inset 0 0px 0 #00424b;
+  -webkit-box-shadow:
+    inset 0 2px 0 #c4eaff,
+    inset 0 0px 0 #00424b;
 }
 
-.Button-apply{
+.Button-apply {
   background-color: #fefeaa;
   color: black;
-  -webkit-box-shadow:inset 0 1px 0 #fefeaa, 0 10px 0 #f4c671;
+  -webkit-box-shadow:
+    inset 0 1px 0 #fefeaa,
+    0 10px 0 #f4c671;
   border-color: #f5c499;
 }
 
-.Button-apply:hover{
-  top:10px;
+.Button-apply:hover {
+  top: 10px;
   background-color: rgb(255, 218, 132);
-  -webkit-box-shadow:inset 0 2px 0 #fff7df, inset 0 0px 0 #ffca92;
+  -webkit-box-shadow:
+    inset 0 2px 0 #fff7df,
+    inset 0 0px 0 #ffca92;
 }
 
-.Button-sponsor{
+.Button-sponsor {
   background-color: #c44c1c;
-  -webkit-box-shadow:inset 0 1px 0 #F07167, 0 10px 0 #441305;
+  -webkit-box-shadow:
+    inset 0 1px 0 #f07167,
+    0 10px 0 #441305;
   border-color: #712020;
 }
 
-.Button-sponsor:hover{
-  top:10px;
+.Button-sponsor:hover {
+  top: 10px;
   background-color: #441305;
-  -webkit-box-shadow:inset 0 2px 0 #ffcbcb, inset 0 0px 0 #ba3d1b;
+  -webkit-box-shadow:
+    inset 0 2px 0 #ffcbcb,
+    inset 0 0px 0 #ba3d1b;
 }
 
-.Button-mentor{
+.Button-mentor {
   background-color: #fefeaa;
   color: black;
-  -webkit-box-shadow:inset 0 1px 0 #fefeaa, 0 10px 0 #f4c671;
+  -webkit-box-shadow:
+    inset 0 1px 0 #fefeaa,
+    0 10px 0 #f4c671;
   border-color: #f5c499;
 }
 
-.Button-mentor:hover{
-  top:10px;
+.Button-mentor:hover {
+  top: 10px;
   background-color: rgb(255, 218, 132);
-  -webkit-box-shadow:inset 0 2px 0 #fff7df, inset 0 0px 0 #ffca92;
+  -webkit-box-shadow:
+    inset 0 2px 0 #fff7df,
+    inset 0 0px 0 #ffca92;
 }
-
-
 
 .About {
   .mission-container {
@@ -460,10 +493,10 @@ button:hover{ cursor: pointer; }
     height: 100px;
     position: absolute;
     right: 20%;
-    margin-top: -8%
+    margin-top: -8%;
   }
-  
-  .who-we-are-container{
+
+  .who-we-are-container {
     padding-top: 0;
     display: flex;
     column-gap: 2rem;
@@ -472,41 +505,39 @@ button:hover{ cursor: pointer; }
       flex: 1;
     }
 
-    .collaborators-container{
+    .collaborators-container {
       justify-items: center;
       align-items: center;
       padding-bottom: 0;
       padding-top: 0%;
     }
-      
-    .logo-who-we-are{
+
+    .logo-who-we-are {
       width: 75%;
       height: auto;
       padding-left: 10%;
     }
   }
 
-  .location-container{
+  .location-container {
     display: flex;
     flex-direction: column-reverse;
     column-gap: 10rem;
     align-items: center;
 
-    .location-child-container{
+    .location-child-container {
       flex: 2;
       text-align: center;
       margin: 0 10rem;
-      
     }
   }
 
-  .map iframe{
+  .map iframe {
     height: 18.75rem;
     width: 50rem;
   }
-  
 
-  .team-container{
+  .team-container {
     padding: 1rem;
     display: flex;
     width: 100%;
@@ -519,26 +550,27 @@ button:hover{ cursor: pointer; }
         font-family: teacher-semibold;
         flex: 2;
       }
-      .btn-committee-names button{
-        background-color: #cda95f;
-        border:0.5px solid #7b7144;
+      .btn-committee-names button {
+        background-color: #7291c1;
+        border: 0.5px solid #4d6181;
         font-family: teacher-semibold;
         color: white;
-        a { color: white; }
+        a {
+          color: white;
+        }
         text-align: center;
-        cursor:pointer;
+        cursor: pointer;
         padding: 0.75rem 1.5rem;
         display: block;
         width: 100%;
-        
       }
 
-      .btn-committee-names:not(:last-child){
+      .btn-committee-names:not(:last-child) {
         border-bottom: none;
       }
 
-      .btn-committee-names button:hover{
-        background-color: #7b7144;
+      .btn-committee-names button:hover {
+        background-color: #4d6181;
       }
     }
 
@@ -552,8 +584,8 @@ button:hover{ cursor: pointer; }
         height: 150px;
         display: block;
       }
-      
-      .members{
+
+      .members {
         margin: 0;
         overflow: scroll;
         overflow-x: hidden;
@@ -561,17 +593,17 @@ button:hover{ cursor: pointer; }
         max-height: 100%;
         width: 100%;
         height: 389px;
-      } 
-      
-      .members li{
+      }
+
+      .members li {
         float: left;
         width: 100%;
         list-style: none;
       }
-      
+
       @media (min-width: 28.75em) {
         .members li {
-          width:50%;
+          width: 50%;
           min-width: 150px;
           max-width: 174px;
         }
@@ -584,13 +616,20 @@ figure {
   margin: 0 1.25em 1.25em 0;
   position: relative;
   text-align: center;
-  border: 0.3em solid  #cda95f;
+  border: 0.3em solid #7291c1;
   border-radius: 0.5em;
   overflow: scroll;
 
   /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none;   /* IE and Edge */
+  -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -598,12 +637,11 @@ figure::-webkit-scrollbar {
   display: none;
 }
 
-
-figure:hover{
-  border-color: #7b7144;
+figure:hover {
+  border-color: #4d6181;
   img {
     opacity: 0.1;
-    transition: all .2s ease-in-out .2s;
+    transition: all 0.2s ease-in-out 0.2s;
   }
   figcaption {
     top: 50%;
@@ -611,15 +649,15 @@ figure:hover{
     font-size: 0.8rem;
   }
 
-  h3, h4 {
+  h3,
+  h4 {
     font-size: 0.8rem;
     margin-top: 0;
     margin-bottom: 1rem;
   }
-  
 }
 
-figcaption{
+figcaption {
   position: absolute;
   width: 100%;
   top: 100%;
@@ -631,7 +669,7 @@ figcaption{
 figcaption a {
   font-weight: bold;
   text-decoration: none;
-  background-color: #cda95f;
+  background-color: #7291c1;
   display: inline-block;
   text-align: center;
   color: white;
@@ -642,24 +680,25 @@ figcaption a {
   margin-bottom: 8%;
   font-family: teacher-semibold;
 
-
-  &:hover{
-    background-color: #7b7144;
+  &:hover {
+    background-color: #4d6181;
   }
 }
 
-.Button-sponsor-page{
+.Button-sponsor-page {
   background-color: #c44c1c;
   padding: 1rem 1rem;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   text-shadow: 0px 1px 0px #000;
   filter: dropshadow(color=#000, offx=0px, offy=1px);
   position: relative;
-  
-  -webkit-box-shadow:inset 0 1px 0 #ffcbcb, 0 10px 0 #441305;
+
+  -webkit-box-shadow:
+    inset 0 1px 0 #ffcbcb,
+    0 10px 0 #441305;
   /* -moz-box-shadow:inset 0 1px 0 #c4eaff, 0 10px 0 #00424b;
   box-shadow:inset 0 1px 0 #c4eaff, 0 10px 0 #00424b; */
-  
+
   border-radius: 5px;
   border-color: #712020;
   border-style: solid;
@@ -672,13 +711,13 @@ figcaption a {
   margin-top: 2%;
 }
 
-.Button-sponsor-page:hover{
-  top:10px;
+.Button-sponsor-page:hover {
+  top: 10px;
   background-color: #441305;
-  -webkit-box-shadow:inset 0 2px 0 #ffcbcb, inset 0 0px 0 #ba3d1b;
+  -webkit-box-shadow:
+    inset 0 2px 0 #ffcbcb,
+    inset 0 0px 0 #ba3d1b;
 }
-
-
 
 .sponsor-row {
   display: flex;
@@ -723,7 +762,6 @@ figcaption a {
 }
 
 @media (max-width: 600px) {
-
   .sponsor-row {
     display: flex;
     flex-wrap: wrap;
@@ -743,13 +781,14 @@ figcaption a {
   }
 }
 
-.arrow { padding-right: 1rem; }
+.arrow {
+  padding-right: 1rem;
+}
 
 .FAQ {
   padding-bottom: 0%;
 
   .faq-collapse-container {
-    
     font-size: 1.25rem;
     font-weight: 550;
     border: none;
@@ -758,9 +797,8 @@ figcaption a {
     font-family: bitter;
     margin-bottom: 2rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    
   }
-  
+
   .faq-collapse {
     border: none;
     padding-left: 2rem;
@@ -809,7 +847,7 @@ figcaption a {
       margin-bottom: 50px;
       text-align: center;
       margin-bottom: 27px;
-      font-family: 'Ubuntu', sans-serif;
+      font-family: "Ubuntu", sans-serif;
     }
 
     .submitBubble {
@@ -827,16 +865,15 @@ figcaption a {
       margin-bottom: 50px;
       text-align: center;
       margin-bottom: 27px;
-      font-family: 'Ubuntu', sans-serif;
+      font-family: "Ubuntu", sans-serif;
       cursor: pointer;
-      
     }
     .submitBubble:hover {
       background-color: #7b7144;
       color: white;
       flex-direction: column;
       align-self: center;
-    } 
+    }
   }
 
   .image {
@@ -845,22 +882,32 @@ figcaption a {
     position: absolute;
   }
 
-  .little-guy1 {right: 18%;}
-  .little-guy2 {left: 17%;}
-  .little-guy3 {left: 12%; margin-top: -60px;}
-  .little-guy4 {right: 12%; margin-top: -60px;}
+  .little-guy1 {
+    right: 18%;
+  }
+  .little-guy2 {
+    left: 17%;
+  }
+  .little-guy3 {
+    left: 12%;
+    margin-top: -60px;
+  }
+  .little-guy4 {
+    right: 12%;
+    margin-top: -60px;
+  }
 }
 
 .Portal {
   min-height: 70vh;
   padding: 0;
-  
+
   .apply {
     height: clamp(2rem, 5vw, 8rem);
     background-color: #fefeaa;
     font-size: fit-content;
     color: rgb(255, 126, 74);
-  
+
     padding: 0.25rem 0.5rem;
     /* text-shadow: 0px 1px 0px #000; */
     justify-content: center;
@@ -872,7 +919,7 @@ figcaption a {
   }
 
   .name-banner {
-    background-color:  #98d1cb;
+    background-color: #98d1cb;
     display: flex;
     flex: auto;
     border-top-left-radius: 25px;
@@ -895,7 +942,6 @@ figcaption a {
       }
     }
 
-
     .character {
       align-self: center;
       float: inline-end;
@@ -905,7 +951,7 @@ figcaption a {
       padding-left: 5%;
       width: clamp(5rem, 10rem, 15rem);
       height: auto;
-      margin-left: auto; 
+      margin-left: auto;
       margin-right: 5%;
       animation-name: floating;
       animation-duration: 1s;
@@ -929,13 +975,12 @@ figcaption a {
     margin-bottom: 50px;
     text-align: center;
     margin-bottom: 27px;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: "Ubuntu", sans-serif;
     cursor: pointer;
     margin-top: 1rem;
   }
 
   .Button-rsvp {
-
     color: rgb(38, 50, 56);
     font-weight: 700;
     font-size: 14px;
@@ -950,24 +995,21 @@ figcaption a {
     margin-bottom: 50px;
     text-align: center;
     margin-bottom: 27px;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: "Ubuntu", sans-serif;
     cursor: pointer;
     margin-top: 1rem;
-    
   }
   .Button-rsvp:hover {
     background-color: #7b7144;
     color: white;
     flex-direction: column;
     align-self: center;
-  } 
+  }
 
-  
   .portal-padding {
     padding-inline: 5%;
     padding-bottom: 5%;
   }
-
 }
 
 .modalBackground {
@@ -986,13 +1028,13 @@ figcaption a {
     width: clamp(20rem, 35rem, 35rem);
     height: clamp(20rem, 28rem, 30rem);
     border-radius: 12px;
-    border-image: linear-gradient(rgb(195, 149, 210), rgb(116, 173, 207)) 27 / 2rem;
+    border-image: linear-gradient(rgb(195, 149, 210), rgb(116, 173, 207)) 27 /
+      2rem;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: column;
     padding: 5%;
-
 
     .little-guy {
       height: 130px;
@@ -1007,7 +1049,6 @@ figcaption a {
     display: inline-block;
     text-align: center;
     margin-top: 1%;
-    
   }
   .modalContainer .title h1 {
     margin-bottom: 0;
@@ -1102,7 +1143,7 @@ figcaption a {
   margin-bottom: 50px;
   text-align: center;
   margin-bottom: 27px;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   cursor: pointer;
 }
 
@@ -1110,20 +1151,20 @@ figcaption a {
   margin: 4%;
 }
 
-.button-glow{
+.button-glow {
   color: #fff;
   padding: 16px 34px;
   box-shadow: 0 0 0 0 rgb(255, 126, 74);
   -webkit-animation: glow 2s linear infinite;
-          animation: glow 2s linear infinite
+  animation: glow 2s linear infinite;
 }
 
-.button-glow-home-apply{
+.button-glow-home-apply {
   color: black;
   padding: 16px 34px;
   box-shadow: 0 0 0 0 rgb(255, 126, 74);
   -webkit-animation: glow 2s linear infinite;
-          animation: glow 2s linear infinite
+  animation: glow 2s linear infinite;
 }
 
 @-webkit-keyframes glow {
@@ -1185,14 +1226,14 @@ figcaption a {
 }
 
 .mlh-banner {
-  display:block;
-  max-width:85px;
-  min-width:60px;
-  position:absolute;
-  right:50px;
+  display: block;
+  max-width: 85px;
+  min-width: 60px;
+  position: absolute;
+  right: 50px;
   /* top: clamp(4.75rem, 5.5vw, 7rem); */
-  width:10%;
-  z-index:11;
+  width: 10%;
+  z-index: 11;
 }
 
 .footer-container {
@@ -1214,7 +1255,6 @@ figcaption a {
     border-bottom: 0.0625rem solid;
     margin-bottom: 0.2in;
     border-color: #00424b;
-
   }
 
   .footer-content {
@@ -1235,7 +1275,7 @@ figcaption a {
       justify-content: center;
       border-left-color: #000;
     }
-  }  
+  }
   .link {
     font-weight: bold;
     text-decoration: none;
@@ -1264,12 +1304,11 @@ figcaption a {
     color: #7b7144;
     cursor: pointer;
   }
-
 }
 
 /* Admin Portal JS */
 .email-send-scroll {
-  width: 70%; 
+  width: 70%;
   height: 500px;
   overflow-x: auto;
 }
@@ -1277,7 +1316,6 @@ figcaption a {
 .email-send-scroll table {
   margin-top: 3rem;
   border: 1px solid rgb(0, 0, 0);
-
 }
 
 .email-send-scroll tbody {
@@ -1297,8 +1335,6 @@ figcaption a {
   padding: 2px 4px;
 }
 
-
-
 /* Schedule JS */
 .disclaimer {
   font-size: 20px;
@@ -1313,18 +1349,18 @@ figcaption a {
 .backgroundSchedule {
   background-color: rgba(0, 177, 196, 0.1);
   border-radius: 10px;
-  width:45%;
+  width: 45%;
 }
 
 table {
   /* background color opacity changed but text of table remains visible */
-  opacity: 1; 
+  opacity: 1;
   margin-left: 15px;
   padding: 20px;
   padding-bottom: 10px;
 }
 
-.locationEvent{
+.locationEvent {
   font-size: 12px;
   color: purple;
 }
@@ -1344,7 +1380,9 @@ th {
   text-decoration: underline;
 }
 
-.time, .eventDescription, th {
+.time,
+.eventDescription,
+th {
   /* controls the text being spaced evenly */
   vertical-align: middle;
   padding-bottom: 10px;
@@ -1398,12 +1436,12 @@ th {
 
 .tab:nth-child(1):hover,
 .tab:nth-child(1).active {
-  background-color: #FFB4B0;
+  background-color: #ffb4b0;
 }
 
 .tab:nth-child(2):hover,
 .tab:nth-child(2).active {
-  background-color: #FFFFD9;
+  background-color: #ffffd9;
 }
 
 .tab:nth-child(3):hover,
@@ -1411,22 +1449,24 @@ th {
   background-color: rgb(211, 228, 255);
 }
 
-.tab:nth-child(1).active, .content1{
-  background-color: #ffc3c0
+.tab:nth-child(1).active,
+.content1 {
+  background-color: #ffc3c0;
 }
 
-.tab:nth-child(2).active, .content2 {
-  background-color: #FFFFD9;
+.tab:nth-child(2).active,
+.content2 {
+  background-color: #ffffd9;
 }
 
-.tab:nth-child(3).active, .content3 {
+.tab:nth-child(3).active,
+.content3 {
   background-color: rgb(211, 228, 255);
 }
 
 .RSVP {
   margin-inline: 10%;
   /* background-color: black; */
-  
 
   #msform {
     max-width: 725px;
@@ -1449,7 +1489,7 @@ th {
     box-sizing: border-box;
     width: 80%;
     margin: 0 auto;
-    
+
     /*stacking fieldsets above each other*/
     position: relative;
   }
@@ -1464,20 +1504,20 @@ th {
 
   /*Hide all except first fieldset*/
 
-  
-  
   /*inputs*/
-  #msform input, #msform textarea {
+  #msform input,
+  #msform textarea {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 3px;
     margin-bottom: 10px;
     box-sizing: border-box;
-    color: #2C3E50;
+    color: #2c3e50;
     font-size: 14px;
   }
-  #msform textarea {width: 100%;}
-
+  #msform textarea {
+    width: 100%;
+  }
 
   .mealPref {
     display: flex;
@@ -1486,19 +1526,19 @@ th {
       width: 0%;
     } */
   }
-  
+
   .mealOption {
     display: flex;
     align-items: center;
     margin-bottom: 10px; /* Adjust vertical spacing between options */
   }
-  
-  .mealOption input{
+
+  .mealOption input {
     margin-right: 20px; /* Adjust horizontal spacing between checkbox and label */
     width: auto;
     cursor: pointer;
   }
-  
+
   .mealOption label {
     margin: 0; /* Reset margin to prevent the label from aligning to the right */
     text-align: left;
@@ -1522,14 +1562,17 @@ th {
     text-decoration: none;
     font-size: 14px;
   }
-  #msform .action-button:hover, #msform .action-button:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #7b7144;
+  #msform .action-button:hover,
+  #msform .action-button:focus {
+    box-shadow:
+      0 0 0 2px white,
+      0 0 0 3px #7b7144;
   }
   /*headings*/
   .fs-title {
     font-size: 18px;
     text-transform: uppercase;
-    color: #2C3E50;
+    color: #2c3e50;
     margin-bottom: 10px;
   }
 
@@ -1575,7 +1618,7 @@ th {
   }
   /*progressbar connectors*/
   #progressbar li:after {
-    content: '';
+    content: "";
     width: 100%;
     height: 2px;
     background: #666; /* progress bar */
@@ -1586,19 +1629,18 @@ th {
   }
   #progressbar li:first-child:after {
     /*connector not needed before the first step*/
-    content: none; 
-    
+    content: none;
   }
   /*marking active/completed steps green*/
   /*The number of the step and the connector before it = green*/
-  #progressbar li.active:before,  #progressbar li.active:after{
+  #progressbar li.active:before,
+  #progressbar li.active:after {
     background: #4da99e;
     color: white;
   }
-
 }
 
-.tech-support{
+.tech-support {
   font-size: 1rem;
   max-width: 70%;
 }
@@ -1610,7 +1652,6 @@ th {
   margin: 0 auto; 
   max-width: 10%;
 } */
-
 
 /* Schedule JS */
 .disclaimer {
@@ -1626,18 +1667,18 @@ th {
 .backgroundSchedule {
   background-color: rgba(0, 177, 196, 0.1);
   border-radius: 10px;
-  width:45%;
+  width: 45%;
 }
 
 table {
   /* background color opacity changed but text of table remains visible */
-  opacity: 1; 
+  opacity: 1;
   margin-left: 15px;
   padding: 20px;
   padding-bottom: 10px;
 }
 
-.location{
+.location {
   font-size: 12px;
   color: purple;
 }
@@ -1662,13 +1703,15 @@ th {
   flex-direction: column;
 } */
 
-.time, .eventDescription, .eventLocation,th {
+.time,
+.eventDescription,
+.eventLocation,
+th {
   /* controls the text being spaced evenly */
   vertical-align: middle;
   padding-bottom: 10px;
   padding-right: 50px;
 }
-
 
 /* setting up font style & formation for fri-sun content */
 .content-all {
@@ -1709,7 +1752,7 @@ th {
   border-bottom-right-radius: 0px;
 }
 
-.prescheduleTab{
+.prescheduleTab {
   width: 100%;
   justify-content: center;
   pointer-events: none;
@@ -1726,12 +1769,12 @@ th {
 
 .tab:nth-child(1):hover,
 .tab:nth-child(1).active {
-  background-color: #FFB4B0;
+  background-color: #ffb4b0;
 }
 
 .tab:nth-child(2):hover,
 .tab:nth-child(2).active {
-  background-color: #FFFFD9;
+  background-color: #ffffd9;
 }
 
 .tab:nth-child(3):hover,
@@ -1739,19 +1782,22 @@ th {
   background-color: rgb(211, 228, 255);
 }
 
-.tab:nth-child(1).active, .content1{
-  background-color: #ffc3c0
+.tab:nth-child(1).active,
+.content1 {
+  background-color: #ffc3c0;
 }
 
-.tab:nth-child(2).active, .content2 {
-  background-color: #FFFFD9;
+.tab:nth-child(2).active,
+.content2 {
+  background-color: #ffffd9;
 }
 
-.tab:nth-child(3).active, .content3 {
+.tab:nth-child(3).active,
+.content3 {
   background-color: rgb(211, 228, 255);
 }
 
-.Awards{
+.Awards {
   .product-image {
     width: 95%;
     /* min-height: 10rem; */
@@ -1760,7 +1806,7 @@ th {
     /* height: 20em; */
     object-fit: contain;
   }
-  
+
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
@@ -1778,13 +1824,13 @@ th {
   .title {
     font-family: teacher-semibold;
   }
-  
+
   .description {
     color: grey;
     font-size: 20px;
     font-family: teacher-regular;
   }
-  
+
   .card button {
     border: none;
     outline: 0;
@@ -1796,13 +1842,11 @@ th {
     width: 100%;
     font-size: 18px;
   }
-  
+
   .card button:hover {
     opacity: 0.7;
   }
-
 }
-
 
 .carousel-item-container {
   display: inline-flex;
@@ -1810,10 +1854,9 @@ th {
   float: left;
 }
 
-
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: #4da99e; 
+  background-color: #4da99e;
   border-radius: 45%;
 }
 
@@ -1824,7 +1867,7 @@ th {
 }
 
 .carousel-indicators li {
-  background-color: #4da99e; 
+  background-color: #4da99e;
 }
 
 .Track {
@@ -1858,14 +1901,14 @@ th {
   }
 
   .title {
-    font-family: 'teacher-semibold';
+    font-family: "teacher-semibold";
     margin: 0.5rem 0;
   }
 
   .description {
     color: grey;
     font-size: 20px;
-    font-family: 'teacher-regular';
+    font-family: "teacher-regular";
     flex-grow: 1;
   }
 }
