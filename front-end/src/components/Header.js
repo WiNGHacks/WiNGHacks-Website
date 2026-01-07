@@ -75,11 +75,12 @@ const Header = ({}, ref) => {
         <img src={logo} alt="Logo"/>
         {/* <b className='image-text'>WiNGHacks</b> */}
       </Link>
+      
       <div className = {showNavbar ? "links links-open" : "links"}>
       <a id="mlh-trust-badge" className='mlh-banner-mobile' 
-        href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2024-season&utm_content=blue" 
+        href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=blue" 
         target="_blank">
-          <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2025/mlh-trust-badge-2025-blue.svg" 
+          <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-blue.svg" 
               alt="Major League Hacking 2024 Hackathon Season" style={{width:100 + '%'}}/>
       </a>
         <Link to = "/#home"  onClick={() => handleClick('home')} className = "link">Home</Link>
@@ -143,9 +144,9 @@ const Header = ({}, ref) => {
     </div> 
     <div>
     <a id="mlh-trust-badge" className='mlh-banner' 
-        href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2024-season&utm_content=blue" 
+        href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=blue" 
         target="_blank">
-          <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2025/mlh-trust-badge-2025-blue.svg" 
+          <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-blue.svg" 
               alt="Major League Hacking 2024 Hackathon Season" style={{width:100 + '%'}}/>
       </a>
     </div>
