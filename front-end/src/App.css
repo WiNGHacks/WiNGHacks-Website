@@ -250,6 +250,30 @@ button:hover{ cursor: pointer; }
 
 .Home { 
 
+  .home-details {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 18px 0 28px;
+  }
+
+  .home-detail {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    font-family: 'Teachers', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #0b3c5d;
+  }
+
   .home-buttons {
     font-family: teacher-semibold;
     text-transform: uppercase;
