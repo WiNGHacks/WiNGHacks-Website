@@ -6,7 +6,8 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import logo from './pictures/2026_Logos/logo.png'
 import Popup from './pages/Popup'
 import AppCountDown from './AppCountDown';
-import { FaDiscord, FaInstagram} from "react-icons/fa";
+import { FaDiscord, FaInstagram, FaLinkedin} from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
 
 const cookies = new Cookies();
 
@@ -85,12 +86,21 @@ const Header = ({}, ref) => {
       </a>
         <Link to = "/#home"  onClick={() => handleClick('home')} className = "link">Home</Link>
         <Link to = "/#sponsor"  onClick={() => handleClick('sponsor')} className = "link">Sponsors</Link>
+        <a href="https://discord.gg/8HSuT7gK" target="_blank" rel="noopener noreferrer" className="link">
+          <FaDiscord />
+        </a>
         <a href="https://www.instagram.com/winghacks?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="link">
           <FaInstagram />
         </a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdusvJ_vntBDq33Dqx5DgR0LXx7So5OtFqxHxqETg2j1qWn0Q/viewform" target="_blank" rel="noopener noreferrer" className="link">
-          Apply
+        <a href="https://www.linkedin.com/company/winghacks" target="_blank" rel="noopener noreferrer" className="link">
+            <FaLinkedin className='icons'/>
         </a>
+        <a href="mailto: uf.winghacks@gmail.com" target="_blank" rel="noopener noreferrer" className="link">
+          <IoMdMail className='icons'/>
+        </a>
+        {/* <a href="https://docs.google.com/forms/d/e/1FAIpQLSdusvJ_vntBDq33Dqx5DgR0LXx7So5OtFqxHxqETg2j1qWn0Q/viewform" target="_blank" rel="noopener noreferrer" className="link">
+          Apply
+        </a> */}
 
         
         {/* <Link to = "/#gallerywall"  onClick={() => handleClick('gallerywall')} className = "link">Gallery</Link>
