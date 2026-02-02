@@ -1336,132 +1336,137 @@ figcaption a {
 }
 
 /* Schedule JS */
+:root {
+  /* From your palette */
+  --sky: #99d2f6;
+  --deep: #0a2460;
+  --navy: #1f62b5;
+  --teal: #2487a3;
+  --sea: #7dd7d1;
+  --dark: #393462;
+  --coral: #c44c1c;
+}
+
 .disclaimer {
   font-size: 20px;
 }
 
-.tables-container {
-  /* putting contents of table side-by-side */
+/* Tabs */
+.schedule-tabs {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 18px 0 34px;
 }
 
-.backgroundSchedule {
-  background-color: rgba(0, 177, 196, 0.1);
-  border-radius: 10px;
-  width: 45%;
+.schedule-tab {
+  border: 3px solid var(--navy);
+  border-radius: 18px;
+  padding: 12px 22px;
+  font-weight: 800;
+  background: #99d2f6;
+  color: var(--deep);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.14);
+  cursor: pointer;
 }
 
-table {
-  /* background color opacity changed but text of table remains visible */
-  opacity: 1;
-  margin-left: 15px;
-  padding: 20px;
-  padding-bottom: 10px;
+.schedule-tab.active {
+  background: var(--navy);
+  border-color: var(--deep);
+  color: white;
 }
 
-.locationEvent {
-  font-size: 12px;
-  color: purple;
-}
-
-.presenter {
-  font-size: 13px;
-  font-style: italic;
-}
-
-.time {
-  /* controls spacing btwn time & event */
-  padding-right: 40px;
-}
-
-th {
-  font-style: italic;
-  text-decoration: underline;
-}
-
-.time,
-.eventDescription,
-th {
-  /* controls the text being spaced evenly */
-  vertical-align: middle;
-  padding-bottom: 10px;
-}
-
-.content-all {
-  font-family: teacher-semibold;
-  margin-bottom: 0px;
-  border-bottom: 5px rgb(132, 132, 132) solid;
-  border-left: 4px rgb(132, 132, 132) solid;
-  border-right: 4px rgb(132, 132, 132) solid;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-.tabs {
+/* Timeline container */
+.timeline {
+  min-width: 0;
+  max-width: 100%;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.tab {
-  font-family: teacher-semibold;
-  font-size: 18px;
-  /* padding: 10px; */
-  padding: 20px 1px 20px;
-  flex-grow: 1;
-  border-radius: 5px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+.timeline-row {
+  display: grid;
+  grid-template-columns: 190px 40px 1fr;
+  align-items: start;
+  column-gap: 18px;
 }
 
-.tab.active {
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-top: 4px rgb(132, 132, 132) solid;
-  border-left: 4px rgb(132, 132, 132) solid;
-  border-right: 4px rgb(132, 132, 132) solid;
-  border-bottom: 0px rgb(132, 132, 132) solid;
+.time-pill {
+  background: var(--navy);
+  color: white;
+  border: 3px solid var(--deep);
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-weight: 900;
+  text-align: center;
 }
 
-/* .tab:nth-child(1).active + .tab,
-.tab:nth-child(1).active + .tab + .tab {
-  border-bottom: 5px black solid; 
+.timeline-mid {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-height: 92px;
 }
 
-.tab:nth-child(2).active {
-  .tab:nth-child(1) {
-    border-bottom: 5px black solid; 
-  }
-} */
-
-.tab:nth-child(1):hover,
-.tab:nth-child(1).active {
-  background-color: #ffb4b0;
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--deep);
+  margin-top: 12px;
 }
 
-.tab:nth-child(2):hover,
-.tab:nth-child(2).active {
-  background-color: #ffffd9;
+.line {
+  position: absolute;
+  top: 28px;
+  width: 6px;
+  height: calc(100% + 24px);
+  background: rgba(10, 36, 96, 0.30);
+  border-radius: 999px;
 }
 
-.tab:nth-child(3):hover,
-.tab:nth-child(3).active {
-  background-color: rgb(211, 228, 255);
+.event-card {
+  border-radius: 18px;
+  padding: 22px 26px;
+  border: 4px solid var(--deep);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
 }
 
-.tab:nth-child(1).active,
-.content1 {
-  background-color: #ffc3c0;
+.event-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--deep);
+  margin-bottom: 10px;
 }
 
-.tab:nth-child(2).active,
-.content2 {
-  background-color: #ffffd9;
+.event-location {
+  font-size: 1.05rem;
+  font-weight: 650;
+  color: rgba(10, 36, 96, 0.9);
 }
 
-.tab:nth-child(3).active,
-.content3 {
-  background-color: rgb(211, 228, 255);
+/* Variants */
+.event-card.default {
+  background: rgba(125, 215, 209, 0.65); /* sea */
+  border-color: var(--teal);
+}
+
+.event-card.secondary {
+  background: rgba(153, 210, 246, 0.65); /* sky */
+  border-color: var(--navy);
+}
+
+.event-card.emphasis {
+  background: var(--navy);
+  border-color: var(--deep);
+}
+
+.event-card.emphasis .event-title,
+.event-card.emphasis .event-location {
+  color: white;
 }
 
 .RSVP {
