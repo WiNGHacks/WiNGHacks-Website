@@ -614,32 +614,26 @@
   }
 }
 
-@media only screen and (max-width: 529px) {
-  /* Schedule CSS */
-  .locationTitle{
-   display: none;
- }
+@media (max-width: 570px) {
+  .timeline-row {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+  }
 
- td.time{
-   padding-bottom: 90px;
- }
+  .timeline-mid {
+    display: none;
+  } 
 
- .eventDescription {
-   display: block;
-   font-size: 17px;
-   width: 60%;
- }
- 
- .eventLocation {
-   display: block;
-   font-family: teacher-regular;
-   font-size: 16px;
-   margin-top: -0.6rem;
-   width: 70%;
- }
+  .event-card {
+    min-width: 0;
+    max-width: 100%;
+  }
 
+  .event-title {
+    font-size: 1.1rem;
+  }
 
- .tab {
-   font-size: 17.5px;
- }
+  .event-location {
+    font-size: 0.95rem;
+  }
 }
