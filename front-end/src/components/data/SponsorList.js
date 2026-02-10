@@ -5,6 +5,8 @@ import Infotech_logo from '../pictures/sponsor_logo/infotech-logo.png'
 import StandoutSticker_logo from '../pictures/sponsor_logo/standoutsticker-logo.png'
 import BNYMellon_logo from '../pictures/sponsor_logo/bnymellon-logo.png'
 import MLH_logo from '../pictures/sponsor_logo/mlh-logo.png'
+import GitHub_logo from '../pictures/sponsor_logo/github-logo.png'
+import Buttons_logo from '../pictures/sponsor_logo/purebuttons-logo.png'
 import Epsilon_logo from '../pictures/sponsor_logo/epsilon-logo.svg'
 import Dominos_logo from '../pictures/sponsor_logo/dominos-logo.png'
 import NordVPN_logo from '../pictures/sponsor_logo/nordvpn-logo.png'
@@ -104,4 +106,18 @@ export const SponsorList = [
     //     alt: 'Saily Logo',
     //     tier: 'Other',
     // },
+    {
+        id: "14",
+        logo_image: GitHub_logo,
+        url: "https://github.com/",
+        alt: 'GitHub Logo',
+        tier: 'Other',
+    },
+    {
+        id: "15",
+        logo_image: Buttons_logo,
+        url: "https://www.purebuttons.com/?srsltid=AfmBOorfJTNFsM6iwlqLCYyeHfADYpRP8T4l8oksIMxfyCuD7vj-dSNq",
+        alt: 'Pure Buttons Logo',
+        tier: 'Other',
+    },
 ]
