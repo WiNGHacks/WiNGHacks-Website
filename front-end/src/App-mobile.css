@@ -9,7 +9,7 @@
   }
 
   figure:hover{
-    border: 0.5em solid #7b7144;
+    border: 0.5em solid #7291c1;
     img {
       opacity: 0.1;
       transition: all .2s ease-in-out .2s;
@@ -189,12 +189,12 @@
     margin: 0 1.25em 1.25em 0;
     position: relative;
     text-align: center;
-    border: 0.5em solid #cda95f;
+    border: 0.5em solid #7291c1;
     border-radius: 0.5em;
   }
 
   figure:hover{
-    border: 0.5em solid #7b7144;
+    border: 0.5em solid #4d6181;
     img {
       opacity: 0.1;
       transition: all .2s ease-in-out .2s;
