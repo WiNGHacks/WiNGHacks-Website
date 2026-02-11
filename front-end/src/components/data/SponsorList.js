@@ -1,4 +1,4 @@
-import BNYMellon_logo from '../pictures/sponsor_logo/bnymellon-logo.png'
+import BNY_logo from '../pictures/sponsor_logo/bny-logo.png'
 import Twocents_logo from '../pictures/sponsor_logo/twocents-logo.png'
 import DoEL_logo from '../pictures/sponsor_logo/DoEL.png'
 import ECE_logo from '../pictures/sponsor_logo/ece-logo.png'
@@ -15,8 +15,8 @@ import DSI_logo from '../pictures/sponsor_logo/dsi-logo.jpg'
 export const SponsorList = [
     {
         id: "1",
-        logo_image: BNYMellon_logo,
-        url: "https://www.bnymellon.com/",
+        logo_image: BNY_logo,
+        url: "https://www.bny.com/corporate/global/en.html",
         alt: 'BNYMellon Logo',
         tier: 'Platinum',
     }, 
