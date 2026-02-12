@@ -65,7 +65,7 @@ function App() {
                       <AboutUs ref = {ref} />
                       {/* <Track ref = {ref} /> */}
                       {/* <Leaderboard ref = {ref} /> */}
-                      {/* <Schedule ref = {ref} /> */}
+                      <Schedule ref = {ref} />
                       {/* <Awards ref = {ref} /> */}
                       <Sponsors  ref = {ref} />
                       <FAQ  ref = {ref} />
