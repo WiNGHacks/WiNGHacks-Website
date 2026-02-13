@@ -1904,7 +1904,7 @@ th {
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
-    background-color: #c7f2fc;
+    background-color: #c6d4e7;
     max-width: 320px;
     height: 35rem;
     margin: 1rem;
@@ -1928,6 +1928,7 @@ th {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
   }
 
   .title {
@@ -1936,9 +1937,10 @@ th {
   }
 
   .description {
-    color: grey;
+    color: rgb(24, 39, 82);
     font-size: 20px;
     font-family: "teacher-regular";
     flex-grow: 1;
+    overflow-y: auto;
   }
 }

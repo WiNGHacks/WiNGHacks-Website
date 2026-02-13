@@ -5,8 +5,8 @@ import { TrackList } from '../data/TrackList';
 
 const Track = ({}, ref) => {
   const responsive = {
-    superLargeDesktop: { breakpoint: { max: 4000, min: 1300 }, items: 4, slidesToSlide: 2 },
-    desktop:           { breakpoint: { max: 1300, min: 1000 }, items: 3 },
+    superLargeDesktop: { breakpoint: { max: 4000, min: 1300 }, items: 4, slidesToSlide: 3 },
+    desktop:           { breakpoint: { max: 1300, min: 1000 }, items: 3, slidesToSlide: 2 },
     tablet:            { breakpoint: { max: 1000, min: 750 },  items: 2 },
     mobile:            { breakpoint: { max: 750,  min: 0 },   items: 1 },
   };
@@ -22,6 +22,7 @@ const Track = ({}, ref) => {
               <div className="content">
                 <h3 className="title">{track.title}</h3>
                 <p className="description">{track.description}</p>
+                <p className="note">{track.note}</p>
               </div>
             </div>
           ))}
