@@ -42,7 +42,7 @@ const Sponsors = ({}, ref) => {
               </a>
             ))}
             </div>
-          </div>
+          </div> */}
           <div className='sponsor-tier-container'>
             <h2>Platinum Sponsors</h2>
             <div align='center' className='sponsor-logo-container'>
@@ -52,8 +52,8 @@ const Sponsors = ({}, ref) => {
               </a>
             ))}
             </div>
-          </div> */}
-          {/* <div className='sponsor-tier-container'>
+          </div>
+          <div className='sponsor-tier-container'>
             <h2>Gold Sponsors</h2>
             <div align='center' className='sponsor-logo-container'>
             {SponsorList.filter((sponsor) => sponsor.tier === 'Gold').map((sponsor) => (
@@ -62,9 +62,9 @@ const Sponsors = ({}, ref) => {
               </a>
             ))}
             </div>
-          </div> */}
+          </div>
         </div>
-        {/* <div className='sponsor-row'>
+        <div className='sponsor-row'>
           <div className='sponsor-tier-container'>
             <h2>Silver Sponsors</h2>
             <div align='center' className='sponsor-logo-container'>
@@ -85,7 +85,7 @@ const Sponsors = ({}, ref) => {
             ))}
             </div>
           </div>
-        </div> */
+        </div>
         <div className='sponsor-row'>
           <div className='sponsor-tier-container'>
             <h2>Other Sponsors</h2>
@@ -97,7 +97,7 @@ const Sponsors = ({}, ref) => {
             ))}
             </div>
           </div>
-        </div> }
+        </div> 
 
       <button className='Button Button-sponsor-page' onClick ={onButtonClick}>
         <div className='arrow'>{openPDF? (<SlArrowUp /> ): (<SlArrowDown />)}</div>
