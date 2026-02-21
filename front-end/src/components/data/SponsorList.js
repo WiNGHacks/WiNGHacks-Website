@@ -1,5 +1,5 @@
 import BNY_logo from '../pictures/sponsor_logo/bny-logo.png'
-import Twocents_logo from '../pictures/sponsor_logo/twocents-logo.png'
+import Twocents_logo from '../pictures/sponsor_logo/twocents-logo.webp'
 import DoEL_logo from '../pictures/sponsor_logo/DoEL.png'
 import ECE_logo from '../pictures/sponsor_logo/ece-logo.png'
 import GitHub_logo from '../pictures/sponsor_logo/github-logo.png'
@@ -11,6 +11,7 @@ import Celsius_logo from '../pictures/sponsor_logo/Celsius-Logo.png'
 import Monster_Energy_logo from '../pictures/sponsor_logo/Monster_Energy_logo.png'
 import Snag_logo from '../pictures/sponsor_logo/snag-logo.avif'
 import DSI_logo from '../pictures/sponsor_logo/dsi-logo.jpg'
+import Perplexity_logo from '../pictures/sponsor_logo/perplexity-logo.png'
 
 export const SponsorList = [
     {
@@ -18,12 +19,12 @@ export const SponsorList = [
         logo_image: BNY_logo,
         url: "https://www.bny.com/corporate/global/en.html",
         alt: 'BNYMellon Logo',
-        tier: 'Platinum',
+        tier: 'Gold',
     }, 
     {
         id: "2",
         logo_image: Twocents_logo,
-        url: "https://www.twocents.io/",
+        url: "https://www.twocents.money/",
         alt: 'Twocents Logo',
         tier: 'Platinum',
     },
@@ -102,6 +103,13 @@ export const SponsorList = [
         logo_image: DSI_logo,
         url: "https://www.ufdsi.com/",
         alt: 'DSI Logo',
+        tier: 'Other',
+    },
+    {
+        id: "14",
+        logo_image: Perplexity_logo,
+        url: "https://www.perplexity.ai/",
+        alt: 'Perplexity Logo',
         tier: 'Other',
     },
 ]
