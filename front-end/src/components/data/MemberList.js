@@ -10,6 +10,9 @@ import Andria_Subhit_pic from "../pictures/profile_pics/workshop/Andria_Subhit.j
 import AnnaRose_Wheatle_pic from "../pictures/profile_pics/pr/AnnaRose_Wheatle.jpeg";
 import Nico_Nguyen_pic from "../pictures/profile_pics/operations/Nico_Nguyen.jpg";
 import Stanley_Ke_pic from "../pictures/profile_pics/website/Stanley_Ke.JPG";
+import Macy_Tam_pic from "../pictures/profile_pics/pr/Macy_Tam.jpg";
+import Qianfeng_Zeng_pic from "../pictures/profile_pics/workshop/Qianfeng_Zeng.jpg";
+import My_Pham_pic from "../pictures/profile_pics/operations/My_Pham.jpg";
 
 const placeholderProfile = "https://placehold.co/300x300";
 
@@ -134,7 +137,7 @@ export const MemberList = [
   {
     id: "14",
     name: "My Pham",
-    profile_pic: placeholderProfile,
+    profile_pic: My_Pham_pic,
     linkedIn: "https://www.linkedin.com/in/mypham237/",
     major: "",
     committee_position: "Operations Committee Head",
@@ -143,7 +146,7 @@ export const MemberList = [
   {
     id: "15",
     name: "Macy Tam",
-    profile_pic: placeholderProfile,
+    profile_pic: Macy_Tam_pic,
     linkedIn: "",
     major: "",
     committee_position: "PR committee member",
@@ -160,8 +163,8 @@ export const MemberList = [
   },
   {
     id: "17",
-    name: "Qianfan Zeng",
-    profile_pic: placeholderProfile,
+    name: "Qianfeng Zeng",
+    profile_pic: Qianfeng_Zeng_pic,
     linkedIn: "https://www.linkedin.com/in/qianfan-zeng-b81528384/",
     major: "",
     committee_position: "Workshop Committee Member",
