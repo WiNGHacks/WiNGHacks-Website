@@ -1,0 +1,250 @@
+.playful-meadow .garden-layout {
+  display: block;
+}
+.playful-meadow .flower-field {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  max-height: none;
+  overflow: visible;
+  padding: 45px 15px 25px;
+  gap: 20px 28px;
+}
+.playful-meadow .flower-person {
+  max-width: 145px;
+}
+.playful-meadow .flower-person:nth-child(even) {
+  translate: 0 18px;
+}
+.bloom-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  overflow: visible;
+  background: transparent;
+  color: #263f30;
+  width: min(680px, 94vw, 87svh);
+  height: min(680px, 94vw, 87svh);
+  max-width: none;
+  max-height: none;
+  font-family: MeadowSans, sans-serif;
+}
+.bloom-dialog::backdrop {
+  background: #1d342b99;
+  backdrop-filter: blur(5px);
+}
+.bloom-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: flower-to-center 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  filter: drop-shadow(0 18px 30px #1b30294d);
+}
+.bloom-corolla {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.bloom-large-petal {
+  fill: var(--bloom-petal, #eeb6bc);
+  stroke: #70584955;
+  stroke-width: 2;
+  transform-origin: 350px 350px;
+  animation: petal-unfurl 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--petal-order) * 18ms);
+}
+.bloom-disc {
+  fill: #fffbed;
+  stroke: #cfb97c;
+  stroke-width: 3;
+}
+.bloom-ring {
+  fill: none;
+  stroke: #e4d8ae;
+  stroke-width: 1.5;
+  stroke-dasharray: 3 7;
+}
+.bloom-face {
+  position: absolute;
+  inset: 19% 23%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+.bloom-portrait,
+.bloom-initials {
+  flex: none;
+  width: 126px;
+  height: 126px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #e6dfc2;
+}
+.bloom-initials {
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+}
+.bloom-dialog .bloom-committee {
+  margin: 0;
+  font:
+    15px MeadowFriendly,
+    sans-serif;
+  color: #536546;
+  line-height: 1.3;
+}
+.bloom-dialog h3 {
+  font:
+    32px/1.12 MeadowBubble,
+    sans-serif;
+  letter-spacing: 0;
+  margin: 0;
+  text-wrap: balance;
+}
+.bloom-dialog #bloom-role {
+  font:
+    17px/1.45 MeadowSans,
+    sans-serif;
+  margin: 0;
+  max-width: 28ch;
+}
+.bloom-face .bloom-linkedin {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  place-items: center;
+  border-radius: 50%;
+  color: #909791;
+  font-size: 27px;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+.bloom-face .bloom-linkedin:hover {
+  color: #0a66c2;
+  background: #e8f2fc;
+  transform: translateY(-2px);
+}
+.bloom-close {
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid #cbbd96;
+  border-radius: 22px;
+  background: #fffbed;
+  color: #263f30;
+  font:
+    16px MeadowFriendly,
+    sans-serif;
+  cursor: pointer;
+}
+.bloom-dialog :focus-visible {
+  outline: 3px solid #745483;
+  outline-offset: 4px;
+}
+@keyframes flower-to-center {
+  from {
+    transform: translate(var(--bloom-x), var(--bloom-y)) scale(0.16);
+    opacity: 0.3;
+  }
+  to {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes petal-unfurl {
+  from {
+    transform: scale(0.35, 0.6) rotate(-14deg);
+  }
+  to {
+    transform: scale(1) rotate(0);
+  }
+}
+.bloom-still .bloom-shell,
+.bloom-still .bloom-large-petal {
+  animation: none;
+}
+@media (max-width: 760px) {
+  .playful-meadow .flower-field {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px 10px;
+    padding: 24px 0;
+  }
+  .bloom-face {
+    inset: 18% 21%;
+    gap: 5px;
+  }
+  .bloom-portrait,
+  .bloom-initials {
+    width: 76px;
+    height: 76px;
+  }
+  .bloom-dialog h3 {
+    font-size: 23px;
+  }
+  .bloom-dialog .bloom-committee {
+    font-size: 12px;
+  }
+  .bloom-dialog #bloom-role {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  .bloom-face .bloom-linkedin {
+    width: 38px;
+    height: 38px;
+    padding: 7px;
+    font-size: 23px;
+  }
+  .bloom-close {
+    top: -40px;
+    right: 3%;
+  }
+  .bloom-dialog {
+    width: 96vw;
+    height: 96vw;
+    max-width: 87svh;
+    max-height: 87svh;
+  }
+}
+@media (max-height: 550px) {
+  .bloom-face {
+    gap: 4px;
+  }
+  .bloom-portrait,
+  .bloom-initials {
+    width: 58px;
+    height: 58px;
+  }
+  .bloom-dialog h3 {
+    font-size: 21px;
+  }
+  .bloom-dialog #bloom-role {
+    font-size: 13px;
+  }
+  .bloom-dialog .bloom-committee {
+    font-size: 12px;
+  }
+  .bloom-face .bloom-linkedin {
+    width: 34px;
+    height: 34px;
+    padding: 6px;
+    font-size: 21px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bloom-shell,
+  .bloom-large-petal {
+    animation: none;
+  }
+}
