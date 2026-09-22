@@ -2352,7 +2352,8 @@
 @media (max-width: 760px) {
   .playful-meadow .meadow-header {
     top: 10px;
-    width: calc(100% - 104px);
+    z-index: 35;
+    width: calc(100% - 82px);
     height: 60px;
     left: 14px;
     margin: 0;
@@ -2361,15 +2362,76 @@
   }
 
   .playful-meadow .meadow-header .meadow-wordmark {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 0;
     font-size: 21px;
+    line-height: 1;
+  }
+
+  .playful-meadow .meadow-header .wordmark-dot {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1;
   }
 
   .playful-meadow .menu-toggle {
-    padding: 7px 11px;
-    border-radius: 12px;
-    background: #e8dfee;
-    font-family: MeadowFriendly, sans-serif;
-    font-weight: 800;
+    display: grid;
+    place-items: center;
+    flex: 0 0 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: #405f45;
+  }
+
+  .playful-meadow .menu-icon {
+    position: relative;
+    display: block;
+    width: 28px;
+    height: 25px;
+  }
+
+  .playful-meadow .menu-icon span {
+    position: absolute;
+    left: 0;
+    width: 28px;
+    height: 5px;
+    border-radius: 999px;
+    background: currentColor;
+    transition: transform 180ms ease, opacity 120ms ease;
+  }
+
+  .playful-meadow .menu-icon span:nth-child(1) { top: 1px; }
+  .playful-meadow .menu-icon span:nth-child(2) { top: 10px; width: 22px; }
+  .playful-meadow .menu-icon span:nth-child(3) { top: 19px; }
+
+  .playful-meadow .menu-toggle[aria-expanded="false"]:hover .menu-icon span:nth-child(1) {
+    transform: rotate(-3deg);
+  }
+
+  .playful-meadow .menu-toggle[aria-expanded="false"]:hover .menu-icon span:nth-child(3) {
+    transform: rotate(3deg);
+  }
+
+  .playful-meadow .menu-toggle[aria-expanded="true"] .menu-icon span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .playful-meadow .menu-toggle[aria-expanded="true"] .menu-icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .playful-meadow .menu-toggle[aria-expanded="true"] .menu-icon span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
   }
 
   .playful-meadow .meadow-header nav {
@@ -2384,7 +2446,895 @@
   }
 
   .playful-meadow .meadow-mlh-badge {
-    right: 14px;
-    width: 70px;
+    position: absolute;
+    z-index: 36;
+    top: 0;
+    right: 0;
+    width: 54px;
+  }
+}
+
+/* Retired mobile concept. Keep this isolated so the responsive rules above can
+   preserve the same playful visual language as desktop. */
+@media (max-width: 0px) {
+  .playful-meadow {
+    --mobile-gutter: clamp(18px, 5.6vw, 24px);
+    --panel-radius: 12px;
+    --panel-shadow: none;
+  }
+
+  .playful-meadow .meadow-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: 0;
+    height: 76px;
+    padding: 0 var(--mobile-gutter);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transform: none;
+  }
+
+  .playful-meadow .meadow-header .meadow-wordmark {
+    overflow: hidden;
+    font-size: 18px;
+    letter-spacing: 0;
+    text-overflow: ellipsis;
+  }
+
+  .playful-meadow .meadow-wordmark > .wordmark-dot {
+    display: none;
+  }
+
+  .playful-meadow .menu-toggle {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    padding: 10px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #294632;
+    box-shadow: none;
+  }
+
+  .playful-meadow .menu-icon {
+    position: relative;
+    display: block;
+    width: 23px;
+    height: 18px;
+  }
+
+  .playful-meadow .menu-icon span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform 180ms ease, opacity 180ms ease;
+  }
+
+  .playful-meadow .menu-icon span:nth-child(1) { top: 1px; }
+  .playful-meadow .menu-icon span:nth-child(2) { top: 8px; }
+  .playful-meadow .menu-icon span:nth-child(3) { top: 15px; }
+
+  .playful-meadow .menu-toggle[aria-expanded="true"] .menu-icon span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .playful-meadow .menu-toggle[aria-expanded="true"] .menu-icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .playful-meadow .menu-toggle[aria-expanded="true"] .menu-icon span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .playful-meadow .meadow-header nav {
+    position: absolute;
+    top: 68px;
+    right: var(--mobile-gutter);
+    left: var(--mobile-gutter);
+    width: auto;
+    max-height: calc(100dvh - 96px);
+    padding: 10px 18px;
+    overflow-y: auto;
+    border: 1px solid rgba(70, 99, 64, 0.12);
+    border-radius: 12px;
+    background: #fffced;
+    box-shadow: 0 12px 28px rgba(38, 63, 48, 0.12);
+  }
+
+  .playful-meadow .meadow-header nav a,
+  .playful-meadow .meadow-header nav > a:not(.nav-join) {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(54, 85, 59, 0.1);
+    border-radius: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .playful-meadow .meadow-header nav > a:not(.nav-join)::after {
+    content: none;
+  }
+
+  .playful-meadow .meadow-header nav > a:not(.nav-join):hover {
+    background: transparent;
+    color: #294632;
+    text-decoration: underline;
+    transform: none;
+  }
+
+  .playful-meadow .meadow-header nav .nav-join {
+    min-height: 44px;
+    margin: 4px 0 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    text-align: left;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .playful-meadow .meadow-mlh-badge {
+    right: calc(var(--mobile-gutter) + 60px);
+    width: 38px;
+    filter: none;
+  }
+
+  .playful-meadow .meadow-hero {
+    min-height: clamp(580px, 90svh, 820px);
+    height: auto;
+    padding: 120px var(--mobile-gutter) 100px;
+    align-items: center;
+  }
+
+  .playful-meadow .hero-film::after {
+    background: linear-gradient(
+      180deg,
+      rgba(248, 251, 239, 0.22) 0%,
+      rgba(248, 251, 239, 0.88) 35%,
+      rgba(248, 251, 239, 0.88) 60%,
+      rgba(248, 251, 239, 0.08) 100%
+    );
+  }
+
+  .hero-film video {
+    object-position: 61% center;
+  }
+
+  .playful-meadow .hero-event {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 420px;
+    text-align: center;
+  }
+
+  .playful-meadow .hero-school {
+    margin-bottom: 10px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+
+  .playful-meadow h1.hero-title {
+    font-family: MeadowFriendly, sans-serif;
+    font-size: clamp(36px, 10vw, 48px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+    color: #294632;
+    -webkit-text-stroke: 0;
+    text-shadow: none;
+  }
+
+  .playful-meadow h1.hero-title .bouncy-letter:nth-child(n) {
+    color: inherit;
+    transform: none;
+    animation: none;
+  }
+
+  .playful-meadow .hero-details {
+    gap: 7px;
+    margin-top: 18px;
+  }
+
+  .playful-meadow .hero-detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 4px 8px;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .playful-meadow .hero-detail:nth-child(n) {
+    background: transparent;
+  }
+
+  .playful-meadow .hero-detail span {
+    margin: 0;
+    font-family: MeadowSans, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .playful-meadow .hero-detail:nth-child(n) strong {
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.5;
+  }
+
+  .playful-meadow .hero-event .hero-actions {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    width: min(100%, 260px);
+    margin: 26px auto 0;
+  }
+
+  .playful-meadow .hero-button {
+    min-height: 46px;
+    padding: 12px 20px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: none;
+  }
+
+  .playful-meadow .hero-button-primary,
+  .playful-meadow .hero-button-secondary {
+    transform: none;
+  }
+
+  .playful-meadow .hero-button-primary,
+  .playful-meadow .hero-button-primary:hover {
+    background: #36553b;
+    color: #fffbed !important;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .playful-meadow .hero-button-secondary,
+  .playful-meadow .hero-button-secondary:hover {
+    background: transparent;
+    color: #294632 !important;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transform: none;
+  }
+
+  .playful-meadow .meadow-section {
+    padding: 56px var(--mobile-gutter);
+  }
+
+  .playful-meadow h2,
+  .playful-meadow h3 {
+    font-family: MeadowFriendly, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  .playful-meadow h2 {
+    margin-bottom: 18px;
+    font-size: clamp(27px, 7vw, 32px);
+    line-height: 1.2;
+  }
+
+  .playful-meadow h3 {
+    font-size: 19px;
+  }
+
+  .playful-meadow p {
+    font-size: 16px;
+    line-height: 1.62;
+  }
+
+  .playful-meadow .about-section {
+    gap: 34px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .playful-meadow .about-section > div:last-child {
+    order: -1;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .playful-meadow .about-section > div:last-child > p {
+    font-size: 16px;
+  }
+
+  .playful-meadow .about-art {
+    height: 210px;
+    max-width: 300px;
+  }
+
+  .playful-meadow .about-art img {
+    width: 395px;
+  }
+
+  .playful-meadow .about-facts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 22px;
+    padding-top: 10px;
+  }
+
+  .playful-meadow .about-facts div {
+    display: grid;
+    grid-template-columns: minmax(105px, 0.75fr) 1fr;
+    gap: 12px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e4cf;
+  }
+
+  .playful-meadow .about-facts div:last-child {
+    border-bottom: 0;
+  }
+
+  .playful-meadow .about-facts strong,
+  .playful-meadow .about-facts span {
+    text-align: left;
+  }
+
+  .playful-meadow .experience-section {
+    min-height: 0;
+    background-position: 58% bottom;
+  }
+
+  .playful-meadow .experience-section .meadow-section {
+    padding-bottom: 88px;
+  }
+
+  .playful-meadow .section-heading {
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .playful-meadow .section-heading > p {
+    font-size: 15px;
+  }
+
+  .playful-meadow .track-grid {
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(84vw, 330px);
+    gap: 14px;
+    margin-right: calc(var(--mobile-gutter) * -1);
+    padding: 12px var(--mobile-gutter) 24px 2px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-padding-inline: 2px;
+    scroll-snap-type: inline mandatory;
+    scrollbar-width: none;
+  }
+
+  .playful-meadow .track-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .playful-meadow .track-card {
+    min-height: 220px;
+    padding: 22px 20px;
+    scroll-snap-align: start;
+  }
+
+  .playful-meadow .track-card h3 {
+    font-size: 20px;
+  }
+
+  .playful-meadow .idea-button {
+    width: 100%;
+    margin-top: 8px;
+    font-size: 14px !important;
+    border-radius: 8px;
+  }
+
+  .playful-meadow .idea-result {
+    min-height: 52px;
+    font-size: 15px !important;
+    line-height: 1.5;
+  }
+
+  .playful-meadow .schedule-section {
+    gap: 24px;
+    padding-top: 60px;
+    background: none;
+  }
+
+  .playful-meadow .schedule-section .small-note {
+    margin-top: 16px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    font-size: 13px;
+  }
+
+  .playful-meadow .schedule-card {
+    margin: 0;
+    padding: 24px 18px 22px;
+    border-radius: 12px;
+  }
+
+  .playful-meadow .schedule-card::before {
+    content: none;
+  }
+
+  .playful-meadow .day-tabs {
+    gap: 4px;
+    margin-bottom: 22px;
+    border: 0;
+  }
+
+  .playful-meadow .day-tabs button {
+    min-height: 44px;
+    padding: 9px 5px;
+    border: 1px solid #d4d9bf;
+    border-radius: 11px;
+    background: #f3f0dc;
+    font-size: 12px;
+  }
+
+  .playful-meadow .day-tabs button[aria-selected="true"] {
+    border-color: #506846;
+    background: #dce8ad;
+  }
+
+  .playful-meadow .journey-stop {
+    gap: 13px;
+    margin: 22px 0;
+  }
+
+  .playful-meadow .journey-stop h3 {
+    font-size: 19px;
+  }
+
+  .playful-meadow .journey-stop p {
+    font-size: 15px;
+  }
+
+  .playful-meadow .community-section {
+    padding-top: 42px;
+    padding-bottom: 60px;
+  }
+
+  .playful-meadow .memory-grid {
+    gap: 22px;
+    padding: 0;
+  }
+
+  .playful-meadow .memory-grid figure,
+  .playful-meadow .memory-grid figure:nth-child(2) {
+    margin: 0;
+    transform: none;
+  }
+
+  .playful-meadow .memory-grid img {
+    height: clamp(210px, 64vw, 280px);
+    border-radius: 3px;
+  }
+
+  .playful-meadow .team-section .meadow-section {
+    padding-top: 60px;
+    padding-bottom: 80px;
+  }
+
+  .playful-meadow .team-section .meadow-section > h2 {
+    padding: 0;
+    font-size: 30px;
+  }
+
+  .playful-meadow .garden-filters {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin: 22px calc(var(--mobile-gutter) * -1) 12px;
+    padding: 6px var(--mobile-gutter) 12px;
+    overflow-x: auto;
+    scroll-snap-type: inline proximity;
+    scrollbar-width: none;
+  }
+
+  .playful-meadow .garden-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .playful-meadow .garden-filters button {
+    flex: 0 0 auto;
+    min-height: 44px;
+    border-radius: 8px;
+    font-size: 12px;
+    scroll-snap-align: start;
+  }
+
+  .playful-meadow .flower-field {
+    max-height: none;
+    gap: 22px 10px;
+    padding-top: 24px;
+    overflow: visible;
+  }
+
+  .playful-meadow .flower-person {
+    min-width: 0;
+    padding: 3px;
+  }
+
+  .playful-meadow .flower-person span {
+    max-width: 100%;
+    padding: 5px 10px;
+    overflow: hidden;
+    font-size: 13px;
+    text-overflow: ellipsis;
+  }
+
+  .playful-meadow .sponsor-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .playful-meadow .meadow-sponsors-coming-soon {
+    min-height: 76px;
+    margin: 28px auto 30px;
+    border: 1px solid #bac5a8;
+    border-radius: 12px;
+  }
+
+  .playful-meadow .meadow-sponsors-coming-soon p {
+    font-family: MeadowFriendly, sans-serif;
+    font-size: 19px;
+    letter-spacing: 0;
+  }
+
+  .playful-meadow .sponsor-callout {
+    gap: 20px;
+    padding: 23px 20px;
+    border-radius: 12px;
+  }
+
+  .playful-meadow .sponsor-callout .meadow-button {
+    width: 100%;
+  }
+
+  .playful-meadow .faq-layout {
+    gap: 30px;
+  }
+
+  .playful-meadow .faq-layout > div:first-child {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+
+  .playful-meadow .faq-layout > div:first-child h2 {
+    grid-column: 1 / -1;
+  }
+
+  .playful-meadow .gator-button {
+    grid-column: 2;
+    grid-row: 2 / 4;
+    width: 112px;
+    height: 112px;
+    margin: 0;
+  }
+
+  .playful-meadow .gator-button img {
+    width: 235px;
+  }
+
+  .playful-meadow .gator-greeting {
+    margin-top: 10px;
+    font-size: 12px !important;
+  }
+
+  .playful-meadow .meadow-faqs {
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .playful-meadow .meadow-faqs details,
+  .playful-meadow .meadow-faqs details[open] {
+    padding: 12px 0;
+  }
+
+  .playful-meadow .meadow-faqs summary {
+    min-height: 44px;
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .playful-meadow .meadow-faqs details p {
+    padding-right: 2px;
+    font-size: 15px;
+  }
+
+  .playful-meadow .join-section {
+    padding: 60px var(--mobile-gutter) 70px;
+  }
+
+  .playful-meadow .join-section h2 {
+    font-family: MeadowFriendly, sans-serif;
+    font-size: clamp(30px, 8vw, 36px);
+    line-height: 1.2;
+  }
+
+  .playful-meadow .join-section > p {
+    font-size: 16px;
+  }
+
+  .playful-meadow .join-section .meadow-button {
+    width: min(100%, 260px);
+    min-height: 46px;
+  }
+
+  .playful-meadow .meadow-footer {
+    gap: 17px;
+    padding: 34px var(--mobile-gutter) 76px;
+  }
+
+  .playful-meadow .meadow-footer > div {
+    flex-wrap: wrap;
+    gap: 10px 20px;
+  }
+
+  .playful-meadow .meadow-footer > div a {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .motion-toggle {
+    right: 10px;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    left: auto;
+    min-height: 36px;
+    background: rgba(255, 249, 233, 0.94);
+    box-shadow: 0 5px 18px rgba(38, 63, 48, 0.16);
+  }
+
+  .playful-meadow .track-card:nth-child(n) {
+    border-radius: 12px;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .playful-meadow .track-card::before,
+  .playful-meadow .memory-grid figure::before {
+    content: none;
+  }
+
+  .playful-meadow .track-card p,
+  .playful-meadow .sponsor-callout p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .playful-meadow .art-note {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-size: 14px;
+    transform: translateX(-50%);
+  }
+
+  .playful-meadow .memory-grid figure {
+    padding: 0 0 12px;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .playful-meadow .memory-grid figcaption,
+  .playful-meadow .schedule-footnote {
+    font-size: 13px;
+  }
+
+  .playful-meadow .meadow-button,
+  .playful-meadow .meadow-button:hover {
+    min-height: 46px;
+    border-radius: 8px;
+    background: #36553b;
+    color: #fffbed !important;
+    font-size: 14px;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .playful-meadow .text-link,
+  .playful-meadow .meadow-footer p,
+  .playful-meadow .meadow-footer > div {
+    font-size: 14px;
+  }
+
+  .playful-meadow .meadow-footer .meadow-wordmark {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .playful-meadow .meadow-header .meadow-wordmark {
+    font-size: 17px;
+  }
+
+}
+
+/* Mobile keeps the desktop hero's colorful lettering, scaled to the viewport. */
+@media (max-width: 760px) {
+  .playful-meadow h1.hero-title {
+    font-size: clamp(42px, 11.6vw, 58px);
+    letter-spacing: -0.045em;
+  }
+
+  .playful-meadow .garden-filters {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    max-width: 100%;
+    margin-inline: 0;
+    padding: 6px 4px 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline proximity;
+    scrollbar-color: #839664 #fffbed99;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .playful-meadow .garden-filters::-webkit-scrollbar {
+    height: 7px;
+  }
+
+  .playful-meadow .garden-filters::-webkit-scrollbar-track {
+    border-radius: 999px;
+    background: #fffbed99;
+  }
+
+  .playful-meadow .garden-filters::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: #839664;
+  }
+
+  .playful-meadow .garden-filters button {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+}
+
+/* Keep the plant stationary; the blossom opens from its junction with the stem. */
+.playful-meadow .about-section .about-art {
+  display: grid;
+  place-items: center;
+  height: auto;
+  width: 100%;
+  max-width: none;
+}
+
+.playful-meadow .about-bloom {
+  position: relative;
+  z-index: 3;
+  display: block;
+  width: min(100%, 300px, calc((100svh - 100px) * 7 / 12));
+  aspect-ratio: 7 / 12;
+  padding: 0;
+  border: 0;
+  border-radius: 40%;
+  background: transparent;
+  isolation: isolate;
+}
+
+.playful-meadow .about-bloom .about-bloom-stage {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  transform: none;
+  animation: none;
+  pointer-events: none;
+}
+
+.playful-meadow .about-bloom .about-bloom-base {
+  z-index: 0;
+  clip-path: inset(35% 0 0 0);
+}
+
+.playful-meadow .about-bloom .about-bloom-bud,
+.playful-meadow .about-bloom .about-bloom-flower {
+  z-index: 1;
+  clip-path: inset(0 0 63% 0);
+  /* The shared neck stays against the fixed stem throughout the opening. */
+  transform-origin: 55% 36%;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1), opacity 130ms linear;
+}
+
+.playful-meadow .about-bloom .about-bloom-bud {
+  opacity: 1;
+}
+
+.playful-meadow .about-bloom .about-bloom-flower {
+  opacity: 0;
+  transform: scale(0.32, 0.7);
+}
+
+.playful-meadow .about-bloom.is-bloomed .about-bloom-bud {
+  opacity: 0;
+  transform: scaleX(1.12);
+}
+
+.playful-meadow .about-bloom.is-bloomed .about-bloom-flower {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.playful-meadow .about-bloom-message {
+  position: absolute;
+  z-index: 3;
+  left: 59%;
+  top: 22%;
+  width: 36%;
+  padding: 10px 2px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #fff3cded 20%, #fff3cd99 50%, transparent 72%);
+  color: #40573a;
+  font-family: MeadowFriendly, sans-serif;
+  font-size: clamp(18px, 1.4vw, 21px);
+  font-weight: 900;
+  line-height: 1.1;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.86);
+  transition: opacity 80ms ease, transform 160ms ease;
+}
+
+.playful-meadow .about-bloom.is-bloomed .about-bloom-message {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition-delay: 220ms;
+}
+
+@media (max-width: 760px) {
+  .playful-meadow .about-bloom {
+    width: min(78vw, 280px, calc((100svh - 100px) * 7 / 12));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .playful-meadow .about-bloom .about-bloom-stage,
+  .playful-meadow .about-bloom .about-bloom-message {
+    transition: none;
   }
 }

@@ -6,6 +6,7 @@ import Skyler_Steiert_pic from "../pictures/profile_pics/directors/Skyler_Steier
 import Ivette_SaldanaHernandez_pic from "../pictures/profile_pics/website/Ivette_SaldanaHernandez.jpg";
 import Olivia_Schwartz_pic from "../pictures/profile_pics/directors/Olivia_Schwartz.jpg";
 import Wenhui_Chen_pic from "../pictures/profile_pics/merch/Wenhui_Chen.png";
+import Giselle_Galvan_pic from "../pictures/profile_pics/merch/Giselle_Galvan.png";
 import Andria_Subhit_pic from "../pictures/profile_pics/workshop/Andria_Subhit.jpeg";
 import AnnaRose_Wheatle_pic from "../pictures/profile_pics/pr/AnnaRose_Wheatle.jpeg";
 import Nico_Nguyen_pic from "../pictures/profile_pics/operations/Nico_Nguyen.jpg";
@@ -155,7 +156,7 @@ export const MemberList = [
   {
     id: "16",
     name: "Giselle Galvan",
-    profile_pic: placeholderProfile,
+    profile_pic: Giselle_Galvan_pic,
     linkedIn: "https://www.linkedin.com/in/gooselle/",
     major: "",
     committee_position: "Merch Committee Member",

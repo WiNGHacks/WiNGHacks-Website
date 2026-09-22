@@ -7,10 +7,11 @@ import workshop from "../pictures/2024_Gallery/React_Workshop_Cami.jpg";
 import "./MeadowHome.css";
 import "./MeadowPlayful.css";
 import BloomProfile from "./BloomProfile";
-import mushroom from "../pictures/meadow/mushroom.png";
 import gator from "../pictures/meadow/gator.png";
 import watercolorFlowerPot from "../pictures/meadow/watercolor-flower-pot.png";
 import watercolorShovel from "../pictures/meadow/watercolor-shovel.png";
+import aboutFlowerSeedling from "../pictures/meadow/about-flower-seedling.png";
+import aboutFlowerBloom from "../pictures/meadow/about-flower-bloom.png";
 
 const email = "mailto:uf.winghacks@gmail.com";
 const tracks = [
@@ -125,6 +126,20 @@ function Flower({ active, member }) {
 export default function MeadowHome() {
   const sceneRef = useRef(null);
   const videoRef = useRef(null);
+  const aboutFlowerRef = useRef(null);
+  const [aboutBloomed, setAboutBloomed] = useState(false);
+  useEffect(() => {
+    const flower = aboutFlowerRef.current;
+    if (!flower) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 1) {
+        setAboutBloomed(true);
+        observer.disconnect();
+      }
+    }, { threshold: 1, rootMargin: "-80px 0px 0px 0px" });
+    observer.observe(flower);
+    return () => observer.disconnect();
+  }, []);
   const [videoFailed, setVideoFailed] = useState(false);
   const [motionPaused, setMotionPaused] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(
@@ -166,6 +181,27 @@ export default function MeadowHome() {
     };
   }, [motionPaused, reduceMotion, videoFailed]);
   const [menu, setMenu] = useState(false);
+  const headerRef = useRef(null);
+  const menuToggleRef = useRef(null);
+  useEffect(() => {
+    if (!menu) return undefined;
+
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") {
+        setMenu(false);
+        menuToggleRef.current?.focus();
+      }
+    };
+    const closeOutside = (event) => {
+      if (!headerRef.current?.contains(event.target)) setMenu(false);
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    document.addEventListener("pointerdown", closeOutside);
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("pointerdown", closeOutside);
+    };
+  }, [menu]);
   const [filter, setFilter] = useState("All");
   const [selected, setSelected] = useState(null);
   const [bloomOrigin, setBloomOrigin] = useState({
@@ -255,23 +291,36 @@ export default function MeadowHome() {
       <a className="meadow-skip" href="#main">
         Skip to content
       </a>
-      <header className="meadow-header">
-        <a
-          href="#page-top"
-          className="meadow-wordmark"
-          aria-label="WiNGHacks home"
-        >
-          WiNGHacks
-          <span className="wordmark-dot">✿</span>
-        </a>
+      <header
+        ref={headerRef}
+        className="meadow-header"
+        onBlur={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget)) setMenu(false);
+        }}
+      >
         <button
+          ref={menuToggleRef}
           className="menu-toggle"
           onClick={() => setMenu(!menu)}
           aria-expanded={menu}
           aria-controls="meadow-nav"
+          aria-label={menu ? "Close navigation menu" : "Open navigation menu"}
         >
-          {menu ? "Close −" : "Menu +"}
+          <span className="menu-icon" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </span>
         </button>
+        <a
+          href="#page-top"
+          className="meadow-wordmark"
+          aria-label="WiNGHacks home"
+          onClick={() => setMenu(false)}
+        >
+          WiNGHacks
+          <span className="wordmark-dot" aria-hidden="true">✿</span>
+        </a>
         <nav
           id="meadow-nav"
           className={menu ? "open" : ""}
@@ -369,11 +418,32 @@ export default function MeadowHome() {
         </section>
         <section id="about" className="meadow-section about-section">
           <div className="about-art">
-            <img
-              src={mushroom}
-              alt="A smiling mushroom holding a pot of flowers, illustrated by the WiNGHacks marketing team"
-            />
-            <span className="art-note">ideas grow here</span>
+            <div
+              ref={aboutFlowerRef}
+              className={`about-bloom${aboutBloomed ? " is-bloomed" : ""}`}
+              role="img"
+              aria-label="A watercolor flower blooming — ideas grow here"
+            >
+              <img
+                className="about-bloom-stage about-bloom-base"
+                src={aboutFlowerSeedling}
+                alt=""
+                aria-hidden="true"
+              />
+              <img
+                className="about-bloom-stage about-bloom-bud"
+                src={aboutFlowerSeedling}
+                alt=""
+                aria-hidden="true"
+              />
+              <img
+                className="about-bloom-stage about-bloom-flower"
+                src={aboutFlowerBloom}
+                alt=""
+                aria-hidden="true"
+              />
+              <span className="about-bloom-message">ideas<br />grow here</span>
+            </div>
           </div>
           <div>
             <h2>
