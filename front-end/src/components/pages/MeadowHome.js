@@ -1,17 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MemberList } from "../data/MemberList";
-import { SponsorList } from "../data/SponsorList";
-import photo from "../pictures/2024_Gallery/Hackers2.jpg";
-import community from "../pictures/2024_Gallery/Organizers_Group.jpg";
-import workshop from "../pictures/2024_Gallery/React_Workshop_Cami.jpg";
+import airplaneVideo from "../pictures/meadow/airplane-loop.mp4";
+import airplanePoster from "../pictures/meadow/airplane-poster.webp";
+import photo from "../pictures/2024_Gallery/Hackers2.webp";
+import community from "../pictures/2024_Gallery/Organizers_Group.webp";
+import workshop from "../pictures/2024_Gallery/React_Workshop_Cami.webp";
 import "./MeadowHome.css";
 import "./MeadowPlayful.css";
 import BloomProfile from "./BloomProfile";
-import gator from "../pictures/meadow/gator.png";
-import watercolorFlowerPot from "../pictures/meadow/watercolor-flower-pot.png";
-import watercolorShovel from "../pictures/meadow/watercolor-shovel.png";
-import aboutFlowerSeedling from "../pictures/meadow/about-flower-seedling.png";
-import aboutFlowerBloom from "../pictures/meadow/about-flower-bloom.png";
+import gator from "../pictures/meadow/gator.webp";
+import watercolorFlowerPot from "../pictures/meadow/watercolor-flower-pot.webp";
+import watercolorShovel from "../pictures/meadow/watercolor-shovel.webp";
+import aboutFlowerSeedling from "../pictures/meadow/about-flower-seedling.webp";
+import aboutFlowerBloom from "../pictures/meadow/about-flower-bloom.webp";
 
 const email = "mailto:uf.winghacks@gmail.com";
 const tracks = [
@@ -76,6 +77,18 @@ const faqs = [
 ];
 
 function Flower({ active, member }) {
+  const portraitRef = useRef(null);
+  const [portraitVisible, setPortraitVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setPortraitVisible(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: "200px" });
+    observer.observe(portraitRef.current);
+    return () => observer.disconnect();
+  }, []);
   const portraitClipId = `flower-portrait-${member.id}`;
   const flowerVariant = Number(member.id) || 0;
   const petalCount = 5;
@@ -86,6 +99,7 @@ function Flower({ active, member }) {
       : "M66 165 Q24 164 31 140 Q61 140 66 165 M67 143 Q104 139 108 116 Q78 115 67 143";
   return (
     <svg
+      ref={portraitRef}
       viewBox="0 0 140 190"
       aria-hidden="true"
       className={`garden-flower ${active ? "is-bloomed" : ""}`}
@@ -111,7 +125,7 @@ function Flower({ active, member }) {
       </g>
       <image
         className="flower-portrait-image"
-        href={member.profile_pic}
+        href={portraitVisible ? member.profile_pic : undefined}
         x="44"
         y="44"
         width="52"
@@ -357,18 +371,18 @@ export default function MeadowHome() {
       <main id="main">
         <section className="meadow-hero" aria-labelledby="hero-title">
           <div className="hero-film" aria-hidden="true">
-            {!videoFailed && (
+            {!reduceMotion && !videoFailed && (
               <video
                 ref={videoRef}
                 muted
                 loop
                 playsInline
-                preload="metadata"
-                poster="/meadow/airplane-poster.jpg"
+                preload="none"
+                poster={airplanePoster}
                 onError={() => setVideoFailed(true)}
               >
                 <source
-                  src="/meadow/moving_airplane_5_loop.mp4"
+                  src={airplaneVideo}
                   type="video/mp4"
                 />
               </video>
@@ -425,18 +439,24 @@ export default function MeadowHome() {
               aria-label="A watercolor flower blooming — ideas grow here"
             >
               <img
+                loading="lazy"
+                decoding="async"
                 className="about-bloom-stage about-bloom-base"
                 src={aboutFlowerSeedling}
                 alt=""
                 aria-hidden="true"
               />
               <img
+                loading="lazy"
+                decoding="async"
                 className="about-bloom-stage about-bloom-bud"
                 src={aboutFlowerSeedling}
                 alt=""
                 aria-hidden="true"
               />
               <img
+                loading="lazy"
+                decoding="async"
                 className="about-bloom-stage about-bloom-flower"
                 src={aboutFlowerBloom}
                 alt=""
@@ -622,12 +642,16 @@ export default function MeadowHome() {
         </section>
         <section id="team" className="team-section">
           <img
+            loading="lazy"
+            decoding="async"
             className="garden-prop garden-pot"
             src={watercolorFlowerPot}
             alt=""
             aria-hidden="true"
           />
           <img
+            loading="lazy"
+            decoding="async"
             className="garden-prop garden-shovel"
             src={watercolorShovel}
             alt=""

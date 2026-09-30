@@ -296,7 +296,7 @@
   z-index: -3;
   background:
     linear-gradient(#d8ecfa33, #deeddf00 75%),
-    url("../pictures/meadow/landscape_with_paper_airplane.png") center 60% / cover;
+    url("../pictures/meadow/landscape_with_paper_airplane.webp") center 60% / cover;
   transform: translate3d(0, var(--sky-y, 0px), 0);
   will-change: transform;
 }
@@ -822,7 +822,7 @@
   border-radius: 50% 30% 0 0/40px 55px 0 0;
   background:
     linear-gradient(#f5f6d2aa, transparent 80%),
-    url("../pictures/meadow/landscape.png") center bottom/cover;
+    url("../pictures/meadow/landscape.webp") center bottom/cover;
 }
 
 .playful-meadow .team-section h2 {
@@ -945,7 +945,7 @@
   padding: 100px 20px 120px;
   background:
     linear-gradient(#f5f5cfbb, #f5f5cf44),
-    url("../pictures/meadow/landscape.png") center bottom/cover;
+    url("../pictures/meadow/landscape.webp") center bottom/cover;
 }
 
 .playful-meadow .join-section h2 {
@@ -1438,7 +1438,7 @@
   position: absolute;
   inset: 0;
   z-index: -2;
-  background: url("../pictures/meadow/airplane-poster.jpg") center/cover;
+  background: url("../pictures/meadow/airplane-poster.webp") center/cover;
 }
 
 .hero-film video {
@@ -2076,7 +2076,7 @@
   scroll-margin-top: 78px;
   background:
     linear-gradient(rgba(255, 252, 226, 0.1), rgba(255, 252, 226, 0.1)),
-    url("../pictures/meadow/committee-dirt-concept-v1.png") center/cover no-repeat;
+    url("../pictures/meadow/committee-dirt-concept-v1.webp") center/cover no-repeat;
 }
 
 .playful-meadow .team-section .meadow-section {
@@ -2243,7 +2243,7 @@
   min-height: 850px;
   background:
     linear-gradient(rgba(249, 249, 221, 0.18), rgba(249, 249, 221, 0.28)),
-    url("../pictures/meadow/landscape.png") center bottom/cover no-repeat;
+    url("../pictures/meadow/landscape.webp") center bottom/cover no-repeat;
 }
 
 .playful-meadow .experience-section .meadow-section {
