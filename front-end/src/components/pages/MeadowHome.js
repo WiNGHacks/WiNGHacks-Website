@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MemberList } from "../data/MemberList";
-import { SponsorList } from "../data/SponsorList";
-import photo from "../pictures/2024_Gallery/Hackers2.jpg";
-import community from "../pictures/2024_Gallery/Organizers_Group.jpg";
-import workshop from "../pictures/2024_Gallery/React_Workshop_Cami.jpg";
+import airplaneVideo from "../pictures/meadow/airplane-loop.mp4";
+import airplanePoster from "../pictures/meadow/airplane-poster.webp";
+import photo from "../pictures/2024_Gallery/Hackers2.webp";
+import community from "../pictures/2024_Gallery/Organizers_Group.webp";
+import workshop from "../pictures/2024_Gallery/React_Workshop_Cami.webp";
 import "./MeadowHome.css";
 import "./MeadowPlayful.css";
 import BloomProfile from "./BloomProfile";
-import mushroom from "../pictures/meadow/mushroom.png";
-import gator from "../pictures/meadow/gator.png";
-import watercolorFlowerPot from "../pictures/meadow/watercolor-flower-pot.png";
-import watercolorShovel from "../pictures/meadow/watercolor-shovel.png";
+import gator from "../pictures/meadow/gator.webp";
+import watercolorFlowerPot from "../pictures/meadow/watercolor-flower-pot.webp";
+import watercolorShovel from "../pictures/meadow/watercolor-shovel.webp";
+import aboutFlowerSeedling from "../pictures/meadow/about-flower-seedling.webp";
+import aboutFlowerBloom from "../pictures/meadow/about-flower-bloom.webp";
 
 const email = "mailto:uf.winghacks@gmail.com";
 const tracks = [
@@ -75,6 +77,18 @@ const faqs = [
 ];
 
 function Flower({ active, member }) {
+  const portraitRef = useRef(null);
+  const [portraitVisible, setPortraitVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setPortraitVisible(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: "200px" });
+    observer.observe(portraitRef.current);
+    return () => observer.disconnect();
+  }, []);
   const portraitClipId = `flower-portrait-${member.id}`;
   const flowerVariant = Number(member.id) || 0;
   const petalCount = 5;
@@ -85,6 +99,7 @@ function Flower({ active, member }) {
       : "M66 165 Q24 164 31 140 Q61 140 66 165 M67 143 Q104 139 108 116 Q78 115 67 143";
   return (
     <svg
+      ref={portraitRef}
       viewBox="0 0 140 190"
       aria-hidden="true"
       className={`garden-flower ${active ? "is-bloomed" : ""}`}
@@ -110,7 +125,7 @@ function Flower({ active, member }) {
       </g>
       <image
         className="flower-portrait-image"
-        href={member.profile_pic}
+        href={portraitVisible ? member.profile_pic : undefined}
         x="44"
         y="44"
         width="52"
@@ -125,6 +140,20 @@ function Flower({ active, member }) {
 export default function MeadowHome() {
   const sceneRef = useRef(null);
   const videoRef = useRef(null);
+  const aboutFlowerRef = useRef(null);
+  const [aboutBloomed, setAboutBloomed] = useState(false);
+  useEffect(() => {
+    const flower = aboutFlowerRef.current;
+    if (!flower) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 1) {
+        setAboutBloomed(true);
+        observer.disconnect();
+      }
+    }, { threshold: 1, rootMargin: "-80px 0px 0px 0px" });
+    observer.observe(flower);
+    return () => observer.disconnect();
+  }, []);
   const [videoFailed, setVideoFailed] = useState(false);
   const [motionPaused, setMotionPaused] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(
@@ -166,6 +195,27 @@ export default function MeadowHome() {
     };
   }, [motionPaused, reduceMotion, videoFailed]);
   const [menu, setMenu] = useState(false);
+  const headerRef = useRef(null);
+  const menuToggleRef = useRef(null);
+  useEffect(() => {
+    if (!menu) return undefined;
+
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") {
+        setMenu(false);
+        menuToggleRef.current?.focus();
+      }
+    };
+    const closeOutside = (event) => {
+      if (!headerRef.current?.contains(event.target)) setMenu(false);
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    document.addEventListener("pointerdown", closeOutside);
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("pointerdown", closeOutside);
+    };
+  }, [menu]);
   const [filter, setFilter] = useState("All");
   const [selected, setSelected] = useState(null);
   const [bloomOrigin, setBloomOrigin] = useState({
@@ -255,23 +305,36 @@ export default function MeadowHome() {
       <a className="meadow-skip" href="#main">
         Skip to content
       </a>
-      <header className="meadow-header">
-        <a
-          href="#page-top"
-          className="meadow-wordmark"
-          aria-label="WiNGHacks home"
-        >
-          WiNGHacks
-          <span className="wordmark-dot">✿</span>
-        </a>
+      <header
+        ref={headerRef}
+        className="meadow-header"
+        onBlur={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget)) setMenu(false);
+        }}
+      >
         <button
+          ref={menuToggleRef}
           className="menu-toggle"
           onClick={() => setMenu(!menu)}
           aria-expanded={menu}
           aria-controls="meadow-nav"
+          aria-label={menu ? "Close navigation menu" : "Open navigation menu"}
         >
-          {menu ? "Close −" : "Menu +"}
+          <span className="menu-icon" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </span>
         </button>
+        <a
+          href="#page-top"
+          className="meadow-wordmark"
+          aria-label="WiNGHacks home"
+          onClick={() => setMenu(false)}
+        >
+          WiNGHacks
+          <span className="wordmark-dot" aria-hidden="true">✿</span>
+        </a>
         <nav
           id="meadow-nav"
           className={menu ? "open" : ""}
@@ -308,18 +371,18 @@ export default function MeadowHome() {
       <main id="main">
         <section className="meadow-hero" aria-labelledby="hero-title">
           <div className="hero-film" aria-hidden="true">
-            {!videoFailed && (
+            {!reduceMotion && !videoFailed && (
               <video
                 ref={videoRef}
                 muted
                 loop
                 playsInline
-                preload="metadata"
-                poster="/meadow/airplane-poster.jpg"
+                preload="none"
+                poster={airplanePoster}
                 onError={() => setVideoFailed(true)}
               >
                 <source
-                  src="/meadow/moving_airplane_5_loop.mp4"
+                  src={airplaneVideo}
                   type="video/mp4"
                 />
               </video>
@@ -369,11 +432,38 @@ export default function MeadowHome() {
         </section>
         <section id="about" className="meadow-section about-section">
           <div className="about-art">
-            <img
-              src={mushroom}
-              alt="A smiling mushroom holding a pot of flowers, illustrated by the WiNGHacks marketing team"
-            />
-            <span className="art-note">ideas grow here</span>
+            <div
+              ref={aboutFlowerRef}
+              className={`about-bloom${aboutBloomed ? " is-bloomed" : ""}`}
+              role="img"
+              aria-label="A watercolor flower blooming — ideas grow here"
+            >
+              <img
+                loading="lazy"
+                decoding="async"
+                className="about-bloom-stage about-bloom-base"
+                src={aboutFlowerSeedling}
+                alt=""
+                aria-hidden="true"
+              />
+              <img
+                loading="lazy"
+                decoding="async"
+                className="about-bloom-stage about-bloom-bud"
+                src={aboutFlowerSeedling}
+                alt=""
+                aria-hidden="true"
+              />
+              <img
+                loading="lazy"
+                decoding="async"
+                className="about-bloom-stage about-bloom-flower"
+                src={aboutFlowerBloom}
+                alt=""
+                aria-hidden="true"
+              />
+              <span className="about-bloom-message">ideas<br />grow here</span>
+            </div>
           </div>
           <div>
             <h2>
@@ -552,12 +642,16 @@ export default function MeadowHome() {
         </section>
         <section id="team" className="team-section">
           <img
+            loading="lazy"
+            decoding="async"
             className="garden-prop garden-pot"
             src={watercolorFlowerPot}
             alt=""
             aria-hidden="true"
           />
           <img
+            loading="lazy"
+            decoding="async"
             className="garden-prop garden-shovel"
             src={watercolorShovel}
             alt=""

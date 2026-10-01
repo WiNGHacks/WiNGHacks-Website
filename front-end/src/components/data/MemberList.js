@@ -1,18 +1,19 @@
-import Grace_Cavarretta_pic from "../pictures/profile_pics/directors/Grace_Cavarretta.jpg";
-import Lu_Ighodalo_pic from "../pictures/profile_pics/tech/Lu_Ighodalo.jpeg";
-import Helen_Zhang_pic from "../pictures/profile_pics/sponsorship/Helen_Zhang.jpg";
-import Ananya_Harshe_pic from "../pictures/profile_pics/pr/Ananya_Harshe.png";
-import Skyler_Steiert_pic from "../pictures/profile_pics/directors/Skyler_Steiert.jpeg";
-import Ivette_SaldanaHernandez_pic from "../pictures/profile_pics/website/Ivette_SaldanaHernandez.jpg";
-import Olivia_Schwartz_pic from "../pictures/profile_pics/directors/Olivia_Schwartz.jpg";
-import Wenhui_Chen_pic from "../pictures/profile_pics/merch/Wenhui_Chen.png";
-import Andria_Subhit_pic from "../pictures/profile_pics/workshop/Andria_Subhit.jpeg";
-import AnnaRose_Wheatle_pic from "../pictures/profile_pics/pr/AnnaRose_Wheatle.jpeg";
-import Nico_Nguyen_pic from "../pictures/profile_pics/operations/Nico_Nguyen.jpg";
-import Stanley_Ke_pic from "../pictures/profile_pics/website/Stanley_Ke.JPG";
-import Macy_Tam_pic from "../pictures/profile_pics/pr/Macy_Tam.jpg";
-import Qianfeng_Zeng_pic from "../pictures/profile_pics/workshop/Qianfeng_Zeng.jpg";
-import My_Pham_pic from "../pictures/profile_pics/operations/My_Pham.jpg";
+import Grace_Cavarretta_pic from "../pictures/profile_pics/directors/Grace_Cavarretta.webp";
+import Lu_Ighodalo_pic from "../pictures/profile_pics/tech/Lu_Ighodalo.webp";
+import Helen_Zhang_pic from "../pictures/profile_pics/sponsorship/Helen_Zhang.webp";
+import Ananya_Harshe_pic from "../pictures/profile_pics/pr/Ananya_Harshe.webp";
+import Skyler_Steiert_pic from "../pictures/profile_pics/directors/Skyler_Steiert.webp";
+import Ivette_SaldanaHernandez_pic from "../pictures/profile_pics/website/Ivette_SaldanaHernandez.webp";
+import Olivia_Schwartz_pic from "../pictures/profile_pics/directors/Olivia_Schwartz.webp";
+import Wenhui_Chen_pic from "../pictures/profile_pics/merch/Wenhui_Chen.webp";
+import Giselle_Galvan_pic from "../pictures/profile_pics/merch/Giselle_Galvan.webp";
+import Andria_Subhit_pic from "../pictures/profile_pics/workshop/Andria_Subhit.webp";
+import AnnaRose_Wheatle_pic from "../pictures/profile_pics/pr/AnnaRose_Wheatle.webp";
+import Nico_Nguyen_pic from "../pictures/profile_pics/operations/Nico_Nguyen.webp";
+import Stanley_Ke_pic from "../pictures/profile_pics/website/Stanley_Ke.webp";
+import Macy_Tam_pic from "../pictures/profile_pics/pr/Macy_Tam.webp";
+import Qianfeng_Zeng_pic from "../pictures/profile_pics/workshop/Qianfeng_Zeng.webp";
+import My_Pham_pic from "../pictures/profile_pics/operations/My_Pham.webp";
 
 const placeholderProfile = "https://placehold.co/300x300";
 
@@ -155,7 +156,7 @@ export const MemberList = [
   {
     id: "16",
     name: "Giselle Galvan",
-    profile_pic: placeholderProfile,
+    profile_pic: Giselle_Galvan_pic,
     linkedIn: "https://www.linkedin.com/in/gooselle/",
     major: "",
     committee_position: "Merch Committee Member",

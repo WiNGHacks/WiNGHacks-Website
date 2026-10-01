@@ -172,7 +172,7 @@ html {
   max-height: 1020px;
   background-image:
     linear-gradient(90deg, #eef6f5bd 0%, #eef6f580 44%, transparent 66%),
-    url("../pictures/meadow/landscape_with_paper_airplane.png");
+    url("../pictures/meadow/landscape_with_paper_airplane.webp");
   background-size: cover;
   background-position: center 55%;
   overflow: hidden;
@@ -573,7 +573,7 @@ html {
 .team-section {
   background:
     linear-gradient(180deg, #f7f8e7d9 0%, #f7f8e780 40%, transparent 75%),
-    url("../pictures/meadow/landscape.png") center bottom/cover no-repeat;
+    url("../pictures/meadow/landscape.webp") center bottom/cover no-repeat;
 }
 
 .team-section .meadow-section {
@@ -866,7 +866,7 @@ html {
   padding: 100px 20px 115px;
   background:
     linear-gradient(#faf9efee, #faf9ef90),
-    url("../pictures/meadow/landscape.png") center 65% / cover;
+    url("../pictures/meadow/landscape.webp") center 65% / cover;
 }
 
 .join-section h2 {
@@ -1054,7 +1054,7 @@ html {
     background-position: 58% center;
     background-image:
       linear-gradient(180deg, #ecf4f6ed, #ecf4f69c 60%, transparent),
-      url("../pictures/meadow/landscape_with_paper_airplane.png");
+      url("../pictures/meadow/landscape_with_paper_airplane.webp");
   }
 
   .hero-copy {
