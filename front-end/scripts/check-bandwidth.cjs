@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-const sources = ['data/MemberList.js', 'pages/MeadowHome.js', 'pages/MeadowHome.css', 'pages/MeadowPlayful.css'];
+const sources = ['data/MemberList.js', 'pages/MeadowHome.js', 'pages/MeadowHome.css'];
 const assets = new Set();
 for (const relative of sources) {
   const source = path.join(root, 'src/components', relative);

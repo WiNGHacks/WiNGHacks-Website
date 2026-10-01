@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { MemberList } from "../data/MemberList";
 import airplaneVideo from "../pictures/meadow/airplane-loop.mp4";
 import airplanePoster from "../pictures/meadow/airplane-poster.webp";
+import heroWindow from "../pictures/meadow/hero-watercolor-window.webp";
 import photo from "../pictures/2024_Gallery/Hackers2.webp";
 import community from "../pictures/2024_Gallery/Organizers_Group.webp";
 import workshop from "../pictures/2024_Gallery/React_Workshop_Cami.webp";
 import "./MeadowHome.css";
-import "./MeadowPlayful.css";
 import BloomProfile from "./BloomProfile";
 import gator from "../pictures/meadow/gator.webp";
 import watercolorFlowerPot from "../pictures/meadow/watercolor-flower-pot.webp";
@@ -75,6 +75,14 @@ const faqs = [
     "The next edition’s dates, venue, application timeline, and detailed schedule are coming soon. Follow @winghacks on Instagram for announcements.",
   ],
 ];
+
+function Sparkle({ className = "" }) {
+  return (
+    <svg className={`meadow-sparkle ${className}`} viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M50 3 Q57 35 70 18 Q67 40 97 50 Q65 58 82 74 Q60 68 50 97 Q42 65 24 83 Q33 60 3 50 Q35 42 18 24 Q40 32 50 3Z" />
+    </svg>
+  );
+}
 
 function Flower({ active, member }) {
   const portraitRef = useRef(null);
@@ -371,22 +379,29 @@ export default function MeadowHome() {
       <main id="main">
         <section className="meadow-hero" aria-labelledby="hero-title">
           <div className="hero-film" aria-hidden="true">
-            {!reduceMotion && !videoFailed && (
-              <video
-                ref={videoRef}
-                muted
-                loop
-                playsInline
-                preload="none"
-                poster={airplanePoster}
-                onError={() => setVideoFailed(true)}
-              >
-                <source
-                  src={airplaneVideo}
-                  type="video/mp4"
-                />
-              </video>
-            )}
+            <div className="hero-window-opening">
+              {!reduceMotion && !videoFailed && (
+                <video
+                  ref={videoRef}
+                  muted
+                  loop
+                  playsInline
+                  preload="none"
+                  poster={airplanePoster}
+                  onError={() => setVideoFailed(true)}
+                >
+                  <source src={airplaneVideo} type="video/mp4" />
+                </video>
+              )}
+            </div>
+            <img
+              className="hero-window-frame"
+              src={heroWindow}
+              alt=""
+              width="1450"
+              height="1085"
+              draggable="false"
+            />
           </div>
           <div className="hero-event">
             <p className="hero-school">University of Florida</p>
@@ -403,6 +418,14 @@ export default function MeadowHome() {
                 ))}
               </span>
             </h1>
+            <p className="hero-intro">
+              <em>A little curiosity.</em><br />
+              A world of possibility.
+            </p>
+            <p className="hero-description">
+              A welcoming hackathon for women and gender minorities.
+              Bring your ideas. Find your people. Make something you love.
+            </p>
             <div className="hero-details" aria-label="Event details">
               <div className="hero-detail">
                 <span>Date</span>
@@ -420,6 +443,7 @@ export default function MeadowHome() {
                 href={process.env.REACT_APP_APPLICATION_FORM || "/signup"}
               >
                 Apply Now
+                <span aria-hidden="true">→</span>
               </a>
               <a
                 className="hero-button hero-button-secondary"
@@ -429,6 +453,7 @@ export default function MeadowHome() {
               </a>
             </div>
           </div>
+          <a className="hero-scroll" href="#about">Let’s grow something <span aria-hidden="true">↓</span></a>
         </section>
         <section id="about" className="meadow-section about-section">
           <div className="about-art">
@@ -466,10 +491,11 @@ export default function MeadowHome() {
             </div>
           </div>
           <div>
+            <p className="eyebrow">A space to start. A place to belong.</p>
             <h2>
               Build boldly.
               <br />
-              Grow together.
+              <em>Grow together.</em>
             </h2>
             <p>
               WiNGHacks is the University of Florida’s hackathon created to
@@ -504,7 +530,8 @@ export default function MeadowHome() {
           <div className="meadow-section">
             <div className="section-heading">
               <div>
-                <h2>What are we making?</h2>
+                <p className="eyebrow">Follow your curiosity</p>
+                <h2>What are we <em>making?</em></h2>
               </div>
               <p>
                 A peek at tracks from our previous edition.
@@ -513,10 +540,11 @@ export default function MeadowHome() {
               </p>
             </div>
             <div className="track-grid">
-              {tracks.map(([, title, description, symbol]) => (
+              {tracks.map(([number, title, description, symbol]) => (
                 <article key={title} className="track-card">
                   <div className="track-top">
-                    <span>{symbol}</span>
+                    <span className="track-number">{number}</span>
+                    <span className="track-symbol" aria-hidden="true">{symbol}</span>
                   </div>
                   <h3>{title}</h3>
                   <p>{description}</p>
@@ -536,8 +564,9 @@ export default function MeadowHome() {
         </section>
         <section id="schedule" className="meadow-section schedule-section">
           <div>
+            <p className="eyebrow">Make a weekend of it</p>
             <h2>
-              One weekend.
+              <em>One weekend.</em>
               <br />
               So many side quests.
             </h2>
@@ -587,7 +616,7 @@ export default function MeadowHome() {
             >
               {days[day].map(([title, text], i) => (
                 <div className="journey-stop" key={title}>
-                  <span>{i ? "✿" : ""}</span>
+                  <span aria-hidden="true">0{i + 1}</span>
                   <div>
                     <h3>{title}</h3>
                     <p>{text}</p>
@@ -603,7 +632,8 @@ export default function MeadowHome() {
         <section className="community-section meadow-section">
           <div className="section-heading">
             <div>
-              <h2>Wish you were here?</h2>
+              <p className="eyebrow">Good ideas. Even better company.</p>
+              <h2>Wish you were <em>here?</em></h2>
             </div>
             <a
               className="text-link"
@@ -658,7 +688,9 @@ export default function MeadowHome() {
             aria-hidden="true"
           />
           <div className="meadow-section">
-            <h2>Meet the garden!</h2>
+            <p className="eyebrow">The people who make it bloom</p>
+            <h2>Meet <em>the garden.</em></h2>
+            <p className="team-intro">A little team with a lot of heart. Pick a flower to say hello.</p>
             <div className="garden-filters" aria-label="Filter committee">
               {groups.map((group) => (
                 <button
@@ -704,7 +736,8 @@ export default function MeadowHome() {
           </div>
         </section>
         <section id="sponsors" className="meadow-section sponsor-section">
-          <h2>Our Sponsors</h2>
+          <p className="eyebrow">Growing something good, together</p>
+          <h2>Our <em>sponsors.</em></h2>
           <p>They helped make this wonderful event possible.</p>
           <div
             className="meadow-sponsors meadow-sponsors-coming-soon"
@@ -714,7 +747,7 @@ export default function MeadowHome() {
           </div>
           <div className="sponsor-callout">
             <div>
-              <h3>Want to help us pull this off?</h3>
+              <h3>Want to help us <em>pull this off?</em></h3>
               <p>
                 Help students spend a weekend learning, building, and making
                 friends.
@@ -731,8 +764,9 @@ export default function MeadowHome() {
         <section id="faq" className="faq-section">
           <div className="meadow-section faq-layout">
             <div>
+              <p className="eyebrow">A little clarity</p>
               <h2>
-                Questions?
+                <em>Questions?</em>
                 <br />
                 We got you.
               </h2>
@@ -771,6 +805,8 @@ export default function MeadowHome() {
           </div>
         </section>
         <section id="join" className="join-section">
+          <Sparkle className="join-sparkle" />
+          <p className="eyebrow">Your next chapter starts here</p>
           <h2>
             See you in
             <br />
