@@ -6,7 +6,7 @@ import re
 import subprocess
 
 root = Path(__file__).resolve().parents[1]
-files = [root / 'src/components/data/MemberList.js', root / 'src/components/pages/MeadowHome.js', root / 'src/components/pages/MeadowHome.css', root / 'src/components/pages/MeadowPlayful.css']
+files = [root / 'src/components/data/MemberList.js', root / 'src/components/pages/MeadowHome.js', root / 'src/components/pages/MeadowHome.css']
 original_total = optimized_total = 0
 seen = set()
 for source in files:
@@ -21,7 +21,8 @@ for source in files:
         output = asset.with_suffix('.webp')
         if asset not in seen:
             seen.add(asset)
-            width = 480 if 'profile_pics' in str(asset) else 1600 if 'landscape' in asset.name or 'poster' in asset.name else 800
+            width = 480 if 'profile_pics' in str(asset) else 1510 if asset.stem == 'committee-dirt-concept-v1' else 1450 if asset.stem == 'hero-watercolor-window' else 1600 if 'landscape' in asset.name or 'poster' in asset.name else 800
+            # Source photos must have upright pixels, without relying on EXIF rotation.
             subprocess.run(['cwebp', '-quiet', '-q', '78', '-m', '6', '-resize', str(width), '0', str(asset), '-o', str(output)], check=True)
             original_total += asset.stat().st_size
             optimized_total += output.stat().st_size
