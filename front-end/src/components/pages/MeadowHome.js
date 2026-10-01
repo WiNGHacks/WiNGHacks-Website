@@ -13,6 +13,8 @@ import watercolorFlowerPot from "../pictures/meadow/watercolor-flower-pot.webp";
 import watercolorShovel from "../pictures/meadow/watercolor-shovel.webp";
 import aboutFlowerSeedling from "../pictures/meadow/about-flower-seedling.webp";
 import aboutFlowerBloom from "../pictures/meadow/about-flower-bloom.webp";
+import bulletinWide from "../pictures/meadow/community-bulletin-wide.webp";
+import bulletinMobile from "../pictures/meadow/community-bulletin-mobile.webp";
 
 const email = "mailto:uf.winghacks@gmail.com";
 const tracks = [
@@ -78,7 +80,11 @@ const faqs = [
 
 function Sparkle({ className = "" }) {
   return (
-    <svg className={`meadow-sparkle ${className}`} viewBox="0 0 100 100" aria-hidden="true">
+    <svg
+      className={`meadow-sparkle ${className}`}
+      viewBox="0 0 100 100"
+      aria-hidden="true"
+    >
       <path d="M50 3 Q57 35 70 18 Q67 40 97 50 Q65 58 82 74 Q60 68 50 97 Q42 65 24 83 Q33 60 3 50 Q35 42 18 24 Q40 32 50 3Z" />
     </svg>
   );
@@ -88,12 +94,15 @@ function Flower({ active, member }) {
   const portraitRef = useRef(null);
   const [portraitVisible, setPortraitVisible] = useState(false);
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setPortraitVisible(true);
-        observer.disconnect();
-      }
-    }, { rootMargin: "200px" });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPortraitVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
     observer.observe(portraitRef.current);
     return () => observer.disconnect();
   }, []);
@@ -153,14 +162,23 @@ export default function MeadowHome() {
   useEffect(() => {
     const flower = aboutFlowerRef.current;
     if (!flower) return;
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && entry.intersectionRatio >= 1) {
-        setAboutBloomed(true);
-        observer.disconnect();
-      }
-    }, { threshold: 1, rootMargin: "-80px 0px 0px 0px" });
+    let bloomTimer;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        window.clearTimeout(bloomTimer);
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.85) {
+          bloomTimer = window.setTimeout(() => setAboutBloomed(true), 650);
+        } else {
+          if (!entry.isIntersecting) setAboutBloomed(false);
+        }
+      },
+      { threshold: [0, 0.85], rootMargin: "-90px 0px -40px 0px" },
+    );
     observer.observe(flower);
-    return () => observer.disconnect();
+    return () => {
+      window.clearTimeout(bloomTimer);
+      observer.disconnect();
+    };
   }, []);
   const [videoFailed, setVideoFailed] = useState(false);
   const [motionPaused, setMotionPaused] = useState(false);
@@ -317,7 +335,8 @@ export default function MeadowHome() {
         ref={headerRef}
         className="meadow-header"
         onBlur={(event) => {
-          if (!event.currentTarget.contains(event.relatedTarget)) setMenu(false);
+          if (!event.currentTarget.contains(event.relatedTarget))
+            setMenu(false);
         }}
       >
         <button
@@ -341,7 +360,9 @@ export default function MeadowHome() {
           onClick={() => setMenu(false)}
         >
           WiNGHacks
-          <span className="wordmark-dot" aria-hidden="true">✿</span>
+          <span className="wordmark-dot" aria-hidden="true">
+            ✿
+          </span>
         </a>
         <nav
           id="meadow-nav"
@@ -419,12 +440,12 @@ export default function MeadowHome() {
               </span>
             </h1>
             <p className="hero-intro">
-              <em>A little curiosity.</em><br />
-              A world of possibility.
+              <em>A little curiosity.</em>
+              <br />A world of possibility.
             </p>
             <p className="hero-description">
-              A welcoming hackathon for women and gender minorities.
-              Bring your ideas. Find your people. Make something you love.
+              A welcoming hackathon for women and gender minorities. Bring your
+              ideas. Find your people. Make something you love.
             </p>
             <div className="hero-details" aria-label="Event details">
               <div className="hero-detail">
@@ -453,7 +474,9 @@ export default function MeadowHome() {
               </a>
             </div>
           </div>
-          <a className="hero-scroll" href="#about">Let’s grow something <span aria-hidden="true">↓</span></a>
+          <a className="hero-scroll" href="#about">
+            Let’s grow something <span aria-hidden="true">↓</span>
+          </a>
         </section>
         <section id="about" className="meadow-section about-section">
           <div className="about-art">
@@ -487,11 +510,14 @@ export default function MeadowHome() {
                 alt=""
                 aria-hidden="true"
               />
-              <span className="about-bloom-message">ideas<br />grow here</span>
+              <span className="about-bloom-message">
+                ideas
+                <br />
+                grow here
+              </span>
             </div>
           </div>
           <div>
-            <p className="eyebrow">A space to start. A place to belong.</p>
             <h2>
               Build boldly.
               <br />
@@ -530,21 +556,19 @@ export default function MeadowHome() {
           <div className="meadow-section">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">Follow your curiosity</p>
-                <h2>What are we <em>making?</em></h2>
+                <h2>
+                  What are we <em>making?</em>
+                </h2>
               </div>
-              <p>
-                A peek at tracks from our previous edition.
-                <br />
-                New tracks and prizes are coming soon.
-              </p>
             </div>
             <div className="track-grid">
               {tracks.map(([number, title, description, symbol]) => (
                 <article key={title} className="track-card">
                   <div className="track-top">
                     <span className="track-number">{number}</span>
-                    <span className="track-symbol" aria-hidden="true">{symbol}</span>
+                    <span className="track-symbol" aria-hidden="true">
+                      {symbol}
+                    </span>
                   </div>
                   <h3>{title}</h3>
                   <p>{description}</p>
@@ -564,7 +588,6 @@ export default function MeadowHome() {
         </section>
         <section id="schedule" className="meadow-section schedule-section">
           <div>
-            <p className="eyebrow">Make a weekend of it</p>
             <h2>
               <em>One weekend.</em>
               <br />
@@ -632,8 +655,9 @@ export default function MeadowHome() {
         <section className="community-section meadow-section">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">Good ideas. Even better company.</p>
-              <h2>Wish you were <em>here?</em></h2>
+              <h2>
+                Wish you were <em>here?</em>
+              </h2>
             </div>
             <a
               className="text-link"
@@ -642,7 +666,12 @@ export default function MeadowHome() {
               More on our community Instagram!
             </a>
           </div>
-          <div className="memory-grid">
+          <div className="memory-board">
+            <picture className="memory-board-art" aria-hidden="true">
+              <source media="(max-width: 640px)" srcSet={bulletinMobile} />
+              <img src={bulletinWide} alt="" loading="lazy" decoding="async" />
+            </picture>
+            <div className="memory-grid">
             {[
               [
                 photo,
@@ -661,6 +690,14 @@ export default function MeadowHome() {
               ],
             ].map(([src, caption, alt]) => (
               <figure key={caption}>
+                <span className="memory-pin" aria-hidden="true">
+                  <svg viewBox="0 0 32 40" width="24" height="30">
+                    <path d="M16 24v13" stroke="#6b6655" strokeWidth="2" />
+                    <path d="M10 10h12l-2 10 5 6H7l5-6z" fill="#b46e61" stroke="#744b40" strokeWidth="1.5" />
+                    <ellipse cx="16" cy="9" rx="9" ry="5" fill="#f3b6aa" stroke="#744b40" strokeWidth="1.5" />
+                    <path d="M11 8q4-3 8 0" fill="none" stroke="#fffbed" strokeWidth="2" strokeLinecap="round" />
+                  </svg>
+                </span>
                 <img src={src} alt={alt} loading="lazy" />
                 <figcaption>
                   {caption}
@@ -668,6 +705,7 @@ export default function MeadowHome() {
                 </figcaption>
               </figure>
             ))}
+            </div>
           </div>
         </section>
         <section id="team" className="team-section">
@@ -688,9 +726,12 @@ export default function MeadowHome() {
             aria-hidden="true"
           />
           <div className="meadow-section">
-            <p className="eyebrow">The people who make it bloom</p>
-            <h2>Meet <em>the garden.</em></h2>
-            <p className="team-intro">A little team with a lot of heart. Pick a flower to say hello.</p>
+            <h2>
+              Meet <em>the garden.</em>
+            </h2>
+            <p className="team-intro">
+              A little team with a lot of heart. Click on a flower!
+            </p>
             <div className="garden-filters" aria-label="Filter committee">
               {groups.map((group) => (
                 <button
@@ -736,8 +777,9 @@ export default function MeadowHome() {
           </div>
         </section>
         <section id="sponsors" className="meadow-section sponsor-section">
-          <p className="eyebrow">Growing something good, together</p>
-          <h2>Our <em>sponsors.</em></h2>
+          <h2>
+            Our <em>sponsors.</em>
+          </h2>
           <p>They helped make this wonderful event possible.</p>
           <div
             className="meadow-sponsors meadow-sponsors-coming-soon"
@@ -747,7 +789,9 @@ export default function MeadowHome() {
           </div>
           <div className="sponsor-callout">
             <div>
-              <h3>Want to help us <em>pull this off?</em></h3>
+              <h3>
+                Want to help us <em>pull this off?</em>
+              </h3>
               <p>
                 Help students spend a weekend learning, building, and making
                 friends.
@@ -764,7 +808,6 @@ export default function MeadowHome() {
         <section id="faq" className="faq-section">
           <div className="meadow-section faq-layout">
             <div>
-              <p className="eyebrow">A little clarity</p>
               <h2>
                 <em>Questions?</em>
                 <br />
@@ -806,7 +849,6 @@ export default function MeadowHome() {
         </section>
         <section id="join" className="join-section">
           <Sparkle className="join-sparkle" />
-          <p className="eyebrow">Your next chapter starts here</p>
           <h2>
             See you in
             <br />
@@ -837,7 +879,7 @@ export default function MeadowHome() {
         <a className="meadow-wordmark" href="#page-top">
           WiNGHacks
         </a>
-        <p>Made with care. Grown together. 🌸</p>
+        <p>Made with love. Grown together. 🌸</p>
         <div>
           <a href={email}>Contact</a>
           <a href="https://www.linkedin.com/company/winghacks">LinkedIn</a>
