@@ -10,11 +10,15 @@ import Giselle_Galvan_pic from "../pictures/profile_pics/merch/Giselle_Galvan.we
 import Andria_Subhit_pic from "../pictures/profile_pics/workshop/Andria_Subhit.webp";
 import AnnaRose_Wheatle_pic from "../pictures/profile_pics/pr/AnnaRose_Wheatle.webp";
 import Nico_Nguyen_pic from "../pictures/profile_pics/operations/Nico_Nguyen.webp";
+import Diya_Dipu_Nair_pic from "../pictures/profile_pics/operations/Diya_Dipu_Nair.webp";
 import Stanley_Ke_pic from "../pictures/profile_pics/website/Stanley_Ke.webp";
 import Macy_Tam_pic from "../pictures/profile_pics/pr/Macy_Tam.webp";
 import Qianfeng_Zeng_pic from "../pictures/profile_pics/workshop/Qianfeng_Zeng.webp";
 import My_Pham_pic from "../pictures/profile_pics/operations/My_Pham.webp";
-
+import Elyse_Williams_pic from "../pictures/profile_pics/operations/Elyse_Williams.webp";
+import Viannee_Rosa_Arroyo_pic from "../pictures/profile_pics/tech/Viannee_Rosa_Arroyo.webp";
+import Giuliana_Silva_pic from "../pictures/profile_pics/website/Giuliana_Silva.webp";
+import Emy_Bijoy_pic from "../pictures/profile_pics/website/Emy_Bijoy.webp";
 const placeholderProfile = "https://placehold.co/300x300";
 
 export const MemberList = [
@@ -70,7 +74,7 @@ export const MemberList = [
     linkedIn: "https://www.linkedin.com/in/luighodalo/",
     major: "",
     committee_position: "Tech Support Committee Head",
-    committee_name: "Tech-support",
+    committee_name: "Tech-Support",
   },
   {
     id: "7",
@@ -170,5 +174,50 @@ export const MemberList = [
     major: "",
     committee_position: "Workshop Committee Member",
     committee_name: "Workshop",
+  },
+  {
+    id: "18",
+    name: "Diya Dipu Nair",
+    profile_pic: Diya_Dipu_Nair_pic,
+    linkedIn: "https://www.linkedin.com/in/diyadipunair/",
+    major: "",
+    committee_position: "Operations Committee Member",
+    committee_name: "Operations",
+  },
+  {
+    id: "19",
+    name: "Elyse Williams",
+    profile_pic: Elyse_Williams_pic,
+    linkedIn: "https://www.linkedin.com/in/williamselyse/",
+    major: "",
+    committee_position: "Operations Committee Member",
+    committee_name: "Operations",
+  },
+  {
+    id: "20",
+    name: "Viannee Rosa-Arroyo",
+    profile_pic: Viannee_Rosa_Arroyo_pic,
+    linkedIn: "https://www.linkedin.com/in/vianneerosa-arroyo",
+    major: "",
+    committee_position: "Tech Support Committee Member",
+    committee_name: "Tech-Support",
+  },
+  {
+    id: "21",
+    name: "Giuliana Silva",
+    profile_pic: Giuliana_Silva_pic,
+    linkedIn: "https://www.linkedin.com/in/giulianaesilva",
+    major: "",
+    committee_position: "Website Committee Member",
+    committee_name: "Website",
+  },
+  {
+    id: "22",
+    name: "Emy Bijoy",
+    profile_pic: Emy_Bijoy_pic,
+    linkedIn: "https://www.linkedin.com/in/emy-bijoy",
+    major: "",
+    committee_position: "Website Committee Member",
+    committee_name: "Website",
   },
 ];
