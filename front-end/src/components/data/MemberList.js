@@ -19,6 +19,11 @@ import Elyse_Williams_pic from "../pictures/profile_pics/operations/Elyse_Willia
 import Viannee_Rosa_Arroyo_pic from "../pictures/profile_pics/tech/Viannee_Rosa_Arroyo.webp";
 import Giuliana_Silva_pic from "../pictures/profile_pics/website/Giuliana_Silva.webp";
 import Emy_Bijoy_pic from "../pictures/profile_pics/website/Emy_Bijoy.webp";
+import Anthony_Le_pic from "../pictures/profile_pics/merch/Anthony_Le.webp";
+import Catherine_Betancourt_pic from "../pictures/profile_pics/tech/Catherine_Betancourt.webp";
+import Holly_Overholser_pic from "../pictures/profile_pics/operations/Holly_Overholser.webp";
+import Yusra_Hashami_pic from "../pictures/profile_pics/awards/Yusra_Hashami.webp";
+
 const placeholderProfile = "https://placehold.co/300x300";
 
 export const MemberList = [
@@ -52,7 +57,7 @@ export const MemberList = [
   {
     id: "4",
     name: "Yusra Hashami",
-    profile_pic: placeholderProfile,
+    profile_pic: Yusra_Hashami_pic,
     linkedIn: "https://www.linkedin.com/in/yusra-h/",
     major: "",
     committee_position: "Awards Committee Head",
@@ -223,8 +228,8 @@ export const MemberList = [
   {
     id: "23",
     name: "Anthony Le",
-    profile_pic: placeholderProfile,
-    linkedIn: "",
+    profile_pic: Anthony_Le_pic,
+    linkedIn: "https://www.linkedin.com/in/l-anthony/?isSelfProfile=true",
     major: "",
     committee_position: "Merch Committee Member",
     committee_name: "Merch",
@@ -232,8 +237,8 @@ export const MemberList = [
   {
     id: "24",
     name: "Catherine Betancourt",
-    profile_pic: placeholderProfile,
-    linkedIn: "",
+    profile_pic: Catherine_Betancourt_pic,
+    linkedIn: "https://www.linkedin.com/in/catherine-betancourt-223a9324b/",
     major: "",
     committee_position: "Tech-Support Committee Member",
     committee_name: "Tech-Support",
@@ -259,23 +264,14 @@ export const MemberList = [
   {
     id: "27",
     name: "Holly Overholser",
-    profile_pic: placeholderProfile,
-    linkedIn: "",
+    profile_pic: Holly_Overholser_pic,
+    linkedIn: "https://www.linkedin.com/in/holly-overholser-649042384/",
     major: "",
     committee_position: "Operations Committee Member",
     committee_name: "Operations",
   },
   {
     id: "28",
-    name: "Holly Overholser",
-    profile_pic: placeholderProfile,
-    linkedIn: "",
-    major: "",
-    committee_position: "Operations Committee Member",
-    committee_name: "Operations",
-  },
-  {
-    id: "29",
     name: "Esteban Gomes Lopez",
     profile_pic: placeholderProfile,
     linkedIn: "",
@@ -284,7 +280,7 @@ export const MemberList = [
     committee_name: "Awards",
   },
   {
-    id: "30",
+    id: "29",
     name: "Iksha Joshi",
     profile_pic: placeholderProfile,
     linkedIn: "",
@@ -293,7 +289,7 @@ export const MemberList = [
     committee_name: "Operations",
   },
    {
-    id: "31",
+    id: "30",
     name: "Abigail Zheng",
     profile_pic: placeholderProfile,
     linkedIn: "",
