@@ -17,21 +17,20 @@ const VerificationEmail = () => {
       // console.log(response.data.token)
       setVerificationStatus("Verified!")
 
-      // set the cookie
+      const decoded = jwtDecode(response.data.token);
+      // set the cookie after checking the server returned a usable token
       cookies.set("TOKEN", response.data.token, {
           path: "/",
       });
 
-      const decoded = jwtDecode(response.data.token);
-      // window.location.replace(`/portal/${decoded.id}`);
-      window.location.replace(process.env.REACT_APP_APPLICATION_FORM)
+      window.location.replace(process.env.REACT_APP_APPLICATION_FORM || `/portal/${decoded.id}`)
     })
-    .then((error) => {
-      console.log(error)
+    .catch(() => {
+      setVerificationStatus("Verification failed. Please request a new verification link.");
     })
 
 
-  })
+  }, [token])
 
   return (
     <div>

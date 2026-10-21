@@ -1,3 +1,4 @@
+import { getSessionToken } from "../../session";
 import React, {useState, useEffect} from 'react'
 import axios from "axios";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -80,7 +81,7 @@ const Login = () => {
     };
 
     useEffect(() => {
-        const token = cookies.get("TOKEN");
+        const token = getSessionToken(cookies);
 
         if (token && jwtDecode(token).admin ) {
             const decoded = jwtDecode(token);

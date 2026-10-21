@@ -1,3 +1,4 @@
+import { getSessionToken } from "../../session";
 import React, {useState, useEffect } from 'react'
 import axios from "axios";
 import { FiLoader } from "react-icons/fi";
@@ -47,6 +48,11 @@ const SignUp = () => {
         setSubmitClicked(true)
         //Prevent submissions before changing values
         e.preventDefault();
+        if (!process.env.REACT_APP_SIGNUP_API_URL) {
+            setSubmitClicked(false);
+            setErrorMessage("Signup is not configured. Set REACT_APP_SIGNUP_API_URL in front-end/.env.local and restart the frontend.");
+            return;
+        }
         axios.post(process.env.REACT_APP_SIGNUP_API_URL, {
             firstName: firstName,
             lastName: lastName,
@@ -62,14 +68,18 @@ const SignUp = () => {
             // console.log(error)
             setSubmitClicked(false)
 
-            setErrorMessage(error.response.data.error)
-            // alert(error.response.data.error)
+            const responseMessage = error.response?.data?.error || error.response?.data?.message;
+            setErrorMessage(
+                typeof responseMessage === "string" ? responseMessage :
+                error.response ? "Signup failed. Please try again." :
+                "Cannot reach the signup server. Check that the backend is running and REACT_APP_SIGNUP_API_URL points to it."
+            );
         })
 
     };
 
     useEffect(() => {
-        const token = cookies.get("TOKEN");
+        const token = getSessionToken(cookies);
         if ( token ) {
             const decoded = jwtDecode(token);
             window.location.replace(`/portal/${decoded.id}`);

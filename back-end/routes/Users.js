@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const Users = require('../models/Users')
-const nodemailer = require('nodemailer');
+const { createGmailMailer } = require('../services/gmail');
+const transporter = createGmailMailer();
 const uuid = require('uuid');
 
 // Hash the password that is received from the users
@@ -9,6 +10,14 @@ const bcrypt = require("bcrypt");
 
 // Assign access token to the user
 const jwt = require("jsonwebtoken");
+
+const usesDevelopmentEmail = () =>
+    process.env.NODE_ENV === "development" && process.env.DEV_EMAIL_VERIFICATION === "true";
+
+const logVerificationLink = (token) => {
+    const baseUrl = process.env.FRONT_END_URL || "http://localhost:3000/";
+    console.log("Development verification link:", `${baseUrl.replace(/\/$/, "")}/verify/${token}`);
+};
 
 {/* <img src="cid:logo" alt="Banner Picture" style="width: 100%; margin: 0; padding: 0;">   */}
 // HTML FOR VERIFY EMAIL TEMPLATE
@@ -541,7 +550,7 @@ router.post('/signup', (req, res) => {
             res.status(409).send({ error: "Email already used" });
         }
         else {
-            bcrypt
+            return bcrypt
             // Hash the password 10 times
             .hash(req.body.password, 10)
             .then(async(hashedPassword) => {
@@ -563,14 +572,6 @@ router.post('/signup', (req, res) => {
 
                 /* ================ Email Verification!!! ================ */
 
-                const transporter = nodemailer.createTransport({
-                    service: 'Gmail',
-                    auth: {
-                      user: process.env.EMAIL, // Replace with your Gmail email address
-                      pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
-                    }
-                });
-
                 // Generate the verification link
                 const verificationLink = `${process.env.FRONT_END_URL}verify/${verificationToken}`;
 
@@ -587,24 +588,22 @@ router.post('/signup', (req, res) => {
                     
                 };
 
-                transporter.sendMail(mailOptions, (error, info) => {
-                    if (error) {
-                        res.status(500).send({
-                            message: "Couldn't send email",
-                            error,
-                        
-                        });
-                    } else {
-                        res.status(200).send({
-                            message: "Successfully sent email",
-                        });
-                    }
-                });
-
                 /* ================ Email Verification!!! ================ */
 
                 await newUser.save()
-                    .then((result) => {
+                    .then(async (result) => {
+                    if (usesDevelopmentEmail()) {
+                        logVerificationLink(verificationToken);
+                        return res.status(201).send({ message: "User Created Successfully", result });
+                    }
+                    try {
+                        await transporter.sendMail(mailOptions);
+                    } catch (error) {
+                        console.error("Verification email failed:", error.code, error.responseCode);
+                        return res.status(500).send({
+                            message: "Account created, but verification email could not be sent. Check the backend email configuration, then resend verification.",
+                        });
+                    }
                     res.status(201).send({
                         message: "User Created Successfully",
                         result,
@@ -623,6 +622,14 @@ router.post('/signup', (req, res) => {
             });
         }
     })
+    .catch((error) => {
+        console.error("Signup failed:", error.message);
+        if (!res.headersSent) {
+            res.status(500).send({
+                message: "Signup could not access the database. Check the database name and database user permissions in DB_URI.",
+            });
+        }
+    });
 });
 
 router.post('/login', (req, res) => {
@@ -710,14 +717,6 @@ router.post("/sendEmail/status", async (req, res) => {
             });
         }
 
-        const transporter = nodemailer.createTransport({
-            service: 'Gmail',
-            auth: {
-              user: process.env.EMAIL, // Replace with your Gmail email address
-              pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
-            }
-        });
-
         const mailOptions = {
             from: `"WiNGHacks Team " ${process.env.EMAIL}`,
             to: email,
@@ -767,13 +766,10 @@ router.post("/sendEmail/:token", async (req, res) => {
             });
         }
 
-        const transporter = nodemailer.createTransport({
-            service: 'Gmail',
-            auth: {
-              user: process.env.EMAIL, // Replace with your Gmail email address
-              pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
-            }
-        });
+        if (usesDevelopmentEmail()) {
+            logVerificationLink(token);
+            return res.status(200).send({ message: "Development verification link printed in backend terminal" });
+        }
 
         // Generate the verification link
         const verificationLink = `${process.env.FRONT_END_URL}verify/${token}`;
@@ -876,14 +872,6 @@ router.put("/updateStatus/:id", async (req, res) => {
             if(req.body.status === "Applied") {
                 emailTemplateSubject = emailWelcomeTemplate.subject
                 emailTemplateContent = emailWelcomeTemplate.content
-
-                const transporter = nodemailer.createTransport({
-                    service: 'Gmail',
-                    auth: {
-                    user: process.env.EMAIL, // Replace with your Gmail email address
-                    pass: process.env.EMAIL_PASSWORD // Replace with your Gmail password
-                    }
-                });
     
                 const mailOptions = {
                     from: `"WiNGHacks Team " ${process.env.EMAIL}`,

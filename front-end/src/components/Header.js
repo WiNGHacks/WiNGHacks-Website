@@ -1,3 +1,4 @@
+import { getSessionToken } from "./session";
 import React, {useState, forwardRef} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Cookies from "universal-cookie";
@@ -12,7 +13,7 @@ import { IoMdMail } from "react-icons/io";
 const cookies = new Cookies();
 
 const Header = ({}, ref) => {
-    const token = cookies.get("TOKEN");
+    const token = getSessionToken(cookies);
     const currentPath = window.location.pathname   
     let navigate = useNavigate();
 
@@ -67,7 +68,7 @@ const Header = ({}, ref) => {
     var currNavbarHeight = document?.getElementById('navbar')?.offsetHeight;
 
     return (
-      <div style={{position: + "relative"}}>
+      <div style={{position: "relative"}}>
         {/* {console.log(currentPath)} */}
       {/* {token || currentPath === "/login" || currentPath === "/signup" || currentPath === "/forgetPassword" ? (<div/>) : (<Popup/>)} */}
       <div className = "navbar" id='navbar'>
@@ -120,13 +121,13 @@ const Header = ({}, ref) => {
                 {jwtDecode(token).admin ? (
                   <div>
                     {/* <div className = "link" onClick={adminClick}>Admin</div> */}
-                    {/* <div to="/login" className = "link" onClick={logoutClick}>Logout</div> */}
+                    <a href="/login" className="link" onClick={(event) => { event.preventDefault(); logoutClick(); }}>Logout</a>
                   </div>
                 
                 ):(
                   <div className='dynamic lessSpace'>
                       {/* <div className = "link" onClick={portalClick}>Portal</div> */}
-                      {/* <div to="/login" className = "link" onClick={logoutClick}>Logout</div> */}
+                      <a href="/login" className="link" onClick={(event) => { event.preventDefault(); logoutClick(); }}>Logout</a>
                   </div> 
 
                 )}
