@@ -15,6 +15,7 @@ import aboutFlowerSeedling from "../pictures/meadow/about-flower-seedling.webp";
 import aboutFlowerBloom from "../pictures/meadow/about-flower-bloom.webp";
 import bulletinWide from "../pictures/meadow/community-bulletin-wide.webp";
 import bulletinMobile from "../pictures/meadow/community-bulletin-mobile.webp";
+import MoonlitMeadow from "./MoonlitMeadow";
 
 const email = "mailto:uf.winghacks@gmail.com";
 const tracks = [
@@ -847,33 +848,7 @@ export default function MeadowHome() {
             </div>
           </div>
         </section>
-        <section id="join" className="join-section">
-          <Sparkle className="join-sparkle" />
-          <h2>
-            See you in
-            <br />
-            <em>the meadow!</em>
-          </h2>
-          <p>
-            Applications are coming soon.
-            <br />
-            Follow along to hear when it’s time to take flight.
-          </p>
-          <a
-            className="meadow-button"
-            href="https://www.instagram.com/winghacks/"
-          >
-            Follow @winghacks
-          </a>
-          {/* <div className="join-links">
-            <a href={`${email}?subject=WiNGHacks%20mentoring`}>
-              Become a mentor
-            </a>
-            <a href={`${email}?subject=WiNGHacks%20volunteering`}>
-              Become a volunteer
-            </a>
-          </div> */}
-        </section>
+        <MoonlitMeadow paused={motionPaused || reduceMotion} />
       </main>
       <footer className="meadow-footer">
         <a className="meadow-wordmark" href="#page-top">

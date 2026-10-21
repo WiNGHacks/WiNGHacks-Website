@@ -1,0 +1,59 @@
+.moonlit-meadow {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 116px 24px 100px;
+  background: #e4dcec;
+  text-align: center;
+}
+.moonlit-backdrop {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+.moonlit-content { position: relative; max-width: 720px; margin: 0 auto; }
+.moonlit-flower {
+  display: block;
+  width: clamp(280px, 30vw, 380px);
+  margin: 0 auto -28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  transition: transform 300ms ease;
+}
+.moonlit-flower img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 12px 30px #fff3b866);
+  pointer-events: none;
+  transition: filter 300ms ease;
+}
+.moonlit-flower:hover, .moonlit-flower:focus-visible { transform: scale(1.025); }
+.is-awake .moonlit-flower img { filter: drop-shadow(0 0 32px #fff1acaa); }
+.motion-paused .moonlit-flower { transform: none; }
+.meadow-site .moonlit-meadow h2 { color: #45465c; font-size: clamp(54px, 5.2vw, 74px); line-height: 1.04; margin-bottom: 0; }
+.meadow-site .moonlit-meadow h2 em { color: #596849; }
+.moonlit-actions { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 30px; }
+.moonlit-meadow .moonlit-cta { background: #435c43; color: #fffbed; box-shadow: 0 5px 16px #45533b19; }
+.moonlit-meadow .moonlit-cta:hover { background: #344a35; }
+.moonlit-fireflies { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.moonlit-firefly { position: absolute; width: var(--fly-size); height: auto; margin: -20px 0 0 -20px; opacity: 0.8; will-change: transform; filter: drop-shadow(0 0 5px #fff4a5); transition: filter 600ms ease; }
+.is-awake .moonlit-firefly { filter: drop-shadow(0 0 12px #ffed85) brightness(1.1); }
+@media (max-width: 640px) {
+  .moonlit-meadow { padding: 100px 20px 72px; }
+  .moonlit-flower { width: min(82vw, 320px); margin-bottom: -20px; }
+  .meadow-site .moonlit-meadow h2 { font-size: clamp(48px, 12vw, 68px); }
+  .moonlit-actions { margin-top: 24px; gap: 8px; }
+  .moonlit-firefly { width: calc(var(--fly-size) * 0.8); }
+  .moonlit-firefly:nth-child(3n) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .moonlit-firefly, .moonlit-flower, .moonlit-flower img { transition: none; will-change: auto; }
+  .moonlit-flower:hover, .moonlit-flower:focus-visible { transform: none; }
+}
