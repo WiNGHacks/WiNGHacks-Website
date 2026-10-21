@@ -1,3 +1,4 @@
+import { getSessionToken } from "../../session";
 import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
@@ -11,6 +12,7 @@ const NotifyEmail = () => {
   const {emailToken} = useParams()
   const [seconds, setSeconds] = useState(60);
   const [buttonDisabled, setButtonDisabled] = useState(true);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -30,7 +32,7 @@ const NotifyEmail = () => {
 
 
   useEffect(() => {
-    const token = cookies.get("TOKEN");
+    const token = getSessionToken(cookies);
     if (token && jwtDecode(token).admin ) {
       const decoded = jwtDecode(token);
       window.location.reload()
@@ -54,12 +56,13 @@ const NotifyEmail = () => {
     setSeconds(60)
     // console.log(seconds)
     setButtonDisabled(true)
+    setMessage("Sending verification email…");
     axios.post(`${process.env.REACT_APP_SEND_EMAIL_URL}${emailToken}`)
     .then((response) => {
-      // console.log(response)
+      setMessage("Verification email sent. Please check your inbox and spam folder.");
     })
     .catch((error) => {
-      console.log(error)
+      setMessage(error.response ? "Could not send verification email. Please try again later." : "Cannot reach the server. Please check that the backend is running.");
     })
   
 
@@ -76,6 +79,7 @@ const NotifyEmail = () => {
       >
         Resend Email &nbsp; ({formatTime(seconds)})
       </button>
+      {message && <p role="status">{message}</p>}
     </div>
   )
 }

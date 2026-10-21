@@ -6,7 +6,9 @@
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "render-start": "node index.js"
+    "render-start": "node index.js",
+    "gmail:authorize": "node scripts/authorize-gmail.js",
+    "test:oauth": "node --test test/gmail.test.js"
   },
   "author": "",
   "license": "ISC",

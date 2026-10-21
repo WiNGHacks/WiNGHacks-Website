@@ -1,3 +1,4 @@
+import { getSessionToken } from "../../session";
 import React, {useState, useEffect} from 'react'
 import axios from "axios";
 import { useParams } from 'react-router-dom'
@@ -25,8 +26,8 @@ const UserPortal = () => {
     const [alreadyRSVP, setAlreadyRSVP] = useState(false)
     const [rsvpStatus, setRSVPStatus] = useState("")
 
-    const token = cookies.get("TOKEN");
-    const decoded = jwtDecode(token);
+    const token = getSessionToken(cookies);
+    const decoded = token ? jwtDecode(token) : null;
 
 
 
@@ -37,7 +38,7 @@ const UserPortal = () => {
         // To avoid people miss using URL to enter others information
         // console.log(decoded)
 
-        if (decoded.id === id){
+        if (decoded?.id === id){
             // console.log(decoded.acceptedRSVP)
             axios.get(`${process.env.REACT_APP_GET_USER_PORTAL_API_URL}${id}`)
             .then((response)=>{
@@ -60,6 +61,8 @@ const UserPortal = () => {
             window.location.replace('/login');
         }
       }, [])
+
+    if (!decoded || decoded.id !== id) return null;
 
     const overrideStatus = "Not Applied";
     return (

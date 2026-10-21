@@ -12,12 +12,21 @@ import MeadowHome from "./components/pages/MeadowHome";
 
 const Header = lazy(() => import("./components/Header"));
 const SignUp = lazy(() => import("./components/pages/applications/SignUp"));
-const UserPortal = lazy(() => import("./components/pages/applications/UserPortal"));
-const VerificationEmail = lazy(() => import("./components/pages/applications/VerificationEmail"));
-const NotifyEmail = lazy(() => import("./components/pages/applications/NotifyEmail"));
+const Login = lazy(() => import("./components/pages/applications/Login"));
+const UserPortal = lazy(
+  () => import("./components/pages/applications/UserPortal"),
+);
+const VerificationEmail = lazy(
+  () => import("./components/pages/applications/VerificationEmail"),
+);
+const NotifyEmail = lazy(
+  () => import("./components/pages/applications/NotifyEmail"),
+);
 
 const SendResults = lazy(() => import("./components/pages/admin/SendResults"));
-const ForgetPassword = lazy(() => import("./components/pages/applications/ForgetPassword"));
+const ForgetPassword = lazy(
+  () => import("./components/pages/applications/ForgetPassword"),
+);
 const Footer = lazy(() => import("./components/Footer"));
 const Attendance = lazy(() => import("./components/pages/Attendance"));
 
@@ -37,32 +46,35 @@ function App() {
     <div className="app">
       <Router>
         <Suspense fallback={<p role="status">Loading…</p>}>
-        <LegacyHeader headerRef={ref} />
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<MeadowHome />} />
+          <LegacyHeader headerRef={ref} />
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<MeadowHome />} />
 
-            {/* <Route path="/login" element={<Login/>}></Route> */}
-            <Route path="/signup" element={<SignUp />}></Route>
-            <Route path="/portal/:id" element={<UserPortal />}></Route>
-            <Route
-              path="/verify/:token"
-              element={<VerificationEmail />}
-            ></Route>
-            <Route
-              path="/notify/email/:emailToken"
-              element={<NotifyEmail />}
-            ></Route>
-            <Route
-              path="/admin/sendResult/:id"
-              element={<SendResults />}
-            ></Route>
-            <Route path="/forgetPassword" element={<ForgetPassword />}></Route>
-            <Route path="/attendance" element={<Attendance />}></Route>
-          </Routes>
-          <LegacyFooter />
-        </div>
-      </Suspense>
+              <Route path="/login" element={<Login />}></Route>
+              <Route path="/signup" element={<SignUp />}></Route>
+              <Route path="/portal/:id" element={<UserPortal />}></Route>
+              <Route
+                path="/verify/:token"
+                element={<VerificationEmail />}
+              ></Route>
+              <Route
+                path="/notify/email/:emailToken"
+                element={<NotifyEmail />}
+              ></Route>
+              <Route
+                path="/admin/sendResult/:id"
+                element={<SendResults />}
+              ></Route>
+              <Route
+                path="/forgetPassword"
+                element={<ForgetPassword />}
+              ></Route>
+              <Route path="/attendance" element={<Attendance />}></Route>
+            </Routes>
+            <LegacyFooter />
+          </div>
+        </Suspense>
       </Router>
     </div>
   );
