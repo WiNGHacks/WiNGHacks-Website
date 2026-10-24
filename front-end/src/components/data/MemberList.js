@@ -23,6 +23,8 @@ import Anthony_Le_pic from "../pictures/profile_pics/merch/Anthony_Le.webp";
 import Catherine_Betancourt_pic from "../pictures/profile_pics/tech/Catherine_Betancourt.webp";
 import Holly_Overholser_pic from "../pictures/profile_pics/operations/Holly_Overholser.webp";
 import Yusra_Hashami_pic from "../pictures/profile_pics/awards/Yusra_Hashami.webp";
+import Alisia_Nguyen_pic from "../pictures/profile_pics/operations/Alisia_Nguyen.webp";
+import Abigail_Zheng_pic from "../pictures/profile_pics/sponsorship/Abigail_Zheng.webp";
 
 const placeholderProfile = "https://placehold.co/300x300";
 
@@ -243,20 +245,22 @@ export const MemberList = [
     committee_position: "Tech-Support Committee Member",
     committee_name: "Tech-Support",
   },
-  {
+
+   {
     id: "25",
-    name: "Mahita Bontu",
-    profile_pic: placeholderProfile,
-    linkedIn: "",
+    name: "Abigail Zheng",
+    profile_pic: Abigail_Zheng_pic,
+    linkedIn: "https://www.linkedin.com/in/abigaillzheng/",
     major: "",
     committee_position: "Sponsorship Committee Member",
     committee_name: "Sponsorship",
   },
+  
   {
     id: "26",
     name: "Alisia Nguyen",
-    profile_pic: placeholderProfile,
-    linkedIn: "",
+    profile_pic: Alisia_Nguyen_pic,
+    linkedIn: "https://www.linkedin.com/in/alisia-nguyen/",
     major: "",
     committee_position: "Operations Committee Member",
     committee_name: "Operations",
@@ -270,8 +274,18 @@ export const MemberList = [
     committee_position: "Operations Committee Member",
     committee_name: "Operations",
   },
+  
   {
     id: "28",
+    name: "Mahita Bontu",
+    profile_pic: placeholderProfile,
+    linkedIn: "",
+    major: "",
+    committee_position: "Sponsorship Committee Member",
+    committee_name: "Sponsorship",
+  },
+  {
+    id: "29",
     name: "Esteban Gomes Lopez",
     profile_pic: placeholderProfile,
     linkedIn: "",
@@ -280,7 +294,7 @@ export const MemberList = [
     committee_name: "Awards",
   },
   {
-    id: "29",
+    id: "30",
     name: "Iksha Joshi",
     profile_pic: placeholderProfile,
     linkedIn: "",
@@ -288,15 +302,5 @@ export const MemberList = [
     committee_position: "Operations Committee Member",
     committee_name: "Operations",
   },
-   {
-    id: "30",
-    name: "Abigail Zheng",
-    profile_pic: placeholderProfile,
-    linkedIn: "",
-    major: "",
-    committee_position: "Sponsorship Committee Member",
-    committee_name: "Sponsorship",
-  },
-
-
+  
 ];
