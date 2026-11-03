@@ -1,8 +1,6 @@
-import { getSessionToken } from "./session";
+import { useSession } from "./auth/SessionProvider";
 import React, {useState, forwardRef} from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import Cookies from "universal-cookie";
-import { jwtDecode } from "jwt-decode";
+import { Link } from 'react-router-dom'
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from './pictures/2026_Logos/logo.png'
 import Popup from './pages/Popup'
@@ -10,38 +8,13 @@ import AppCountDown from './AppCountDown';
 import { FaDiscord, FaInstagram, FaLinkedin} from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 
-const cookies = new Cookies();
 
-const Header = ({}, ref) => {
-    const token = getSessionToken(cookies);
-    const currentPath = window.location.pathname   
-    let navigate = useNavigate();
-
-    const adminClick = () => {
-      setShowNavbar(false);
-
-      const decoded = jwtDecode(token)
-      navigate(`/admin/sendResult/${decoded.id}`, {replace: true});
-    }
-
-    const portalClick = () => {
-      setShowNavbar(false);
-
-      const decoded = jwtDecode(token)
-      navigate(`/portal/${decoded.id}`, {replace: true});
-    }
-
+const Header = (_, ref) => {
+    const { isSignedIn, signOut } = useSession();
     const logoutClick = () => {
       setShowNavbar(false);
-
-      if (window.confirm('Are you sure you want to logout?')) {
-        cookies.remove("TOKEN", {
-          path: "/",
-        })
-        window.location.replace('/login');
-      }
-      
-    }
+      signOut();
+    };
 
     const [showNavbar, setShowNavbar] = useState(false);
 
@@ -69,8 +42,6 @@ const Header = ({}, ref) => {
 
     return (
       <div style={{position: "relative"}}>
-        {/* {console.log(currentPath)} */}
-      {/* {token || currentPath === "/login" || currentPath === "/signup" || currentPath === "/forgetPassword" ? (<div/>) : (<Popup/>)} */}
       <div className = "navbar" id='navbar'>
 
       <Link to = "/#home"  onClick={() => handleClick('home')} className = "logo-container">
@@ -114,33 +85,11 @@ const Header = ({}, ref) => {
         <Link to = "/attendance" onClick={() => handleClick('attendance')} className = "link">Attendance</Link> */}
         
 
-          { token ?
-            ( 
-              <div>
-                {/* {console.log(jwtDecode(token).admin)} */}
-                {jwtDecode(token).admin ? (
-                  <div>
-                    {/* <div className = "link" onClick={adminClick}>Admin</div> */}
-                    <a href="/login" className="link" onClick={(event) => { event.preventDefault(); logoutClick(); }}>Logout</a>
-                  </div>
-                
-                ):(
-                  <div className='dynamic lessSpace'>
-                      {/* <div className = "link" onClick={portalClick}>Portal</div> */}
-                      <a href="/login" className="link" onClick={(event) => { event.preventDefault(); logoutClick(); }}>Logout</a>
-                  </div> 
+          {isSignedIn && <div className="dynamic lessSpace">
+            <Link to="/portal" className="link" onClick={() => setShowNavbar(false)}>Portal</Link>
+            <a href="/login" className="link" onClick={event => { event.preventDefault(); logoutClick(); }}>Logout</a>
+          </div>}
 
-                )}
-               
-              </div>
-            )
-            :
-            ( <div className='dynamic'>
-                {/* <Link to="/login" className = "link" onClick={clickedNavbar}>Login</Link> */}
-                {/* <Link to={process.env.REACT_APP_APPLICATION_FORM} target="_blank" className = "link apply button-glow" onClick={clickedNavbar}>Apply Now</Link> */}
-              </div> )
-          }
-          
           <div className='mobile-nav'>
           {showNavbar ? 
           ( <button className="nav-btn close" onClick={clickedNavbar}> 
@@ -161,7 +110,7 @@ const Header = ({}, ref) => {
               alt="Major League Hacking 2024 Hackathon Season" style={{width:100 + '%'}}/>
       </a>
     </div>
-    {!token && openBanner &&
+    {!isSignedIn && openBanner &&
     <div>
       {/* <div className='application-banner'>Applications are now open!</div>  */}
         {/* <div className='application-banner'>

@@ -381,8 +381,11 @@ export default function MeadowHome() {
               {label}
             </a>
           ))}
-          <a href="#join" className="nav-join" onClick={() => setMenu(false)}>
-            Stay in the loop
+          <a href="/signup" className="nav-join" onClick={() => setMenu(false)}>
+            Sign Up
+          </a>
+          <a href="/login" className="nav-join" onClick={() => setMenu(false)}>
+            Sign In
           </a>
         </nav>
       </header>

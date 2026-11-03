@@ -1,0 +1,68 @@
+.account-page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: #faf6eb url("../pictures/meadow/auth-background-v2.webp") center / cover no-repeat;
+}
+.account-header { width: 100%; padding: 25px 40px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.account-header .meadow-wordmark { font-size: 25px; }
+.account-home { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 12px; font-size: 15px; border-radius: 999px; }
+.account-home:hover { background: #dce7c780; }
+.account-main { flex: 1; display: grid; place-items: center; width: 100%; padding: 20px 24px 40px; }
+.account-paper { width: min(440px, 100%); min-width: 0; padding: 34px 34px 28px; background: #fffbed; border: 1px solid #294c3920; border-radius: 28px; box-shadow: 0 12px 40px #294c3909; scroll-margin-top: 20px; }
+.account-page .account-title { margin: 0 0 28px; font: 800 42px/1.1 MeadowBubble, sans-serif; letter-spacing: -.035em; text-align: center; }
+.account-page .account-description { margin: -12px 0 24px; font-size: 16px; line-height: 1.5; color: var(--muted); text-align: center; overflow-wrap: anywhere; }
+.account-fields { border: 0; padding: 0; margin: 0; min-width: 0; }
+.account-name-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+.account-field { margin: 0 0 19px; min-width: 0; }
+.account-label-row { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 7px; }
+.account-field label { font-size: 15px; font-weight: 650; }
+.account-page .account-small-link { font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
+.account-input-wrap { position: relative; }
+.account-page .account-input { display: block; width: 100%; height: 51px; padding: 12px 17px; border: 1.5px solid #7c8c6c; border-radius: 14px; background: #fffef6; color: var(--ink); font: 500 17px/1.4 MeadowSans, sans-serif; transition: border-color 150ms ease, box-shadow 150ms ease; }
+.account-input::placeholder { color: #76816c; opacity: 1; }
+.account-page .account-input:focus { outline: none; border-color: #745483; box-shadow: 0 0 0 3px #d5c1ec80; }
+.account-page .account-input[aria-invalid="true"] { border-color: #a34536; }
+.account-page .account-input:disabled { background: #f2f0e1; cursor: not-allowed; }
+.account-input-wrap.has-toggle .account-input { padding-right: 70px; }
+.account-page .account-password-toggle { position: absolute; inset: 3px 6px 3px auto; min-width: 52px; padding: 0 9px; border: 0; border-radius: 12px; background: transparent; font-size: 14px; font-weight: 650; }
+.account-password-toggle:hover { background: var(--sage); }
+.account-page .account-hint, .account-page .account-field-error { margin: 7px 0 0; font-size: 14px; line-height: 1.45; }
+.account-page .account-hint { color: var(--muted); }
+.account-page .account-field-error { color: #8c372c; }
+.account-page .account-submit { display: flex; justify-content: center; align-items: center; gap: 10px; width: 100%; min-height: 53px; margin-top: 8px; padding: 13px 20px; border: 1px solid var(--ink); border-radius: 999px; background: var(--ink); color: var(--surface); font-size: 17px; font-weight: 650; box-shadow: none; transition: background 150ms ease, transform 150ms ease, box-shadow 150ms ease; }
+.account-submit:hover:not(:disabled) { background: #3c6249; transform: translateY(-1px); }
+.account-submit:active:not(:disabled) { transform: translateY(1px); box-shadow: none; }
+.account-page .account-submit:disabled { opacity: .65; cursor: not-allowed; box-shadow: none; }
+.account-page .account-alert { margin: 0 0 19px; border: 1px solid #bb7c6f; border-radius: 15px; padding: 12px 15px; background: #fae7df; color: #77372e; font-size: 15px; line-height: 1.5; }
+.account-page .account-notice { margin: 0 0 16px; padding: 10px 14px; background: var(--sage); border-radius: 14px; font-size: 15px; }
+.account-page .account-switch { margin-top: 27px; padding-top: 22px; border-top: 1px solid var(--line); text-align: center; font-size: 15px; }
+.account-switch a { font-weight: 750; text-decoration: underline; text-underline-offset: 4px; }
+.account-page .account-code { font-size: 25px; letter-spacing: .28em; }
+.account-code-actions { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 14px; margin-top: 20px; }
+.account-page .account-text-button { border: 0; border-radius: 8px; background: none; min-height: 44px; padding: 7px 0; font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
+.account-text-button:disabled { color: var(--muted); cursor: not-allowed; text-decoration: none; }
+.account-factor-options { display: flex; flex-wrap: wrap; gap: 12px; }
+.account-spinner { width: 17px; height: 17px; border-radius: 50%; border: 2px solid #fffbed55; border-top-color: var(--surface); animation: account-spin .8s linear infinite; }
+@keyframes account-spin { to { transform: rotate(360deg); } }
+.account-captcha:empty { display: none; }
+.account-captcha { margin-top: 18px; }
+.account-footer { padding: 12px 24px 24px; color: var(--ink); text-align: center; font-size: 14px; }
+.account-footer a { display: inline-flex; align-items: center; min-height: 44px; padding: 5px 12px; text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 540px) {
+  .account-header { padding: 16px 20px; }
+  .account-header .meadow-wordmark { font-size: 23px; }
+  .account-main { padding: 16px 20px 30px; }
+  .account-paper { padding: 30px 24px 25px; border-radius: 24px; }
+  .account-page .account-title { font-size: 38px; }
+  .account-name-row { gap: 12px; }
+  .account-footer { padding-bottom: 14px; }
+}
+@media (max-width: 360px) {
+  .account-main { padding-inline: 14px; }
+  .account-paper { padding-inline: 20px; }
+  .account-name-row { grid-template-columns: 1fr; gap: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .account-page *, .account-page *::before, .account-page *::after { animation: none !important; transition: none !important; }
+}

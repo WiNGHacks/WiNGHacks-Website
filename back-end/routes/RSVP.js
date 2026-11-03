@@ -1,16 +1,17 @@
 const express = require('express')
 const router = express.Router()
 const RSVP = require('../models/RSVP')
+const { requireAuth, requireAdmin, requireOwner } = require('../middleware/auth');
 
-router.post('/addRsvp', async(req, res) => {
+router.post('/addRsvp', requireAuth, requireOwner, async(req, res) => {
     const {userId, firstName, lastName, email, phoneNumber, remindSignedUp, mealPreference, dietRestriction, mlhAccept, mlhShareData, mlhSendEmail, shirtSize}  = req.body;
     // let verificationLink
     // create a new user instance and collect the data
     const newRSVP = new RSVP({
-        userId: userId,
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
+        userId: String(req.user._id),
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
+        email: req.user.email,
         phoneNumber: phoneNumber,
         remindSignedUp: remindSignedUp,
         mealPreference: mealPreference,
@@ -36,7 +37,7 @@ router.post('/addRsvp', async(req, res) => {
     });
 });
 
-router.get("/rsvp", async (req, res) => {
+router.get("/rsvp", requireAuth, requireAdmin, async (req, res) => {
 	const posts = await RSVP.find()
 	res.send(posts)
 })

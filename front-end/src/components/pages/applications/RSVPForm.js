@@ -1,3 +1,4 @@
+import { useApi } from '../../auth/SessionProvider';
 import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import Select from 'react-select'
@@ -6,6 +7,7 @@ import MLHCoC from "./../../data/MLHCoC.pdf"
 
 
 const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
+    const api = useApi();
     const [userId, setUserId] = useState("");
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -70,7 +72,7 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
 
     const updateAcceptance = async() => {
         // console.log()
-        axios.put(`${process.env.REACT_APP_UPDATE_RSVP_API_URL}${id}`, {acceptedRSVP: selectedRSVP})
+        api.put(`/users/updateRSVP/${id}`, {acceptedRSVP: selectedRSVP})
         .then((response) => {
             // console.log(response)
             setSelectedRSVP("")
@@ -134,7 +136,7 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
                 shirtSize: shirtSize
             }
             // console.log(data)
-            axios.post(process.env.REACT_APP_ADD_RSVP_FORM, data)
+            api.post('/rsvp/addRsvp', data)
             .then((response) => {
                 // console.log(response)
                 addRSVPToGoogleSheet()
