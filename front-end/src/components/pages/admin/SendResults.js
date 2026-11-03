@@ -1,3 +1,4 @@
+import { useApi } from '../../auth/SessionProvider';
 import React, {useEffect, useState, useMemo} from 'react'
 import axios from 'axios';
 import Papa from 'papaparse';
@@ -8,6 +9,7 @@ import IndeterminateCheckbox from "./IndeterminateCheckbox";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const SendResults = () => {
+    const api = useApi();
     const [csvData, setCsvData] = useState([]);
     const [numEmails, setNumEmails] = useState(0);
     const [readyToSend, setReadyToSend] = useState(false);
@@ -155,7 +157,7 @@ const SendResults = () => {
 
     const getUserId = async (email) => {
         try {
-            const response = await axios.post(process.env.REACT_APP_CHECK_VALID_EMAIL, {
+            const response = await api.post('/users/findUser', {
                 email: email,
             });
             console.log(response);
@@ -171,7 +173,7 @@ const SendResults = () => {
         try {
             const tempId = await getUserId(email);
             console.log(tempId);
-            await axios.put(`${process.env.REACT_APP_UPDATE_STATUS_API_URL}${tempId}`, { status: status })
+            await api.put(`/users/updateStatus/${tempId}`, { status: status })
             .then((response) => {
                 console.log("Status updated successfully");
                 console.log(response)
@@ -190,7 +192,7 @@ const SendResults = () => {
 
         console.log(listSelected)
         listSelected.map((item) => {
-            axios.post(process.env.REACT_APP_SEND_UPDATE_STATUS_EMAIL_URL, 
+            api.post('/users/sendEmail/status',
                 {email: item.EmailAddress.trim(), updateStatus:item.Public_Status, firstName: item.FirstName }
             )
             .then((response) => {
@@ -248,7 +250,7 @@ const SendResults = () => {
    };
 
     const getAllRSVP = () => {
-        axios.get(process.env.REACT_APP_GET_ALL_RSVP_FORM)
+        api.get('/rsvp/rsvp')
         .then((response) => {
             console.log(response.data)
             const accepted = response.data
@@ -261,7 +263,7 @@ const SendResults = () => {
         .catch((e)=> {
             console.log(e)
         })
-        // axios.get(process.env.REACT_APP_GET_ALL_USERS_API_URL)
+        // api.get('/users/users')
         // .then((response) => {
         //     // console.log(response.data)
         //     const accepted = response.data

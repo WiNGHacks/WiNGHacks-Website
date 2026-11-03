@@ -5,24 +5,28 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test test/*.test.js",
     "render-start": "node index.js",
     "gmail:authorize": "node scripts/authorize-gmail.js",
-    "test:oauth": "node --test test/gmail.test.js"
+    "clerk:migrate:preview": "node scripts/clerk-migration.js",
+    "clerk:migrate": "node scripts/clerk-migration.js --execute",
+    "test:oauth": "node --test test/gmail.test.js",
+    "test:auth": "node --test test/auth.test.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "@clerk/express": "^2.1.85",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.3.0",
     "mongoose": "^8.1.0",
     "nodemailer": "^6.9.8",
-    "nodemon": "^3.0.3",
-    "uuid": "^9.0.1"
+    "nodemon": "^3.0.3"
+  },
+  "engines": {
+    "node": ">=20.9.0"
   }
 }

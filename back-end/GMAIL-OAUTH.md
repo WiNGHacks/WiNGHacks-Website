@@ -1,8 +1,8 @@
 # Gmail API OAuth sender setup
 
-The backend now sends all existing emails through the Gmail API. Nodemailer only
+The backend sends application and decision emails through the Gmail API. Nodemailer only
 builds MIME messages; Gmail SMTP and EMAIL_PASSWORD are no longer used.
-Participants still receive verification links and do not authorize Google access.
+Clerk owns authentication emails. Participants do not authorize Google access.
 Use Node.js 22 (native fetch is required).
 
 1. In https://console.cloud.google.com/, select or create the project for WiNGHacks.
@@ -19,24 +19,14 @@ Use Node.js 22 (native fetch is required).
    GMAIL_CLIENT_ID=your-client-id.apps.googleusercontent.com
    GMAIL_CLIENT_SECRET=your-client-secret
    GMAIL_REFRESH_TOKEN=
-   DEV_EMAIL_VERIFICATION=false
    ```
 
 6. From `back-end`, run `npm run gmail:authorize`. Open the printed URL and authorize
    the **same sender account configured in EMAIL**. No email is sent by this script.
    It checks state and PKCE, exchanges the authorization code, and saves the refresh
    token directly into the ignored `.env` file. It does not print credentials.
-7. Restart the backend with `npm start`. Restart the frontend if its settings changed:
-
-   ```env
-   REACT_APP_SIGNUP_API_URL=http://localhost:8081/users/signup
-   REACT_APP_SEND_EMAIL_URL=http://localhost:8081/users/sendEmail/
-   REACT_APP_VERIFY_EMAIL_URL=http://localhost:8081/users/verifyEmail/
-   ```
-
-8. Sign up with a test account and open the delivered link. For an existing
-   unverified account, get its `emailToken` in your development database and open
-   `http://localhost:3000/notify/email/TOKEN`, then click Resend Email.
+7. Restart the backend with `npm start`. Clerk now handles account authentication
+   and verification. Gmail is only used for application and decision emails.
 
 Keep `.env`, the client secret, and refresh token on the backend only. For hosting,
 copy the configured values into the host's secret environment settings. Revoke the

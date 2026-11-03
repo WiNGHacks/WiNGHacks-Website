@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@clerk/react": "^6.18.3",
     "@emotion/react": "^11.11.4",
     "@google-cloud/local-auth": "^3.0.1",
     "@googleapis/forms": "^2.0.5",
@@ -12,7 +13,6 @@
     "axios": "^1.6.7",
     "dotenv": "^16.3.2",
     "install": "^0.13.0",
-    "jwt-decode": "^4.0.0",
     "nodemailer": "^6.9.8",
     "npm": "^10.5.0",
     "papaparse": "^5.4.1",
@@ -27,7 +27,6 @@
     "react-select": "^5.8.0",
     "react-spinners": "^0.13.8",
     "react-table": "^7.8.0",
-    "universal-cookie": "^7.0.1",
     "uuid": "^9.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -59,5 +58,8 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/jquery": "^3.5.29"
+  },
+  "engines": {
+    "node": ">=20.9.0"
   }
 }

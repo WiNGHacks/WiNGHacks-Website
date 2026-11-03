@@ -6,7 +6,10 @@ import {
   Routes,
   Route,
   useLocation,
+  Navigate,
 } from "react-router-dom";
+
+import RequireSession from "./components/auth/RequireSession";
 
 import MeadowHome from "./components/pages/MeadowHome";
 
@@ -32,11 +35,11 @@ const Attendance = lazy(() => import("./components/pages/Attendance"));
 
 function LegacyHeader({ headerRef }) {
   const { pathname } = useLocation();
-  return pathname === "/" ? null : <Header ref={headerRef} />;
+  return ["/", "/login", "/signup", "/forgot-password", "/forgetPassword"].includes(pathname) ? null : <Header ref={headerRef} />;
 }
 function LegacyFooter() {
   const { pathname } = useLocation();
-  return pathname === "/" ? null : <Footer />;
+  return ["/", "/login", "/signup", "/forgot-password", "/forgetPassword"].includes(pathname) ? null : <Footer />;
 }
 
 function App() {
@@ -53,7 +56,8 @@ function App() {
 
               <Route path="/login" element={<Login />}></Route>
               <Route path="/signup" element={<SignUp />}></Route>
-              <Route path="/portal/:id" element={<UserPortal />}></Route>
+              <Route path="/portal" element={<RequireSession><UserPortal /></RequireSession>} />
+              <Route path="/portal/:id" element={<Navigate to="/portal" replace />} />
               <Route
                 path="/verify/:token"
                 element={<VerificationEmail />}
@@ -63,13 +67,15 @@ function App() {
                 element={<NotifyEmail />}
               ></Route>
               <Route
-                path="/admin/sendResult/:id"
-                element={<SendResults />}
+                path="/admin/sendResult"
+                element={<RequireSession admin><SendResults /></RequireSession>}
               ></Route>
+              <Route path="/admin/sendResult/:id" element={<Navigate to="/admin/sendResult" replace />} />
               <Route
-                path="/forgetPassword"
+                path="/forgot-password"
                 element={<ForgetPassword />}
               ></Route>
+              <Route path="/forgetPassword" element={<Navigate to="/forgot-password" replace />} />
               <Route path="/attendance" element={<Attendance />}></Route>
             </Routes>
             <LegacyFooter />

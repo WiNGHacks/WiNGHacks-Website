@@ -1,2 +1,9 @@
 # Private teammate handoff containing local credentials.
 /TEAM-HANDOFF.private.md
+# Database backups contain personal data and legacy password hashes.
+/backups/
+# Environment files and secrets
+.env
+.env*.local
+*.pem
+*.key
