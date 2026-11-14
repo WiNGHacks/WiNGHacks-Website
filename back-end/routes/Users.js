@@ -646,27 +646,7 @@ router.put("/updateStatus/:id", requireAuth, requireAdmin, async (req, res) => {
 })
 
 router.put("/updateRSVP/:id", requireAuth, requireOwner, async (req, res) => {
-    var id = req.params.id;
-
-    Users.findOneAndUpdate({_id: id}, {acceptedRSVP: req.body.acceptedRSVP})
-    .then((response) => {
-        if (response !== null) {
-            res.status(200).send({
-                message: "User found",
-                response
-            });
-
-
-        }
-
-    })
-    .catch((e) => {
-        res.status(404).send({
-            message: "User not found",
-            e
-        });
-
-    })
+    res.status(410).json({ message: 'Use the RSVP submission endpoint.' });
 })
 
 router.post("/findUser", requireAuth, requireAdmin, async (req, res) => {

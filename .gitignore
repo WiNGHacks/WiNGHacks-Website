@@ -2,6 +2,8 @@
 /TEAM-HANDOFF.private.md
 # Database backups contain personal data and legacy password hashes.
 /backups/
+# Generated image source files; finalized assets live in the frontend.
+/output/
 # Environment files and secrets
 .env
 .env*.local

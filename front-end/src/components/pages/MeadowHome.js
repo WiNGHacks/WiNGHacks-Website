@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useSession } from '../auth/SessionProvider';
 import { MemberList } from "../data/MemberList";
 import airplaneVideo from "../pictures/meadow/airplane-loop.mp4";
 import airplanePoster from "../pictures/meadow/airplane-poster.webp";
@@ -156,6 +157,7 @@ function Flower({ active, member }) {
 }
 
 export default function MeadowHome() {
+  const { isSignedIn } = useSession();
   const sceneRef = useRef(null);
   const videoRef = useRef(null);
   const aboutFlowerRef = useRef(null);
@@ -381,12 +383,13 @@ export default function MeadowHome() {
               {label}
             </a>
           ))}
-          <a href="/signup" className="nav-join" onClick={() => setMenu(false)}>
+          {isSignedIn ? <a href="/portal" className="nav-join" onClick={() => setMenu(false)}>Portal</a> : <><a href="/signup" className="nav-join" onClick={() => setMenu(false)}>
             Sign Up
           </a>
           <a href="/login" className="nav-join" onClick={() => setMenu(false)}>
             Sign In
           </a>
+          </>}
         </nav>
       </header>
       <a

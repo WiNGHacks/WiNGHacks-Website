@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 
 import RequireSession from "./components/auth/RequireSession";
+import LoadingScreen from "./components/auth/LoadingScreen";
 
 import MeadowHome from "./components/pages/MeadowHome";
 
@@ -35,11 +36,11 @@ const Attendance = lazy(() => import("./components/pages/Attendance"));
 
 function LegacyHeader({ headerRef }) {
   const { pathname } = useLocation();
-  return ["/", "/login", "/signup", "/forgot-password", "/forgetPassword"].includes(pathname) ? null : <Header ref={headerRef} />;
+  return pathname.startsWith('/admin/') || pathname === '/attendance' ? <Header ref={headerRef} /> : null;
 }
 function LegacyFooter() {
   const { pathname } = useLocation();
-  return ["/", "/login", "/signup", "/forgot-password", "/forgetPassword"].includes(pathname) ? null : <Footer />;
+  return pathname.startsWith('/admin/') || pathname === '/attendance' ? <Footer /> : null;
 }
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
   return (
     <div className="app">
       <Router>
-        <Suspense fallback={<p role="status">Loading…</p>}>
+        <Suspense fallback={<LoadingScreen />}>
           <LegacyHeader headerRef={ref} />
           <div className="App">
             <Routes>
