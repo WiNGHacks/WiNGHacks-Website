@@ -136,7 +136,8 @@ test('Clerk HTTP integration protects routes and rejects obsolete authentication
         for (const [method, path] of [
             ['GET', '/users/me'], ['POST', '/users/sendEmail/status'], ['PUT', `/users/updateStatus/${id}`],
             ['PUT', `/users/updateRSVP/${id}`], ['POST', '/users/findUser'],
-            ['GET', `/users/finduser/${id}`], ['GET', '/users/users'], ['POST', '/rsvp/addRsvp'], ['GET', '/rsvp/rsvp'],
+            ['GET', `/users/finduser/${id}`], ['GET', '/users/users'], ['POST', '/rsvp/addRsvp'],
+            ['POST', '/rsvp/submit'], ['GET', '/rsvp/rsvp'],
         ]) assert.equal((await request(path, null, method)).status, 401, path);
         for (const token of ['not-a-jwt', makeToken({ exp: 1 }), makeToken({ azp: 'https://evil.example.com' }),
             makeToken({}, crypto.generateKeyPairSync('rsa', { modulusLength: 2048 }).privateKey)]) {
@@ -151,6 +152,9 @@ test('Clerk HTTP integration protects routes and rejects obsolete authentication
         assert.equal((await request('/users/users', token)).status, 403);
         assert.equal((await request(`/users/updateStatus/${id}`, token, 'PUT', { status: 'Accepted' })).status, 403);
         assert.equal((await request('/rsvp/addRsvp', token, 'POST', { userId: otherId })).status, 403);
+        assert.equal((await request('/rsvp/submit', token, 'POST', { acceptedRSVP: 'yes' })).status, 403);
+        assert.equal((await request(`/users/updateRSVP/${id}`, token, 'PUT', { acceptedRSVP: 'yes' })).status, 410);
+        assert.equal((await request('/rsvp/addRsvp', token, 'POST', { userId: id })).status, 410);
         account.admin = true;
         // This route's handler uses findOne, which is stubbed above.
         assert.equal((await request('/users/findUser', token, 'POST', { email: 'hacker@example.com' })).status, 200);

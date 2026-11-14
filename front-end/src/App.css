@@ -13,6 +13,25 @@
 .App {
 }
 
+.session-screen {
+  min-height: 100svh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 32px;
+  background: #f7f7e5;
+  color: #294c39;
+  text-align: center;
+  font: 500 16px/1.6 MeadowSans, sans-serif;
+}
+.session-screen p { margin: 0; max-width: 42ch; }
+.session-screen button { min-height: 44px; padding: 10px 22px; border: 1px solid #294c39; border-radius: 999px; background: #294c39; color: #fffbed; font: inherit; cursor: pointer; }
+.session-screen button:focus-visible { outline: 3px solid #745483; outline-offset: 4px; }
+.session-loading-dot { width: 12px; height: 12px; border-radius: 50%; background: #62884f; }
+
 @font-face {
   font-family: honk;
   src: url(./components/fonts/Honk-Regular-VariableFont_MORF\,SHLN.ttf);

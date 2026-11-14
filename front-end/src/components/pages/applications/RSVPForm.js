@@ -1,20 +1,15 @@
 import { useApi } from '../../auth/SessionProvider';
-import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import Select from 'react-select'
 import ClipLoader from "react-spinners/ClipLoader";
 import MLHCoC from "./../../data/MLHCoC.pdf"
 
 
-const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
+const RSVPForm = ({setAlreadyRSVP, setRSVPStatus}) => {
     const api = useApi();
-    const [userId, setUserId] = useState("");
-    const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
-    const [remindSignedUp, setRemindSignedUp] = useState(false);
     const [mealPreference, setMealPreference] = useState([]);
     const [dietRestriction, setDietRestriction] = useState("");
-    const [merchOptIn, setMerchOptIn] = useState(false);
     const [mlhAccept, setMLHAccept] = useState(false);
     const [mlhShareData, setMLHShareData] = useState(false);
     const [mlhSendEmail, setMLHSendEmail] = useState(false);
@@ -22,6 +17,7 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
     const [selectedRSVP, setSelectedRSVP] = useState("");
     const [submitedClicked, setSubmitClicked] = useState(false)
     const [missingFormValue, setMissingFormValue] = useState(true);
+    const [submitError, setSubmitError] = useState('');
 
     // Handle change function
     const handleRSVPChange = selectedRSVP => {
@@ -33,16 +29,6 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
         setShirtSize(shirtSize.value);
     };
 
-
-  const downloadPDF = () => {
-    const pdfUrl = MLHCoC;
-    const link = document.createElement("a");
-    link.href = pdfUrl;
-    link.download = "MLH_Code_of_Conduct.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-   }
 
    const handleMealPreferenceChange = (event) => {
     const { value, checked } = event.target;
@@ -70,91 +56,36 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
         ]
     
 
-    const updateAcceptance = async() => {
-        // console.log()
-        api.put(`/users/updateRSVP/${id}`, {acceptedRSVP: selectedRSVP})
-        .then((response) => {
-            // console.log(response)
-            setSelectedRSVP("")
-            setAlreadyRSVP(true)
-            setSubmitClicked(false)
-            setRSVPStatus(selectedRSVP)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-    }
-
-    const headers = {
-        "Content-Type": "text/plain;charset=utf-8",
-    }
-
-    const addRSVPToGoogleSheet = () => {
-        const mealPref = mealPreference.join(', ')
-        const data = {
-            email: email,
-            firstName: firstName,
-            lastName: lastName,
-            phoneNumber: phoneNumber,
-            remindSignedUp: remindSignedUp,
-            mealPreference: mealPref,
-            dietRestriction: dietRestriction,
-            mlhAccept: mlhAccept,
-            mlhShareData: mlhShareData,
-            mlhSendEmail: mlhSendEmail,
-            shirtSize: shirtSize
-        }
-        // console.log(data)
-        // console.log(headers)
-        axios.post(process.env.REACT_APP_ADD_RSVP_TO_GOOGLE_SHEET, data, {headers})
-        .then(response => {
-            // console.log(response)
-        })
-        .catch((e) => {
-            console.log(e)
-        })
-    }
-
-    const submitRSVPForm = () => {
+    const submitRSVPForm = async (event) => {
+        event?.preventDefault();
+        if (submitedClicked || missingFormValue) return;
+        setSubmitError('');
         setSubmitClicked(true)
-        if (selectedRSVP === "yes"){
-            const mealPref = mealPreference.join(', ')
-            
-            const data = {
-                userId: id,
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                phoneNumber: phoneNumber,
-                remindSignedUp: remindSignedUp,
-                mealPreference: mealPref,
-                dietRestriction: dietRestriction,
-                merchOptIn: merchOptIn,
+        const decision = selectedRSVP;
+        const data = { acceptedRSVP: decision };
+        if (decision === "yes") Object.assign(data, {
+                phoneNumber,
+                mealPreference: mealPreference.join(', '),
+                dietRestriction,
                 mlhAccept: mlhAccept,
                 mlhShareData: mlhShareData,
                 mlhSendEmail: mlhSendEmail,
                 shirtSize: shirtSize
-            }
-            // console.log(data)
-            api.post('/rsvp/addRsvp', data)
-            .then((response) => {
-                // console.log(response)
-                addRSVPToGoogleSheet()
-                updateAcceptance()
-                
-            })
-            .catch(e => {
-                console.log(e)
-            })
-        }
-        else if(selectedRSVP === "no"){
-            // console.log(selectedRSVP)
-            updateAcceptance()
+        });
+        try {
+            await api.post('/rsvp/submit', data);
+            setSelectedRSVP("");
+            setAlreadyRSVP(true);
+            setRSVPStatus(decision);
+        } catch (error) {
+            setSubmitError(error.response?.data?.message || 'Unable to save your RSVP. Please try again.');
+        } finally {
+            setSubmitClicked(false);
         }
     }
 
     useEffect(() => {
-        if(email && phoneNumber 
+        if(phoneNumber
              && mealPreference.length > 0 
          && mlhAccept && shirtSize
             && selectedRSVP === "yes" && mlhShareData){
@@ -164,7 +95,7 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
             setMissingFormValue(false)
         }
         else {setMissingFormValue(true)}
-    })
+    }, [phoneNumber, mealPreference.length, mlhAccept, shirtSize, selectedRSVP, mlhShareData])
 
     const [step, setStep] = useState(1);
 
@@ -172,19 +103,15 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
 
     const prevStep = () => { setStep(step - 1); };
 
-    const rejectOffer = () => { setStep(5); };
-
-    const returnToFirst = () => { setStep(1); };
-
-
-
   return (
     <div className='RSVP'>
-        <form id="msform">
+        {submitError && <p role="alert">{submitError}</p>}
+        {submitedClicked && <p role="status">Saving your RSVP…</p>}
+        <form id="msform" onSubmit={event => event.preventDefault()}>
             <ul id="progressbar" className={step === 1 ? 'noDisplay' : ''}>
-                <li className={step >= 1 ? 'active' : ''}>Account Setup</li>
-                <li className={step >= 2 ? 'active' : ''}>Social Profiles</li>
-                <li className={step >= 3 ? 'active' : ''}>Personal Details</li>
+                <li className={step >= 1 ? 'active' : ''}>Attendance</li>
+                <li className={step >= 2 ? 'active' : ''}>Contact</li>
+                <li className={step >= 3 ? 'active' : ''}>Preferences</li>
                 <li className={step >= 4 ? 'active' : ''}>Submit</li>
             </ul>
 
@@ -192,12 +119,12 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
             <fieldset style={{ display: step === 1 ? 'block' : 'none' }}>
                 {/* <h2 class="fs-title">Create your account</h2> */}
                 <h1 className="fs-title congrats">Congratulations!</h1>
-                <h3 className="fs-subtitle">You have been selected to participate in WiNGHacks 2024!<br/>
+                <h3 className="fs-subtitle">You have been selected to participate in WiNGHacks!<br/>
                     Please indicate your attendance as appropriate below.<br/>
                     Should you choose to attend, please fill out the rest of the RSVP form.</h3>
                 <Select
                     placeholder="Your decision..."
-                    value={selectedRSVP.value}
+                    value={rsvpOption.find(option => option.value === selectedRSVP)}
                     onChange={handleRSVPChange}
                     options={rsvpOption}
                     // isDisabled = {alreadyRSVP}
@@ -218,13 +145,9 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
             <fieldset style={{ display: step === 2 ? 'block' : 'none' }}>
                 <h2 className="fs-title">Contact Information</h2>
                 <h3 className="fs-subtitle">We'll keep you updated on announcements!</h3>
-                <input 
-                        onChange={(e) => {setEmail(e.target.value)}}
-                        type="email"
-                        placeholder='Enter email'/> <br/>
                 <input
                         onChange={(e) => {setPhoneNumber(e.target.value)}}
-                        type="phoneNumber"
+                        type="tel"
                         placeholder='Enter phone number'
                     />
                     
@@ -239,7 +162,7 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
             <h2 className="fs-title">Shirt Size</h2>
                 <Select
                     placeholder="Your shirt size..."
-                    value={shirtSize.value}
+                    value={shirtSizeOption.find(option => option.value === shirtSize)}
                     onChange={handleShirtChange}
                     options={shirtSizeOption}
                     // isDisabled = {alreadyRSVP}
@@ -296,7 +219,7 @@ const RSVPForm = ({id, setAlreadyRSVP, firstName, lastName, setRSVPStatus}) => {
                             onChange={() => {setMLHAccept(!mlhAccept)}} 
                         />
                         &nbsp; I have read and agree to the 
-                        <a target="_blank" rel="noopener noreferrer" style={{color: "blue"}} onClick={downloadPDF}> MLH Code of Conduct</a>. (Required)
+                        <a href={MLHCoC} download="MLH_Code_of_Conduct.pdf"> MLH Code of Conduct</a>. (Required)
                     </label>
                     <p/>
                     <label>
