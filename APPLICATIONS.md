@@ -25,6 +25,42 @@ Submission and uploads wait for outstanding text saves. Submitted applications r
 5. Deploy the backend, then frontend using the existing Render services. Backend startup verifies the unique application index. Frontend retains `REACT_APP_API_BASE_URL`; the external form URL is no longer used.
 6. Verify with a designated test account on the deployed frontend, including token expiry, save/reload, submit, and organizer review. Never seed test applicants into production automatically.
 
+## Opening applications in production
+
+Use this checklist when the public application period begins. These values belong in the two existing Render services; never commit their secret values.
+
+### 1. Update the Render backend service
+
+```env
+PORTAL_ADMIN_ONLY=false
+APPLICATIONS_OPEN=true
+APPLICATION_SEASON=2027
+APPLICATION_DEADLINE=<ISO timestamp with timezone, or blank for no deadline>
+```
+
+Keep the production `DB_URI`, live Clerk keys, `FRONT_END_URL=https://winghacks.com`, and `ALLOWED_ORIGINS=https://winghacks.com` unchanged. Deploy the backend first and confirm its logs show `DB Connected (hackathon_db)!` and that the server is listening.
+
+### 2. Update the Render frontend service
+
+```env
+REACT_APP_PORTAL_ADMIN_ONLY=false
+```
+
+Keep `REACT_APP_API_BASE_URL=https://winghacks-backend.onrender.com` and the live Clerk publishable key unchanged. Clear the frontend build cache and deploy because `REACT_APP_*` values are compiled into the build.
+
+### 3. Verify before announcing
+
+- Sign up with a non-admin `.edu` account and verify its email.
+- Confirm the account can open `/portal`, create a draft, save, refresh, upload a PDF resume, and submit.
+- Confirm the submitted application is locked and shows Pending review.
+- Confirm a non-admin cannot open the Review tab or call `/applications/admin`.
+- Confirm an `admin: true` account can review the submission and choose Accepted, Waitlisted, or Rejected.
+- Confirm the Reopen action works without first selecting a decision.
+
+### Pause or roll back access
+
+To return to the private team preview, set both `PORTAL_ADMIN_ONLY` and `REACT_APP_PORTAL_ADMIN_ONLY` to `true`, then redeploy backend first and frontend second. To keep the portal visible but stop new drafts and submissions, leave both portal variables `false`, set `APPLICATIONS_OPEN=false`, and redeploy only the backend. Existing drafts remain stored.
+
 The current scale uses 25-item server pagination and escaped search across names, email, and school. CSV exports honor active filters and neutralize spreadsheet formula prefixes. Bulk decisions are deliberately handled per applicant with a reason. No hard cap at 300 blocks legitimate extra applicants.
 
 ## Validation

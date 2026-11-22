@@ -15,7 +15,8 @@
     "test:oauth": "node --test test/gmail.test.js",
     "test:auth": "node --test test/auth.test.js",
     "applications:preview": "node scripts/prepare-applications.js",
-    "applications:prepare": "node scripts/prepare-applications.js --execute"
+    "applications:prepare": "node scripts/prepare-applications.js --execute",
+    "dev:seed": "node scripts/seed-development.js"
   },
   "author": "",
   "license": "ISC",
