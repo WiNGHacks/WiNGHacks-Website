@@ -8,10 +8,11 @@ import {
   FiCalendar,
   FiCheck,
   FiRefreshCw,
-  FiMail,
-  FiExternalLink,
+  FiClipboard,
 } from "react-icons/fi";
 import { useSession } from "../../auth/SessionProvider";
+import HackerApplication from "../../applications/HackerApplication";
+import AdminApplications from "../../applications/AdminApplications";
 import RSVPForm from "./RSVPForm";
 import PortalLocation from "./PortalLocation";
 import flower from "../../pictures/meadow/about-flower-bloom.webp";
@@ -109,11 +110,7 @@ function Information({ user, state, openApplication }) {
     <>
       <section className="portal-welcome">
         <div>
-          <h1>
-            Welcome to the
-            <br />
-            meadow, {user.firstName || "hacker"}.
-          </h1>
+          <h1>Welcome to the meadow, {user.firstName || "hacker"}.</h1>
           <button className="portal-button" onClick={openApplication}>
             View my application <FiFileText aria-hidden="true" />
           </button>
@@ -190,125 +187,62 @@ function Information({ user, state, openApplication }) {
 }
 
 function Application({ user, state, refresh, refreshing, error, onRSVP }) {
-  const candidate = process.env.REACT_APP_APPLICATION_FORM || "";
-  const formUrl = /^https:\/\//i.test(candidate) ? candidate : null;
   const needsRSVP =
     user.status === "Accepted" && !["yes", "no"].includes(user.acceptedRSVP);
   return (
     <>
       <div className="portal-page-heading">
         <h1>My application</h1>
+        <p>Tell us a bit about yourself and what brings you to WiNGHacks!</p>
       </div>
       <section
-        className={`portal-application-banner ${state.tone}`}
+        className={`portal-application-banner portal-application-status ${state.tone}`}
         aria-label="Application status"
       >
-        <h2>{state.label}</h2>
-        <p>{state.text}</p>
+        <div>
+          <h2>{state.label}</h2>
+          <p>{state.text}</p>
+        </div>
+        <button
+          className="portal-text-button"
+          onClick={refresh}
+          disabled={refreshing}
+        >
+          <FiRefreshCw aria-hidden="true" />
+          {refreshing ? "Checking…" : "Refresh status"}
+        </button>
       </section>
-      <ol className="portal-progress" aria-label="Application progress">
-        {["Apply", "Review", "Decision", "RSVP"].map((label, index) => (
-          <li
-            key={label}
-            className={
-              index < state.step
-                ? "complete"
-                : index === state.step
-                  ? "current"
-                  : ""
-            }
-            aria-current={index === state.step ? "step" : undefined}
-          >
-            <span>
-              {index < state.step ? (
-                <FiCheck aria-label="Completed" />
-              ) : (
-                index + 1
-              )}
-            </span>
-            {label}
-          </li>
-        ))}
-      </ol>
-      <div className="portal-application-grid">
-        <section className="portal-card">
-          <div className="portal-section-heading">
-            <h2>Applicant details</h2>
-            <FiFileText aria-hidden="true" />
-          </div>
-          <dl className="portal-details">
-            <div>
-              <dt>Name</dt>
-              <dd>
-                {[user.firstName, user.lastName].filter(Boolean).join(" ") ||
-                  "Hacker"}
-              </dd>
-            </div>
-            <div>
-              <dt>Email</dt>
-              <dd>{user.email}</dd>
-            </div>
-            <div>
-              <dt>Status</dt>
-              <dd>{state.label}</dd>
-            </div>
-          </dl>
-          {user.status === "Not Applied" ? (
-            <div className="portal-form-entry">
-              <h3>
-                {formUrl ? "Application form" : "Applications are coming soon."}
-              </h3>
-              <p>
-                {formUrl
-                  ? "Use your account email and submit only once."
-                  : "The form will be available here when applications open."}
-              </p>
-              {formUrl && (
-                <a
-                  className="portal-button"
-                  href={formUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Open application form <FiExternalLink aria-hidden="true" />
-                </a>
-              )}
-            </div>
-          ) : (
-            state.step >= 1 && (
-              <div className="portal-form-entry">
-                <p>
-                  To update your submitted answers, email the team from your
-                  account email.
-                </p>
-              </div>
-            )
-          )}
-          <button
-            className="portal-text-button"
-            onClick={refresh}
-            disabled={refreshing}
-          >
-            <FiRefreshCw aria-hidden="true" />{" "}
-            {refreshing ? "Checking…" : "Refresh status"}
-          </button>
-          {error && (
-            <p className="portal-error" role="alert">
-              {error}
-            </p>
-          )}
-        </section>
-        <aside className="portal-little-note">
-          <h2>Have questions?</h2>
-          <p>Contact us about your application or accessibility needs.</p>
-          <a
-            className="portal-text-button"
-            href="mailto:uf.winghacks@gmail.com"
-          >
-            <FiMail aria-hidden="true" /> Email the team
-          </a>
-        </aside>
-      </div>
+      {error && (
+        <p className="portal-error" role="alert">
+          {error}
+        </p>
+      )}
+      {user.status !== "Not Applied" && (
+        <ol className="portal-progress" aria-label="Application progress">
+          {["Apply", "Review", "Decision", "RSVP"].map((label, index) => (
+            <li
+              key={label}
+              className={
+                index < state.step
+                  ? "complete"
+                  : index === state.step
+                    ? "current"
+                    : ""
+              }
+              aria-current={index === state.step ? "step" : undefined}
+            >
+              <span>
+                {index < state.step ? (
+                  <FiCheck aria-label="Completed" />
+                ) : (
+                  index + 1
+                )}
+              </span>
+              {label}
+            </li>
+          ))}
+        </ol>
+      )}
       {needsRSVP && (
         <section className="portal-card portal-rsvp">
           <h2>RSVP</h2>
@@ -321,7 +255,22 @@ function Application({ user, state, refresh, refreshing, error, onRSVP }) {
           />
         </section>
       )}
+      <HackerApplication />
     </>
+  );
+}
+
+// Keep visited workspaces mounted so tab navigation preserves drafts, steps,
+// filters, and unsaved review notes. Unvisited tabs do not fetch or create data.
+function PortalPanel({ active, children }) {
+  const [opened, setOpened] = useState(active);
+  useEffect(() => {
+    if (active) setOpened(true);
+  }, [active]);
+  return (
+    <div className="portal-panel" hidden={!active}>
+      {(active || opened) && children}
+    </div>
   );
 }
 
@@ -336,8 +285,10 @@ export default function UserPortal() {
     setUser(sessionUser);
   }, [sessionUser]);
   if (!user) return null;
-  const active =
-    params.get("tab") === "application" ? "application" : "information";
+  const active = ["application", "review"].includes(params.get("tab"))
+    ? params.get("tab")
+    : "information";
+  const isAdmin = sessionUser?.admin === true;
   const state = applicationState(user);
   const refresh = async () => {
     setRefreshing(true);
@@ -391,6 +342,15 @@ export default function UserPortal() {
             <FiFileText aria-hidden="true" />
             <span>Application</span>
           </Link>
+          {isAdmin && (
+            <Link
+              to="/portal?tab=review"
+              aria-current={active === "review" ? "page" : undefined}
+            >
+              <FiClipboard aria-hidden="true" />
+              <span>Review (Admin)</span>
+            </Link>
+          )}
         </nav>
         <div className="portal-sidebar-bottom">
           <Link to="/" className="portal-back">
@@ -413,13 +373,17 @@ export default function UserPortal() {
         </div>
       </aside>
       <main id="portal-content" className="portal-main" tabIndex={-1}>
-        {active === "information" ? (
+        {active === "information" && (
           <Information
             user={user}
             state={state}
             openApplication={() => setParams({ tab: "application" })}
           />
-        ) : (
+        )}
+        <PortalPanel
+          key={`application-${sessionUser?.clerkUserId}`}
+          active={active === "application"}
+        >
           <Application
             user={user}
             state={state}
@@ -430,6 +394,24 @@ export default function UserPortal() {
               setUser((current) => ({ ...current, acceptedRSVP }))
             }
           />
+        </PortalPanel>
+        {isAdmin ? (
+          <PortalPanel
+            key={`review-${sessionUser.clerkUserId}`}
+            active={active === "review"}
+          >
+            <AdminApplications />
+          </PortalPanel>
+        ) : (
+          active === "review" && (
+            <section className="portal-card" role="alert">
+              <h1>Organizer access only</h1>
+              <p>You do not have permission to review applications.</p>
+              <Link className="portal-button" to="/portal">
+                Return to information
+              </Link>
+            </section>
+          )
         )}
         <footer className="portal-footer">
           A little space to grow. Made with care by WiNGHacks.

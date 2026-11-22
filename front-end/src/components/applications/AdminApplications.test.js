@@ -1,0 +1,48 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { act, Simulate } from 'react-dom/test-utils';
+import { MemoryRouter } from 'react-router-dom';
+import AdminApplications from './AdminApplications';
+import { useSession } from '../auth/SessionProvider';
+jest.mock('../auth/SessionProvider',()=>({useSession:jest.fn()}));
+let root,container;
+beforeEach(()=>{jest.useFakeTimers();localStorage.clear();container=document.createElement('div');document.body.appendChild(container);root=createRoot(container);});
+afterEach(()=>{act(()=>root.unmount());container.remove();delete URL.createObjectURL;delete URL.revokeObjectURL;jest.useRealTimers();});
+test('saving a review preserves unsaved answer edits and their browser backup',async()=>{
+  const doc={_id:'abc',answers:{firstName:'Alex'},email:'test@example.edu',state:'submitted',revision:0,reviewStatus:'pending',reviews:[],audit:[]};
+  const config={season:'2027',statuses:['pending','accepted'],fields:[{key:'firstName',label:'First name',type:'text',maxLength:100}]};
+  const api={get:jest.fn(async url=>({data:url.endsWith('config')?config:url==='/applications/admin'?{items:[doc],total:1}:doc})),patch:jest.fn(async()=>({data:{...doc,revision:1,reviews:[{reviewer:'admin',score:null,notes:'Review note'}]}}))};
+  useSession.mockReturnValue({api,user:{clerkUserId:'admin',admin:true}});
+  await act(async()=>{root.render(<MemoryRouter future={{v7_startTransition:true,v7_relativeSplatPath:true}}><AdminApplications/></MemoryRouter>);});
+  await act(async()=>{jest.advanceTimersByTime(300);});
+  const click=async text=>act(async()=>Array.from(container.querySelectorAll('button')).find(b=>b.textContent===text).click());
+  await click('Open application');await click('Edit answers');
+  act(()=>Simulate.change(container.querySelector('#answer-firstName'),{target:{value:'Unsaved correction'}}));
+  const areas=container.querySelectorAll('textarea');
+  act(()=>Simulate.change(areas[0],{target:{value:'Review note'}}));
+  act(()=>Simulate.change(areas[1],{target:{value:'Initial review'}}));
+  await click('Save review & status');
+  expect(api.patch).toHaveBeenCalledTimes(1);
+  expect(container.querySelector('#answer-firstName').value).toBe('Unsaved correction');
+  const backup=JSON.parse(localStorage.getItem('winghacks:review:admin:abc'));
+  expect(backup.answers.firstName).toBe('Unsaved correction');
+});
+
+test('loads a stored resume into the protected in-browser viewer',async()=>{
+  const doc={_id:'abc',answers:{firstName:'Alex'},email:'test@example.edu',state:'submitted',revision:0,reviewStatus:'pending',reviews:[],audit:[],resume:{name:'resume.pdf',size:1200}};
+  const config={season:'2027',statuses:['pending'],fields:[]};
+  const pdf=new Blob(['%PDF-1.4'],{type:'application/pdf'});
+  const api={get:jest.fn(async url=>({data:url.endsWith('config')?config:url==='/applications/admin'?{items:[doc],total:1}:url.endsWith('/resume')?pdf:doc}))};
+  URL.createObjectURL=jest.fn(()=> 'blob:resume-preview');
+  URL.revokeObjectURL=jest.fn();
+  useSession.mockReturnValue({api,user:{clerkUserId:'admin',admin:true}});
+  await act(async()=>{root.render(<MemoryRouter future={{v7_startTransition:true,v7_relativeSplatPath:true}}><AdminApplications/></MemoryRouter>);});
+  await act(async()=>{jest.advanceTimersByTime(300);});
+  await act(async()=>{Array.from(container.querySelectorAll('button')).find(b=>b.textContent==='Open application').click();});
+  await act(async()=>{});
+  expect(api.get).toHaveBeenCalledWith('/applications/admin/abc/resume',{responseType:'blob'});
+  const frame=container.querySelector('.admin-resume-viewer iframe');
+  expect(frame.getAttribute('src')).toBe('blob:resume-preview');
+  expect(frame.hasAttribute('sandbox')).toBe(true);
+  expect(frame.getAttribute('referrerpolicy')).toBe('no-referrer');
+});

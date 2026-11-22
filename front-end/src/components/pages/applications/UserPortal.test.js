@@ -6,6 +6,9 @@ import UserPortal, { applicationState, timelineStep } from './UserPortal';
 import { useSession } from '../../auth/SessionProvider';
 jest.mock('../../auth/SessionProvider', () => ({ useSession: jest.fn() }));
 jest.mock('./RSVPForm', () => props => <button onClick={() => props.setRSVPStatus('yes')}>Test RSVP confirmation</button>);
+// These tests cover portal navigation and profile status. The embedded form's
+// requests must not consume the profile API responses used by these tests.
+jest.mock('../../applications/HackerApplication', () => () => <section aria-label="Hacker application form">Application form</section>);
 let container, root;
 const profile = { _id: 'hacker', firstName: 'Alex', lastName: 'Hacker', email: 'alex@example.edu', status: 'Not Applied', acceptedRSVP: 'n/a' };
 beforeEach(() => { container = document.createElement('div'); document.body.appendChild(container); root = createRoot(container); });
@@ -19,19 +22,23 @@ test.each(['Not Applied', 'Applied', 'Waitlisted', 'Accepted', 'Rejected'])('use
   expect(container.querySelector('[aria-label="Application status"]').textContent).toContain(applicationState({ ...profile, status }).label);
   expect(Boolean(container.textContent.includes('Test RSVP confirmation'))).toBe(status === 'Accepted');
 });
-test('information navigation opens the application and the form is unavailable until configured', () => {
+test('information navigation opens the embedded application form', () => {
   render(profile, '/portal');
   expect(container.textContent).toContain('meadow, Alex');
+  expect(container.querySelector('[aria-label="Hacker application form"]')).toBeNull();
   act(() => Array.from(container.querySelectorAll('button')).find(button => button.textContent.includes('View my application')).click());
-  expect(container.textContent).toContain('Applications are coming soon.');
+  expect(container.querySelector('[aria-label="Hacker application form"]')).not.toBeNull();
   expect(container.querySelector('nav a[aria-current]').textContent).toBe('Application');
 });
-test('configured form opens securely and never marks an application as submitted', () => {
+test('custom form entry never marks an application as submitted', () => {
   process.env.REACT_APP_APPLICATION_FORM = 'https://example.com/application';
-  render();
-  const link = container.querySelector('a[href="https://example.com/application"]');
-  expect(link.rel).toBe('noopener noreferrer');
+  const api = { post: jest.fn(), patch: jest.fn() };
+  render(profile, undefined, api);
+  expect(container.querySelector('[aria-label="Hacker application form"]')).not.toBeNull();
+  expect(container.querySelector('a[href="https://example.com/application"]')).toBeNull();
   expect(container.querySelector('[aria-label="Application status"]').textContent).toContain('Not applied');
+  expect(api.post).not.toHaveBeenCalled();
+  expect(api.patch).not.toHaveBeenCalled();
 });
 test('refresh displays the server decision and reports failures without losing it', async () => {
   const api = { get: jest.fn().mockResolvedValueOnce({ data: { ...profile, status: 'Waitlisted' } }).mockRejectedValueOnce(new Error('Offline')) };

@@ -1,391 +1,301 @@
-import { useApi } from '../../auth/SessionProvider';
-import React, {useState, useEffect} from 'react'
-import Select from 'react-select'
+import React, { useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
-import MLHCoC from "./../../data/MLHCoC.pdf"
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { useApi } from "../../auth/SessionProvider";
+import MLHCoC from "./../../data/MLHCoC.pdf";
 
+const meals = [
+  "Saturday Breakfast",
+  "Saturday Lunch",
+  "Saturday Dinner",
+  "Sunday Breakfast/Brunch",
+  "I don't plan to eat at the venue",
+];
 
-const RSVPForm = ({setAlreadyRSVP, setRSVPStatus}) => {
-    const api = useApi();
-    const [phoneNumber, setPhoneNumber] = useState("");
-    const [mealPreference, setMealPreference] = useState([]);
-    const [dietRestriction, setDietRestriction] = useState("");
-    const [mlhAccept, setMLHAccept] = useState(false);
-    const [mlhShareData, setMLHShareData] = useState(false);
-    const [mlhSendEmail, setMLHSendEmail] = useState(false);
-    const [shirtSize, setShirtSize] = useState("");
-    const [selectedRSVP, setSelectedRSVP] = useState("");
-    const [submitedClicked, setSubmitClicked] = useState(false)
-    const [missingFormValue, setMissingFormValue] = useState(true);
-    const [submitError, setSubmitError] = useState('');
+export default function RSVPForm({ setAlreadyRSVP, setRSVPStatus }) {
+  const api = useApi();
+  const [step, setStep] = useState(1);
+  const [selectedRSVP, setSelectedRSVP] = useState("");
+  const [shirtSize, setShirtSize] = useState("");
+  const [mealPreference, setMealPreference] = useState([]);
+  const [dietRestriction, setDietRestriction] = useState("");
+  const [mlhAccept, setMLHAccept] = useState(false);
+  const [mlhShareData, setMLHShareData] = useState(false);
+  const [mlhSendEmail, setMLHSendEmail] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
-    // Handle change function
-    const handleRSVPChange = selectedRSVP => {
-        setSelectedRSVP(selectedRSVP.value);
-    };
+  const preferencesComplete = Boolean(shirtSize && mealPreference.length);
+  const agreementsComplete = mlhAccept && mlhShareData;
 
-    // Handle change function
-    const handleShirtChange = shirtSize => {
-        setShirtSize(shirtSize.value);
-    };
-
-
-   const handleMealPreferenceChange = (event) => {
+  const changeMeal = (event) => {
     const { value, checked } = event.target;
-    if (checked) {
-        setMealPreference([...mealPreference, value]);
-    } else {
-        setMealPreference(mealPreference.filter(pref => pref !== value));
+    setMealPreference((current) =>
+      checked
+        ? [...current, value]
+        : current.filter((preference) => preference !== value),
+    );
+  };
+
+  const submitRSVP = async (decision) => {
+    if (submitting || !["yes", "no"].includes(decision)) return;
+    if (decision === "yes" && (!preferencesComplete || !agreementsComplete))
+      return;
+    setSubmitError("");
+    setSubmitting(true);
+    const data = { acceptedRSVP: decision };
+    if (decision === "yes") {
+      Object.assign(data, {
+        mealPreference: mealPreference.join(", "),
+        dietRestriction,
+        mlhAccept,
+        mlhShareData,
+        mlhSendEmail,
+        shirtSize,
+      });
+    }
+    try {
+      await api.post("/rsvp/submit", data);
+      setAlreadyRSVP(true);
+      setRSVPStatus(decision);
+    } catch (error) {
+      setSubmitError(
+        error.response?.data?.message ||
+          "Unable to save your RSVP. Please try again.",
+      );
+    } finally {
+      setSubmitting(false);
     }
   };
 
-    const rsvpOption = [
-        { value: '', label: 'Select...' },
-        { value: 'yes', label: 'Yes, I will be attending.' },
-        { value: 'no', label: 'No, I choose to decline this offer and will not attend.' }
-        ]
-    
-    const shirtSizeOption = [
-        { value: '', label: 'Select...' },
-        { value: 'XS', label: 'XS' },
-        { value: 'S', label: 'S' },
-        { value: 'M', label: 'M' },
-        { value: 'L', label: 'L' },
-        { value: 'XL', label: 'XL' },
-        { value: 'XXL', label: 'XXL' },
-        ]
-    
-
-    const submitRSVPForm = async (event) => {
-        event?.preventDefault();
-        if (submitedClicked || missingFormValue) return;
-        setSubmitError('');
-        setSubmitClicked(true)
-        const decision = selectedRSVP;
-        const data = { acceptedRSVP: decision };
-        if (decision === "yes") Object.assign(data, {
-                phoneNumber,
-                mealPreference: mealPreference.join(', '),
-                dietRestriction,
-                mlhAccept: mlhAccept,
-                mlhShareData: mlhShareData,
-                mlhSendEmail: mlhSendEmail,
-                shirtSize: shirtSize
-        });
-        try {
-            await api.post('/rsvp/submit', data);
-            setSelectedRSVP("");
-            setAlreadyRSVP(true);
-            setRSVPStatus(decision);
-        } catch (error) {
-            setSubmitError(error.response?.data?.message || 'Unable to save your RSVP. Please try again.');
-        } finally {
-            setSubmitClicked(false);
-        }
-    }
-
-    useEffect(() => {
-        if(phoneNumber
-             && mealPreference.length > 0 
-         && mlhAccept && shirtSize
-            && selectedRSVP === "yes" && mlhShareData){
-            setMissingFormValue(false)
-        } 
-        else if (selectedRSVP === "no"){
-            setMissingFormValue(false)
-        }
-        else {setMissingFormValue(true)}
-    }, [phoneNumber, mealPreference.length, mlhAccept, shirtSize, selectedRSVP, mlhShareData])
-
-    const [step, setStep] = useState(1);
-
-    const nextStep = () => { setStep(step + 1); };
-
-    const prevStep = () => { setStep(step - 1); };
-
   return (
-    <div className='RSVP'>
-        {submitError && <p role="alert">{submitError}</p>}
-        {submitedClicked && <p role="status">Saving your RSVP…</p>}
-        <form id="msform" onSubmit={event => event.preventDefault()}>
-            <ul id="progressbar" className={step === 1 ? 'noDisplay' : ''}>
-                <li className={step >= 1 ? 'active' : ''}>Attendance</li>
-                <li className={step >= 2 ? 'active' : ''}>Contact</li>
-                <li className={step >= 3 ? 'active' : ''}>Preferences</li>
-                <li className={step >= 4 ? 'active' : ''}>Submit</li>
-            </ul>
+    <div className="RSVP">
+      {submitError && (
+        <p className="rsvp-message rsvp-error" role="alert">
+          {submitError}
+        </p>
+      )}
+      {submitting && (
+        <p className="rsvp-message" role="status">
+          Saving your RSVP…
+        </p>
+      )}
 
-            {/* Fieldsets */}
-            <fieldset style={{ display: step === 1 ? 'block' : 'none' }}>
-                {/* <h2 class="fs-title">Create your account</h2> */}
-                <h1 className="fs-title congrats">Congratulations!</h1>
-                <h3 className="fs-subtitle">You have been selected to participate in WiNGHacks!<br/>
-                    Please indicate your attendance as appropriate below.<br/>
-                    Should you choose to attend, please fill out the rest of the RSVP form.</h3>
-                <Select
-                    placeholder="Your decision..."
-                    value={rsvpOption.find(option => option.value === selectedRSVP)}
-                    onChange={handleRSVPChange}
-                    options={rsvpOption}
-                    // isDisabled = {alreadyRSVP}
-                    />  
-                {selectedRSVP === "yes" ?
-                    (<button type="button" className="next action-button" onClick={nextStep}>Next</button>)
-                    : 
-                    <button 
-                        onClick={submitRSVPForm} 
-                        className={missingFormValue ? "disabledButton-rsvp" : 'Button-rsvp' } 
-                        align= "center" 
-                        disabled={missingFormValue} > 
-                        Submit RSVP
-            </button>
-                }
-            </fieldset>
-
-            <fieldset style={{ display: step === 2 ? 'block' : 'none' }}>
-                <h2 className="fs-title">Contact Information</h2>
-                <h3 className="fs-subtitle">We'll keep you updated on announcements!</h3>
+      <form id="msform" onSubmit={(event) => event.preventDefault()}>
+        {step === 1 && (
+          <fieldset className="rsvp-welcome">
+            <legend>Congratulations! 🥳 🎉</legend>
+            <p className="rsvp-intro">
+              You’ve been accepted to WiNGHacks! We’re excited to see what
+              you’ll create and accomplish. Please confirm your attendance
+              below.
+            </p>
+            <div className="rsvp-choice-group">
+              <label className={selectedRSVP === "yes" ? "selected" : ""}>
                 <input
-                        onChange={(e) => {setPhoneNumber(e.target.value)}}
-                        type="tel"
-                        placeholder='Enter phone number'
-                    />
-                    
-                    <br/>
-
-                    
-
-                <button type="button" className="previous action-button" onClick={prevStep}>Previous</button>
-                <button type="button" className="next action-button" onClick={nextStep}>Next</button>
-            </fieldset>
-            <fieldset style={{ display: step === 3 ? 'block' : 'none' }}>
-            <h2 className="fs-title">Shirt Size</h2>
-                <Select
-                    placeholder="Your shirt size..."
-                    value={shirtSizeOption.find(option => option.value === shirtSize)}
-                    onChange={handleShirtChange}
-                    options={shirtSizeOption}
-                    // isDisabled = {alreadyRSVP}
-                    />  
-                {/* {console.log(shirtSize)} */}
-
-                
-                <h2 className="fs-title">Meal Preferences</h2>
-                <h3 className="fs-subtitle">Which meals would you prefer having? (Required)</h3>
-                <div className="mealPref">
-                    <div className="mealOption">
-                        <input type="checkbox" id="option1" name="option1" value="Saturday Breakfast" onChange={handleMealPreferenceChange} />
-                        <label htmlFor="option1">Saturday Breakfast</label>
-                    </div>
-                    <div className="mealOption">
-                        <input type="checkbox" id="option2" name="option2" value="Saturday Lunch" onChange={handleMealPreferenceChange} />
-                        <label htmlFor="option2">Saturday Lunch</label>
-                    </div>
-                    <div className="mealOption">
-                        <input type="checkbox" id="option3" name="option3" value="Saturday Dinner" onChange={handleMealPreferenceChange} />
-                        <label htmlFor="option3">Saturday Dinner</label>
-                    </div>
-                    <div className="mealOption">
-                        <input type="checkbox" id="option4" name="option4" value="Sunday Breakfast/Brunch" onChange={handleMealPreferenceChange} />
-                        <label htmlFor="option4">Sunday Breakfast/Brunch</label>
-                    </div>
-                    <div className="mealOption">
-                        <input type="checkbox" id="option5" name="option5" value="I don't plan to eat at the venue" onChange={handleMealPreferenceChange} />
-                        <label htmlFor="option5">I don't plan to eat at the venue</label>
-                    </div>
-                    <br/>
-
-                    <div className='diet'>Please list any dietary restrictions as necessary. (Leave blank if N/A)</div>
-            
-                    <input
-                        onChange={(e) => {setDietRestriction(e.target.value)}}
-                        placeholder='Dietary restrictions'
-                    />
-
-                    
-                </div>
-
-                <button type="button" className="previous action-button" onClick={prevStep}>Previous</button>
-                <button type="button" className="next action-button" onClick={nextStep}>Next</button>
-                
-            </fieldset>
-
-            <fieldset style={{ display: step === 4 ? 'block' : 'none' }}>
-                <h2 className="fs-title">Terms and Conditions</h2>
-                <h3 className="fs-subtitle">You're almost done!</h3>
-                <label>
-                        <input 
-                            type="checkbox" 
-                            onChange={() => {setMLHAccept(!mlhAccept)}} 
-                        />
-                        &nbsp; I have read and agree to the 
-                        <a href={MLHCoC} download="MLH_Code_of_Conduct.pdf"> MLH Code of Conduct</a>. (Required)
-                    </label>
-                    <p/>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            onChange={() => {setMLHShareData(!mlhShareData)}} 
-                        />
-                        &nbsp; I authorize you to share my application/registration information with Major League Hacking for event administration, ranking, and MLH administration in-line with the 
-                        <a target="_blank" rel="noopener noreferrer" href='https://mlh.io/privacy'> MLH Privacy Policy</a>. I further agree to the terms of both the 
-                        <a target="_blank" rel="noopener noreferrer" href='https://github.com/MLH/mlh-policies/blob/main/contest-terms.md'> MLH Contest Terms and Conditions</a> and the 
-                        <a target="_blank" rel="noopener noreferrer" href='https://mlh.io/privacy'> MLH Privacy Policy</a>. (Required)
-                    </label>
-                    <p/>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            onChange={() => {setMLHSendEmail(!mlhSendEmail)}} 
-                        />
-                        &nbsp; I authorize MLH to send me occasional emails about relevant events, career opportunities, and community announcements. (Optional)
-                    </label>
-                    <br/>
-                <button type="button" className="previous action-button" onClick={prevStep}>Previous</button>
-                {submitedClicked?(
-                    <div>
-                        <button className="submitBubble" style={{  pointerEvents: "none"}} align= "center" disabled>
-                            <ClipLoader 
-                                color='black'
-                                loading={submitedClicked}
-                                size={10}
-                                speedMultiplier ={1}
-                                
-                            />
-                        </button>
-                    </div>
-                    ):(
-                    <button 
-                        onClick={submitRSVPForm} 
-                        className={missingFormValue ? "disabledButton-rsvp" : 'Button-rsvp' } 
-                        align= "center" 
-                        disabled={missingFormValue} 
-                    > 
-                        Submit RSVP
-                    </button>
-                )}
-            </fieldset>
-            <p>*Inputted information is not saved until submit is clicked </p>
-        </form>
-
-        {/* <Select
-            placeholder="Your decision..."
-            value={selectedRSVP.value}
-            onChange={handleRSVPChange}
-            options={rsvpOption}
-            // isDisabled = {alreadyRSVP}
-        />  
-
-        {selectedRSVP === "yes" ?
-            (
-                <div>
-                    <input
-                        onChange={(e) => {setEmail(e.target.value)}}
-                        type="email"
-                        placeholder='Enter email'
-                    />
-                    <p/>
-                    <input
-                        onChange={(e) => {setPhoneNumber(e.target.value)}}
-                        type="phoneNumber"
-                        placeholder='Enter phone number'
-                    />
-                    <p/>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            onChange={() => {setRemindSignedUp(!remindSignedUp)}} 
-                        />
-                        I have signed up for the REMIND newsletter to get all  the latest updates about our events and activities!
-                    </label>
-                    <p/>
-                    <label>
-                        Meal preference (Required)
-                        <br/>
-                        <input type="checkbox" id="option1" name="option1" value="Saturday Breakfast" onChange={handleMealPreferenceChange}/>
-                        <label for="option1">Saturday Breakfast</label><br/>
-
-                        <input type="checkbox" id="option2" name="option2" value="Saturday Lunch" onChange={handleMealPreferenceChange}/>
-                        <label for="option2">Saturday Lunch</label><br/>
-
-                        <input type="checkbox" id="option3" name="option3" value="Saturday Dinner" onChange={handleMealPreferenceChange}/>
-                        <label for="option3">Saturday Dinner</label><br/>
-
-                        <input type="checkbox" id="option4" name="option4" value="Sunday Breakfast/Brunch" onChange={handleMealPreferenceChange}/>
-                        <label for="option4">Sunday Breakfast/Brunch</label><br></br>
-
-                        <input type="checkbox" id="option5" name="option5" value="I don't plan to eat at the venue" onChange={handleMealPreferenceChange}/>
-                        <label for="option4">I don't plan to eat at the venue</label><br></br>
-                        {console.log(mealPreference)}
-                    </label>
-                    <p/>
-                    <input
-                        onChange={(e) => {setDietRestriction(e.target.value)}}
-                        placeholder='Do you have any dietary restrictions? (Leave blank if N/A)'
-                    />
-                    <p/>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            onChange={() => {setMLHAccept(!mlhAccept)}} 
-                        />
-                        &nbsp; I have read and agree to the 
-                        <a target="_blank" rel="noopener noreferrer" style={{color: "blue"}} onClick={downloadPDF}> MLH Code of Conduct</a>. (Required)
-                    </label>
-                    <p/>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            onChange={() => {setMLHShareData(!mlhShareData)}} 
-                        />
-                        &nbsp; I authorize you to share my application/registration information with Major League Hacking for event administration, ranking, and MLH administration in-line with the 
-                        <a target="_blank" rel="noopener noreferrer" href='https://mlh.io/privacy'> MLH Privacy Policy</a>. I further agree to the terms of both the 
-                        <a target="_blank" rel="noopener noreferrer" href='https://github.com/MLH/mlh-policies/blob/main/contest-terms.md'> MLH Contest Terms and Conditions</a> and the 
-                        <a target="_blank" rel="noopener noreferrer" href='https://mlh.io/privacy'> MLH Privacy Policy</a>. (Required)
-                    </label>
-                    <p/>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            onChange={() => {setMLHSendEmail(!mlhSendEmail)}} 
-                        />
-                        &nbsp; I authorize MLH to send me occasional emails about relevant events, career opportunities, and community announcements. (Optional)
-                    </label>
-                    {console.log(email)}
-                    {console.log(phoneNumber)}
-                    {console.log(remindSignedUp)}
-                </div>
-            
-            ):(
-                <div/>
-            )
-
-        }
-        
-        {submitedClicked?(
-            <div>
-                <button className="submitBubble" style={{  pointerEvents: "none"}} align= "center" disabled>
-                    <ClipLoader 
-                        color='black'
-                        loading={submitedClicked}
-                        size={10}
-                        speedMultiplier ={1}
-                        
-                    />
-                </button>
+                  type="radio"
+                  name="attendance"
+                  value="yes"
+                  checked={selectedRSVP === "yes"}
+                  onChange={(event) => setSelectedRSVP(event.target.value)}
+                />
+                <span>
+                  <strong>Yes, I’m going!</strong>
+                </span>
+              </label>
+              <label className={selectedRSVP === "no" ? "selected" : ""}>
+                <input
+                  type="radio"
+                  name="attendance"
+                  value="no"
+                  checked={selectedRSVP === "no"}
+                  onChange={(event) => setSelectedRSVP(event.target.value)}
+                />
+                <span>
+                  <strong>No, I can’t attend</strong>
+                </span>
+              </label>
             </div>
-        ):(
-            <button 
-                onClick={submitRSVPForm} 
-                className={missingFormValue ? "disabledButton-rsvp" : 'Button-rsvp' } 
-                align= "center" 
-                disabled={missingFormValue} 
-            > 
-                Submit RSVP
-            </button>
-        )} */}
-    </div>
-  )
-}
+            <div className="rsvp-actions">
+              <button
+                type="button"
+                className="rsvp-arrow next"
+                aria-label={
+                  selectedRSVP === "no"
+                    ? "Confirm that I cannot attend"
+                    : "Continue to preferences"
+                }
+                disabled={!selectedRSVP || submitting}
+                onClick={() =>
+                  selectedRSVP === "yes" ? setStep(2) : submitRSVP("no")
+                }
+              >
+                <FiArrowRight aria-hidden="true" />
+              </button>
+            </div>
+          </fieldset>
+        )}
 
-export default RSVPForm
+        {step === 2 && (
+          <fieldset>
+            <legend>Event preferences</legend>
+            <div className="rsvp-field">
+              <label htmlFor="rsvp-shirt">
+                Shirt size <span aria-hidden="true">*</span>
+              </label>
+              <select
+                id="rsvp-shirt"
+                value={shirtSize}
+                onChange={(event) => setShirtSize(event.target.value)}
+                required
+              >
+                <option value="">Choose a size</option>
+                {["XS", "S", "M", "L", "XL", "XXL"].map((size) => (
+                  <option key={size}>{size}</option>
+                ))}
+              </select>
+            </div>
+
+            <fieldset className="rsvp-meals">
+              <legend>
+                Meals you plan to attend <span aria-hidden="true">*</span>
+              </legend>
+              <div className="rsvp-checkbox-list">
+                {meals.map((meal, index) => (
+                  <label key={meal}>
+                    <input
+                      type="checkbox"
+                      id={`meal-${index}`}
+                      value={meal}
+                      checked={mealPreference.includes(meal)}
+                      onChange={changeMeal}
+                    />
+                    <span>{meal}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <div className="rsvp-field">
+              <label htmlFor="rsvp-diet">
+                Dietary restrictions <span>Optional</span>
+              </label>
+              <input
+                id="rsvp-diet"
+                value={dietRestriction}
+                maxLength={500}
+                onChange={(event) => setDietRestriction(event.target.value)}
+                placeholder="Leave blank if none"
+              />
+            </div>
+
+            <div className="rsvp-actions">
+              <button
+                type="button"
+                className="secondary rsvp-arrow"
+                aria-label="Back to attendance"
+                onClick={() => setStep(1)}
+              >
+                <FiArrowLeft aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                className="rsvp-arrow next"
+                aria-label="Continue to agreements"
+                disabled={!preferencesComplete}
+                onClick={() => setStep(3)}
+              >
+                <FiArrowRight aria-hidden="true" />
+              </button>
+            </div>
+          </fieldset>
+        )}
+
+        {step === 3 && (
+          <fieldset>
+            <legend>Agreements</legend>
+            <div className="rsvp-agreements">
+              <label>
+                <input
+                  type="checkbox"
+                  checked={mlhAccept}
+                  onChange={(event) => setMLHAccept(event.target.checked)}
+                />
+                <span>
+                  I have read and agree to the{" "}
+                  <a href={MLHCoC} download="MLH_Code_of_Conduct.pdf">
+                    MLH Code of Conduct
+                  </a>
+                  . <strong>*</strong>
+                </span>
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={mlhShareData}
+                  onChange={(event) => setMLHShareData(event.target.checked)}
+                />
+                <span>
+                  I authorize WiNGHacks to share my registration information
+                  with Major League Hacking for event administration and agree
+                  to the{" "}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/MLH/mlh-policies/blob/main/contest-terms.md"
+                  >
+                    MLH Contest Terms
+                  </a>{" "}
+                  and{" "}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://mlh.io/privacy"
+                  >
+                    Privacy Policy
+                  </a>
+                  . <strong>*</strong>
+                </span>
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={mlhSendEmail}
+                  onChange={(event) => setMLHSendEmail(event.target.checked)}
+                />
+                <span>
+                  MLH may send me occasional emails about events, opportunities,
+                  and community announcements. <em>Optional</em>
+                </span>
+              </label>
+            </div>
+
+            <div className="rsvp-actions">
+              <button
+                type="button"
+                className="secondary rsvp-arrow"
+                aria-label="Back to preferences"
+                onClick={() => setStep(2)}
+              >
+                <FiArrowLeft aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                disabled={!agreementsComplete || submitting}
+                onClick={() => submitRSVP("yes")}
+              >
+                {submitting ? (
+                  <>
+                    <ClipLoader color="currentColor" size={12} /> Saving…
+                  </>
+                ) : (
+                  "Submit RSVP"
+                )}
+              </button>
+            </div>
+          </fieldset>
+        )}
+      </form>
+    </div>
+  );
+}

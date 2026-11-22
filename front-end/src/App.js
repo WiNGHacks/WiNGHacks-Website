@@ -36,15 +36,16 @@ const Attendance = lazy(() => import("./components/pages/Attendance"));
 
 function LegacyHeader({ headerRef }) {
   const { pathname } = useLocation();
-  return pathname.startsWith('/admin/') || pathname === '/attendance' ? <Header ref={headerRef} /> : null;
+  return pathname.startsWith('/admin/sendResult') || pathname === '/attendance' ? <Header ref={headerRef} /> : null;
 }
 function LegacyFooter() {
   const { pathname } = useLocation();
-  return pathname.startsWith('/admin/') || pathname === '/attendance' ? <Footer /> : null;
+  return pathname.startsWith('/admin/sendResult') || pathname === '/attendance' ? <Footer /> : null;
 }
 
 function App() {
   const ref = useRef({});
+  const portalAdminOnly = process.env.REACT_APP_PORTAL_ADMIN_ONLY === "true";
 
   return (
     <div className="app">
@@ -57,7 +58,9 @@ function App() {
 
               <Route path="/login" element={<Login />}></Route>
               <Route path="/signup" element={<SignUp />}></Route>
-              <Route path="/portal" element={<RequireSession><UserPortal /></RequireSession>} />
+              <Route path="/portal" element={<RequireSession admin={portalAdminOnly}><UserPortal /></RequireSession>} />
+              <Route path="/apply" element={<RequireSession admin={portalAdminOnly}><Navigate to="/portal?tab=application" replace /></RequireSession>} />
+              <Route path="/admin/applications" element={<RequireSession admin><Navigate to="/portal?tab=review" replace /></RequireSession>} />
               <Route path="/portal/:id" element={<Navigate to="/portal" replace />} />
               <Route
                 path="/verify/:token"

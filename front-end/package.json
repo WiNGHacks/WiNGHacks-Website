@@ -32,7 +32,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "prestart": "node scripts/verify-local-env.cjs",
     "start": "react-scripts start",
+    "start:check": "node scripts/verify-local-env.cjs",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

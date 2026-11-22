@@ -1,0 +1,174 @@
+/* Quiet, task-focused organizer review workspace */
+.admin-applications {
+  --admin-ink: #203628;
+  --admin-muted: #586a5b;
+  --admin-green: #43683e;
+  --admin-canvas: #f7f7e5;
+  --admin-paper: #fffefb;
+  --admin-soft: #f0f2df;
+  --admin-line: rgba(32, 54, 40, .15);
+  width: 100%;
+  max-width: 1180px;
+  min-width: 0;
+  margin: 0 auto;
+  color: var(--admin-ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.admin-applications *, .admin-applications *::before, .admin-applications *::after { box-sizing: border-box; min-width: 0; }
+.admin-header { margin-bottom: 24px; }
+.admin-header .admin-kicker { margin: 0 0 6px; color: var(--admin-muted); font-size: 11px; font-weight: 650; }
+.admin-header h1 { margin: 0 0 6px; color: var(--admin-ink); font-size: 28px; line-height: 1.2; letter-spacing: -.02em; }
+.admin-header .admin-subtitle { max-width: 68ch; margin: 0; color: var(--admin-muted); font-size: 14px; line-height: 1.55; }
+.admin-card { margin-bottom: 20px; padding: clamp(18px, 2.5vw, 28px); background: var(--admin-paper); border: 1px solid var(--admin-line); border-radius: 14px; box-shadow: 0 4px 20px rgba(32, 54, 40, .04); }
+
+.admin-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; margin-bottom: 20px; }
+.admin-filters label, .admin-decision-fields label { display: block; color: var(--admin-ink); font-size: 13px; font-weight: 650; }
+.admin-filters input, .admin-filters select, .admin-input, .admin-select, .admin-textarea {
+  width: 100%; margin-top: 6px; padding: 11px 13px; color: var(--admin-ink); background: #fff;
+  border: 1px solid var(--admin-line); border-radius: 10px; font: inherit;
+}
+.admin-filters input:focus-visible, .admin-filters select:focus-visible, .admin-input:focus-visible,
+.admin-select:focus-visible, .admin-textarea:focus-visible, .admin-btn:focus-visible, .admin-link-pill:focus-visible,
+.admin-collapsible summary:focus-visible { outline: 3px solid rgba(67, 104, 62, .28); outline-offset: 2px; border-color: var(--admin-green); }
+.admin-textarea { min-height: 88px; max-height: 260px; resize: vertical; line-height: 1.55; }
+
+.admin-toolbar, .admin-detail-header-bar, .admin-toolbar-actions, .admin-pagination {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+}
+.admin-toolbar, .admin-pagination { justify-content: space-between; }
+.admin-toolbar { padding-top: 18px; border-top: 1px solid var(--admin-line); }
+.admin-detail-header-bar { justify-content: space-between; margin-bottom: 28px; }
+.admin-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px;
+  padding: 10px 16px; color: var(--admin-ink); background: #fff; border: 1px solid var(--admin-line);
+  border-radius: 9px; font-family: inherit; font-size: 13px; font-weight: 650; line-height: 1.2; cursor: pointer; transition: background-color .16s ease, border-color .16s ease;
+}
+.admin-btn:hover:not(:disabled) { background: var(--admin-soft); border-color: rgba(32, 54, 40, .3); }
+.admin-btn:disabled { opacity: .52; cursor: not-allowed; }
+.admin-btn.admin-btn-primary { color: #fffefb; background: var(--admin-green); border-color: var(--admin-green); }
+.admin-btn.admin-btn-primary:hover:not(:disabled) { background: #345431; }
+.admin-btn.admin-btn-danger { color: #8b3834; border-color: rgba(139, 56, 52, .28); }
+.admin-btn.admin-btn-danger:hover:not(:disabled) { background: #f7e8e3; }
+.admin-count-pill, .admin-badge { display: inline-flex; align-items: center; border-radius: 999px; font-weight: 650; white-space: nowrap; }
+.admin-count-pill { padding: 6px 12px; color: #3d5a3d; background: #e4ead3; font-size: 13px; }
+.admin-badge { padding: 5px 10px; color: #304b35; background: #e8eadc; font-size: 12px; text-transform: capitalize; }
+.admin-badge.pending { background: #efe8cb; color: #655724; }
+.admin-badge.in_review { background: #e5deeb; color: #584766; }
+.admin-badge.accepted, .admin-badge.state-submitted { background: #dce7c7; color: #355436; }
+.admin-badge.waitlisted { background: #eadfcf; color: #624d33; }
+.admin-badge.rejected, .admin-badge.state-trash { background: #f0ddd8; color: #773f3a; }
+.admin-badge.state-draft { background: #e8e9df; color: #515b51; }
+
+.admin-table-container { width: 100%; margin-top: 20px; overflow-x: auto; border: 1px solid var(--admin-line); border-radius: 12px; overscroll-behavior-inline: contain; }
+.admin-table { width: 100%; min-width: 760px; border-collapse: collapse; text-align: left; font-size: 13px; }
+.admin-table th { padding: 13px 15px; color: var(--admin-muted); background: #f2f3e7; border-bottom: 1px solid var(--admin-line); font-size: 12px; font-weight: 700; }
+.admin-table td { max-width: 260px; padding: 14px 15px; border-bottom: 1px solid var(--admin-line); vertical-align: middle; overflow-wrap: anywhere; }
+.admin-table tr:last-child td { border-bottom: 0; }
+.admin-table tbody tr:hover { background: #fafaf2; }
+.admin-table-applicant-name { display: block; font-weight: 700; }
+.admin-table-applicant-email { display: block; margin-top: 3px; color: var(--admin-muted); font-size: 12px; overflow-wrap: anywhere; }
+
+.admin-applicant-hero { padding-bottom: 22px; border-bottom: 1px solid var(--admin-line); }
+.admin-applicant-title-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.admin-applicant-title-row h2 { flex-basis: 100%; margin: 0 0 3px; font-size: 24px; line-height: 1.2; letter-spacing: -.02em; overflow-wrap: anywhere; }
+.admin-applicant-email { display: inline-block; margin-top: 10px; color: var(--admin-green); font-size: 13px; overflow-wrap: anywhere; text-underline-offset: 3px; }
+.admin-submission-meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0 0 32px; padding: 18px 0; border-bottom: 1px solid var(--admin-line); }
+.admin-submission-meta > div { padding: 0 20px; border-right: 1px solid var(--admin-line); }
+.admin-submission-meta > div:first-child { padding-left: 0; }
+.admin-submission-meta > div:last-child { border-right: 0; }
+.admin-submission-meta dt, .admin-key-label, .admin-response-label { color: var(--admin-muted); font-size: 12px; font-weight: 650; }
+.admin-submission-meta dd { margin: 5px 0 0; font-size: 14px; font-weight: 650; overflow-wrap: anywhere; }
+.admin-submission-meta dd span { display: block; margin-top: 2px; color: var(--admin-muted); font-size: 12px; font-weight: 500; }
+
+.admin-key-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 36px; margin-bottom: 32px; border-top: 1px solid var(--admin-line); }
+.admin-key-tile { display: grid; grid-template-columns: minmax(120px, .75fr) minmax(0, 1.25fr); gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--admin-line); }
+.admin-key-value { color: var(--admin-ink); font-size: 13px; font-weight: 600; overflow-wrap: anywhere; }
+.admin-key-value a { color: var(--admin-green); text-underline-offset: 3px; }
+
+.admin-links-strip { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 30px; }
+.admin-link-pill { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 8px 12px; color: var(--admin-green); background: transparent; border: 1px solid var(--admin-line); border-radius: 10px; font-size: 13px; font-weight: 650; text-decoration: none; }
+.admin-link-pill:hover { background: var(--admin-soft); }
+
+.admin-resume-section { margin: 8px 0 32px; padding: 22px 0 0; border-top: 1px solid var(--admin-line); }
+.admin-resume-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.admin-resume-icon { flex: 0 0 auto; color: var(--admin-green); font-size: 24px; }
+.admin-resume-details h3 { margin: 0 0 3px; font-size: 18px; }
+.admin-resume-details strong, .admin-resume-details span { display: block; overflow-wrap: anywhere; }
+.admin-resume-details strong { font-size: 14px; }
+.admin-resume-details span { margin-top: 2px; color: var(--admin-muted); font-size: 12px; }
+.admin-resume-viewer { display: grid; place-items: center; min-height: 160px; overflow: hidden; background: #eceee4; border: 1px solid var(--admin-line); border-radius: 12px; }
+.admin-resume-viewer p { margin: 0; padding: 30px; color: var(--admin-muted); text-align: center; }
+.admin-resume-viewer iframe { display: block; width: 100%; height: min(72vh, 780px); min-height: 480px; border: 0; background: #fff; }
+
+.admin-section-block { margin: 0 0 36px; }
+.admin-section-header { display: flex; align-items: center; gap: 8px; margin: 0 0 13px; padding-bottom: 9px; border-bottom: 1px solid var(--admin-line); font-size: 16px; }
+.admin-response-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 36px; }
+.admin-response-item { display: grid; grid-template-columns: minmax(120px, .8fr) minmax(0, 1.2fr); gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--admin-line); }
+.admin-response-value { font-size: 13px; overflow-wrap: anywhere; }
+.admin-essay-card { padding: 20px 0; border-bottom: 1px solid var(--admin-line); }
+.admin-essay-question-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
+.admin-essay-title { max-width: 70ch; margin: 0; font-size: 14px; line-height: 1.5; }
+.admin-essay-chars { flex: 0 0 auto; color: var(--admin-muted); font-size: 12px; white-space: nowrap; }
+.admin-essay-body { max-width: 75ch; color: var(--admin-ink); font-size: 14px; line-height: 1.65; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+.admin-edit-container { padding-top: 8px; }
+.admin-edit-sections { display: grid; gap: 26px; }
+.admin-edit-section { padding-top: 20px; border-top: 1px solid var(--admin-line); }
+.admin-edit-section:first-child { padding-top: 0; border-top: 0; }
+.admin-edit-section > h3 { margin: 0 0 14px; font-size: 15px; line-height: 1.35; }
+.admin-edit-container .application-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 20px; margin: 0; }
+.admin-edit-container .application-field { min-width: 0; }
+.admin-edit-container .application-field.wide { grid-column: 1 / -1; }
+.admin-edit-container .application-field label { color: var(--admin-muted); font-size: 12px; font-weight: 650; line-height: 1.4; }
+.admin-edit-container .application-field input:not([type=checkbox]),
+.admin-edit-container .application-field select,
+.admin-edit-container .application-field textarea { margin: 6px 0 0; padding: 9px 11px; border: 1px solid var(--admin-line); border-radius: 8px; background: #fff; color: var(--admin-ink); font: 13px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.admin-edit-container .application-field textarea { min-height: 112px; max-height: 240px; resize: vertical; }
+.admin-edit-container .application-char-count { margin-top: 4px; color: var(--admin-muted); font-size: 11px; }
+.admin-edit-container .application-required { margin-left: 3px; color: #9a3732; }
+.admin-edit-container .application-error { margin-top: 4px; font-size: 12px; }
+.admin-decision-box { margin-top: 36px; padding: 22px; background: #f1f2e8; border-radius: 12px; }
+.admin-decision-box h3 { margin: 0 0 5px; font-size: 17px; }
+.admin-decision-subtext { margin: 0 0 22px; color: var(--admin-muted); font-size: 13px; }
+.admin-decision-fields { display: grid; gap: 18px; margin-bottom: 24px; }
+.admin-collapsible { margin-top: 26px; padding-top: 17px; border-top: 1px solid var(--admin-line); }
+.admin-collapsible details { border-bottom: 1px solid var(--admin-line); }
+.admin-collapsible summary { min-height: 44px; padding: 12px 2px; color: var(--admin-green); font-size: 14px; font-weight: 650; cursor: pointer; }
+.admin-collapsible-content { padding: 6px 0 14px; }
+.admin-audit-entry { margin-bottom: 8px; padding: 11px 12px; background: rgba(255, 254, 251, .72); border-radius: 8px; color: var(--admin-muted); font-size: 13px; line-height: 1.55; overflow-wrap: anywhere; }
+.admin-audit-entry strong { color: var(--admin-ink); }
+.admin-compact-actions { margin: 10px 0 0; }
+.admin-editor-note { margin: 0 0 16px; color: var(--admin-muted); font-size: 14px; }
+.admin-editor-actions { margin-top: 20px; }
+.admin-empty-value { color: #748373; font-style: italic; }
+.admin-response-confirmation { font-weight: 650; }
+.admin-confirmation { margin-top: 16px; }
+.admin-review-note { margin: 4px 0; }
+.admin-review-time { color: var(--admin-muted); }
+.admin-audit-reason { margin: 2px 0 0; }
+.admin-open-button { min-height: 38px; padding: 7px 13px; font-size: 13px; }
+.admin-empty-state { padding: 32px 0; color: var(--admin-muted); text-align: center; }
+.admin-page-count { color: var(--admin-muted); font-size: 13px; font-weight: 650; }
+
+@media (max-width: 760px) {
+  .admin-card { padding: 18px 15px; }
+  .admin-key-grid, .admin-response-grid { grid-template-columns: 1fr; }
+  .admin-submission-meta { grid-template-columns: 1fr; gap: 0; }
+  .admin-submission-meta > div, .admin-submission-meta > div:first-child { padding: 11px 0; border-right: 0; border-bottom: 1px solid var(--admin-line); }
+  .admin-submission-meta > div:last-child { border-bottom: 0; }
+  .admin-detail-header-bar, .admin-toolbar, .admin-pagination { align-items: stretch; flex-direction: column; }
+  .admin-toolbar-actions, .admin-toolbar-actions .admin-btn { width: 100%; }
+  .admin-resume-viewer iframe { min-height: 420px; height: 65vh; }
+  .admin-edit-container .application-fields { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .admin-btn { width: 100%; }
+  .admin-key-tile, .admin-response-item { grid-template-columns: 1fr; gap: 5px; }
+  .admin-essay-question-row { display: block; }
+  .admin-essay-chars { display: block; margin-top: 5px; }
+  .admin-decision-box { padding: 20px 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .admin-btn { transition: none; }
+}
+

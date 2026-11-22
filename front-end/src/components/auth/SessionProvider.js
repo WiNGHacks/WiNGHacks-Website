@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { ClerkProvider, useAuth, useClerk } from '@clerk/react';
 import { createApiClient } from '../api';
+import { clearUserBackups } from '../applications/draftStore';
 
 const SessionContext = createContext({
   isLoaded: true, isSignedIn: false, user: null, error: null,
@@ -31,7 +32,14 @@ function ClerkSession({ children }) {
     user: current ? profile.user : null,
     error: current ? profile.error : null,
     api,
-    signOut: () => signOut({ redirectUrl: '/login' }),
+    refreshProfile: async () => {
+      const { data } = await api.get('/users/me');
+      setProfile({ sessionId, user: data, error: null });
+    },
+    signOut: async () => {
+      try { clearUserBackups(window.localStorage, userId); } catch { /* Storage may be unavailable. */ }
+      await signOut({ redirectUrl: '/login' });
+    },
   }}>{children}</SessionContext.Provider>;
 }
 

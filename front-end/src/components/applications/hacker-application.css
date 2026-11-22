@@ -1,0 +1,900 @@
+.hacker-application.application-shell {
+  --ink: #203628;
+  --green: #385d45;
+  --line: rgba(32, 54, 40, 0.14);
+  --paper: #fffefb;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+}
+
+.hacker-application .application-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: clamp(20px, 3.5vw, 36px);
+  box-shadow: 0 4px 20px rgba(32, 54, 40, 0.04);
+}
+
+.hacker-application .application-card h2 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  margin: 4px 0 16px;
+  color: var(--ink);
+}
+
+.hacker-application h3 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.hacker-application p.application-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: #5c6e59;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.hacker-application p.application-step-note {
+  font-size: 13.5px;
+  color: #5c6e59;
+  margin: 0 0 20px;
+}
+
+.hacker-application button {
+  min-height: 42px;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font: 600 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+
+.hacker-application button:hover:not(:disabled) {
+  background: #edf2eb;
+  border-color: rgba(32, 54, 40, 0.25);
+}
+
+.hacker-application button.primary {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+}
+
+.hacker-application button.primary:hover:not(:disabled) {
+  background: #2b4835;
+  border-color: #2b4835;
+}
+
+.hacker-application .application-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.hacker-application .application-steps button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  border-radius: 14px;
+  padding: 10px 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.hacker-application .application-steps button[aria-current] {
+  background: #edf3ec;
+  border-color: var(--green);
+  color: var(--green);
+  font-weight: 600;
+}
+
+.hacker-application .application-step-number {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.hacker-application [aria-current] .application-step-number {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+}
+
+.hacker-application label {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.hacker-application .application-required {
+  color: #d32f2f;
+  font-weight: 700;
+  margin-left: 3px;
+}
+
+.hacker-application input:not([type=checkbox]),
+.hacker-application select,
+.hacker-application textarea {
+  border-radius: 10px;
+  border: 1px solid #c2cdc0;
+  background: #fff;
+  padding: 11px 14px;
+  font: 400 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.hacker-application input:not([type=checkbox]):focus,
+.hacker-application select:focus,
+.hacker-application textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(56, 93, 69, 0.15);
+  outline: none;
+}
+
+.hacker-application textarea {
+  min-height: 90px;
+  max-height: 200px;
+  resize: vertical;
+}
+
+.hacker-application input:disabled,
+.hacker-application select:disabled,
+.hacker-application textarea:disabled {
+  opacity: .65;
+  background: #f5f7f4;
+  cursor: not-allowed;
+}
+
+.hacker-application input[type=checkbox] {
+  accent-color: var(--green);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.hacker-application input[type=file] {
+  overflow: hidden;
+  padding: 8px 10px;
+}
+
+.hacker-application input::file-selector-button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 14px;
+  margin-right: 12px;
+  background: #edf2eb;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.hacker-application .application-char-count,
+.hacker-application .application-word-count {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  color: #637560;
+  margin-top: 4px;
+}
+
+.hacker-application .application-char-count.at-limit,
+.hacker-application .application-char-count.over-limit,
+.hacker-application .application-word-count.over-limit {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+.hacker-application .application-resume-card {
+  background: #ffffff;
+  border: 1px solid #e1e7df;
+  border-radius: 18px;
+  padding: clamp(20px, 3vw, 28px);
+  margin: 16px 0 28px;
+}
+
+.hacker-application .application-resume-card-header {
+  margin-bottom: 16px;
+}
+
+.hacker-application .application-resume-title {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3a2f;
+  margin: 0;
+}
+
+.hacker-application .application-dropzone {
+  border: 2px dashed #cfd8ce;
+  border-radius: 14px;
+  background: #f9faf8;
+  padding: clamp(36px, 5vw, 48px) 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.hacker-application .application-dropzone:hover {
+  border-color: #9cb597;
+  background: #f4f7f3;
+}
+
+.hacker-application .application-dropzone.is-dragging {
+  border-color: var(--green);
+  background: #edf5eb;
+}
+
+.hacker-application .application-dropzone-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hacker-application .application-dropzone-icon {
+  font-size: 36px;
+  color: #5d705a;
+  margin-bottom: 12px;
+}
+
+.hacker-application .application-dropzone-prompt {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #2c3a2f;
+  margin: 0 0 6px;
+}
+
+.hacker-application .application-dropzone-hint {
+  font-size: 13px;
+  color: #7a8a77;
+  margin: 0;
+}
+
+.hacker-application .application-resume-uploaded-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: #f6f8f5;
+  border: 1px solid #d8e2d6;
+  border-radius: 12px;
+  flex-wrap: wrap;
+}
+
+.hacker-application .application-resume-uploaded-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hacker-application .application-resume-file-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #e6ede4;
+  color: var(--green);
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.hacker-application .application-resume-file-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hacker-application .application-resume-file-name {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #2c3a2f;
+  word-break: break-all;
+}
+
+.hacker-application .application-resume-file-meta {
+  font-size: 12.5px;
+  color: #6a7c67;
+}
+
+.hacker-application .application-resume-uploaded-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hacker-application .application-resume-uploaded-actions button {
+  padding: 8px 14px;
+  font-size: 13.5px;
+  border-radius: 8px;
+}
+
+.hacker-application .application-resume-remove-btn {
+  background: transparent;
+  color: #c53929;
+  border: 1px solid #e0c8c5;
+}
+
+.hacker-application .application-resume-remove-btn:hover {
+  background: #fdf2f2;
+}
+
+.hacker-application .application-resume-error {
+  margin-top: 12px;
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.hacker-application .application-step6-error-banner {
+  margin: 0 0 18px;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.hacker-application .application-step6-error-badge {
+  color: #d32f2f;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.hacker-application .application-step6-intro {
+  font-size: 14px;
+  color: #5c6e59;
+  margin-bottom: 20px;
+}
+
+.hacker-application .application-review {
+  margin: 24px 0 32px;
+  border-top: 1px solid var(--line);
+}
+
+/* Accordion Review */
+.hacker-application .application-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0 28px;
+}
+
+.hacker-application .application-accordion-item {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.hacker-application .application-accordion-item.has-section-error {
+  border-color: rgba(211, 47, 47, 0.45);
+}
+
+.hacker-application .application-accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: #f8faf7;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  text-align: left;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: background 140ms ease;
+}
+
+.hacker-application .application-accordion-header:hover {
+  background: #edf3eb;
+}
+
+.hacker-application .application-accordion-header:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: -2px;
+}
+
+.hacker-application .application-accordion-title-wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hacker-application .application-accordion-subtitle {
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.hacker-application .application-accordion-status-text,
+.hacker-application .application-accordion-error-badge {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #d32f2f;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+.hacker-application .application-accordion-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #637560;
+  font-size: 13px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.hacker-application .application-accordion-meta svg {
+  font-size: 16px;
+  transition: transform 140ms ease;
+}
+
+.hacker-application .application-accordion-content {
+  padding: 0 20px;
+  background: #fff;
+  border-top: 1px solid var(--line);
+}
+
+.hacker-application .application-review-list {
+  margin: 0;
+  padding: 0;
+}
+
+.hacker-application .application-review-list .application-review-row:last-child,
+.hacker-application .application-review-list .application-review-resume-row:last-child {
+  border-bottom: none;
+}
+
+.hacker-application .application-review-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.1fr) 2fr;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.hacker-application .application-review-row dt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px;
+  margin: 0;
+}
+
+.hacker-application .application-review-label {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+.hacker-application .application-review-error-text {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #d32f2f;
+  letter-spacing: 0.01em;
+}
+
+.hacker-application .application-review-row dd {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 0;
+}
+
+.hacker-application .application-review-val {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: #2c3a2f;
+  word-break: break-word;
+}
+
+.hacker-application .application-review-empty {
+  color: #8c9a89;
+  font-style: italic;
+  font-size: 13.5px;
+}
+
+.hacker-application .application-review-edit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-height: 32px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: #5c6e59;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: auto;
+  transition: all 140ms ease;
+}
+
+.hacker-application .application-review-edit-btn:hover {
+  background: #edf2eb;
+  color: var(--green);
+}
+
+.hacker-application .application-review-edit-btn svg {
+  font-size: 15px;
+}
+
+.hacker-application .application-review-resume-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.1fr) 2fr;
+  gap: 24px;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.hacker-application .application-review-resume-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.hacker-application .application-review-resume-val {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 14.5px;
+  color: #2c3a2f;
+}
+
+.hacker-application .application-field.application-checkbox-field {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 0;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
+}
+
+.hacker-application .application-checkbox-field label {
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink);
+  cursor: pointer;
+  margin: 0;
+  flex: 1;
+}
+
+.hacker-application .application-checkbox-field input[type=checkbox] {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  accent-color: var(--green);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.hacker-application .application-review-empty {
+  color: #8f9d8c;
+  font-style: italic;
+  font-size: 13.5px;
+}
+
+.hacker-application .application-agreements-notice {
+  margin: 24px 0 16px;
+  padding: 14px 0;
+  font-size: 13px;
+  color: #5c6e59;
+}
+
+.hacker-application .application-agreements-card {
+  background: #f7f8f6;
+  border-radius: 16px;
+  padding: clamp(24px, 3vw, 36px);
+  margin: 8px 0 24px;
+  border: 1px solid transparent;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.hacker-application .application-agreements-card.has-checkbox-errors {
+  border-color: rgba(211, 47, 47, 0.5);
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.12);
+}
+
+.hacker-application .application-agreements-error-notice {
+  color: #d32f2f;
+  font-size: 13.5px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  padding: 11px 15px;
+  background: #fdf2f2;
+  border-left: 3px solid #d32f2f;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+.hacker-application .application-agreements-title {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #5c6e59;
+  margin: 0 0 20px;
+}
+
+.hacker-application .application-agreements-card .application-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+}
+
+.hacker-application .application-agreements-card .application-checkbox-field {
+  grid-column: unset;
+  padding: 20px 0;
+  border-bottom: none;
+}
+
+.hacker-application .application-agreements-card .application-checkbox-field:last-child {
+  padding-bottom: 0;
+}
+
+.hacker-application .application-agreements-card .application-checkbox-field label {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.hacker-application .application-agreements-card .application-checkbox-field input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 2px solid #c2cdc0;
+  border-radius: 4px;
+  accent-color: var(--green);
+}
+
+.hacker-application .application-checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+}
+
+.hacker-application .application-checkbox-error {
+  margin: 6px 0 0 34px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #d32f2f;
+}
+
+.hacker-application .application-agreement-tag {
+  font-size: 14px;
+}
+
+.hacker-application .application-agreement-tag.optional,
+.hacker-application .application-agreement-optional {
+  color: #8c9a89;
+  font-weight: 400;
+}
+
+.hacker-application .application-agreement-tag.required,
+.hacker-application .application-agreement-required {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+.hacker-application .application-link {
+  color: var(--green);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.hacker-application .application-link:hover {
+  color: #274d28;
+}
+
+.hacker-application .application-card-footer {
+  margin-top: 32px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+
+.hacker-application .application-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  border-top: none;
+  padding-top: 0;
+  margin: 0;
+}
+
+.hacker-application .application-actions > .primary {
+  margin-left: auto;
+}
+
+.hacker-application .application-save-bottom {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  font-size: 13px;
+  color: #637560;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.hacker-application .application-save-bottom svg {
+  flex-shrink: 0;
+  font-size: 15px;
+  color: var(--green);
+}
+
+.hacker-application .application-alert {
+  background: #fdf5ea;
+  border: 1px solid #ebd4b5;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.hacker-application .application-alert.application-alert-bottom {
+  margin: 24px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 14px 18px;
+}
+
+.hacker-application .application-alert.application-alert-bottom .application-alert-text p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #7a501e;
+}
+
+.hacker-application .application-alert.application-alert-bottom button {
+  padding: 7px 16px;
+  font-size: 13.5px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.hacker-application input:not([type=checkbox])[aria-invalid=true],
+.hacker-application select[aria-invalid=true],
+.hacker-application textarea[aria-invalid=true] {
+  border-color: #d32f2f;
+}
+
+.hacker-application .application-error {
+  color: #d32f2f;
+  margin: 4px 0 0;
+  font-size: 13px;
+}
+
+.hacker-application .application-congrats-card {
+  text-align: center;
+  padding: clamp(36px, 6vw, 56px) clamp(20px, 4vw, 36px);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+
+.hacker-application .application-congrats-icon {
+  font-size: 50px;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.hacker-application .application-congrats-card h2 {
+  font-size: clamp(22px, 3.5vw, 28px);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+
+.hacker-application .application-congrats-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #5c6e59;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.hacker-application .application-contact-help {
+  margin-top: 28px;
+  padding: 14px 18px;
+  background: #fbfbf8;
+  border: 1px solid #e5ebe2;
+  border-radius: 14px;
+}
+
+.hacker-application .application-contact-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #3b4d3a;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.hacker-application .application-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--green, #466340);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.15s ease;
+}
+
+.hacker-application .application-contact-link:hover {
+  opacity: 0.8;
+}
+
+.hacker-application .application-contact-icon {
+  font-size: 16px;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+@media (max-width: 800px) {
+  .hacker-application .application-fields { grid-template-columns: 1fr; }
+  .hacker-application .application-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 440px) {
+  .hacker-application .application-steps { grid-template-columns: 1fr; }
+  .hacker-application .application-actions > button { width: 100%; }
+  .hacker-application .application-actions > .primary { margin-left: 0; }
+  .hacker-application .application-review > div { grid-template-columns: 1fr; gap: 8px; }
+  .hacker-application .application-review-resume-row { grid-template-columns: 1fr; gap: 8px; }
+}

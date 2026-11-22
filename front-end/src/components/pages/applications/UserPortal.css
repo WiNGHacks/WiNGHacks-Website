@@ -103,14 +103,35 @@
 .hacker-portal .portal-small { margin-top: 24px; font-size: 13px; }
 .hacker-portal .portal-error { color: #8c372c; font-size: 14px; }
 .portal-rsvp { margin-top: 24px; }
-.portal-rsvp input:not([type=checkbox]) { max-width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 12px; font: inherit; }
-.portal-rsvp button { min-height: 44px; }
-.hacker-portal .portal-rsvp #msform { width: 100%; max-width: 680px; margin: 24px auto 0; text-align: left; }
-.hacker-portal .portal-rsvp #msform fieldset { width: 100%; margin: 0; padding: 20px 0; border: 0; background: transparent; box-shadow: none; }
-.hacker-portal .portal-rsvp #msform .fs-title { font-family: MeadowFriendly, sans-serif; color: var(--ink); font-size: 26px; text-transform: none; }
-.hacker-portal .portal-rsvp #msform .fs-subtitle { color: var(--muted); font: 500 15px/1.6 MeadowSans, sans-serif; margin-bottom: 22px; }
-.hacker-portal .portal-rsvp #msform button { border: 0; border-radius: 999px; padding: 12px 22px; margin: 20px 10px 0 0; background: var(--ink); color: var(--surface); font: 600 15px MeadowSans, sans-serif; }
-.hacker-portal .portal-rsvp #msform button:disabled { opacity: .5; cursor: not-allowed; }
+.portal-rsvp .RSVP { margin: 0; }
+.hacker-portal .portal-rsvp #msform { width: 100%; max-width: 720px; margin: 24px 0 0; text-align: left; }
+.hacker-portal .portal-rsvp #msform > fieldset { width: 100%; margin: 0; padding: 26px 0 0; border: 0; background: transparent; box-shadow: none; }
+.portal-rsvp #msform > fieldset > legend { padding: 0; color: var(--ink); font: 700 22px/1.25 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.portal-rsvp #msform > fieldset.rsvp-welcome > legend { font-size: 27px; }
+.portal-rsvp .rsvp-intro { max-width: 58ch; margin: 9px 0 22px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.portal-rsvp .rsvp-choice-group, .portal-rsvp .rsvp-checkbox-list, .portal-rsvp .rsvp-agreements { display: grid; gap: 10px; }
+.portal-rsvp .rsvp-choice-group > label, .portal-rsvp .rsvp-checkbox-list > label, .portal-rsvp .rsvp-agreements > label { display: flex; align-items: flex-start; gap: 11px; padding: 13px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); cursor: pointer; }
+.portal-rsvp .rsvp-choice-group > label.selected { border-color: var(--green); background: #f0f3df; }
+.hacker-portal .portal-rsvp #msform .rsvp-choice-group input, .hacker-portal .portal-rsvp #msform .rsvp-checkbox-list input, .hacker-portal .portal-rsvp #msform .rsvp-agreements input { width: 18px; height: 18px; flex: 0 0 18px; margin: 2px 0 0; padding: 0; accent-color: var(--green); }
+.portal-rsvp .rsvp-choice-group strong { display: block; font-size: 14px; }
+.portal-rsvp .rsvp-field { margin-bottom: 22px; }
+.portal-rsvp .rsvp-field > label, .portal-rsvp .rsvp-meals > legend { display: block; margin-bottom: 7px; padding: 0; color: var(--ink); font-size: 13px; font-weight: 650; }
+.portal-rsvp .rsvp-field > label > span { margin-left: 5px; color: var(--muted); font-size: 12px; font-weight: 400; }
+.hacker-portal .portal-rsvp #msform .rsvp-field select, .hacker-portal .portal-rsvp #msform .rsvp-field input { width: 100%; max-width: 440px; min-height: 44px; margin: 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.hacker-portal .portal-rsvp #msform fieldset.rsvp-meals { display: block; position: static; width: 100%; margin: 0 0 22px; padding: 0; border: 0; background: transparent; box-shadow: none; }
+.portal-rsvp .rsvp-checkbox-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.portal-rsvp .rsvp-checkbox-list > label, .portal-rsvp .rsvp-agreements > label { font-size: 13px; line-height: 1.5; }
+.portal-rsvp .rsvp-agreements a { color: var(--green); text-decoration: underline; text-underline-offset: 2px; }
+.portal-rsvp .rsvp-agreements strong { color: #a43d36; }
+.portal-rsvp .rsvp-agreements em { color: var(--muted); font-style: normal; }
+.portal-rsvp .rsvp-actions { display: flex; gap: 10px; margin-top: 24px; }
+.hacker-portal .portal-rsvp .rsvp-actions button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; margin: 0; padding: 10px 20px; border: 1px solid var(--ink); border-radius: 10px; background: var(--ink); color: var(--surface); font: 650 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.hacker-portal .portal-rsvp .rsvp-actions button.secondary { background: transparent; color: var(--ink); border-color: var(--line); }
+.hacker-portal .portal-rsvp .rsvp-actions button:disabled { opacity: .45; cursor: not-allowed; }
+.hacker-portal .portal-rsvp .rsvp-actions .rsvp-arrow { width: 44px; flex: 0 0 44px; padding: 0; border-radius: 50%; font-size: 18px; }
+.hacker-portal .portal-rsvp .rsvp-actions .rsvp-arrow.next { margin-left: auto; }
+.portal-rsvp .rsvp-message { max-width: 720px; padding: 12px 14px; border-radius: 10px; background: #f0f3df; font-size: 13px; }
+.portal-rsvp .rsvp-error { background: #f6e5df; color: #7b352f; }
 @media (max-width: 1100px) { .portal-sidebar { width: 210px; padding-inline: 15px; } .portal-pastel-wordmark { font-size: 28px; } .portal-application-grid { grid-template-columns: 1fr; } .portal-little-note { border-radius: 26px; } }
 @media (max-width: 640px) {
   .portal-sidebar { width: 76px; padding: 20px 8px; }
@@ -131,4 +152,6 @@
   .portal-details > div { grid-template-columns: 1fr; gap: 3px; }
   .hacker-portal p { font-size: 15px; }
   .portal-tags { gap: 6px; }
+  .portal-rsvp .rsvp-checkbox-list { grid-template-columns: 1fr; }
+  .hacker-portal .portal-rsvp .rsvp-actions button:not(.rsvp-arrow) { flex: 1; }
 }

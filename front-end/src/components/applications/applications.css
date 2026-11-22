@@ -1,0 +1,44 @@
+.application-shell { --ink:#303b34; --paper:#fbfaf5; --green:#365d46; --line:#d6ded2; color:var(--ink); background:var(--paper); min-height:100vh; padding:40px max(24px,calc((100vw - 1100px)/2)) 80px; text-align:left; font-family:Inter,Arial,sans-serif; box-sizing:border-box; }
+.application-shell * { box-sizing:border-box; }
+.application-heading { margin-bottom:30px; }
+.application-heading > span { display:block; margin-top:30px; font-size:14px; letter-spacing:.12em; text-transform:uppercase; }
+.application-heading h1 { font-family:Georgia,serif; font-size:clamp(32px,5vw,54px); font-weight:400; line-height:1.1; margin:18px 0; }
+.application-shell a { color:var(--green); text-decoration:underline; }
+.application-shell p { line-height:1.65; }
+.application-shell button { background:white; color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:11px 16px; cursor:pointer; font:inherit; font-size:14px; }
+.application-shell button.primary { background:var(--green); color:white; border-color:var(--green); }
+.application-shell button:disabled { opacity:.5; cursor:not-allowed; }
+.application-shell button:focus-visible,.application-shell input:focus-visible,.application-shell textarea:focus-visible,.application-shell select:focus-visible { outline:3px solid #a17bc0; outline-offset:3px; }
+.application-savebar { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 20px; background:#e7efe3; border-radius:12px; }
+.application-caption { font-size:13px; color:#59635a; }
+.application-steps { display:flex; flex-wrap:wrap; gap:8px; margin:28px 0; }
+.application-steps button[aria-current] { background:#e9e0f1; border-color:#ab94ba; }
+.application-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:clamp(20px,4vw,40px); margin:20px 0; }
+.application-card h2 { font-family:Georgia,serif; font-size:30px; margin:4px 0 24px; font-weight:400; }
+.application-eyebrow { font-size:12px; letter-spacing:.13em; color:#66735f; }
+.application-fields,.application-filters { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; margin:24px 0; }
+.application-filters { grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); }
+.application-field.wide { grid-column:1 / -1; }
+.application-shell label { display:block; font-weight:600; font-size:14px; line-height:1.6; }
+.application-shell input:not([type=checkbox]),.application-shell select,.application-shell textarea { width:100%; display:block; padding:12px; border:1px solid #aab5a8; border-radius:8px; margin:8px 0; font:inherit; font-size:16px; color:var(--ink); background:#fff; }
+.application-shell input[type=checkbox] { width:22px; height:22px; margin-top:12px; accent-color:var(--green); }
+.application-shell textarea { resize:vertical; }
+.application-shell [aria-invalid=true] { border-color:#a53c30; }
+.application-error { color:#8f3127; margin:4px 0; font-size:14px; }
+.application-actions { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin:24px 0 8px; }
+.application-alert { padding:20px; background:#fcf0dc; border:1px solid #d7bd8f; border-radius:12px; margin:20px 0; overflow-wrap:anywhere; }
+.application-alert button { margin:4px; }
+.application-conflict { border-top:1px solid #d7bd8f; padding:12px 0; white-space:pre-wrap; }
+.application-review { margin:24px 0; }
+.application-review > div { display:grid; grid-template-columns:minmax(150px,1fr) 2fr; gap:24px; padding:14px 0; border-bottom:1px solid var(--line); }
+.application-review dt { font-weight:600; font-size:14px; }
+.application-review dd { margin:0; white-space:pre-wrap; overflow-wrap:anywhere; }
+.application-resume { padding:20px; background:#f4f1f8; border-radius:12px; margin:16px 0; }
+.application-table-wrap { overflow:auto; }
+.application-shell table { width:100%; border-collapse:collapse; font-size:14px; }
+.application-shell th,.application-shell td { text-align:left; padding:16px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+.application-shell caption { text-align:left; padding:12px 0; font-weight:600; }
+.application-shell details { padding:18px 0; border-bottom:1px solid var(--line); }
+.application-shell summary { cursor:pointer; font-weight:600; }
+.preserve-lines { white-space:pre-wrap; }
+@media(max-width:650px) { .application-shell { padding:24px 16px 60px; } .application-fields { grid-template-columns:1fr; } .application-review > div { grid-template-columns:1fr; gap:8px; } .application-savebar { align-items:flex-start; flex-direction:column; } .application-steps { display:grid; grid-template-columns:1fr 1fr; } }
