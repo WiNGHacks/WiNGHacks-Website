@@ -439,7 +439,7 @@ function ApplicationDetail({ initial, config, api, user, onClose, onSaved }) {
               <iframe
                 src={resumeUrl}
                 title={`${safeAnswers.firstName || "Applicant"} resume`}
-                sandbox=""
+                sandbox="allow-scripts"
                 referrerPolicy="no-referrer"
               />
             )}

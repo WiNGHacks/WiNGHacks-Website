@@ -4,6 +4,9 @@
 /backups/
 # Generated image source files; finalized assets live in the frontend.
 /output/
+# Local AI/design-tool configuration and generated audit artifacts.
+/.gemini/
+/.impeccable/
 # Environment files and secrets
 .env
 .env*.local

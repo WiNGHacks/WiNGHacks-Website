@@ -43,6 +43,6 @@ test('loads a stored resume into the protected in-browser viewer',async()=>{
   expect(api.get).toHaveBeenCalledWith('/applications/admin/abc/resume',{responseType:'blob'});
   const frame=container.querySelector('.admin-resume-viewer iframe');
   expect(frame.getAttribute('src')).toBe('blob:resume-preview');
-  expect(frame.hasAttribute('sandbox')).toBe(true);
+  expect(frame.getAttribute('sandbox')).toBe('allow-scripts');
   expect(frame.getAttribute('referrerpolicy')).toBe('no-referrer');
 });
