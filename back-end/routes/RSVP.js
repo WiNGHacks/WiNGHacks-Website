@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const RSVP = require('../models/RSVP');
 const Users = require('../models/Users');
-const { requireAuth, requireAdmin, requireOwner } = require('../middleware/auth');
+const { requireAuth, requireAdmin, requirePortalAccess, requireOwner } = require('../middleware/auth');
 
 const shirtSizes = new Set(['XS', 'S', 'M', 'L', 'XL', 'XXL']);
 const decisions = new Set(['yes', 'no']);
@@ -20,11 +20,10 @@ function createSubmitRsvp({ rsvps = RSVP, users = Users } = {}) {
         }
 
         if (acceptedRSVP === 'yes') {
-            const phoneNumber = cleanText(req.body.phoneNumber, 40);
             const mealPreference = cleanText(req.body.mealPreference, 500);
             const dietRestriction = cleanText(req.body.dietRestriction, 500);
             const shirtSize = cleanText(req.body.shirtSize, 4);
-            if (!phoneNumber || !mealPreference || !shirtSizes.has(shirtSize) ||
+            if (!mealPreference || !shirtSizes.has(shirtSize) ||
                 req.body.mlhAccept !== true || req.body.mlhShareData !== true) {
                 return res.status(400).json({ message: 'Required RSVP information is incomplete.' });
             }
@@ -37,7 +36,6 @@ function createSubmitRsvp({ rsvps = RSVP, users = Users } = {}) {
                     firstName: req.user.firstName,
                     lastName: req.user.lastName,
                     email: req.user.email,
-                    phoneNumber,
                     remindSignedUp: req.body.remindSignedUp === true,
                     mealPreference,
                     dietRestriction,
@@ -58,6 +56,11 @@ function createSubmitRsvp({ rsvps = RSVP, users = Users } = {}) {
             { new: true },
         );
         if (!profile) return res.status(409).json({ message: 'Your application status changed. Refresh and try again.' });
+        if (acceptedRSVP === 'no') {
+            // Remove details from a previous “yes” response so declined hackers
+            // do not remain in organizer attendance lists.
+            await rsvps.deleteOne({ userId: String(req.user._id) });
+        }
         return res.status(200).json({ message: 'RSVP saved.', acceptedRSVP });
         } catch (_error) {
             return res.status(500).json({ message: 'Unable to save your RSVP. Please try again.' });
@@ -65,14 +68,16 @@ function createSubmitRsvp({ rsvps = RSVP, users = Users } = {}) {
     };
 }
 
-router.post('/submit', requireAuth, createSubmitRsvp());
+router.use(requireAuth, requirePortalAccess);
+
+router.post('/submit', createSubmitRsvp());
 
 // Old split-write routes remain authenticated while clients transition, but can
 // no longer mutate RSVP data independently.
-router.post('/addRsvp', requireAuth, requireOwner, (_req, res) =>
+router.post('/addRsvp', requireOwner, (_req, res) =>
     res.status(410).json({ message: 'Use the RSVP submission endpoint.' }));
 
-router.get('/rsvp', requireAuth, requireAdmin, async (_req, res) => {
+router.get('/rsvp', requireAdmin, async (_req, res) => {
     res.send(await RSVP.find());
 });
 

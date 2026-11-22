@@ -7,7 +7,7 @@ function response() {
     return { statusCode: 200, body: null, status(code) { this.statusCode = code; return this; }, json(body) { this.body = body; return this; } };
 }
 function validBody(overrides = {}) {
-    return { acceptedRSVP: 'yes', phoneNumber: '352-555-0100', mealPreference: 'Saturday Lunch',
+    return { acceptedRSVP: 'yes', mealPreference: 'Saturday Lunch',
         dietRestriction: '', shirtSize: 'M', mlhAccept: true, mlhShareData: true, mlhSendEmail: false, ...overrides };
 }
 
@@ -17,7 +17,7 @@ test('RSVP submission rejects ineligible users and invalid decisions before data
     for (const [user, body, expected] of [
         [{ ...accepted, status: 'Applied' }, validBody(), 403],
         [accepted, validBody({ acceptedRSVP: 'maybe' }), 400],
-        [accepted, validBody({ phoneNumber: '' }), 400],
+        [accepted, validBody({ mealPreference: '' }), 400],
         [accepted, validBody({ mlhAccept: false }), 400],
     ]) {
         const res = response();
@@ -53,14 +53,16 @@ test('accepted RSVP derives identity from auth and uses an idempotent upsert', a
 
 test('declining updates only the authenticated accepted profile', async () => {
     let rsvpWrites = 0;
+    let deleted;
     let userWrite;
-    const handler = createSubmitRsvp({ rsvps: { findOneAndUpdate: async () => rsvpWrites++ },
+    const handler = createSubmitRsvp({ rsvps: { findOneAndUpdate: async () => rsvpWrites++, deleteOne: async filter => { deleted = filter; } },
         users: { findOneAndUpdate: async (...args) => { userWrite = args; return accepted; } } });
     const res = response();
     await handler({ user: accepted, body: { acceptedRSVP: 'no' } }, res);
     assert.equal(res.statusCode, 200);
     assert.equal(rsvpWrites, 0);
     assert.deepEqual(userWrite[1], { $set: { acceptedRSVP: 'no' } });
+    assert.deepEqual(deleted, { userId: String(accepted._id) });
 });
 
 test('a retry recovers when the profile update fails after the RSVP upsert', async () => {

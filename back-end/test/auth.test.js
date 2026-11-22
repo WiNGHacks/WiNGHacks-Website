@@ -4,7 +4,7 @@ const crypto = require('node:crypto');
 const express = require('express');
 const { clerkMiddleware, clerkClient } = require('@clerk/express');
 const Users = require('../models/Users');
-const { resolveProfile, createRequireAuth, ProfileError } = require('../middleware/auth');
+const { resolveProfile, createRequireAuth, requirePortalAccess, ProfileError } = require('../middleware/auth');
 const id = '0123456789abcdef01234567';
 const otherId = 'abcdef0123456789abcdef01';
 const clerkId = 'user_test_hacker';
@@ -93,6 +93,39 @@ test('legacy credentials are excluded from serialized profiles', () => {
     assert.equal(profile.toJSON().password, undefined);
     assert.equal(profile.toJSON().emailToken, undefined);
     assert.equal(profile.toJSON().emailVerified, undefined);
+});
+
+test('portal beta mode permits admins and denies non-admin users', () => {
+    const original = process.env.PORTAL_ADMIN_ONLY;
+    process.env.PORTAL_ADMIN_ONLY = 'true';
+    try {
+        let status, body, allowed = false;
+        requirePortalAccess({ user: { admin: false } }, {
+            status(code) { status = code; return this; },
+            json(value) { body = value; },
+        }, () => { allowed = true; });
+        assert.equal(status, 403);
+        assert.equal(allowed, false);
+        assert.match(body.message, /organizers/i);
+
+        requirePortalAccess({ user: { admin: true } }, {}, () => { allowed = true; });
+        assert.equal(allowed, true);
+    } finally {
+        if (original === undefined) delete process.env.PORTAL_ADMIN_ONLY;
+        else process.env.PORTAL_ADMIN_ONLY = original;
+    }
+});
+
+test('portal beta mode is disabled unless explicitly set to true', () => {
+    const original = process.env.PORTAL_ADMIN_ONLY;
+    delete process.env.PORTAL_ADMIN_ONLY;
+    try {
+        let allowed = false;
+        requirePortalAccess({ user: { admin: false } }, {}, () => { allowed = true; });
+        assert.equal(allowed, true);
+    } finally {
+        if (original !== undefined) process.env.PORTAL_ADMIN_ONLY = original;
+    }
 });
 
 // Real Clerk signature verification with ephemeral RSA keys. No Clerk account,

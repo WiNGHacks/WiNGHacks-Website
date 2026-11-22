@@ -585,6 +585,11 @@ router.post('/sendEmail/:token', authMoved);
 
 router.put("/updateStatus/:id", requireAuth, requireAdmin, async (req, res) => {
     var id = req.params.id;
+    if (!/^[a-f\d]{24}$/i.test(id)) return res.status(400).json({ message: 'Invalid user ID.' });
+    const { season } = require('../applications/definition');
+    if (await require('mongoose').connection.db.collection('applications').findOne({ profileId: new (require('mongodb').ObjectId)(id), season })) {
+        return res.status(409).json({ message: 'Use the application review page to update this applicant.' });
+    }
 
     Users.findOneAndUpdate({_id: id}, {status: req.body.status})
     .then((response) => {

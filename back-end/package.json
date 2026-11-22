@@ -4,14 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
+    "dev": "nodemon scripts/start-local.js",
+    "start:check": "node scripts/start-local.js --check",
     "test": "node --test test/*.test.js",
     "render-start": "node index.js",
     "gmail:authorize": "node scripts/authorize-gmail.js",
     "clerk:migrate:preview": "node scripts/clerk-migration.js",
     "clerk:migrate": "node scripts/clerk-migration.js --execute",
     "test:oauth": "node --test test/gmail.test.js",
-    "test:auth": "node --test test/auth.test.js"
+    "test:auth": "node --test test/auth.test.js",
+    "applications:preview": "node scripts/prepare-applications.js",
+    "applications:prepare": "node scripts/prepare-applications.js --execute"
   },
   "author": "",
   "license": "ISC",
@@ -28,5 +32,8 @@
   },
   "engines": {
     "node": ">=20.9.0"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^11.3.0"
   }
 }

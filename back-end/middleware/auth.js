@@ -71,10 +71,16 @@ function requireAdmin(req, res, next) {
     if (req.user.admin !== true) return res.status(403).json({ message: 'Administrator access required' });
     next();
 }
+function requirePortalAccess(req, res, next) {
+    if (process.env.PORTAL_ADMIN_ONLY === 'true' && req.user.admin !== true) {
+        return res.status(403).json({ message: 'The hacker portal is currently limited to WiNGHacks organizers.' });
+    }
+    next();
+}
 function requireOwner(req, res, next) {
     const target = req.params.id || req.body?.userId;
     if (String(req.user._id) !== target) return res.status(403).json({ message: 'Access denied' });
     next();
 }
 
-module.exports = { requireAuth, requireAdmin, requireOwner, resolveProfile, createRequireAuth, ProfileError };
+module.exports = { requireAuth, requireAdmin, requirePortalAccess, requireOwner, resolveProfile, createRequireAuth, ProfileError };
