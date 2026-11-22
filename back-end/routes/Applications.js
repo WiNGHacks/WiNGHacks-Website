@@ -101,8 +101,8 @@ function createApplicationRouter({ db = () => mongoose.connection.db, authentica
   router.get('/me/resume', wrap(async (req, res) => download(owner(req), res)));
   router.use('/admin', authorizeAdmin);
   function filters(req) {
-    const f = { season, deletedAt: req.query.trash === 'true' ? { $ne: null } : null, state: req.query.state === 'draft' ? 'draft' : 'submitted' };
-    if (statuses.includes(req.query.status)) f.reviewStatus = req.query.status;
+    const f = { season, deletedAt: null, state: req.query.state === 'draft' ? 'draft' : 'submitted' };
+    if (statuses.includes(req.query.status)) f.reviewStatus = req.query.status === 'pending' ? { $in: ['pending', 'in_review'] } : req.query.status;
     if (req.query.q) { const q = String(req.query.q).slice(0, 200).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); f.$or = ['email', 'answers.firstName', 'answers.lastName', 'answers.school'].map(k => ({ [k]: { $regex: q, $options: 'i' } })); }
     return f;
   }
@@ -115,7 +115,7 @@ function createApplicationRouter({ db = () => mongoose.connection.db, authentica
   router.get('/admin/export', wrap(async (req, res) => {
     const docs = await apps().find(filters(req), { projection: { 'resume.data': 0, audit: 0, submissionSnapshot: 0 } }).sort({ submittedAt: 1 }).limit(10000).toArray();
     const cell = v => { let s = String(v ?? ''); if (/^[\s]*[=+@-]/.test(s) || /^[\t\r\n]/.test(s)) s = "'" + s; return '"' + s.replace(/"/g, '""') + '"'; };
-    const rows = [['id', 'email', 'state', 'reviewStatus', 'submittedAt', 'resumeName', 'reviews', ...fields.map(f => f.key)], ...docs.map(d => [d._id, d.email, d.state, d.reviewStatus, d.submittedAt?.toISOString(), d.resume?.name, JSON.stringify(d.reviews), ...fields.map(f => d.answers[f.key])])];
+    const rows = [['id', 'email', 'state', 'reviewStatus', 'submittedAt', 'resumeName', 'reviews', ...fields.map(f => f.key)], ...docs.map(d => [d._id, d.email, d.state, d.reviewStatus === 'in_review' ? 'pending' : d.reviewStatus, d.submittedAt?.toISOString(), d.resume?.name, JSON.stringify(d.reviews), ...fields.map(f => d.answers[f.key])])];
     res.set({ 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="winghacks-applications.csv"' }).send('\uFEFF' + rows.map(r => r.map(cell).join(',')).join('\r\n'));
   }));
   router.get('/admin/:id', wrap(async (req, res) => res.json(await adminApplication(await current(idFilter(req))))));
@@ -128,7 +128,7 @@ function createApplicationRouter({ db = () => mongoose.connection.db, authentica
     if (action === 'review') {
       if (doc.state !== 'submitted' || doc.deletedAt) throw fail(409, 'Only active submitted applications can be reviewed.');
       const { score, notes, status } = req.body;
-      if (!statuses.includes(status) || !(score === null || Number.isInteger(score) && score >= 1 && score <= 5) || typeof notes !== 'string' || notes.length > 5000) throw fail(422, 'Choose a status, an optional score from 1–5, and notes up to 5000 characters.');
+      if (!['accepted', 'waitlisted', 'rejected'].includes(status) || !(score === null || Number.isInteger(score) && score >= 1 && score <= 5) || typeof notes !== 'string' || notes.length > 5000) throw fail(422, 'Choose an acceptance, waitlist, or rejection decision and keep notes under 5000 characters.');
       set = { reviewStatus: status, reviews: [...(doc.reviews || []).filter(r => r.reviewer !== req.user.clerkUserId), { reviewer: req.user.clerkUserId, score, notes, updatedAt: new Date() }] }; syncProfile = true;
     } else if (action === 'edit') {
       if (doc.deletedAt) throw fail(409, 'Restore this application before editing.');
@@ -143,8 +143,6 @@ function createApplicationRouter({ db = () => mongoose.connection.db, authentica
     } else if (action === 'reopen') {
       if (doc.deletedAt || doc.state !== 'submitted') throw fail(409, 'Only active submitted applications can be reopened.');
       set = { state: 'draft', reviewStatus: 'pending', submittedAt: null }; syncProfile = true;
-    } else if (action === 'delete') { set = { deletedAt: new Date() }; syncProfile = true;
-    } else if (action === 'restore') { set = { deletedAt: null }; syncProfile = true;
     } else throw fail(400, 'Unknown action.');
     res.json(await change(req, filter, set, action, { admin: true, syncProfile }));
   }));

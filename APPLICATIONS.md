@@ -6,7 +6,7 @@ Applicant route: `/apply`. Organizer route: `/admin/applications`, restricted by
 
 The only new collection is `hackathon_db.applications`. `users` and `rsvp` are retained. Each application has a unique `(season, clerkUserId)` index, structured validated answers, trusted profile ID/email, revision, state, dates, review status, reviewer notes/scores, consent version, last submission snapshot, previous admin-edited answers, and the latest 100 audit events. A second index supports the review queue. Applicant responses exclude internal reviews, audit events, prior answers, and submission snapshots.
 
-Review notes are per reviewer (1–5 score or unscored). Admin updates require a reason and the current revision. Applicant consent is never editable by administrators. Reopen resets the decision and requires a fresh submission. Delete is recoverable trash; restore preserves the previous state/decision. No permanent deletion or automatic email sends are performed. Decisions are visible immediately in the portal.
+Review notes are per reviewer. Applications become pending automatically when submitted; organizers choose only accepted, waitlisted, or rejected. Admin updates require a reason and the current revision. Applicant consent is never editable by administrators. Reopen is available before or after a decision, resets the application to a draft, and requires a fresh submission. The review portal does not delete applications or send email automatically. Decisions are visible immediately in the portal.
 
 PDF resumes are optional, max 512 KiB, stored as binary within the application for atomic attachment changes without orphan files. About 300 maximum-size PDFs consume 150 MiB before database overhead. List/detail endpoints exclude binary. Downloads require owner/admin authorization, use attachment disposition, and disable sniffing. Basic PDF signature/EOF validation is not malware scanning; files must be treated as untrusted by reviewers. Resume links are an alternative. No PDFs are stored on Render's ephemeral filesystem.
 
@@ -14,7 +14,7 @@ PDF resumes are optional, max 512 KiB, stored as binary within the application f
 
 Answers back up synchronously to localStorage on each edit, scoped to Clerk user, season, and editor instance. Cloud saves debounce at 800 ms with a five-second retry loop and online/visibility triggers. Every save carries a revision; MongoDB compare-and-set prevents stale writes. Nonoverlapping changes merge; conflicting fields require an explicit choice. In-flight responses never replace newer typing. Refresh/reopen offers recovery copies; a saved backup is removed only after confirmation. Storage failures are visible, downloads provide a manual backup, and pending work triggers a browser leave warning. Browser backups expire after 24 hours, are removed after submission, and are cleared for that account on sign-out. They remain sensitive local data while present; clearing site storage loses unsynced work. No browser can guarantee saving during power loss or storage failure.
 
-Submission and uploads wait for outstanding text saves. Submitted/trashed applications reject edits on the server. Submission retries are idempotent. Application decisions and the legacy profile status update in one MongoDB transaction. Resume uploads are not backed up locally: the user must see confirmation before leaving. Existing managed applications cannot use the legacy status-update endpoint.
+Submission and uploads wait for outstanding text saves. Submitted applications reject applicant edits on the server until an organizer reopens them. Submission retries are idempotent. Application decisions and the legacy profile status update in one MongoDB transaction. Resume uploads are not backed up locally: the user must see confirmation before leaving. Existing managed applications cannot use the legacy status-update endpoint.
 
 ## Setup and deployment
 
@@ -29,7 +29,7 @@ The current scale uses 25-item server pagination and escaped search across names
 
 ## Validation
 
-`cd back-end && npm test` runs an ephemeral replica set for application integration tests; it never uses `DB_URI`. Tests cover ownership/admin gates, duplicate creation, concurrent save conflicts, validation, binary resumes, submission retries/locks, transactional profile decisions, trash/restore/reopen, and CSV escaping.
+`cd back-end && npm test` runs an ephemeral replica set for application integration tests; it never uses `DB_URI`. Tests cover ownership/admin gates, duplicate creation, concurrent save conflicts, validation, binary resumes, submission retries/locks, transactional profile decisions, reopening before and after a decision, and CSV escaping.
 
 `cd front-end && CI=true npm test -- --watchAll=false --runInBand` tests draft merge, failures, serialization, storage warnings, locked recovery, and existing auth/portal behavior. `npm run build` verifies production compilation.
 

@@ -30,7 +30,10 @@ const fields = [
   ['sponsorConsent', 'Review & agreements', 'I allow WiNGHacks to share my resume and contact details with event sponsors for recruiting.', 'checkbox', null, false],
 ].map(([key, section, label, type, maxLength, required = false, options]) => ({ key, section, label, type, maxLength, required, ...(options ? { options } : {}) }));
 const season = process.env.APPLICATION_SEASON || '2027';
-const statuses = ['pending', 'in_review', 'accepted', 'waitlisted', 'rejected'];
+const statuses = ['pending', 'accepted', 'waitlisted', 'rejected'];
+// Keep the former value valid at the storage layer until any old records have
+// been normalized; the API no longer offers or accepts it.
+const storedStatuses = [...statuses, 'in_review'];
 const maxResumeBytes = 512 * 1024;
 const indexes = [
   { key: { season: 1, clerkUserId: 1 }, name: 'one_application_per_user_season', unique: true },
@@ -43,7 +46,7 @@ const validator = { $jsonSchema: {
     season: { bsonType: 'string' }, clerkUserId: { bsonType: 'string' }, profileId: { bsonType: 'objectId' }, email: { bsonType: 'string' },
     answers: { bsonType: 'object', additionalProperties: false, properties: answerProperties },
     revision: { bsonType: ['int', 'long', 'double'], minimum: 0 }, state: { enum: ['draft', 'submitted'] },
-    reviewStatus: { enum: statuses }, createdAt: { bsonType: 'date' }, updatedAt: { bsonType: 'date' },
+    reviewStatus: { enum: storedStatuses }, createdAt: { bsonType: 'date' }, updatedAt: { bsonType: 'date' },
     deletedAt: { bsonType: ['date', 'null'] }, submittedAt: { bsonType: ['date', 'null'] },
     resume: { bsonType: ['object', 'null'], properties: { data: { bsonType: 'binData' }, size: { bsonType: ['int', 'double'], maximum: maxResumeBytes }, name: { bsonType: 'string' } } },
   }
@@ -74,7 +77,8 @@ function validateAnswers(answers, complete = false) {
 function publicApplication(doc, admin = false) {
   if (!doc) return null;
   const { resume, reviews, audit, submissionSnapshot, previousAnswers, ...rest } = doc;
-  return { ...rest, resume: resume ? { name: resume.name, size: resume.size, sha256: resume.sha256 } : null,
+  return { ...rest, reviewStatus: rest.reviewStatus === 'in_review' ? 'pending' : rest.reviewStatus,
+    resume: resume ? { name: resume.name, size: resume.size, sha256: resume.sha256 } : null,
     ...(admin ? { reviews: reviews || [], audit: audit || [], submissionSnapshot, previousAnswers } : {}) };
 }
 module.exports = { fields, season, statuses, indexes, validator, maxResumeBytes, validateAnswers, publicApplication };

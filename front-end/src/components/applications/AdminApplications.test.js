@@ -21,6 +21,8 @@ test('saving a review preserves unsaved answer edits and their browser backup',a
   const areas=container.querySelectorAll('textarea');
   act(()=>Simulate.change(areas[0],{target:{value:'Review note'}}));
   act(()=>Simulate.change(areas[1],{target:{value:'Initial review'}}));
+  expect(Array.from(container.querySelectorAll('button')).find(b=>b.textContent==='Reopen for applicant').disabled).toBe(false);
+  act(()=>Simulate.change(container.querySelector('.admin-select'),{target:{value:'accepted'}}));
   await click('Save review & status');
   expect(api.patch).toHaveBeenCalledTimes(1);
   expect(container.querySelector('#answer-firstName').value).toBe('Unsaved correction');

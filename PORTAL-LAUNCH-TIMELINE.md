@@ -34,7 +34,7 @@ Make sure hackers can fill out the form easily and understand what happens next.
 - [ ] **By Nov 25: clean up each form step.** Check labels, required-field marks, character counts, errors, Back/Continue buttons, and the review page. Check keyboard navigation. Coordinate question changes with Giuliana so both sides use the same questions.
 - [ ] **By Nov 29: test saving and returning later.** Enter answers, refresh, sign out and back in, disconnect the internet, and edit in two tabs. Make sure newer answers are not overwritten. Check that users can recover unsaved answers and understand which copy to keep when edits conflict.
 - [ ] **By Nov 29: test resumes and submission.** Try valid PDFs, oversized files, and other file types. Check uploading, removing, and linking a resume. Try missing answers and repeated Submit clicks. Make sure submitted answers remain visible and cannot be edited by the applicant.
-- [ ] **By Nov 29: check every status.** Test draft, submitted, in review, accepted, waitlisted, rejected, reopened, and archived applications. Add Emy's attendance form to the portal. Clearly show confirmed or declined attendance.
+- [ ] **By Nov 29: check every status.** Test draft, pending review, accepted, waitlisted, rejected, and reopened applications. Add Emy's attendance form to the portal. Clearly show confirmed or declined attendance.
 - [ ] **By Nov 30: test phones and accessibility.** Check phones, tablets, desktop browsers, keyboard-only use, readable errors, and focus when moving between steps. Include screenshots and a short test checklist in the pull request.
 
 **Main files:**

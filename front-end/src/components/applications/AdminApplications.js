@@ -17,12 +17,15 @@ import "./applications.css";
 import "./admin-applications.css";
 
 function ApplicationDetail({ initial, config, api, user, onClose, onSaved }) {
+  const decisionStatuses = config.statuses.filter((value) => value !== "pending");
   const [doc, setDoc] = useState(initial);
   const [answers, setAnswers] = useState(initial.answers || {});
   const [edit, setEdit] = useState(false);
   const mine = initial.reviews?.find((r) => r.reviewer === user.clerkUserId);
   const [notes, setNotes] = useState(mine?.notes || "");
-  const [status, setStatus] = useState(initial.reviewStatus || "pending");
+  const [status, setStatus] = useState(
+    decisionStatuses.includes(initial.reviewStatus) ? initial.reviewStatus : "",
+  );
   const [reason, setReason] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -38,7 +41,7 @@ function ApplicationDetail({ initial, config, api, user, onClose, onSaved }) {
   const dirty =
     !same(answers, doc.answers) ||
     notes !== (savedReview?.notes || "") ||
-    status !== doc.reviewStatus ||
+    status !== (decisionStatuses.includes(doc.reviewStatus) ? doc.reviewStatus : "") ||
     !!reason;
 
   const backupKey = `winghacks:review:${user.clerkUserId}:${initial._id}`;
@@ -137,7 +140,7 @@ function ApplicationDetail({ initial, config, api, user, onClose, onSaved }) {
         setAnswers(data.answers);
         setEdit(false);
       }
-      setStatus(data.reviewStatus);
+      setStatus(decisionStatuses.includes(data.reviewStatus) ? data.reviewStatus : "");
       setReason("");
       setPendingAction(null);
       try {
@@ -244,7 +247,7 @@ function ApplicationDetail({ initial, config, api, user, onClose, onSaved }) {
               onClick={() => {
                 setAnswers(backup.answers);
                 setNotes(backup.notes);
-                setStatus(backup.status);
+                setStatus(decisionStatuses.includes(backup.status) ? backup.status : "");
                 setReason(backup.reason);
                 setEdit(true);
                 if (backup.revision !== doc.revision) {
@@ -309,9 +312,6 @@ function ApplicationDetail({ initial, config, api, user, onClose, onSaved }) {
             {doc.reviewStatus?.replace("_", " ")}
           </span>
           <span className={`admin-badge state-${doc.state}`}>{doc.state}</span>
-          {doc.deletedAt && (
-            <span className="admin-badge state-trash">In trash</span>
-          )}
         </div>
         <a className="admin-applicant-email" href={`mailto:${doc.email}`}>
           {doc.email}
@@ -665,13 +665,14 @@ function ApplicationDetail({ initial, config, api, user, onClose, onSaved }) {
 
         <div className="admin-decision-fields">
           <label>
-            Application Decision Status
+            Decision
             <select
               className="admin-select"
               value={status}
               onChange={touch(setStatus)}
             >
-              {config.statuses.map((s) => (
+              <option value="">Select a decision</option>
+              {decisionStatuses.map((s) => (
                 <option key={s} value={s}>
                   {s.replace("_", " ")}
                 </option>
@@ -712,6 +713,7 @@ function ApplicationDetail({ initial, config, api, user, onClose, onSaved }) {
               busy ||
               stale ||
               !reason.trim() ||
+              !status ||
               doc.state !== "submitted" ||
               !!doc.deletedAt
             }
@@ -733,26 +735,13 @@ function ApplicationDetail({ initial, config, api, user, onClose, onSaved }) {
           >
             Reopen for applicant
           </button>
-          <button
-            type="button"
-            className="admin-btn admin-btn-danger"
-            disabled={busy || stale || !reason.trim()}
-            onClick={() =>
-              setPendingAction(doc.deletedAt ? "restore" : "delete")
-            }
-          >
-            {doc.deletedAt ? "Restore application" : "Move to trash"}
-          </button>
         </div>
 
         {pendingAction && (
           <div className="application-alert admin-confirmation" role="alert">
             <p>
-              {pendingAction === "delete"
-                ? "Move this application to recoverable trash? The hacker will be unable to edit it until restored."
-                : pendingAction === "reopen"
-                  ? "Reopen this application for editing? Its decision will reset and the applicant must submit again."
-                  : "Restore this application and its previous decision?"}
+              Reopen this application for editing? Its decision will reset and
+              the applicant must submit again.
             </p>
             <div className="application-actions admin-compact-actions">
               <button
@@ -842,7 +831,6 @@ function AdminWorkspace() {
     q: "",
     status: "",
     state: "submitted",
-    trash: "false",
     sort: "newest",
     page: 1,
   });
@@ -964,16 +952,6 @@ function AdminWorkspace() {
               >
                 <option value="submitted">Submitted</option>
                 <option value="draft">Drafts</option>
-              </select>
-            </label>
-            <label>
-              Location
-              <select
-                value={query.trash}
-                onChange={(e) => filter("trash", e.target.value)}
-              >
-                <option value="false">Active</option>
-                <option value="true">Trash</option>
               </select>
             </label>
             <label>
